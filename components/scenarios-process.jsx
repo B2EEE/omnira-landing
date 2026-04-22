@@ -50,7 +50,7 @@ function Scenarios() {
             chip="Cas d'usage"
             chipColor={B.blue}
             title="Omnira en situation réelle."
-            sub="Trois scénarios quotidiens. Dans chaque cas, votre équipe n'a rien eu à faire."
+            sub="Trois appels typiques d'un garage indépendant. Dans chaque cas, votre équipe n'a rien eu à faire — et le client a eu une réponse immédiate."
           />
         </FadeIn>
         {/* Tabs */}
@@ -127,10 +127,10 @@ function HowItWorks() {
       <div style={{maxWidth:'900px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
-            chip="Méthode"
+            chip="Mise en place"
             chipColor={B.blue}
-            title="Opérationnel en 15 minutes.<br/>Mesurable dès la première semaine."
-            sub="Un périmètre clair, une mise en place guidée, un agent configuré selon vos règles. Votre équipe n'a rien à changer."
+            title="Opérationnel en 15 minutes.<br/>Des résultats dès le premier appel."
+            sub="Pas de formation, pas de migration, pas de prérequis technique. On configure tout ensemble — vous repartez avec un agent actif le jour même."
           />
         </FadeIn>
         <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>

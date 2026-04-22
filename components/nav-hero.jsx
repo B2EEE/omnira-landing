@@ -8,7 +8,7 @@ function Nav() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
   // "Problèmes" replaced by "ROI" per request
-  const links = [['ROI Calculateur','#roi'],['Démo','#demo'],['Comment','#process'],['FAQ','#faq']];
+  const links = [['ROI','#roi'],['Démo','#demo'],['Fonctionnement','#process'],['FAQ','#faq'],['Offres','#pricing']];
   const navStyle = {
     position:'fixed',top:0,left:0,right:0,zIndex:50,transition:'all 0.3s ease',
     background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
@@ -20,7 +20,10 @@ function Nav() {
     <nav style={navStyle}>
       <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'70px'}}>
         <a href="#" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
-          {scrolled ? <OmniraLogoColor height={62}/> : <OmniraLogo height={68}/>}
+          <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
+            {scrolled ? <OmniraLogoColor height={62}/> : <OmniraLogo height={68}/>}
+            <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:scrolled?B.tMuted:'rgba(255,255,255,0.38)',letterSpacing:'0.14em',fontWeight:600,marginTop:'2px',paddingLeft:'3px',textTransform:'uppercase'}}>by SETTE inc.</span>
+          </div>
         </a>
         <div style={{display:'flex',alignItems:'center',gap:'36px'}} className="nav-links">
           {links.map(([l,h]) => (

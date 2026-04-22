@@ -1,53 +1,5 @@
-// ─── FOUNDERS ─────────────────────────────────────────────────────────────────
-function Founders() {
-  const founders = [
-    { name: 'Fondateur 1', role: 'CEO · Co-Fondateur', initials: 'F1', desc: 'À compléter — votre parcours, votre vision.' },
-    { name: 'Fondateur 2', role: 'CTO · Co-Fondateur', initials: 'F2', desc: 'À compléter — votre parcours, votre vision.' },
-  ];
-  return (
-    <section style={{padding:'96px 24px',background:B.bgL}}>
-      <div style={{maxWidth:'900px',margin:'0 auto'}}>
-        <FadeIn>
-          <div style={{textAlign:'center',marginBottom:'56px'}}>
-            <div style={{marginBottom:'16px'}}><Chip color={B.blue}>L'équipe Omnira</Chip></div>
-            <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.5vw,38px)',fontWeight:800,letterSpacing:'-0.022em',color:B.tMain,lineHeight:1.15,marginBottom:'16px'}}>
-              Deux fondateurs,<br/>une obsession : votre téléphone.
-            </h2>
-            <p style={{maxWidth:'480px',margin:'0 auto',fontFamily:'Inter,sans-serif',fontSize:'15px',color:B.tMuted,lineHeight:1.7}}>
-              Quand le téléphone devient un goulot d'étranglement, le chiffre d'affaires disparaît — silencieusement.
-            </p>
-          </div>
-        </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'28px',maxWidth:'680px',margin:'0 auto'}} className="founders-grid">
-          {founders.map(({name,role,initials,desc},i)=>(
-            <FadeIn key={i} delay={i*0.12}>
-              <div style={{borderRadius:'24px',overflow:'hidden',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:'0 12px 40px rgba(16,63,115,0.09)',transition:'all 0.25s ease',cursor:'default'}}
-                onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-6px)';e.currentTarget.style.boxShadow='0 24px 60px rgba(16,63,115,0.14)';}}
-                onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0)';e.currentTarget.style.boxShadow='0 12px 40px rgba(16,63,115,0.09)';}}>
-                {/* Photo placeholder */}
-                <div style={{height:'260px',background:`linear-gradient(135deg,${B.blue},${B.cyan})`,display:'flex',alignItems:'center',justifyContent:'center',position:'relative',overflow:'hidden'}}>
-                  <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 30% 30%,rgba(255,255,255,0.12),transparent 60%)'}}/>
-                  <div style={{width:'96px',height:'96px',borderRadius:'50%',background:'rgba(255,255,255,0.15)',border:'2px solid rgba(255,255,255,0.25)',display:'flex',alignItems:'center',justifyContent:'center',backdropFilter:'blur(8px)'}}>
-                    <span style={{fontFamily:'Sora,sans-serif',fontWeight:800,fontSize:'28px',color:'white'}}>{initials}</span>
-                  </div>
-                  <div style={{position:'absolute',bottom:'12px',left:'12px',padding:'4px 10px',borderRadius:'99px',background:'rgba(255,255,255,0.15)',backdropFilter:'blur(8px)',border:'1px solid rgba(255,255,255,0.2)'}}>
-                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'white',fontWeight:600}}>Photo à venir</span>
-                  </div>
-                </div>
-                {/* Info */}
-                <div style={{padding:'24px'}}>
-                  <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'18px',fontWeight:700,color:B.tMain,margin:'0 0 6px'}}>{name}</h3>
-                  <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:B.blue,fontWeight:600,margin:'0 0 12px',textTransform:'uppercase',letterSpacing:'0.06em'}}>{role}</p>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>{desc}</p>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// ─── FOUNDERS (removed from page — kept for reference) ────────────────────────
+function Founders() { return null; }
 window.Founders = Founders;
 
 // ─── PRICING ──────────────────────────────────────────────────────────────────
@@ -105,10 +57,10 @@ function Pricing() {
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
-            chip="Tarifs"
+            chip="Offres"
             chipColor={B.blue}
-            title="Simple, transparent,<br/>sans engagement surprenant."
-            sub="Commencez sur un périmètre clair, mesurez l'impact, adaptez selon vos besoins."
+            title="Un prix clair.<br/>Un résultat mesurable."
+            sub="Commencez sur un périmètre défini, mesurez l'impact dès la première semaine, adaptez si besoin. Pas de surprise."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'20px',alignItems:'start'}} className="pricing-grid">
@@ -175,12 +127,14 @@ window.Pricing = Pricing;
 
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 const FAQS = [
-  { q:"Est-ce que ça remplace mon accueil humain ?",          a:"Non. Omnira prend en charge les demandes répétitives et les appels simples. Votre équipe garde la main sur tout ce qui nécessite jugement, relation ou technicité. L'humain n'est pas retiré — il est préservé pour les cas importants." },
-  { q:"Et si l'agent se trompe ou ne comprend pas ?",          a:"L'agent est configuré pour reconnaître ses limites. En cas de doute ou de demande complexe, il transfère vers votre équipe avec un contexte clair. Il ne prend jamais de décisions qui dépassent son périmètre." },
-  { q:"Est-ce que mes clients vont aimer parler à une IA ?",  a:"L'agent se présente clairement comme assistant Omnira. Les clients apprécient la réactivité immédiate. La plupart préfèrent une réponse instantanée à un téléphone qui sonne dans le vide." },
-  { q:"Est-ce que c'est compliqué à mettre en place ?",       a:"La mise en place est guidée et dure en moyenne 15 à 30 minutes. Aucune compétence technique requise. L'agent est opérationnel le jour même de la configuration." },
-  { q:"Est-ce que ça fonctionne hors horaires ?",             a:"C'est là où Omnira est le plus utile. L'agent répond 24h/24, 7j/7 — la nuit, le week-end, les jours fériés. Chaque appel est capté et résumé pour le lendemain." },
-  { q:"Comment mesure-t-on l'impact ?",                       a:"Chaque appel est tracé dans votre tableau de bord : motif, durée, action prise, résumé. Vous avez une visibilité complète sur votre flux téléphonique et pouvez mesurer le nombre d'appels captés, qualifiés et traités." },
+  { q:"Est-ce qu'on change notre numéro de téléphone ?",      a:"Non. Omnira se connecte à votre numéro existant via une simple redirection. Vos clients composent le même numéro qu'avant. Rien ne change côté client — tout change côté réception." },
+  { q:"Est-ce compatible avec notre logiciel d'atelier ?",    a:"Omnira s'intègre avec Google Calendar, Google Sheets, et les principaux CRM. L'onboarding guidé inclut la configuration des connexions. Aucune compétence technique requise de votre côté." },
+  { q:"Un client urgent peut-il joindre un humain ?",         a:"Oui. L'agent est configuré pour détecter les situations qui nécessitent une intervention humaine. Il peut transférer l'appel en direct ou alerter immédiatement votre équipe, selon les règles que vous définissez." },
+  { q:"Est-ce que ça remplace mon accueil humain ?",          a:"Non. Omnira prend en charge les demandes répétitives et les appels simples — horaires, devis, RDV standard. Votre équipe garde la main sur tout ce qui nécessite jugement, relation ou technicité. L'humain est préservé pour ce qui compte vraiment." },
+  { q:"Et si l'agent se trompe ou ne comprend pas ?",          a:"L'agent reconnaît ses limites. En cas de doute ou de demande complexe, il transfère avec un contexte clair plutôt que d'improviser. Il ne prend jamais de décisions qui dépassent son périmètre configuré." },
+  { q:"Est-ce que c'est compliqué à mettre en place ?",       a:"La mise en place dure en moyenne 15 à 20 minutes, accompagnée par notre équipe. Aucune compétence technique requise. L'agent est opérationnel le jour même de la configuration." },
+  { q:"Est-ce que ça fonctionne hors horaires ?",             a:"C'est là où Omnira est le plus utile. L'agent répond 24h/24, 7j/7 — la nuit, le week-end, les jours fériés. Chaque appel est capté et résumé pour que votre équipe retrouve l'essentiel le lendemain matin." },
+  { q:"Comment mesure-t-on l'impact ?",                       a:"Chaque appel est tracé dans votre tableau de bord : motif, durée, action prise, résumé. Vous visualisez en un coup d'œil combien d'appels ont été captés, qualifiés et traités sans intervention de votre équipe." },
 ];
 
 function FAQ() {
@@ -189,7 +143,7 @@ function FAQ() {
     <section id="faq" style={{padding:'96px 24px',background:B.bgW}}>
       <div style={{maxWidth:'800px',margin:'0 auto'}}>
         <FadeIn>
-          <SectionHeader chip="FAQ" chipColor={B.blue} title="Questions fréquentes." sub="Tout ce que vous voulez savoir avant de démarrer."/>
+          <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions,<br/>nos réponses directes." sub="Tout ce que vous voulez savoir avant de démarrer — sans jargon technique."/>
         </FadeIn>
         <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
           {FAQS.map(({q,a},i)=>(
@@ -242,11 +196,23 @@ function Contact() {
           <div style={{textAlign:'center',marginBottom:'48px'}}>
             <div style={{marginBottom:'16px'}}><Chip color={B.cyan}>Contact</Chip></div>
             <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,4vw,42px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.15,marginBottom:'16px'}}>
-              Parlons de votre garage.
+              20 minutes pour voir si<br/>Omnira vous convient.
             </h2>
-            <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.7}}>
-              Réservez un échange de 20 minutes. On analyse votre flux d'appels ensemble et on vous montre ce qu'Omnira peut faire pour vous.
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.7,marginBottom:'20px'}}>
+              On analyse votre flux d'appels ensemble et on configure une démo sur votre numéro. Sans engagement. Sans prérequis technique.
             </p>
+            <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'16px'}}>
+              {[
+                { icon: <Ico.Zap/>, text: '20 min chrono' },
+                { icon: <Ico.Shield/>, text: 'Sans engagement' },
+                { icon: <Ico.Check/>, text: 'Aucun prérequis technique' },
+              ].map(({icon,text})=>(
+                <div key={text} style={{display:'flex',alignItems:'center',gap:'8px',padding:'8px 16px',borderRadius:'99px',background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.1)'}}>
+                  <span style={{color:B.cyan,opacity:0.8}}>{icon}</span>
+                  <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.55)',fontWeight:500}}>{text}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
@@ -319,14 +285,15 @@ function Footer() {
         <div style={{display:'grid',gridTemplateColumns:'1.5fr 1fr 1fr',gap:'48px',marginBottom:'48px'}} className="footer-grid">
           <div>
             <OmniraLogo height={32}/>
-            <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'16px',maxWidth:'280px'}}>
-              Omnira conçoit et déploie des agents vocaux IA pour les garages indépendants et ateliers multimarques.
+            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'rgba(255,255,255,0.25)',letterSpacing:'0.14em',textTransform:'uppercase',marginTop:'6px'}}>by SETTE inc.</p>
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
+              Omnira conçoit et déploie des agents vocaux IA pour les garages indépendants et ateliers multimarques. Opérationnel en 15 minutes.
             </p>
           </div>
           <div>
-            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Produit</p>
-            {['Fonctionnalités','Démo','Comment ça marche','Tarifs','FAQ'].map(l=>(
-              <a key={l} href="#" style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
+            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Navigation</p>
+            {[['Démo','#demo'],['Fonctionnalités','#demo'],['Cas d\'usage','#process'],['ROI Calculateur','#roi'],['Offres','#pricing'],['FAQ','#faq']].map(([l,h])=>(
+              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
             ))}
@@ -341,7 +308,7 @@ function Footer() {
           </div>
         </div>
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2025 Omnira · Automatisation Vocale IA</p>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2025 Omnira by SETTE inc. · Agent Vocal IA pour Garages</p>
           <div style={{display:'flex',gap:'24px'}}>
             {['Confidentialité','CGU','Mentions légales'].map(l=>(
               <a key={l} href="#" style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none'}}>{l}</a>

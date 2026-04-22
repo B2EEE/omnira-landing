@@ -38,8 +38,22 @@ function Demo() {
             chip="Démo interactive"
             chipColor={B.blue}
             title="Écoutez votre futur agent<br/>en action."
-            sub="Un aperçu réel de ce que vos clients entendent dès qu'ils appellent. Naturel, fluide, immédiatement disponible."
+            sub="Un aperçu réel de ce que vos clients entendent dès qu'ils appellent. Naturel, fluide — et votre équipe n'a rien eu à faire."
           />
+          <FadeIn delay={0.04}>
+            <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'12px',marginBottom:'40px',marginTop:'-8px'}}>
+              {[
+                { text:'Appel capté immédiatement', color: B.blue },
+                { text:'Demande qualifiée sans effort', color: B.cyan },
+                { text:'Atelier non interrompu', color: B.lcyan },
+              ].map(({text,color})=>(
+                <div key={text} style={{display:'flex',alignItems:'center',gap:'8px',padding:'7px 16px',borderRadius:'99px',background:`${color}0e`,border:`1px solid ${color}28`}}>
+                  <div style={{width:'6px',height:'6px',borderRadius:'50%',background:color,flexShrink:0}}/>
+                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:600,color}}>{text}</span>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'48px',alignItems:'start'}} className="demo-grid">
           {/* Player */}
@@ -114,6 +128,37 @@ function Demo() {
             </div>
           </FadeIn>
         </div>
+        {/* Ce que votre équipe reçoit */}
+        <FadeIn delay={0.15}>
+          <div style={{marginTop:'48px',padding:'32px',borderRadius:'20px',background:B.bgL,border:`1px solid ${B.border}`,boxShadow:B.shadow}}>
+            <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'24px',paddingBottom:'20px',borderBottom:`1px solid ${B.border}`}}>
+              <div style={{width:'36px',height:'36px',borderRadius:'11px',display:'flex',alignItems:'center',justifyContent:'center',background:B.grad,color:'white',flexShrink:0,boxShadow:'0 4px 14px rgba(30,115,216,0.35)'}}><Ico.Chart/></div>
+              <div>
+                <p style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,margin:'0 0 2px'}}>Ce que votre équipe reçoit après chaque appel</p>
+                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted,margin:0}}>Résumé structuré · transmis en temps réel · aucune saisie manuelle</p>
+              </div>
+              <div style={{marginLeft:'auto',padding:'4px 12px',borderRadius:'99px',background:'rgba(47,199,214,0.1)',border:'1px solid rgba(47,199,214,0.22)',fontFamily:'JetBrains Mono,monospace',fontSize:'10px',fontWeight:600,color:B.cyan,flexShrink:0}}>Automatique</div>
+            </div>
+            <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px'}} className="summary-grid">
+              {[
+                { label:'Client', value:'Jean D. — 06 12 34 56 78', Icon: Ico.Phone, color: B.blue },
+                { label:'Motif', value:'Vidange — Peugeot 308 HDi 1.6', Icon: Ico.Filter, color: B.blue },
+                { label:'RDV confirmé', value:'Jeudi à 10h00', Icon: Ico.Calendar, color: B.cyan },
+                { label:'Urgence', value:'Faible — pas de panne déclarée', Icon: Ico.Zap, color: B.lcyan },
+                { label:'Action requise', value:'Aucune — traité automatiquement', Icon: Ico.Check, color: B.cyan },
+                { label:'Résumé', value:'RDV pris, agenda mis à jour, client informé', Icon: Ico.Chart, color: B.blue },
+              ].map(({label,value,Icon,color})=>(
+                <div key={label} style={{padding:'14px 16px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`}}>
+                  <div style={{display:'flex',alignItems:'center',gap:'7px',marginBottom:'7px'}}>
+                    <div style={{color,opacity:0.7,flexShrink:0}}><Icon/></div>
+                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:B.tMuted,fontWeight:600,textTransform:'uppercase',letterSpacing:'0.1em'}}>{label}</span>
+                  </div>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMain,margin:0,lineHeight:1.5,fontWeight:500}}>{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

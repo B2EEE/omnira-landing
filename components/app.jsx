@@ -5,14 +5,13 @@ function App() {
       <Hero/>
       <StatsBar/>
       <Pain/>
-      <Solution/>
       <Demo/>
       <Features/>
       <Scenarios/>
-      <HowItWorks/>
       <ROICalculator/>
       <Testimonials/>
-      <Founders/>
+      <HowItWorks/>
+      <Pricing/>
       <FAQ/>
       <Contact/>
       <Footer/>

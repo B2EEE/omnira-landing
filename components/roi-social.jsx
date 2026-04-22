@@ -84,9 +84,9 @@ window.ROICalculator = ROICalculator;
 
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
-  { name:'Patrick M.', role:'Gérant', garage:'Garage Martin — Lyon', stars:5, photo:'uploads/avis photo 1.png', rotate:'-2.5deg', offsetY:'0px',   text:"Depuis Omnira, on ne perd plus un appel. Avant on en ratait 3 ou 4 par jour en atelier. Maintenant tout est capté et résumé. Le ROI est immédiat." },
-  { name:'Sylvie R.',  role:'Responsable accueil', garage:'Auto Expert — Bordeaux', stars:5, photo:'uploads/avis photo 2-4449261d.png', rotate:'1.8deg', offsetY:'40px',  text:"L'agent est d'un naturel bluffant. Mes clients ne réalisent même pas qu'ils parlent à une IA. Et moi j'ai enfin du temps pour ce qui compte vraiment." },
-  { name:'Karim B.',   role:'Propriétaire', garage:'Mécano Plus — Marseille', stars:5, photo:'uploads/avis photo 3.jpg', rotate:'-1.2deg', offsetY:'-16px', text:"La prise de RDV la nuit, c'est un vrai plus. On a récupéré plusieurs clients qui auraient appelé la concurrence. Rentable dès le premier mois." },
+  { name:'Patrick M.', role:'Gérant', garage:'Garage Martin — Lyon 3e', stars:5, photo:'uploads/avis photo 1.png', rotate:'-2.5deg', offsetY:'0px',   text:"On ratait facilement 4 ou 5 appels par jour pendant les créneaux chargés. Depuis qu'Omnira décroche à notre place, tout est capté et résumé. Le premier mois, on a récupéré au moins 3 RDV qu'on aurait perdus. C'est rentable immédiatement." },
+  { name:'Sylvie R.',  role:'Responsable accueil', garage:'Auto Expert Gironde — Bordeaux', stars:5, photo:'uploads/avis photo 2-4449261d.png', rotate:'1.8deg', offsetY:'40px',  text:"Ce qui m'a surprise, c'est le naturel de l'agent. Mes clients ne réalisent pas qu'ils parlent à une IA. Et moi j'ai enfin du temps pour accueillir correctement ceux qui poussent la porte — c'est ça la vraie valeur." },
+  { name:'Karim B.',   role:'Propriétaire', garage:'Mécano Plus — Marseille 13e', stars:5, photo:'uploads/avis photo 3.jpg', rotate:'-1.2deg', offsetY:'-16px', text:"Un vendredi soir à 21h, un client a appelé pour un voyant moteur. L'agent a tout capté et transmis. Le lundi on l'a rappelé en priorité — il est devenu client fidèle. Ce genre de cas, avant, on le perdait sans même le savoir." },
 ];
 
 function Testimonials() {
@@ -97,10 +97,10 @@ function Testimonials() {
       <div style={{maxWidth:'1200px',margin:'0 auto',position:'relative',zIndex:1}}>
         <FadeIn>
           <SectionHeader
-            chip="Témoignages"
+            chip="Ils utilisent Omnira"
             light
             title="Des résultats concrets,<br/>des équipes soulagées."
-            sub="Garages indépendants qui ont récupéré leurs appels et leur sérénité."
+            sub="Trois garages indépendants. Trois situations différentes. Une même constatation : les appels ne se perdent plus."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'24px',paddingBottom:'16px'}} className="test-grid">
