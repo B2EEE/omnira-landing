@@ -1,16 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Omnira — Agent vocal IA pour garages indépendants</title>
-    <meta name="description" content="Omnira répond, qualifie et filtre vos appels entrants. Ne perdez plus les appels utiles. Protégez le planning atelier." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omnira — Agent Vocal IA pour Garages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
+
+    /* ── Keyframes ── */
+    @keyframes barwave {
+      0%, 100% { transform: scaleY(0.3); }
+      50%       { transform: scaleY(1); }
+    }
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes pulseRing {
+      0%   { transform: scale(1);   opacity: 0.6; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+      50%       { opacity: 1;   transform: translateY(-50%) scale(1.04); }
+    }
+    @keyframes ping {
+      0%   { transform: scale(1); opacity: 0.75; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes particleDrift {
+      from { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+      to   { transform: translateY(-18px) translateX(8px); opacity: 0.5; }
+    }
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 6px 24px rgba(30,115,216,0.4); }
+      50%       { box-shadow: 0 10px 40px rgba(47,199,214,0.6); }
+    }
+
+    /* ── Slider ── */
+    .omnira-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+      width: 100%;
+      background: linear-gradient(
+        to right,
+        var(--color) 0%,
+        var(--color) var(--pct),
+        #D8E6F2 var(--pct),
+        #D8E6F2 100%
+      );
+    }
+    .omnira-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: white;
+      border: 2.5px solid var(--color, #1E73D8);
+      box-shadow: 0 2px 10px rgba(30,115,216,0.22);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .omnira-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-grid    { grid-template-columns: 1fr !important; }
+      .pain-grid    { grid-template-columns: 1fr 1fr !important; }
+      .feat-grid    { grid-template-columns: 1fr 1fr !important; }
+      .solution-grid{ grid-template-columns: 1fr !important; }
+      .demo-grid    { grid-template-columns: 1fr !important; }
+      .roi-grid     { grid-template-columns: 1fr !important; }
+      .test-grid    { grid-template-columns: 1fr !important; }
+      .pricing-grid { grid-template-columns: 1fr !important; }
+      .footer-grid  { grid-template-columns: 1fr !important; }
+      .stats-grid   { grid-template-columns: 1fr 1fr !important; }
+      .nav-links    { display: none !important; }
+      .form-grid    { grid-template-columns: 1fr !important; }
+      .founders-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 560px) {
+      .pain-grid  { grid-template-columns: 1fr !important; }
+      .feat-grid  { grid-template-columns: 1fr !important; }
+      .stats-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+
+    /* ── Tweaks panel ── */
+    #tweaks-panel {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: white;
+      border: 1px solid #D8E6F2;
+      border-radius: 16px;
+      padding: 20px;
+      width: 260px;
+      box-shadow: 0 20px 60px rgba(16,63,115,0.14);
+      font-family: Inter, sans-serif;
+    }
+    #tweaks-panel.open { display: block; }
+    #tweaks-panel h4 { font-family: Sora, sans-serif; font-size: 13px; font-weight: 700; color: #0B1726; margin-bottom: 16px; }
+    .tweak-row { margin-bottom: 14px; }
+    .tweak-row label { display: block; font-size: 11px; font-weight: 600; color: #5B7A9B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+    .tweak-row select, .tweak-row input[type=color] { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #D8E6F2; font-size: 13px; color: #0B1726; background: #F0F7FF; cursor: pointer; }
+    .tweak-row input[type=color] { height: 36px; padding: 2px 4px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Tweaks panel (outside React) -->
+  <div id="tweaks-panel">
+    <h4>Tweaks</h4>
+    <div class="tweak-row">
+      <label>Couleur principale</label>
+      <input type="color" id="tw-color" value="#1E73D8" oninput="applyTweak('color', this.value)"/>
+    </div>
+    <div class="tweak-row">
+      <label>Typographie titres</label>
+      <select id="tw-font" onchange="applyTweak('font', this.value)">
+        <option value="Sora">Sora (défaut)</option>
+        <option value="Inter">Inter</option>
+        <option value="'DM Sans'">DM Sans</option>
+      </select>
+    </div>
+    <div class="tweak-row">
+      <label>Mode</label>
+      <select id="tw-mode" onchange="applyTweak('mode', this.value)">
+        <option value="default">Standard</option>
+        <option value="compact">Compact</option>
+      </select>
+    </div>
+  </div>
+
+  <script>
+    // Tweaks system
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "color": "#d71d1d",
+      "font": "'DM Sans'",
+      "mode": "compact"
+    }/*EDITMODE-END*/;
+
+    window.addEventListener('message', e => {
+      if (e.data?.type === '__activate_edit_mode')   document.getElementById('tweaks-panel').classList.add('open');
+      if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('open');
+    });
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+    function applyTweak(key, val) {
+      const edits = { [key]: val };
+      if (key === 'font') {
+        document.querySelectorAll('h1,h2,h3,h4').forEach(el => el.style.fontFamily = val + ',sans-serif');
+      }
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+    }
+
+    // Apply saved tweaks on load
+    const saved = TWEAK_DEFAULTS;
+    if (saved.font !== 'Sora') {
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('h1,h2,h3,h4').forEach(el => el.style.fontFamily = saved.font + ',sans-serif');
+      });
+    }
+  </script>
+
+  <!-- Components loaded in dependency order -->
+  <script type="text/babel" src="components/brand.jsx"></script>
+  <script type="text/babel" src="components/nav-hero.jsx"></script>
+  <script type="text/babel" src="components/proof.jsx"></script>
+  <script type="text/babel" src="components/demo-features.jsx"></script>
+  <script type="text/babel" src="components/scenarios-process.jsx"></script>
+  <script type="text/babel" src="components/roi-social.jsx"></script>
+  <script type="text/babel" src="components/pricing-bottom.jsx"></script>
+  <script type="text/babel" src="components/app.jsx"></script>
+</body>
 </html>

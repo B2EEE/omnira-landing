@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Omnira — Brochure</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
+
+    /* ── Disable all animations for print ── */
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    /* ── Force elements visible (fade-in opacity reset) ── */
+    [style*="opacity: 0"] { opacity: 1 !important; }
+    [style*="opacity:0"]  { opacity: 1 !important; }
+    [style*="translateY(24px)"] { transform: none !important; }
+    [style*="translateY(20px)"] { transform: none !important; }
+    [style*="translateY(32px)"] { transform: none !important; }
+
+    /* ── Remove fixed nav ── */
+    nav[style*="position:fixed"], nav[style*="position: fixed"] {
+      display: none !important;
+    }
+
+    /* ── Slider ── */
+    .omnira-slider {
+      -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 3px; outline: none; width: 100%;
+      background: linear-gradient(to right, var(--color) 0%, var(--color) var(--pct), #D8E6F2 var(--pct), #D8E6F2 100%);
+    }
+    .omnira-slider::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 20px; height: 20px; border-radius: 50%;
+      background: white; border: 2.5px solid var(--color, #1E73D8); cursor: pointer;
+    }
+
+    /* ── Grid classes ── */
+    .hero-grid     { grid-template-columns: 1fr 1fr; }
+    .pain-grid     { grid-template-columns: repeat(4,1fr); }
+    .feat-grid     { grid-template-columns: repeat(3,1fr); }
+    .solution-grid { grid-template-columns: 1fr 1fr; }
+    .demo-grid     { grid-template-columns: 1fr 1fr; }
+    .roi-grid      { grid-template-columns: 1fr 1fr; }
+    .test-grid     { grid-template-columns: repeat(3,1fr); }
+    .stats-grid    { grid-template-columns: repeat(4,1fr); }
+    .founders-grid { grid-template-columns: 1fr 1fr; }
+    .form-grid     { grid-template-columns: 1fr 1fr; }
+    .footer-grid   { grid-template-columns: 1.5fr 1fr 1fr; }
+
+    /* ── Print styles ── */
+    @media print {
+      @page { size: A4; margin: 0; }
+
+      html, body { width: 210mm; }
+
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      /* Page break on each top-level section */
+      body > #root > div > section,
+      body > #root > div > footer {
+        break-before: page;
+        break-inside: avoid;
+      }
+
+      /* Hero gets its own full first page */
+      section:first-of-type { break-before: auto; }
+
+      /* Hide nav, tweaks, interactive elements */
+      nav, #tweaks-panel, input[type=range], button:not([data-print]) { display: none !important; }
+
+      /* Make hero full-width and adjust padding */
+      section { padding: 48px 32px !important; }
+      footer   { padding: 40px 32px 24px !important; }
+
+      /* Ensure images print */
+      img { max-width: 100% !important; }
+
+      /* Fix overflow clipping */
+      .overflow-hidden { overflow: visible !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Same component stack as main page -->
+  <script type="text/babel" src="components/brand.jsx"></script>
+  <script type="text/babel" src="components/nav-hero.jsx"></script>
+  <script type="text/babel" src="components/proof.jsx"></script>
+  <script type="text/babel" src="components/demo-features.jsx"></script>
+  <script type="text/babel" src="components/scenarios-process.jsx"></script>
+  <script type="text/babel" src="components/roi-social.jsx"></script>
+  <script type="text/babel" src="components/pricing-bottom.jsx"></script>
+
+  <!-- App + auto-print trigger -->
+  <script type="text/babel">
+    function App() {
+      return (
+        <div>
+          <Nav/>
+          <Hero/>
+          <StatsBar/>
+          <Pain/>
+          <Solution/>
+          <Demo/>
+          <Features/>
+          <Scenarios/>
+          <HowItWorks/>
+          <ROICalculator/>
+          <Testimonials/>
+          <Founders/>
+          <FAQ/>
+          <Contact/>
+          <Footer/>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App/>);
+
+    // Auto-print: wait for React render + fonts + safety delay
+    document.fonts.ready.then(() => {
+      setTimeout(() => { window.print(); }, 1500);
+    });
+  </script>
+</body>
+</html>
