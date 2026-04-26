@@ -8,7 +8,7 @@ function Nav() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
   // "Problèmes" replaced by "ROI" per request
-  const links = [['ROI','#roi'],['Démo','#demo'],['Fonctionnement','#process'],['FAQ','#faq'],['Offres','#pricing']];
+  const links = [['ROI','#roi'],['Démo','#demo'],['Fonctionnement','#process'],['FAQ','#faq']];
   const navStyle = {
     position:'fixed',top:0,left:0,right:0,zIndex:50,transition:'all 0.3s ease',
     background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
@@ -20,10 +20,7 @@ function Nav() {
     <nav style={navStyle}>
       <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'70px'}}>
         <a href="#" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
-          <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
-            {scrolled ? <OmniraLogoColor height={62}/> : <OmniraLogo height={68}/>}
-            <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:scrolled?B.tMuted:'rgba(255,255,255,0.38)',letterSpacing:'0.14em',fontWeight:600,marginTop:'2px',paddingLeft:'3px',textTransform:'uppercase'}}>by SETTE inc.</span>
-          </div>
+          {scrolled ? <OmniraLogoColor height={62}/> : <OmniraLogo height={68}/>}
         </a>
         <div style={{display:'flex',alignItems:'center',gap:'36px'}} className="nav-links">
           {links.map(([l,h]) => (
@@ -64,9 +61,9 @@ function HeroBg() {
 
 // ─── GARAGE CAROUSEL ──────────────────────────────────────────────────────────
 const CAROUSEL_IMAGES = [
-  { src: 'uploads/gragiste caroussel 1.png', caption: 'Gérant de garage · Tablette connectée' },
-  { src: 'uploads/GARAGISTE CAROUSSEL 2.png', caption: "Technicien en action · L'atelier tourne" },
-  { src: 'uploads/GARAGISTE CAROUSSEL 3.png', caption: "Accueil client · Agenda toujours à jour" },
+  { src: 'uploads/gragiste caroussel 1.png', caption: 'Je garde la main, sans subir chaque appel' },
+  { src: 'uploads/GARAGISTE CAROUSSEL 2.png', caption: "Accueil plus fluide, même quand ça sonne sans arrêt" },
+  { src: 'uploads/GARAGISTE CAROUSSEL 3.png', caption: "L'atelier reste concentré sur le vrai travail" },
 ];
 
 function GarageCarousel() {
@@ -174,22 +171,31 @@ function Hero() {
       <div style={{position:'relative',zIndex:10,maxWidth:'1200px',margin:'0 auto',padding:'80px 24px',display:'grid',gridTemplateColumns:'1fr 1fr',gap:'64px',alignItems:'center',width:'100%'}} className="hero-grid">
         {/* Left copy */}
         <div>
-          <div style={{marginBottom:'20px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s'}}>
-            <Chip color={B.cyan}>Agent vocal IA · Garages indépendants</Chip>
-          </div>
-          {/* Stars — just below the chip */}
-          <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'10px',marginBottom:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.18s'}}>
-            <div style={{display:'flex',gap:'2px'}}>{[...Array(5)].map((_,i)=><Ico.Star key={i}/>)}</div>
-            <span style={{fontSize:'13px',fontWeight:600,color:'rgba(255,255,255,0.55)',fontFamily:'Inter,sans-serif'}}>5/5 · Garages indépendants</span>
+          {/* Avatar social proof pill */}
+          <div style={{display:'inline-flex',alignItems:'center',gap:'0',marginBottom:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.18s',borderRadius:'999px',border:'1px solid rgba(255,255,255,0.12)',background:'rgba(255,255,255,0.06)',backdropFilter:'blur(12px)',padding:'5px 14px 5px 5px'}}>
+            <div style={{display:'flex'}}>
+              {[
+                'uploads/avatar-1.png',
+                'uploads/avatar-2.png',
+                'uploads/avatar-3.png',
+                'uploads/avatar-4.png',
+              ].map((src,i)=>(
+                <img key={i} src={src} alt="" width={24} height={24}
+                  style={{width:'24px',height:'24px',borderRadius:'50%',objectFit:'cover',marginLeft:i===0?'0':'-6px',outline:'2px solid rgba(11,23,38,0.8)',position:'relative',zIndex:4-i}}/>
+              ))}
+            </div>
+            <p style={{margin:'0 0 0 10px',fontSize:'12px',fontFamily:'Inter,sans-serif',color:'rgba(255,255,255,0.5)',whiteSpace:'nowrap'}}>
+              Approuvé par <strong style={{fontWeight:700,color:'rgba(255,255,255,0.85)'}}>+60 garages</strong> indépendants
+            </p>
           </div>
           <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(36px,5vw,60px)',fontWeight:800,lineHeight:1.06,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
-            Ne perdez plus les appels utiles{' '}
+            Votre garage ne devrait pas rater des appels{' '}
             <span style={{background:`linear-gradient(135deg,${B.blue},${B.cyan},${B.lcyan})`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-              de votre garage.
+              pendant que l'équipe est déjà débordée.
             </span>
           </h1>
           <p style={{fontSize:'17px',lineHeight:1.75,color:'rgba(255,255,255,0.5)',maxWidth:'500px',fontFamily:'Inter,sans-serif',marginBottom:'40px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s'}}>
-            Omnira décroche, qualifie et filtre vos appels — pour protéger votre planning atelier et soulager votre équipe, sans retirer l'humain des cas importants.
+            Omnira décroche, qualifie et filtre les appels pour éviter que le téléphone coupe l'atelier, surcharge l'accueil et laisse passer des demandes utiles.
           </p>
           <div style={{display:'flex',flexWrap:'wrap',gap:'14px',marginBottom:'48px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s'}}>
             <GBtn href="#demo" variant="primary" size="md">Écouter l'agent</GBtn>
@@ -197,7 +203,7 @@ function Hero() {
           </div>
           
         </div>
-        {/* Right — Garage Carousel */}
+        {/* Right Garage Carousel */}
         <div style={{display:'flex',alignItems:'center',justifyContent:'center',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(32px)',transition:'opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s'}}>
           <GarageCarousel/>
         </div>

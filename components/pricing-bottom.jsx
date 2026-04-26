@@ -1,4 +1,4 @@
-// ─── FOUNDERS (removed from page — kept for reference) ────────────────────────
+// ─── FOUNDERS (removed from page kept for reference) ────────────────────────
 function Founders() { return null; }
 window.Founders = Founders;
 
@@ -13,7 +13,7 @@ const PLANS = [
       'Réponses aux questions fréquentes',
       'Capture des appels hors horaires',
       'Résumé quotidien par e-mail',
-      'Mise en place en 15 minutes',
+      'Mise en place guidée et accompagnée',
     ],
     cta: 'Démarrer',
     highlight: false,
@@ -127,13 +127,13 @@ window.Pricing = Pricing;
 
 // ─── FAQ ──────────────────────────────────────────────────────────────────────
 const FAQS = [
-  { q:"Est-ce qu'on change notre numéro de téléphone ?",      a:"Non. Omnira se connecte à votre numéro existant via une simple redirection. Vos clients composent le même numéro qu'avant. Rien ne change côté client — tout change côté réception." },
+  { q:"Est-ce qu'on change notre numéro de téléphone ?",      a:"Non. Omnira se connecte à votre numéro existant via une simple redirection. Vos clients composent le même numéro qu'avant. Rien ne change côté client tout change côté réception." },
   { q:"Est-ce compatible avec notre logiciel d'atelier ?",    a:"Omnira s'intègre avec Google Calendar, Google Sheets, et les principaux CRM. L'onboarding guidé inclut la configuration des connexions. Aucune compétence technique requise de votre côté." },
   { q:"Un client urgent peut-il joindre un humain ?",         a:"Oui. L'agent est configuré pour détecter les situations qui nécessitent une intervention humaine. Il peut transférer l'appel en direct ou alerter immédiatement votre équipe, selon les règles que vous définissez." },
-  { q:"Est-ce que ça remplace mon accueil humain ?",          a:"Non. Omnira prend en charge les demandes répétitives et les appels simples — horaires, devis, RDV standard. Votre équipe garde la main sur tout ce qui nécessite jugement, relation ou technicité. L'humain est préservé pour ce qui compte vraiment." },
+  { q:"Est-ce que ça remplace mon accueil humain ?",          a:"Non. Omnira prend en charge les demandes répétitives et les appels simples horaires, devis, RDV standard. Votre équipe garde la main sur tout ce qui nécessite jugement, relation ou technicité. L'humain est préservé pour ce qui compte vraiment." },
   { q:"Et si l'agent se trompe ou ne comprend pas ?",          a:"L'agent reconnaît ses limites. En cas de doute ou de demande complexe, il transfère avec un contexte clair plutôt que d'improviser. Il ne prend jamais de décisions qui dépassent son périmètre configuré." },
-  { q:"Est-ce que c'est compliqué à mettre en place ?",       a:"La mise en place dure en moyenne 15 à 20 minutes, accompagnée par notre équipe. Aucune compétence technique requise. L'agent est opérationnel le jour même de la configuration." },
-  { q:"Est-ce que ça fonctionne hors horaires ?",             a:"C'est là où Omnira est le plus utile. L'agent répond 24h/24, 7j/7 — la nuit, le week-end, les jours fériés. Chaque appel est capté et résumé pour que votre équipe retrouve l'essentiel le lendemain matin." },
+  { q:"Est-ce que c'est compliqué à mettre en place ?",       a:"La mise en place est accompagnée par notre équipe, étape par étape. Aucune compétence technique requise. L'agent est opérationnel le jour même de la configuration." },
+  { q:"Est-ce que ça fonctionne hors horaires ?",             a:"C'est là où Omnira est le plus utile. L'agent répond 24h/24, 7j/7 la nuit, le week-end, les jours fériés. Chaque appel est capté et résumé pour que votre équipe retrouve l'essentiel le lendemain matin." },
   { q:"Comment mesure-t-on l'impact ?",                       a:"Chaque appel est tracé dans votre tableau de bord : motif, durée, action prise, résumé. Vous visualisez en un coup d'œil combien d'appels ont été captés, qualifiés et traités sans intervention de votre équipe." },
 ];
 
@@ -143,7 +143,7 @@ function FAQ() {
     <section id="faq" style={{padding:'96px 24px',background:B.bgW}}>
       <div style={{maxWidth:'800px',margin:'0 auto'}}>
         <FadeIn>
-          <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions,<br/>nos réponses directes." sub="Tout ce que vous voulez savoir avant de démarrer — sans jargon technique."/>
+          <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions,<br/>nos réponses directes." sub="Tout ce que vous voulez savoir avant de démarrer sans jargon technique."/>
         </FadeIn>
         <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
           {FAQS.map(({q,a},i)=>(
@@ -171,16 +171,44 @@ function FAQ() {
 window.FAQ = FAQ;
 
 // ─── CONTACT ──────────────────────────────────────────────────────────────────
+const CAL_LINK = "babacar-faye-qh9cu1/echange-omnira";
+const CAL_NS   = "echange-omnira";
+
 function Contact() {
   const [form, setForm]       = React.useState({prenom:'',nom:'',garage:'',email:'',tel:'',message:''});
   const [sent, setSent]       = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      if (e.data && (e.data.type === 'CAL:bookingSuccessful' || e.data.type === 'bookingSuccessful')) {
+        setSent(true);
+      }
+    };
+    window.addEventListener('message', onMsg);
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
   const set = k => e => setForm(f=>({...f,[k]:e.target.value}));
+
   const submit = e => {
     e.preventDefault();
+    if (!window.Cal || !window.Cal.ns || !window.Cal.ns[CAL_NS]) return;
     setLoading(true);
-    setTimeout(()=>{ setLoading(false); setSent(true); }, 1200);
+    const notes = [
+      form.garage  ? 'Garage : ' + form.garage : '',
+      form.tel     ? 'Tél : '    + form.tel    : '',
+      form.message || '',
+    ].filter(Boolean).join('\n');
+    window.Cal.ns[CAL_NS]("modal", {
+      calLink: CAL_LINK,
+      config: {
+        name:  (form.prenom + ' ' + form.nom).trim(),
+        email: form.email,
+        notes: notes,
+      },
+    });
+    setLoading(false);
   };
 
   const inputStyle = {
@@ -196,14 +224,14 @@ function Contact() {
           <div style={{textAlign:'center',marginBottom:'48px'}}>
             <div style={{marginBottom:'16px'}}><Chip color={B.cyan}>Contact</Chip></div>
             <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,4vw,42px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.15,marginBottom:'16px'}}>
-              20 minutes pour voir si<br/>Omnira vous convient.
+              Un échange pour voir si<br/>Omnira vous convient.
             </h2>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.7,marginBottom:'20px'}}>
               On analyse votre flux d'appels ensemble et on configure une démo sur votre numéro. Sans engagement. Sans prérequis technique.
             </p>
             <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'16px'}}>
               {[
-                { icon: <Ico.Zap/>, text: '20 min chrono' },
+                { icon: <Ico.Zap/>, text: 'Échange rapide' },
                 { icon: <Ico.Shield/>, text: 'Sans engagement' },
                 { icon: <Ico.Check/>, text: 'Aucun prérequis technique' },
               ].map(({icon,text})=>(
@@ -222,8 +250,8 @@ function Contact() {
                 <div style={{width:'64px',height:'64px',borderRadius:'50%',background:B.grad,display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 20px',boxShadow:'0 8px 28px rgba(30,115,216,0.4)',color:'white'}}>
                   <Ico.Check/>
                 </div>
-                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'20px',fontWeight:700,color:'white',marginBottom:'10px'}}>Message envoyé !</h3>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.45)'}}>On vous recontacte dans les 24h pour organiser un échange.</p>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'20px',fontWeight:700,color:'white',marginBottom:'10px'}}>Échange réservé !</h3>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.45)'}}>Vous recevrez une confirmation par e-mail avec le lien de l'appel. À très vite !</p>
               </div>
             ) : (
               <form onSubmit={submit}>
@@ -241,7 +269,7 @@ function Contact() {
                 </div>
                 <div style={{marginBottom:'16px'}}>
                   <label style={{display:'block',fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'rgba(255,255,255,0.5)',marginBottom:'8px',textTransform:'uppercase',letterSpacing:'0.08em'}}>Nom du garage</label>
-                  <input required value={form.garage} onChange={set('garage')} placeholder="Garage Dupont — Paris" style={inputStyle}
+                  <input required value={form.garage} onChange={set('garage')} placeholder="Garage Dupont Paris" style={inputStyle}
                     onFocus={e=>e.target.style.borderColor=B.blue} onBlur={e=>e.target.style.borderColor=B.border}/>
                 </div>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'16px',marginBottom:'16px'}} className="form-grid">
@@ -265,7 +293,7 @@ function Contact() {
                 <button type="submit" disabled={loading} style={{width:'100%',padding:'16px',borderRadius:'14px',border:'none',cursor:loading?'not-allowed':'pointer',background:B.grad,color:'white',fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,display:'flex',alignItems:'center',justifyContent:'center',gap:'10px',boxShadow:'0 8px 28px rgba(30,115,216,0.4)',transition:'transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease',opacity:loading?0.75:1}}
                   onMouseEnter={e=>{if(!loading){e.currentTarget.style.transform='translateY(-2px) scale(1.02)';e.currentTarget.style.boxShadow='0 14px 36px rgba(30,115,216,0.5)';}}}
                   onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0) scale(1)';e.currentTarget.style.boxShadow='0 8px 28px rgba(30,115,216,0.4)';}}>
-                  {loading ? 'Envoi en cours…' : 'Réserver mon échange gratuit'}
+                  {loading ? 'Ouverture du calendrier…' : 'Réserver mon échange gratuit'}
                 </button>
               </form>
             )}
@@ -279,20 +307,65 @@ window.Contact = Contact;
 
 // ─── FOOTER ───────────────────────────────────────────────────────────────────
 function Footer() {
+  const [legalOpen, setLegalOpen] = React.useState(false);
+
+  const legalBlocks = [
+    {
+      title: 'Éditeur du site',
+      lines: [
+        'Faye Babacar',
+        'Entrepreneur individuel (Micro-entreprise)',
+        '35 Rue de Saint-Dié',
+        '67100 Strasbourg, France',
+        'contact@omnira.fr',
+      ],
+    },
+    {
+      title: 'Identifiants légaux',
+      lines: [
+        'SIREN : 932 474 646',
+        'SIRET : 93247464600019',
+        'Code APE : 4791A',
+        'RNE : immatriculé le 04/11/2024',
+        'Non assujetti à TVA (micro-entreprise)',
+      ],
+    },
+    {
+      title: 'Hébergement',
+      lines: [
+        'Hostinger International Ltd.',
+        '61 Lordou Vironos Street',
+        '6023 Larnaca, Chypre',
+        'Directeur de la publication :',
+        'Faye Babacar',
+      ],
+    },
+    {
+      title: 'Données personnelles',
+      lines: [
+        'Données collectées via le formulaire :',
+        'nom, email, téléphone, message.',
+        'Finalité : réponse aux demandes.',
+        'Aucune transmission à des tiers.',
+        'Droits : contact@omnira.fr',
+      ],
+    },
+  ];
+
   return (
-    <footer style={{background:B.bgFoot,padding:'56px 24px 32px',borderTop:'1px solid rgba(255,255,255,0.04)'}}>
-      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+    <footer style={{background:B.bgFoot,borderTop:'1px solid rgba(255,255,255,0.04)'}}>
+      <div style={{maxWidth:'1200px',margin:'0 auto',padding:'56px 24px 0'}}>
+        {/* Main grid */}
         <div style={{display:'grid',gridTemplateColumns:'1.5fr 1fr 1fr',gap:'48px',marginBottom:'48px'}} className="footer-grid">
           <div>
             <OmniraLogo height={32}/>
-            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'rgba(255,255,255,0.25)',letterSpacing:'0.14em',textTransform:'uppercase',marginTop:'6px'}}>by SETTE inc.</p>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
-              Omnira conçoit et déploie des agents vocaux IA pour les garages indépendants et ateliers multimarques. Opérationnel en 15 minutes.
+              Omnira conçoit et déploie des agents vocaux IA pour les garages indépendants et ateliers multimarques.
             </p>
           </div>
           <div>
             <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Navigation</p>
-            {[['Démo','#demo'],['Fonctionnalités','#demo'],['Cas d\'usage','#process'],['ROI Calculateur','#roi'],['Offres','#pricing'],['FAQ','#faq']].map(([l,h])=>(
+            {[['Démo','#demo'],['Fonctionnalités','#demo'],["Cas d'usage",'#process'],['ROI Calculateur','#roi'],['FAQ','#faq']].map(([l,h])=>(
               <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
@@ -300,17 +373,48 @@ function Footer() {
           </div>
           <div>
             <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Contact</p>
-            {['Réserver une démo','Nous contacter','Support'].map(l=>(
-              <a key={l} href="#contact" style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
+            {[['Réserver une démo','#contact'],['Nous contacter','#contact'],['Support','#contact']].map(([l,h])=>(
+              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
             ))}
           </div>
         </div>
-        <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2025 Omnira by SETTE inc. · Agent Vocal IA pour Garages</p>
+
+        {/* Mentions légales expandable */}
+        <div id="mentions-legales" style={{borderTop:'1px solid rgba(255,255,255,0.05)',paddingTop:'24px',marginBottom:'0'}}>
+          <button
+            onClick={()=>setLegalOpen(o=>!o)}
+            style={{display:'flex',alignItems:'center',gap:'10px',background:'none',border:'none',cursor:'pointer',padding:'0',marginBottom: legalOpen ? '20px' : '0'}}>
+            <span style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.32)'}}>Mentions légales</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{transition:'transform 0.22s',transform:legalOpen?'rotate(180deg)':'rotate(0deg)'}}>
+              <path d="M3 5l4 4 4-4" stroke="rgba(255,255,255,0.3)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          {legalOpen && (
+            <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'24px',paddingBottom:'28px'}} className="legal-grid">
+              {legalBlocks.map(({title,lines})=>(
+                <div key={title}>
+                  <p style={{fontFamily:'Sora,sans-serif',fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.08em',color:'rgba(255,255,255,0.22)',marginBottom:'10px'}}>{title}</p>
+                  {lines.map((l,i)=>l
+                    ? <p key={i} style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.28)',margin:'0 0 4px',lineHeight:1.5}}>{l}</p>
+                    : <br key={i}/>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Bottom bar */}
+        <div style={{padding:'20px 0 32px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2025 Omnira · Faye Babacar · SIRET 93247464600019</p>
           <div style={{display:'flex',gap:'24px'}}>
-            {['Confidentialité','CGU','Mentions légales'].map(l=>(
+            <button onClick={()=>setLegalOpen(o=>!o)} style={{background:'none',border:'none',cursor:'pointer',fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',padding:0,textDecoration:'none'}}>
+              Mentions légales
+            </button>
+            {['Confidentialité','CGU'].map(l=>(
               <a key={l} href="#" style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none'}}>{l}</a>
             ))}
           </div>

@@ -11,7 +11,6 @@ function App() {
       <ROICalculator/>
       <Testimonials/>
       <HowItWorks/>
-      <Pricing/>
       <FAQ/>
       <Contact/>
       <Footer/>

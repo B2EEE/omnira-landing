@@ -50,7 +50,7 @@ function Scenarios() {
             chip="Cas d'usage"
             chipColor={B.blue}
             title="Omnira en situation réelle."
-            sub="Trois appels typiques d'un garage indépendant. Dans chaque cas, votre équipe n'a rien eu à faire — et le client a eu une réponse immédiate."
+            sub="Trois appels typiques d'un garage indépendant. Dans chaque cas, votre équipe n'a rien eu à faire et le client a eu une réponse immédiate."
           />
         </FadeIn>
         {/* Tabs */}
@@ -116,7 +116,7 @@ window.Scenarios = Scenarios;
 
 // ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
 const STEPS = [
-  { num:'01', title:'Audit & configuration', tag:'15 min', desc:"On fait le point ensemble sur vos flux d'appels, votre planning, vos services. L'agent est configuré selon vos règles. Opérationnel le jour même.", Icon: Ico.Filter },
+  { num:'01', title:'Audit & configuration', tag:'Guidé & simplifié', desc:"On fait le point ensemble sur vos flux d'appels, votre planning, vos services. L'agent est configuré selon vos règles. Opérationnel le jour même.", Icon: Ico.Filter },
   { num:'02', title:"L'agent traite les appels", tag:'IA conversationnelle', desc:"Dès qu'un client appelle, l'agent décroche, comprend la demande, répond aux questions simples et prend un rendez-vous si nécessaire. Votre équipe n'est pas dérangée.", Icon: Ico.Mic },
   { num:'03', title:"Votre équipe reçoit l'utile", tag:'Transmission guidée', desc:"Les cas qui méritent votre attention arrivent avec un résumé clair : motif, coordonnées, action à faire. Rien d'autre. Jamais de bruit inutile.", Icon: Ico.Chart },
 ];
@@ -129,8 +129,8 @@ function HowItWorks() {
           <SectionHeader
             chip="Mise en place"
             chipColor={B.blue}
-            title="Opérationnel en 15 minutes.<br/>Des résultats dès le premier appel."
-            sub="Pas de formation, pas de migration, pas de prérequis technique. On configure tout ensemble — vous repartez avec un agent actif le jour même."
+            title="Une mise en place guidée.<br/>Des résultats dès le premier appel."
+            sub="Pas de formation, pas de migration, pas de prérequis technique. On configure tout ensemble vous repartez avec un agent actif le jour même."
           />
         </FadeIn>
         <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>

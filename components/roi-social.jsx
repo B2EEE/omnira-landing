@@ -84,9 +84,9 @@ window.ROICalculator = ROICalculator;
 
 // ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
-  { name:'Patrick M.', role:'Gérant', garage:'Garage Martin — Lyon 3e', stars:5, photo:'uploads/avis photo 1.png', rotate:'-2.5deg', offsetY:'0px',   text:"On ratait facilement 4 ou 5 appels par jour pendant les créneaux chargés. Depuis qu'Omnira décroche à notre place, tout est capté et résumé. Le premier mois, on a récupéré au moins 3 RDV qu'on aurait perdus. C'est rentable immédiatement." },
-  { name:'Sylvie R.',  role:'Responsable accueil', garage:'Auto Expert Gironde — Bordeaux', stars:5, photo:'uploads/avis photo 2-4449261d.png', rotate:'1.8deg', offsetY:'40px',  text:"Ce qui m'a surprise, c'est le naturel de l'agent. Mes clients ne réalisent pas qu'ils parlent à une IA. Et moi j'ai enfin du temps pour accueillir correctement ceux qui poussent la porte — c'est ça la vraie valeur." },
-  { name:'Karim B.',   role:'Propriétaire', garage:'Mécano Plus — Marseille 13e', stars:5, photo:'uploads/avis photo 3.jpg', rotate:'-1.2deg', offsetY:'-16px', text:"Un vendredi soir à 21h, un client a appelé pour un voyant moteur. L'agent a tout capté et transmis. Le lundi on l'a rappelé en priorité — il est devenu client fidèle. Ce genre de cas, avant, on le perdait sans même le savoir." },
+  { name:'Patrick M.', role:'Gérant', garage:'Garage Martin Lyon 3e', stars:5, photo:'uploads/avis photo 1.png', rotate:'-2.5deg', offsetY:'0px',   text:"On ratait facilement 4 ou 5 appels par jour pendant les créneaux chargés. Depuis qu'Omnira décroche à notre place, tout est capté et résumé. Le premier mois, on a récupéré au moins 3 RDV qu'on aurait perdus. C'est rentable immédiatement." },
+  { name:'Sylvie R.',  role:'Responsable accueil', garage:'Auto Expert Gironde Bordeaux', stars:5, photo:'uploads/avis photo 2-4449261d.png', rotate:'1.8deg', offsetY:'40px',  text:"Ce qui m'a surprise, c'est le naturel de l'agent. Mes clients ne réalisent pas qu'ils parlent à une IA. Et moi j'ai enfin du temps pour accueillir correctement ceux qui poussent la porte c'est ça la vraie valeur." },
+  { name:'Karim B.',   role:'Propriétaire', garage:'Mécano Plus Marseille 13e', stars:5, photo:'uploads/avis photo 3.jpg', rotate:'-1.2deg', offsetY:'-16px', text:"Un vendredi soir à 21h, un client a appelé pour un voyant moteur. L'agent a tout capté et transmis. Le lundi on l'a rappelé en priorité il est devenu client fidèle. Ce genre de cas, avant, on le perdait sans même le savoir." },
 ];
 
 function Testimonials() {

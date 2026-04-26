@@ -3,7 +3,7 @@ function StatsBar() {
   const stats = [
     { val: '94%', label: 'des appels captés', icon: <Ico.Phone/> },
     { val: '3h',  label: 'récupérées / jour', icon: <Ico.Clock/> },
-    { val: '15min', label: 'pour démarrer', icon: <Ico.Zap/> },
+    { val: 'Simple', label: 'à mettre en place', icon: <Ico.Zap/> },
     { val: '24/7', label: 'sans interruption', icon: <Ico.Shield/> },
   ];
   return (
@@ -28,10 +28,10 @@ window.StatsBar = StatsBar;
 
 // ─── PAIN ─────────────────────────────────────────────────────────────────────
 const PROBLEMS = [
-  { Icon: Ico.Phone, title: "Des appels qui s'évaporent", stat: 'Chaque appel raté, c'est un client offert à la concurrence', desc: "Pendant une révision ou en heure de pointe, personne ne peut décrocher. Le client raccroche. Il retente peut-être — ou appelle directement le garage d'à côté." },
-  { Icon: Ico.Zap,   title: "Un atelier sans cesse interrompu", stat: 'Un technicien dérangé perd le fil à chaque fois', desc: "Demande de devis, question sur les horaires, relance pour un rappel… Des appels utiles, certes — mais qui cassent le rythme de l'atelier plusieurs fois par heure." },
-  { Icon: Ico.Calendar, title: "Des demandes qui tombent à l'eau", stat: 'Un devis non suivi, c'est un client silencieusement perdu', desc: "Post-it, notes papier, mémos vocaux : les demandes captées à la volée finissent trop souvent sans suite. Sans mauvaise volonté — juste faute de temps pour les retraiter." },
-  { Icon: Ico.Clock, title: "Le téléphone s'arrête, pas vos clients", stat: 'Un appel en soirée peut valoir plusieurs centaines d'euros', desc: "Le garage ferme à 18h. Les clients, eux, appellent aussi le soir, le week-end, entre deux réunions. Personne pour décrocher. L'opportunité disparaît sans laisser de trace." },
+  { Icon: Ico.Phone, title: "Des appels qui s'évaporent", stat: "Chaque appel raté, c'est un client offert à la concurrence", desc: "Pendant une révision ou en heure de pointe, personne ne peut décrocher. Le client raccroche. Il retente peut-être ou appelle directement le garage d'à côté." },
+  { Icon: Ico.Zap,   title: "Un atelier sans cesse interrompu", stat: "Un technicien dérangé perd le fil à chaque fois", desc: "Demande de devis, question sur les horaires, relance pour un rappel… Des appels utiles, certes mais qui cassent le rythme de l'atelier plusieurs fois par heure." },
+  { Icon: Ico.Calendar, title: "Des demandes qui tombent à l'eau", stat: "Un devis non suivi, c'est un client silencieusement perdu", desc: "Post-it, notes papier, mémos vocaux : les demandes captées à la volée finissent trop souvent sans suite. Sans mauvaise volonté juste faute de temps pour les retraiter." },
+  { Icon: Ico.Clock, title: "Le téléphone s'arrête, pas vos clients", stat: "Un appel en soirée peut valoir plusieurs centaines d'euros", desc: "Le garage ferme à 18h. Les clients, eux, appellent aussi le soir, le week-end, entre deux réunions. Personne pour décrocher. L'opportunité disparaît sans laisser de trace." },
 ];
 
 function Pain() {
@@ -43,7 +43,7 @@ function Pain() {
             chip="Le quotidien du garage"
             chipColor={B.blue}
             title="Le téléphone ne devrait pas<br/>coûter autant à votre garage."
-            sub="Dans la plupart des garages, le téléphone est géré « par celui qui peut décrocher ». Ce bricolage silencieux coûte des clients, de la concentration et de l'énergie — chaque jour."
+            sub="Dans la plupart des garages, le téléphone est géré « par celui qui peut décrocher ». Ce bricolage silencieux coûte des clients, de la concentration et de l'énergie chaque jour."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'20px'}} className="pain-grid">
@@ -93,7 +93,7 @@ function Solution() {
                 Une couche vocale utile,<br/>simple et rassurante.
               </h2>
               <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',lineHeight:1.75,color:B.tMuted,marginBottom:'40px'}}>
-                Omnira ne remplace pas votre accueil. Il l'épargne pour ce qui compte vraiment — les cas complexes, les clients fidèles, les situations qui demandent votre jugement.
+                Omnira ne remplace pas votre accueil. Il l'épargne pour ce qui compte vraiment les cas complexes, les clients fidèles, les situations qui demandent votre jugement.
               </p>
               <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
                 {items.map(({Icon,text})=>(
@@ -110,7 +110,7 @@ function Solution() {
               </div>
             </div>
           </FadeIn>
-          {/* Right — visual diagram */}
+          {/* Right visual diagram */}
           <FadeIn delay={0.1}>
             <div style={{position:'relative'}}>
               {/* Call flow diagram */}

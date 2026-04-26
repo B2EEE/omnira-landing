@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omnira — Agent Vocal IA pour Garages</title>
+  <title>Agent téléphonique AI pour les garagistes</title>
+  <link id="favicon" rel="icon" type="image/png" href="uploads/omnira-logo-transparent.png"/>
+  <script>
+    window.addEventListener('load', function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = 64; canvas.height = 64;
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0B1726';
+      ctx.beginPath();
+      ctx.arc(32, 32, 32, 0, Math.PI * 2);
+      ctx.fill();
+      var img = new Image();
+      img.onload = function() {
+        ctx.drawImage(img, 4, 4, 56, 56);
+        var link = document.getElementById('favicon');
+        link.href = canvas.toDataURL('image/png');
+      };
+      img.src = 'uploads/omnira-logo-transparent.png';
+    });
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -54,6 +73,15 @@
       0%, 100% { box-shadow: 0 6px 24px rgba(30,115,216,0.4); }
       50%       { box-shadow: 0 10px 40px rgba(47,199,214,0.6); }
     }
+    @keyframes typing {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    @keyframes scanline {
+      0%   { transform: translateY(-100%); }
+      100% { transform: translateY(100vh); }
+    }
+    .demo-msg-scroll::-webkit-scrollbar { display: none; }
 
     /* ── Slider ── */
     .omnira-slider {
@@ -95,6 +123,7 @@
       .test-grid    { grid-template-columns: 1fr !important; }
       .pricing-grid { grid-template-columns: 1fr !important; }
       .footer-grid  { grid-template-columns: 1fr !important; }
+      .legal-grid   { grid-template-columns: 1fr 1fr !important; }
       .stats-grid   { grid-template-columns: 1fr 1fr !important; }
       .nav-links    { display: none !important; }
       .form-grid    { grid-template-columns: 1fr !important; }
@@ -105,6 +134,7 @@
       .pain-grid    { grid-template-columns: 1fr !important; }
       .feat-grid    { grid-template-columns: 1fr !important; }
       .stats-grid   { grid-template-columns: 1fr 1fr !important; }
+      .legal-grid   { grid-template-columns: 1fr !important; }
       .summary-grid { grid-template-columns: 1fr !important; }
     }
 
@@ -130,6 +160,15 @@
     .tweak-row select, .tweak-row input[type=color] { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #D8E6F2; font-size: 13px; color: #0B1726; background: #F0F7FF; cursor: pointer; }
     .tweak-row input[type=color] { height: 36px; padding: 2px 4px; }
   </style>
+  <!-- Cal.com embed -->
+  <script>
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "echange-omnira", {origin:"https://app.cal.com"});
+    Cal.ns["echange-omnira"]("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
 </head>
 <body>
   <div id="root"></div>
