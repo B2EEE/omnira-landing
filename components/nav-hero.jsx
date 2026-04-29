@@ -180,7 +180,7 @@ function Hero() {
                 'uploads/avatar-3.png',
                 'uploads/avatar-4.png',
               ].map((src,i)=>(
-                <img key={i} src={src} alt="" width={24} height={24}
+                <img key={i} src={src} alt="" width={24} height={24} decoding="async"
                   style={{width:'24px',height:'24px',borderRadius:'50%',objectFit:'cover',marginLeft:i===0?'0':'-6px',outline:'2px solid rgba(11,23,38,0.8)',position:'relative',zIndex:4-i}}/>
               ))}
             </div>

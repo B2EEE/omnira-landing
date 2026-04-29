@@ -115,7 +115,7 @@ function Testimonials() {
                   <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.7,color:'rgba(255,255,255,0.82)',marginBottom:'20px'}}>"{t.text}"</p>
                   <div style={{display:'flex',alignItems:'center',gap:'12px',paddingTop:'16px',borderTop:'1px solid rgba(255,255,255,0.07)'}}>
                     <div style={{width:'44px',height:'44px',borderRadius:'50%',flexShrink:0,overflow:'hidden',border:'2px solid rgba(255,255,255,0.15)',boxShadow:'0 4px 12px rgba(0,0,0,0.3)'}}>
-                      <img src={t.photo} alt={t.name} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}}/>
+                      <img src={t.photo} alt={t.name} loading="lazy" decoding="async" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}}/>
                     </div>
                     <div>
                       <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white',margin:'0 0 2px'}}>{t.name}</p>
