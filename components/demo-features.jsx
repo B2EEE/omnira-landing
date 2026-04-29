@@ -134,7 +134,11 @@ function Demo() {
                 <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:600,color:'rgba(255,255,255,0.75)',margin:'0 0 4px',letterSpacing:'-0.01em'}}>
                   {playing ? 'Lecture en cours…' : shown===TRANSCRIPT.length-1 ? 'Conversation terminée' : 'Lancer la démo'}
                 </p>
-                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.22)',margin:0}}>Scénario · vidange Peugeot 308 HDi</p>
+                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.22)',margin:'0 0 12px'}}>Scénario · vidange Peugeot 308 HDi</p>
+                <div style={{display:'flex',alignItems:'center',gap:'6px',padding:'5px 12px',borderRadius:'99px',background:'rgba(47,199,214,0.07)',border:'1px solid rgba(47,199,214,0.18)'}}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={B.cyan} strokeWidth="2.2" strokeLinecap="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:B.cyan,letterSpacing:'0.06em'}}>Voix personnalisable · +500 voix réalistes disponibles</span>
+                </div>
               </div>
 
               {/* Waveform */}
