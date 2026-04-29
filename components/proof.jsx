@@ -1,21 +1,21 @@
 // ─── STATS BAR ────────────────────────────────────────────────────────────────
 function StatsBar() {
   const stats = [
-    { val: '94%', label: 'des appels captés', icon: <Ico.Phone/> },
-    { val: '3h',  label: 'récupérées / jour', icon: <Ico.Clock/> },
-    { val: 'Simple', label: 'à mettre en place', icon: <Ico.Zap/> },
-    { val: '24/7', label: 'sans interruption', icon: <Ico.Shield/> },
+    { title: 'Appels utiles captés',     sub: 'Plus de demandes traitées proprement.',          icon: <Ico.Phone/>,    color: B.blue  },
+    { title: 'Temps atelier protégé',    sub: "Moins d'interruptions inutiles au quotidien.",   icon: <Ico.Clock/>,    color: B.cyan  },
+    { title: 'Déploiement simple',       sub: 'Un démarrage guidé, sans projet lourd.',         icon: <Ico.Zap/>,      color: B.lcyan },
+    { title: 'Disponibilité continue',   sub: "Même quand l'accueil est fermé ou déjà pris.",   icon: <Ico.Shield/>,   color: B.blue  },
   ];
   return (
     <section style={{background:B.bgW,padding:'0 24px 48px'}}>
       <div style={{maxWidth:'1000px',margin:'0 auto'}}>
         <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1px',background:B.border,borderRadius:'20px',overflow:'hidden',boxShadow:B.shadow}} className="stats-grid">
-          {stats.map(({val,label,icon},i)=>(
-            <FadeIn key={val} delay={i*0.07}>
+          {stats.map(({title,sub,icon,color},i)=>(
+            <FadeIn key={title} delay={i*0.07}>
               <div style={{background:B.bgW,padding:'28px 20px',textAlign:'center',display:'flex',flexDirection:'column',alignItems:'center',gap:'10px'}}>
-                <div style={{color:B.blue,opacity:0.5}}>{icon}</div>
-                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'28px',fontWeight:700,color:B.tMain,margin:0,lineHeight:1}}>{val}</p>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.4}}>{label}</p>
+                <div style={{width:'38px',height:'38px',borderRadius:'12px',display:'flex',alignItems:'center',justifyContent:'center',background:`${color}12`,border:`1px solid ${color}22`,color}}>{icon}</div>
+                <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,margin:0,lineHeight:1.3}}>{title}</p>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.5}}>{sub}</p>
               </div>
             </FadeIn>
           ))}
