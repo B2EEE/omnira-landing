@@ -1,24 +1,47 @@
 // ─── TRANSCRIPT DATA ──────────────────────────────────────────────────────────
 const TRANSCRIPT = [
   { role:'client', text:"Bonjour, c'est pour une vidange sur une Peugeot 308." },
-  { role:'agent',  text:"Bonjour, oui bien sûr. Je peux vous aider à préparer ça. C'est une 308 essence ou diesel ?" },
+  { role:'agent',  text:"Bonjour ! Bien sûr, je suis là pour vous aider. C'est une 308 essence ou diesel ?" },
   { role:'client', text:"Diesel, 1.6 HDi." },
-  { role:'agent',  text:"Parfait, merci. Pour une 308 1.6 HDi, on est sur une vidange avec huile 5W-30, compter environ 45 minutes. Vous cherchez plutôt un rendez-vous cette semaine ?" },
+  { role:'agent',  text:"Parfait ! Donc pour une 308 1.6 HDi, on prévoit une vidange avec huile 5W-30, environ 45 minutes. Vous souhaitez un rendez-vous cette semaine ?" },
   { role:'client', text:"Oui, si possible." },
-  { role:'agent',  text:"Nous avons jeudi à 10h ou vendredi à 14h30. Quel créneau vous conviendrait le mieux ?" },
+  { role:'agent',  text:"Très bien ! On a jeudi à 10h ou vendredi à 14h30. Lequel vous arrange le mieux ?" },
   { role:'client', text:"Jeudi 10h, c'est bien." },
-  { role:'agent',  text:"Très bien. Je vous note jeudi à 10h pour une vidange sur Peugeot 308 1.6 HDi. Je peux avoir votre nom pour finaliser ?" },
+  { role:'agent',  text:"Noté ! Je vous réserve jeudi à 10h pour la vidange de votre Peugeot 308 HDi. Je peux avoir votre nom pour finaliser la fiche ?" },
   { role:'client', text:"Martin Dupont." },
-  { role:'agent',  text:"Merci Monsieur Dupont. Le rendez-vous est bien enregistré pour jeudi à 10h. Un récapitulatif est transmis à l'équipe." },
+  { role:'agent',  text:"Merci Monsieur Dupont. C'est confirmé pour jeudi à 10h. Un récapitulatif part à l'équipe. Bonne journée !" },
 ];
 
 // ─── DEMO SECTION ─────────────────────────────────────────────────────────────
+// Bruit de fond téléphonique généré via Web Audio API
+function createPhoneAmbiance(ctx) {
+  const bufferSize = 2 * ctx.sampleRate;
+  const buf = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buf.getChannelData(0);
+  for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.018;
+  const source = ctx.createBufferSource();
+  source.buffer = buf;
+  source.loop = true;
+  const filter = ctx.createBiquadFilter();
+  filter.type = 'bandpass';
+  filter.frequency.value = 1800;
+  filter.Q.value = 0.6;
+  const gain = ctx.createGain();
+  gain.gain.value = 0.07;
+  source.connect(filter);
+  filter.connect(gain);
+  gain.connect(ctx.destination);
+  return { source, gain };
+}
+
 function Demo() {
   const [playing, setPlaying] = React.useState(false);
   const [shown, setShown]     = React.useState(0);
-  const timerRef = React.useRef(null);
-  const audioRef = React.useRef(null);
-  const msgRef   = React.useRef(null);
+  const timerRef  = React.useRef(null);
+  const audioRef  = React.useRef(null);
+  const msgRef    = React.useRef(null);
+  const audioCtx  = React.useRef(null);
+  const ambiRef   = React.useRef(null);
 
   React.useEffect(() => {
     if (msgRef.current) msgRef.current.scrollTop = msgRef.current.scrollHeight;
@@ -32,10 +55,24 @@ function Demo() {
       audioRef.current.onerror = null;
       audioRef.current = null;
     }
+    if (ambiRef.current) {
+      try { ambiRef.current.source.stop(); } catch(e) {}
+      ambiRef.current = null;
+    }
+  };
+
+  const startAmbiance = () => {
+    try {
+      if (!audioCtx.current) audioCtx.current = new (window.AudioContext || window.webkitAudioContext)();
+      const ctx = audioCtx.current;
+      if (ctx.state === 'suspended') ctx.resume();
+      ambiRef.current = createPhoneAmbiance(ctx);
+      ambiRef.current.source.start();
+    } catch(e) {}
   };
 
   const playStep = (idx) => {
-    if (idx >= TRANSCRIPT.length) { setPlaying(false); return; }
+    if (idx >= TRANSCRIPT.length) { setPlaying(false); stopAll(); return; }
     setShown(idx);
     const line = TRANSCRIPT[idx];
     if (line.role === 'agent') {
@@ -53,7 +90,9 @@ function Demo() {
 
   const start = () => {
     if (playing) { stopAll(); setPlaying(false); return; }
-    stopAll(); setShown(0); setPlaying(true); playStep(0);
+    stopAll(); setShown(0); setPlaying(true);
+    startAmbiance();
+    playStep(0);
   };
 
   React.useEffect(() => () => stopAll(), []);
