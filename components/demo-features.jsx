@@ -1,35 +1,49 @@
 // ─── TRANSCRIPT DATA ──────────────────────────────────────────────────────────
 const TRANSCRIPT = [
   { role:'client', text:"Bonjour, c'est pour une vidange sur une Peugeot 308." },
-  { role:'agent',  text:"Bonjour ! Bien sûr, je suis là pour vous aider. C'est une 308 essence ou diesel ?" },
+  { role:'agent',  text:"Bonjour ! Oui, bien sûr. Alors, c'est une Peugeot 308 essence ou diesel ?" },
   { role:'client', text:"Diesel, 1.6 HDi." },
-  { role:'agent',  text:"Parfait ! Donc pour une 308 1.6 HDi, on prévoit une vidange avec huile 5W-30, environ 45 minutes. Vous souhaitez un rendez-vous cette semaine ?" },
+  { role:'agent',  text:"D'accord, une 1.6 HDi. Alors pour ce moteur, la vidange c'est huile 5W-30, comptez trois quarts d'heure environ. Vous voulez qu'on regarde un créneau cette semaine ?" },
   { role:'client', text:"Oui, si possible." },
-  { role:'agent',  text:"Très bien ! On a jeudi à 10h ou vendredi à 14h30. Lequel vous arrange le mieux ?" },
+  { role:'agent',  text:"Alors j'ai jeudi matin à 10h, ou vendredi à 14h30. Lequel vous conviendrait ?" },
   { role:'client', text:"Jeudi 10h, c'est bien." },
-  { role:'agent',  text:"Noté ! Je vous réserve jeudi à 10h pour la vidange de votre Peugeot 308 HDi. Je peux avoir votre nom pour finaliser la fiche ?" },
+  { role:'agent',  text:"Jeudi 10h, c'est noté ! Et pour la fiche client, c'est à quel nom s'il vous plaît ?" },
   { role:'client', text:"Martin Dupont." },
-  { role:'agent',  text:"Merci Monsieur Dupont. C'est confirmé pour jeudi à 10h. Un récapitulatif part à l'équipe. Bonne journée !" },
+  { role:'agent',  text:"Très bien Monsieur Dupont, je vous confirme jeudi à 10h pour la vidange. L'équipe est prévenue, vous recevrez un rappel. Bonne journée !" },
 ];
 
 // ─── DEMO SECTION ─────────────────────────────────────────────────────────────
-// Bruit de fond téléphonique généré via Web Audio API
+// Ambiance ligne téléphonique : bruit blanc filtré 300-3400 Hz (bande téléphonique réelle)
 function createPhoneAmbiance(ctx) {
-  const bufferSize = 2 * ctx.sampleRate;
+  const bufferSize = 4 * ctx.sampleRate;
   const buf = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
   const data = buf.getChannelData(0);
-  for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1) * 0.018;
+  for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1);
   const source = ctx.createBufferSource();
   source.buffer = buf;
   source.loop = true;
-  const filter = ctx.createBiquadFilter();
-  filter.type = 'bandpass';
-  filter.frequency.value = 1800;
-  filter.Q.value = 0.6;
+  // Coupe les graves (< 300 Hz)
+  const hiPass = ctx.createBiquadFilter();
+  hiPass.type = 'highpass';
+  hiPass.frequency.value = 300;
+  hiPass.Q.value = 0.7;
+  // Coupe les aigus (> 3400 Hz) — bande téléphonique standard
+  const loPass = ctx.createBiquadFilter();
+  loPass.type = 'lowpass';
+  loPass.frequency.value = 3400;
+  loPass.Q.value = 0.7;
+  // Légère résonance mid pour effet "ligne"
+  const mid = ctx.createBiquadFilter();
+  mid.type = 'peaking';
+  mid.frequency.value = 1200;
+  mid.gain.value = 3;
+  mid.Q.value = 1.2;
   const gain = ctx.createGain();
-  gain.gain.value = 0.07;
-  source.connect(filter);
-  filter.connect(gain);
+  gain.gain.value = 0.22;
+  source.connect(hiPass);
+  hiPass.connect(loPass);
+  loPass.connect(mid);
+  mid.connect(gain);
   gain.connect(ctx.destination);
   return { source, gain };
 }
