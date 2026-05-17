@@ -28,10 +28,10 @@ window.StatsBar = StatsBar;
 
 // ─── PAIN ─────────────────────────────────────────────────────────────────────
 const PROBLEMS = [
-  { Icon: Ico.Phone, title: "Des appels qui s'évaporent", stat: 'Chaque appel raté, c'est un client offert à la concurrence', desc: "Pendant une révision ou en heure de pointe, personne ne peut décrocher. Le client raccroche. Il retente peut-être — ou appelle directement le garage d'à côté." },
-  { Icon: Ico.Zap,   title: "Un atelier sans cesse interrompu", stat: 'Un technicien dérangé perd le fil à chaque fois', desc: "Demande de devis, question sur les horaires, relance pour un rappel… Des appels utiles, certes — mais qui cassent le rythme de l'atelier plusieurs fois par heure." },
-  { Icon: Ico.Calendar, title: "Des demandes qui tombent à l'eau", stat: 'Un devis non suivi, c'est un client silencieusement perdu', desc: "Post-it, notes papier, mémos vocaux : les demandes captées à la volée finissent trop souvent sans suite. Sans mauvaise volonté — juste faute de temps pour les retraiter." },
-  { Icon: Ico.Clock, title: "Le téléphone s'arrête, pas vos clients", stat: 'Un appel en soirée peut valoir plusieurs centaines d'euros', desc: "Le garage ferme à 18h. Les clients, eux, appellent aussi le soir, le week-end, entre deux réunions. Personne pour décrocher. L'opportunité disparaît sans laisser de trace." },
+  { Icon: Ico.Phone, title: "Des appels qui s'évaporent", stat: "Chaque appel raté, c'est un client offert à la concurrence", desc: "Pendant une révision ou en heure de pointe, personne ne peut décrocher. Le client raccroche. Il retente peut-être — ou appelle directement le garage d'à côté." },
+  { Icon: Ico.Zap,   title: "Un atelier sans cesse interrompu", stat: "Un technicien dérangé perd le fil à chaque fois", desc: "Demande de devis, question sur les horaires, relance pour un rappel… Des appels utiles, certes — mais qui cassent le rythme de l'atelier plusieurs fois par heure." },
+  { Icon: Ico.Calendar, title: "Des demandes qui tombent à l'eau", stat: "Un devis non suivi, c'est un client silencieusement perdu", desc: "Post-it, notes papier, mémos vocaux : les demandes captées à la volée finissent trop souvent sans suite. Sans mauvaise volonté — juste faute de temps pour les retraiter." },
+  { Icon: Ico.Clock, title: "Le téléphone s'arrête, pas vos clients", stat: "Un appel en soirée peut valoir plusieurs centaines d'euros", desc: "Le garage ferme à 18h. Les clients, eux, appellent aussi le soir, le week-end, entre deux réunions. Personne pour décrocher. L'opportunité disparaît sans laisser de trace." },
 ];
 
 function Pain() {

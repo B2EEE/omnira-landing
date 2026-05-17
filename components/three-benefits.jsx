@@ -1,39 +1,33 @@
 // ─── THREE BENEFITS ───────────────────────────────────────────────────────────
-// Section "Il décroche / Il qualifie / Il transmet" — visible sans scroll
+
+function TBIcon1() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12 19.79 19.79 0 011.49 3.37 2 2 0 013.48 1h3a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+  );
+}
+function TBIcon2() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M9 11l3 3L22 4"/>
+      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+    </svg>
+  );
+}
+function TBIcon3() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 2L11 13"/>
+      <path d="M22 2L15 22l-4-9-9-4 20-7z"/>
+    </svg>
+  );
+}
 
 const THREE_BENEFITS_DATA = [
-  {
-    num: '01',
-    title: 'Il décroche',
-    desc: 'Omnira répond instantanément quand votre équipe est occupée ou hors horaires. Zéro appel perdu.',
-    icon: () => (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12 19.79 19.79 0 011.49 3.37 2 2 0 013.48 1h3a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-      </svg>
-    ),
-  },
-  {
-    num: '02',
-    title: 'Il qualifie',
-    desc: "Il récupère le motif, les coordonnées, le véhicule, l'urgence et les disponibilités du client.",
-    icon: () => (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 11l3 3L22 4"/>
-        <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-      </svg>
-    ),
-  },
-  {
-    num: '03',
-    title: 'Il transmet',
-    desc: "Votre équipe reçoit un résumé structuré avec l'action à faire : rappeler, valider, préparer un devis ou confirmer un RDV.",
-    icon: () => (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 2L11 13"/>
-        <path d="M22 2L15 22l-4-9-9-4 20-7z"/>
-      </svg>
-    ),
-  },
+  { num: '01', title: 'Il décroche', desc: 'Omnira répond instantanément quand votre équipe est occupée ou hors horaires. Zéro appel perdu.', Icon: TBIcon1 },
+  { num: '02', title: 'Il qualifie', desc: "Il récupère le motif, les coordonnées, le véhicule, l'urgence et les disponibilités du client.", Icon: TBIcon2 },
+  { num: '03', title: 'Il transmet', desc: "Votre équipe reçoit un résumé structuré avec l'action à faire : rappeler, valider, préparer un devis ou confirmer un RDV.", Icon: TBIcon3 },
 ];
 
 function ThreeBenefits() {
@@ -46,7 +40,7 @@ function ThreeBenefits() {
           </p>
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'20px'}} className="feat-grid">
-          {THREE_BENEFITS_DATA.map(({num,title,desc,icon:Icon},i)=>(
+          {THREE_BENEFITS_DATA.map(({num,title,desc,Icon},i)=>(
             <FadeIn key={num} delay={i*0.1}>
               <div style={{
                 padding:'32px 28px',
