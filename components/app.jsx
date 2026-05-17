@@ -6,10 +6,10 @@ function App() {
       <ThreeBenefits/>
       <StatsBar/>
       <Pain/>
+      <ROICalculator/>
       <Demo/>
       <Features/>
       <Scenarios/>
-      <ROICalculator/>
       <Testimonials/>
       <ForWho/>
       <HowItWorks/>

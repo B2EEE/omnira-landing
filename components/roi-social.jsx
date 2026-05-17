@@ -14,7 +14,7 @@ function ROICalculator() {
   ];
 
   return (
-    <section id="roi" style={{padding:'96px 24px',background:B.bgW}}>
+    <section id="roi" style={{padding:'96px 24px',background:B.bgL}}>
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
@@ -27,7 +27,7 @@ function ROICalculator() {
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start'}} className="roi-grid">
           {/* Sliders */}
           <FadeIn>
-            <div style={{padding:'36px',borderRadius:'24px',background:B.bgL,border:`1px solid ${B.border}`,boxShadow:'inset 0 2px 12px rgba(16,63,115,0.04)'}}>
+            <div style={{padding:'36px',borderRadius:'24px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:'inset 0 2px 12px rgba(16,63,115,0.04)'}}>
               <div style={{display:'flex',flexDirection:'column',gap:'32px'}}>
                 {sliders.map(({label,value,set,min,max,unit,color})=>{
                   const pct = ((value-min)/(max-min))*100;
@@ -58,7 +58,7 @@ function ROICalculator() {
                 { label:'Revenus récupérables / an',    value:`${annual.toLocaleString('fr-FR')}`,  unit:'€ / an',  color:B.lcyan, hi:true  },
               ].map(({label,value,unit,color,hi})=>(
                 <div key={label} style={{padding:'24px 28px',borderRadius:'20px',position:'relative',overflow:'hidden',
-                  background: hi ? `linear-gradient(135deg,#0D3665,${B.blue})` : B.bgL,
+                  background: hi ? `linear-gradient(135deg,#0D3665,${B.blue})` : B.bgW,
                   border: hi ? 'none' : `1px solid ${B.border}`,
                   boxShadow: hi ? '0 20px 56px rgba(30,115,216,0.24)' : 'none',
                 }}>

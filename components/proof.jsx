@@ -36,12 +36,13 @@ const PROBLEMS = [
 
 function Pain() {
   return (
-    <section id="pain" style={{padding:'96px 24px',background:B.bgW}}>
+    <section id="pain" style={{padding:'96px 24px',background:B.bgD}}>
       <div style={{maxWidth:'1200px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
             chip="Le quotidien du garage"
-            chipColor={B.blue}
+            chipColor={B.cyan}
+            light
             title="Le téléphone ne devrait pas<br/>coûter autant à votre garage."
             sub="Dans la plupart des garages, le téléphone est géré « par celui qui peut décrocher ». Ce bricolage silencieux coûte des clients, de la concentration et de l'énergie — chaque jour."
           />
