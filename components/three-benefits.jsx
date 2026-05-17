@@ -80,6 +80,40 @@ function ThreeBenefits() {
             </FadeIn>
           ))}
         </div>
+
+        {/* ── Urgent call note ── */}
+        <FadeIn delay={0.3}>
+          <div style={{
+            marginTop:'28px',
+            padding:'20px 28px',
+            borderRadius:'16px',
+            background:'rgba(30,115,216,0.06)',
+            border:'1px solid rgba(47,199,214,0.18)',
+            display:'flex',
+            alignItems:'flex-start',
+            gap:'16px',
+          }}>
+            <div style={{
+              width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,
+              display:'flex',alignItems:'center',justifyContent:'center',
+              background:'rgba(47,199,214,0.12)',color:B.cyan,
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:'white',marginBottom:'4px'}}>
+                Et si c'est urgent ?
+              </p>
+              <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.65,color:'rgba(255,255,255,0.48)',margin:0}}>
+                Omnira détecte les situations critiques et peut transférer directement à votre équipe avec le contexte —
+                panne bloquante, client mécontent, véhicule immobilisé, client VIP, assurance ou expertise.
+                Rien n'est laissé sans suite.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

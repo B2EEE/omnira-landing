@@ -300,11 +300,16 @@ function Footer() {
           </div>
           <div>
             <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Contact</p>
-            {['Réserver une démo','Nous contacter','Support'].map(l=>(
+            {['Tester le réceptionniste IA','Nous contacter','Support'].map(l=>(
               <a key={l} href="#contact" style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
             ))}
+            <a href="mailto:contact@omniragency.com" style={{display:'block',fontFamily:'JetBrains Mono,monospace',fontSize:'12px',color:'rgba(47,199,214,0.6)',textDecoration:'none',marginTop:'16px',transition:'color 0.15s'}}
+              onMouseEnter={e=>e.currentTarget.style.color='rgba(47,199,214,1)'}
+              onMouseLeave={e=>e.currentTarget.style.color='rgba(47,199,214,0.6)'}>
+              contact@omniragency.com
+            </a>
           </div>
         </div>
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
