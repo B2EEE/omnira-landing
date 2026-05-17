@@ -13,7 +13,6 @@ function App() {
       <Testimonials/>
       <ForWho/>
       <HowItWorks/>
-      <Pricing/>
       <FAQ/>
       <Contact/>
       <Footer/>

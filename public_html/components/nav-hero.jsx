@@ -8,7 +8,7 @@ function Nav() {
     return () => window.removeEventListener('scroll', fn);
   }, []);
   // "Problèmes" replaced by "ROI" per request
-  const links = [['ROI','#roi'],['Démo','#demo'],['Fonctionnement','#process'],['FAQ','#faq'],['Offres','#pricing']];
+  const links = [['ROI','#roi'],['Démo','#demo'],['Fonctionnement','#process'],['FAQ','#faq']];
   const navStyle = {
     position:'fixed',top:0,left:0,right:0,zIndex:50,transition:'all 0.3s ease',
     background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',

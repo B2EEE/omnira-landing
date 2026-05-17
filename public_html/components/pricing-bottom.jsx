@@ -292,7 +292,7 @@ function Footer() {
           </div>
           <div>
             <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Navigation</p>
-            {[['Démo','#demo'],['Fonctionnalités','#demo'],['Cas d\'usage','#process'],['ROI Calculateur','#roi'],['Offres','#pricing'],['FAQ','#faq']].map(([l,h])=>(
+            {[['Démo','#demo'],['Fonctionnalités','#demo'],['Cas d\'usage','#process'],['ROI Calculateur','#roi'],['FAQ','#faq']].map(([l,h])=>(
               <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
