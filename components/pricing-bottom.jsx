@@ -308,7 +308,7 @@ function Footer() {
           </div>
         </div>
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2025 Omnira by SETTE inc. · Agent Vocal IA pour Garages</p>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2026 Omnira by SETTE inc. · Réceptionniste IA pour Garages</p>
           <div style={{display:'flex',gap:'24px'}}>
             {['Confidentialité','CGU','Mentions légales'].map(l=>(
               <a key={l} href="#" style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none'}}>{l}</a>

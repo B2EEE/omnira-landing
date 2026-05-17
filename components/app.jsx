@@ -3,6 +3,7 @@ function App() {
     <div>
       <Nav/>
       <Hero/>
+      <ThreeBenefits/>
       <StatsBar/>
       <Pain/>
       <Demo/>

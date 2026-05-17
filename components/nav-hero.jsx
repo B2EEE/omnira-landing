@@ -32,7 +32,7 @@ function Nav() {
               onMouseLeave={e=>e.currentTarget.style.color=scrolled?B.tMuted:'rgba(255,255,255,0.6)'}>{l}</a>
           ))}
         </div>
-        <GBtn href="#contact" variant={scrolled?'primary':'outline'} size="sm">Réserver une démo</GBtn>
+        <GBtn href="#contact" variant={scrolled?'primary':'outline'} size="sm">Tester le réceptionniste IA</GBtn>
       </div>
     </nav>
   );
@@ -175,25 +175,25 @@ function Hero() {
         {/* Left copy */}
         <div>
           <div style={{marginBottom:'20px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s'}}>
-            <Chip color={B.cyan}>Agent vocal IA · Garages indépendants</Chip>
+            <Chip color={B.cyan}>Réceptionniste IA · Garages indépendants</Chip>
           </div>
           {/* Stars — just below the chip */}
           <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'10px',marginBottom:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.18s'}}>
             <div style={{display:'flex',gap:'2px'}}>{[...Array(5)].map((_,i)=><Ico.Star key={i}/>)}</div>
             <span style={{fontSize:'13px',fontWeight:600,color:'rgba(255,255,255,0.55)',fontFamily:'Inter,sans-serif'}}>5/5 · Garages indépendants</span>
           </div>
-          <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(36px,5vw,60px)',fontWeight:800,lineHeight:1.06,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
-            Ne perdez plus les appels utiles{' '}
+          <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(34px,4.5vw,58px)',fontWeight:800,lineHeight:1.07,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
+            Ne ratez plus aucun appel client,{' '}
             <span style={{background:`linear-gradient(135deg,${B.blue},${B.cyan},${B.lcyan})`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-              de votre garage.
+              même quand vous êtes sous une voiture.
             </span>
           </h1>
           <p style={{fontSize:'17px',lineHeight:1.75,color:'rgba(255,255,255,0.5)',maxWidth:'500px',fontFamily:'Inter,sans-serif',marginBottom:'40px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s'}}>
-            Omnira décroche, qualifie et filtre vos appels — pour protéger votre planning atelier et soulager votre équipe, sans retirer l'humain des cas importants.
+            Omnira est un réceptionniste IA pour garages : il décroche, prend les messages, filtre les urgences, planifie les RDV et vous transmet l'essentiel.
           </p>
           <div style={{display:'flex',flexWrap:'wrap',gap:'14px',marginBottom:'48px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s'}}>
-            <GBtn href="#demo" variant="primary" size="md">Écouter l'agent</GBtn>
-            <GBtn href="#roi" variant="outline" size="md">Calculer mes pertes</GBtn>
+            <GBtn href="#demo" variant="primary" size="md">Écouter une démo d'appel</GBtn>
+            <GBtn href="#roi" variant="outline" size="md">Calculer mes appels perdus</GBtn>
           </div>
           
         </div>
