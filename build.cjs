@@ -10,14 +10,14 @@ function copyDir(src, dest) {
   });
 }
 
-if (!fs.existsSync('dist')) fs.mkdirSync('dist');
+if (!fs.existsSync('public_html')) fs.mkdirSync('public_html');
 
 ['index.html', 'robots.txt', 'sitemap.xml'].forEach(f => {
-  if (fs.existsSync(f)) fs.copyFileSync(f, path.join('dist', f));
+  if (fs.existsSync(f)) fs.copyFileSync(f, path.join('public_html', f));
 });
 
 ['components', 'uploads'].forEach(dir => {
-  if (fs.existsSync(dir)) copyDir(dir, path.join('dist', dir));
+  if (fs.existsSync(dir)) copyDir(dir, path.join('public_html', dir));
 });
 
-console.log('Build OK — static files copied to dist/');
+console.log('Build OK — static files copied to public_html/');
