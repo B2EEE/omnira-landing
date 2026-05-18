@@ -16,7 +16,7 @@ if (!fs.existsSync('public_html')) fs.mkdirSync('public_html');
   if (fs.existsSync(f)) fs.copyFileSync(f, path.join('public_html', f));
 });
 
-['components', 'uploads'].forEach(dir => {
+['components', 'uploads', 'receptionniste-ia-garage'].forEach(dir => {
   if (fs.existsSync(dir)) copyDir(dir, path.join('public_html', dir));
 });
 
