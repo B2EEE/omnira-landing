@@ -8,7 +8,7 @@ const HOW_STEPS = [
 
 function HowItWorks() {
   return (
-    <section id="process" style={{padding:'72px 24px',background:B.bgW}}>
+    <section id="process" className="section-cap-top" style={{padding:'72px 24px',background:B.bgW,position:'relative'}}>
       <div style={{maxWidth:'960px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
@@ -70,7 +70,7 @@ const FEATURES_DATA = [
 
 function Features() {
   return (
-    <section style={{padding:'64px 24px',background:B.bgL,borderTop:`1px solid ${B.border}`}}>
+    <section className="section-cap-top" style={{padding:'64px 24px',background:B.bgL,position:'relative'}}>
       <div style={{maxWidth:'960px',margin:'0 auto'}}>
         <FadeIn>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:B.tMuted,textAlign:'center',marginBottom:'24px'}}>

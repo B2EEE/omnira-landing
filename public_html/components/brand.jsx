@@ -5,14 +5,14 @@ const B = {
   lcyan:  '#57D6C7',
   grad:   'linear-gradient(135deg,#1E73D8,#2FC7D6)',
   bgW:    '#FFFFFF',
-  bgL:    '#F0F7FF',
+  bgL:    '#E8F2FC',   // nettement plus distinct du blanc
   bgD:    '#0B1726',
   bgD2:   '#0E1C35',
   bgFoot: '#070E1A',
   tMain:  '#0B1726',
   tMuted: '#5B7A9B',
-  border: '#D8E6F2',
-  shadow: '0 4px 24px rgba(16,63,115,0.09)',
+  border: '#CCE0F0',   // légèrement plus prononcé
+  shadow: '0 4px 24px rgba(16,63,115,0.08)',
 };
 window.B = B;
 
@@ -82,7 +82,8 @@ window.OmniraLogoColor = OmniraLogoColor;
 
 function Chip({ children, color = B.cyan }) {
   return (
-    <span style={{display:'inline-block',fontSize:'11px',fontWeight:700,padding:'4px 14px',borderRadius:'99px',textTransform:'uppercase',letterSpacing:'0.14em',color,background:`${color}18`,border:`1px solid ${color}28`,fontFamily:'JetBrains Mono,monospace'}}>
+    <span style={{display:'inline-flex',alignItems:'center',gap:'7px',fontSize:'10.5px',fontWeight:700,padding:'5px 14px',borderRadius:'99px',textTransform:'uppercase',letterSpacing:'0.12em',color,background:`${color}13`,border:`1px solid ${color}28`,fontFamily:'JetBrains Mono,monospace'}}>
+      <span style={{width:'5px',height:'5px',borderRadius:'50%',background:color,flexShrink:0,opacity:0.85}}/>
       {children}
     </span>
   );
@@ -90,49 +91,105 @@ function Chip({ children, color = B.cyan }) {
 window.Chip = Chip;
 
 function GBtn({ href='#', onClick, children, variant='primary', size='md', style:extraStyle={}, full=false }) {
-  const pad = {sm:'11px 24px',md:'14px 30px',lg:'17px 38px'}[size];
+  const pad = {sm:'10px 22px',md:'13px 28px',lg:'16px 36px'}[size];
   const fs  = {sm:'13px',md:'14px',lg:'15px'}[size];
   const variants = {
-    primary: {background:B.grad,color:'white',boxShadow:`0 6px 24px rgba(30,115,216,0.4),inset 0 1px 0 rgba(255,255,255,0.2)`},
-    outline: {background:'transparent',color:'white',border:'1px solid rgba(255,255,255,0.25)'},
-    white:   {background:'white',color:'#0B1726',boxShadow:'0 8px 24px rgba(0,0,0,0.12)'},
-    light:   {background:B.bgL,color:B.tMain,border:`1px solid ${B.border}`},
+    primary: {
+      background: B.grad,
+      color: 'white',
+      border: 'none',
+      boxShadow: '0 6px 24px rgba(30,115,216,0.38), inset 0 1px 0 rgba(255,255,255,0.18)',
+    },
+    outline: {
+      // gradient border: couleur du fond transparent, gradient en bordure
+      background: 'rgba(11,23,38,0.35) padding-box, linear-gradient(135deg,#1E73D8,#2FC7D6) border-box',
+      color: 'white',
+      border: '1px solid transparent',
+      backdropFilter: 'blur(10px)',
+    },
+    white: {
+      background: 'white',
+      color: B.tMain,
+      border: '1px solid rgba(0,0,0,0.07)',
+      boxShadow: '0 6px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,1)',
+    },
+    light: {
+      background: B.bgW,
+      color: B.tMain,
+      border: `1px solid ${B.border}`,
+      boxShadow: B.shadow,
+    },
   };
   const base = {
-    position:'relative',overflow:'hidden',display:'inline-flex',alignItems:'center',justifyContent:full?'center':'flex-start',
-    gap:'8px',fontFamily:'Sora,sans-serif',fontWeight:700,borderRadius:'14px',padding:pad,fontSize:fs,
-    cursor:'pointer',textDecoration:'none',transition:'transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease, opacity 0.18s ease',
-    width:full?'100%':'auto',...variants[variant],...extraStyle
+    position:'relative', overflow:'hidden',
+    display:'inline-flex', alignItems:'center', justifyContent:full?'center':'flex-start',
+    gap:'8px', fontFamily:'Sora,sans-serif', fontWeight:700,
+    borderRadius:'12px', padding:pad, fontSize:fs,
+    cursor:'pointer', textDecoration:'none',
+    transition:'transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, filter 0.2s ease',
+    width:full?'100%':'auto',
+    ...variants[variant], ...extraStyle,
   };
-  const up = e => {
-    e.currentTarget.style.transform = 'translateY(-3px) scale(1.03)';
-    if(variant==='primary') e.currentTarget.style.boxShadow = `0 14px 36px rgba(30,115,216,0.52),inset 0 1px 0 rgba(255,255,255,0.2)`;
+  const onEnter = e => {
+    const el = e.currentTarget;
+    el.style.transform = 'translateY(-3px) scale(1.025)';
+    if(variant==='primary') el.style.boxShadow = '0 16px 40px rgba(30,115,216,0.52), inset 0 1px 0 rgba(255,255,255,0.2)';
+    if(variant==='white')   el.style.boxShadow = '0 14px 36px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,1)';
+    if(variant==='outline') el.style.filter = 'brightness(1.12)';
+    if(variant==='light')   el.style.boxShadow = '0 8px 28px rgba(16,63,115,0.12)';
+    const s = el.querySelector('.btn-shimmer');
+    if(s) s.style.left = '160%';
   };
-  const down = e => {
-    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-    if(variant==='primary') e.currentTarget.style.boxShadow = `0 6px 24px rgba(30,115,216,0.4),inset 0 1px 0 rgba(255,255,255,0.2)`;
+  const onLeave = e => {
+    const el = e.currentTarget;
+    el.style.transform = 'translateY(0) scale(1)';
+    if(variant==='primary') el.style.boxShadow = '0 6px 24px rgba(30,115,216,0.38), inset 0 1px 0 rgba(255,255,255,0.18)';
+    if(variant==='white')   el.style.boxShadow = '0 6px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,1)';
+    if(variant==='outline') el.style.filter = 'none';
+    if(variant==='light')   el.style.boxShadow = B.shadow;
+    const s = el.querySelector('.btn-shimmer');
+    if(s) s.style.left = '-100%';
+  };
+  const onDown = e => {
+    e.currentTarget.style.transform = 'translateY(1px) scale(0.97)';
+    if(variant==='primary') e.currentTarget.style.boxShadow = '0 2px 12px rgba(30,115,216,0.3)';
+  };
+  const onUp = e => {
+    e.currentTarget.style.transform = 'translateY(-3px) scale(1.025)';
+    if(variant==='primary') e.currentTarget.style.boxShadow = '0 16px 40px rgba(30,115,216,0.52)';
   };
   const inner = (
     <>
-      {/* shimmer sweep */}
-      <div className="btn-shimmer" style={{position:'absolute',top:0,left:'-100%',width:'60%',height:'100%',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.22),transparent)',transform:'skewX(-20deg)',pointerEvents:'none',transition:'left 0.55s ease'}}/>
-      <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(255,255,255,0.14) 0%,transparent 55%)',pointerEvents:'none'}}/>
-      <span style={{position:'relative'}}>{children}</span>
+      <div className="btn-shimmer" style={{
+        position:'absolute', top:0, left:'-100%', width:'55%', height:'100%',
+        background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.22),transparent)',
+        transform:'skewX(-20deg)', pointerEvents:'none',
+        transition:'left 0.52s ease',
+      }}/>
+      {variant==='primary' && (
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(255,255,255,0.13) 0%,transparent 52%)',pointerEvents:'none'}}/>
+      )}
+      <span style={{position:'relative',zIndex:1}}>{children}</span>
     </>
   );
-  const handleEnter = e => { up(e); const s=e.currentTarget.querySelector('.btn-shimmer'); if(s) s.style.left='160%'; };
-  const handleLeave = e => { down(e); const s=e.currentTarget.querySelector('.btn-shimmer'); if(s) s.style.left='-100%'; };
-  if(onClick) return <button onClick={onClick} style={base} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>{inner}</button>;
-  return <a href={href} style={base} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>{inner}</a>;
+  const evts = { onMouseEnter:onEnter, onMouseLeave:onLeave, onMouseDown:onDown, onMouseUp:onUp };
+  if(onClick) return <button onClick={onClick} style={base} {...evts}>{inner}</button>;
+  return <a href={href} style={base} {...evts}>{inner}</a>;
 }
 window.GBtn = GBtn;
 
 function SectionHeader({ chip, chipColor, title, sub, light=false }) {
+  const accent = chipColor || B.blue;
   return (
-    <div style={{textAlign:'center',marginBottom:'56px'}}>
-      {chip && <div style={{marginBottom:'16px'}}><Chip color={chipColor||B.blue}>{chip}</Chip></div>}
-      <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,4vw,40px)',fontWeight:800,letterSpacing:'-0.022em',color:light?'white':B.tMain,lineHeight:1.15,marginBottom:'16px'}} dangerouslySetInnerHTML={{__html:title}}/>
-      {sub && <p style={{maxWidth:'520px',margin:'0 auto',lineHeight:1.7,color:light?'rgba(255,255,255,0.45)':B.tMuted,fontFamily:'Inter,sans-serif',fontSize:'16px'}}>{sub}</p>}
+    <div style={{textAlign:'center',marginBottom:'52px'}}>
+      {chip && (
+        <div style={{marginBottom:'22px',display:'flex',flexDirection:'column',alignItems:'center',gap:'10px'}}>
+          <Chip color={accent}>{chip}</Chip>
+          <div style={{width:'28px',height:'2px',borderRadius:'99px',background:`linear-gradient(90deg,${accent},${B.cyan})`,opacity:0.5}}/>
+        </div>
+      )}
+      <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.8vw,40px)',fontWeight:800,letterSpacing:'-0.024em',color:light?'white':B.tMain,lineHeight:1.13,marginBottom:'16px'}} dangerouslySetInnerHTML={{__html:title}}/>
+      {sub && <p style={{maxWidth:'500px',margin:'0 auto',lineHeight:1.72,color:light?'rgba(255,255,255,0.44)':B.tMuted,fontFamily:'Inter,sans-serif',fontSize:'15.5px'}}>{sub}</p>}
     </div>
   );
 }
@@ -142,7 +199,12 @@ function FadeIn({ children, delay=0, style:s={} }) {
   const ref = React.useRef();
   const vis = useOnScreen(ref);
   return (
-    <div ref={ref} style={{opacity:vis?1:0,transform:vis?'translateY(0)':'translateY(24px)',transition:`opacity 0.55s ease ${delay}s, transform 0.55s ease ${delay}s`,...s}}>
+    <div ref={ref} style={{
+      opacity: vis ? 1 : 0,
+      transform: vis ? 'translateY(0)' : 'translateY(28px)',
+      transition: `opacity 0.72s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.72s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+      ...s
+    }}>
       {children}
     </div>
   );

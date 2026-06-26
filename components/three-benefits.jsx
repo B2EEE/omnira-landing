@@ -9,7 +9,7 @@ const _PAIN_ITEMS = [
 
 function Pain() {
   return (
-    <section id="pain" style={{padding:'64px 24px',background:B.bgD,borderBottom:'1px solid rgba(255,255,255,0.06)'}}>
+    <section id="pain" style={{padding:'64px 24px 80px',background:B.bgD,position:'relative'}}>
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <FadeIn>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',fontWeight:600,letterSpacing:'0.1em',textTransform:'uppercase',color:'rgba(255,255,255,0.22)',textAlign:'center',marginBottom:'28px'}}>
@@ -32,6 +32,12 @@ function Pain() {
             ))}
           </div>
         </FadeIn>
+      </div>
+      {/* onde de transition dark → white */}
+      <div style={{position:'absolute',bottom:0,left:0,right:0,lineHeight:0,pointerEvents:'none'}}>
+        <svg viewBox="0 0 1440 48" fill="none" preserveAspectRatio="none" style={{width:'100%',height:'40px',display:'block'}}>
+          <path d="M0 24 Q360 0 720 24 Q1080 48 1440 24 L1440 48 L0 48 Z" fill={B.bgW}/>
+        </svg>
       </div>
     </section>
   );
