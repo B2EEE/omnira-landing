@@ -309,9 +309,15 @@ function Hero() {
             ))}
           </div>
           <div style={{display:'flex',flexWrap:'wrap',gap:'12px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.42s'}}>
-            <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
-            <GBtn href="#roi" variant="outline" size="md">Faire une simulation</GBtn>
-            <GBtn href="/devis" variant="white" size="md">Demander un devis</GBtn>
+            <MagneticButton distance={0.55}>
+              <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
+            </MagneticButton>
+            <MagneticButton distance={0.42}>
+              <GBtn href="#roi" variant="outline" size="md">Faire une simulation</GBtn>
+            </MagneticButton>
+            <MagneticButton distance={0.35}>
+              <GBtn href="/devis" variant="white" size="md">Demander un devis</GBtn>
+            </MagneticButton>
           </div>
         </div>
         {/* Right — HeroVisual */}

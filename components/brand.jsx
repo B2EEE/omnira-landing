@@ -210,3 +210,54 @@ function FadeIn({ children, delay=0, style:s={} }) {
   );
 }
 window.FadeIn = FadeIn;
+
+// ─── MAGNETIC BUTTON ──────────────────────────────────────────────────────────
+// Spring physics: velocity-based attract toward cursor, snaps back on leave.
+// Works in CDN/Babel env — no framer-motion required.
+function MagneticButton({ children, distance = 0.52 }) {
+  const ref     = React.useRef(null);
+  const animRef = React.useRef(null);
+  const st      = React.useRef({ x:0, y:0, tx:0, ty:0, vx:0, vy:0, on:false });
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const tick = () => {
+      const s = st.current;
+      const stiff = 0.13, damp = 0.70;
+      s.vx += (s.tx - s.x) * stiff; s.vx *= damp; s.x += s.vx;
+      s.vy += (s.ty - s.y) * stiff; s.vy *= damp; s.y += s.vy;
+      el.style.transform = `translate(${s.x.toFixed(2)}px,${s.y.toFixed(2)}px)`;
+      animRef.current = requestAnimationFrame(tick);
+    };
+
+    const onMove = e => {
+      if (!st.current.on) return;
+      const r = el.getBoundingClientRect();
+      st.current.tx = (e.clientX - (r.left + r.width  / 2)) * distance;
+      st.current.ty = (e.clientY - (r.top  + r.height / 2)) * distance;
+    };
+    const onEnter = () => { st.current.on = true; };
+    const onLeave = () => { st.current.on = false; st.current.tx = 0; st.current.ty = 0; };
+
+    document.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseenter', onEnter);
+    el.addEventListener('mouseleave', onLeave);
+    animRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      document.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseenter', onEnter);
+      el.removeEventListener('mouseleave', onLeave);
+      cancelAnimationFrame(animRef.current);
+    };
+  }, [distance]);
+
+  return (
+    <div ref={ref} style={{display:'inline-block'}}>
+      {children}
+    </div>
+  );
+}
+window.MagneticButton = MagneticButton;
