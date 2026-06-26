@@ -68,7 +68,12 @@ const FEATURES_DATA = [
   { Icon: Ico.Shield,   title: 'Suivre les performances' },
 ];
 
+const _FEAT_VISIBLE = 6; // pills affichées par défaut
+
 function Features() {
+  const [open, setOpen] = React.useState(false);
+  const extra = FEATURES_DATA.slice(_FEAT_VISIBLE);
+
   return (
     <section className="section-cap-top" style={{padding:'64px 24px',background:B.bgL,position:'relative'}}>
       <div style={{maxWidth:'960px',margin:'0 auto'}}>
@@ -78,22 +83,70 @@ function Features() {
           </p>
         </FadeIn>
         <FadeIn delay={0.06}>
-          <div style={{display:'flex',flexWrap:'wrap',gap:'10px',justifyContent:'center',marginBottom:'28px'}}>
-            {FEATURES_DATA.map(({Icon,title},i)=>(
+          {/* Pills toujours visibles */}
+          <div style={{display:'flex',flexWrap:'wrap',gap:'10px',justifyContent:'center'}}>
+            {FEATURES_DATA.slice(0,_FEAT_VISIBLE).map(({Icon,title},i)=>(
               <div key={i} style={{display:'flex',alignItems:'center',gap:'8px',padding:'9px 16px',borderRadius:'99px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow}}>
                 <span style={{color:B.blue,display:'flex',flexShrink:0}}><Icon/></span>
                 <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:B.tMain,whiteSpace:'nowrap'}}>{title}</span>
               </div>
             ))}
           </div>
+
+          {/* Pills masquées — expand/collapse */}
+          <div style={{overflow:'hidden',maxHeight:open?'200px':'0',opacity:open?1:0,transition:'max-height 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease'}}>
+            <div style={{display:'flex',flexWrap:'wrap',gap:'10px',justifyContent:'center',paddingTop:'10px'}}>
+              {extra.map(({Icon,title},i)=>(
+                <div key={i} style={{display:'flex',alignItems:'center',gap:'8px',padding:'9px 16px',borderRadius:'99px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow}}>
+                  <span style={{color:B.blue,display:'flex',flexShrink:0}}><Icon/></span>
+                  <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:B.tMain,whiteSpace:'nowrap'}}>{title}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Toggle */}
+          <div style={{textAlign:'center',marginTop:'18px'}}>
+            <button onClick={()=>setOpen(!open)} style={{
+              display:'inline-flex',alignItems:'center',gap:'6px',
+              background:'none',border:'none',cursor:'pointer',padding:'6px 12px',borderRadius:'8px',
+              fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:600,
+              color:B.blue,transition:'color 0.15s, background 0.15s',
+            }}
+              onMouseEnter={e=>{e.currentTarget.style.background=`${B.blue}0e`;}}
+              onMouseLeave={e=>{e.currentTarget.style.background='none';}}>
+              {open
+                ? <>Réduire <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 9L7 5l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></>
+                : <>+ {extra.length} autres fonctionnalités <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg></>
+              }
+            </button>
+          </div>
         </FadeIn>
-        <FadeIn delay={0.15}>
-          <div style={{padding:'16px 22px',borderRadius:'14px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'14px'}}>
-            <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
-            <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>
-              <strong style={{color:B.tMain}}>L'agent ne remplace pas votre équipe.</strong>{' '}
-              Il filtre, structure et transmet — les cas importants restent pour l'humain.
-            </p>
+
+        {/* Note + Offre sur mesure */}
+        <FadeIn delay={0.18}>
+          <div style={{marginTop:'28px',display:'flex',flexDirection:'column',gap:'12px'}}>
+            {/* Disclaimer */}
+            <div style={{padding:'14px 20px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'12px'}}>
+              <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
+              <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>
+                <strong style={{color:B.tMain}}>L'agent ne remplace pas votre équipe.</strong>{' '}
+                Il filtre, structure et transmet — les cas importants restent pour l'humain.
+              </p>
+            </div>
+            {/* Offre sur mesure */}
+            <div style={{padding:'18px 22px',borderRadius:'14px',background:`linear-gradient(135deg,${B.bgD} 0%,#0E1C35 100%)`,border:'1px solid rgba(30,115,216,0.22)',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'20px',flexWrap:'wrap'}}>
+              <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
+                <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:B.grad,boxShadow:'0 4px 14px rgba(30,115,216,0.35)'}}>
+                  <Ico.Zap/>
+                </div>
+                <div>
+                  <p style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:'white',margin:'0 0 2px'}}>Nous proposons la meilleure offre selon votre entreprise</p>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.38)',margin:0}}>Chaque déploiement est configuré selon votre activité, vos horaires et vos outils.</p>
+                </div>
+              </div>
+              <GBtn href="/devis" variant="outline" size="sm">Obtenir mon offre</GBtn>
+            </div>
           </div>
         </FadeIn>
       </div>
