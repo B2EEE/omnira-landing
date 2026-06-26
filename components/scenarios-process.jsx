@@ -98,7 +98,9 @@ function Dashboard() {
         @media (max-width:900px){
           .d3-grid { grid-template-columns:1fr !important; }
           .d3-mock { display:none !important; }
+          .d3-mobile-view { display:block !important; }
         }
+        .d3-mobile-view { display:none; }
         .d3-kpi:hover  { background:rgba(255,255,255,0.07) !important; }
         .d3-menu:hover { background:rgba(255,255,255,0.07) !important; color:rgba(255,255,255,0.75) !important; }
         .d3-row:hover  { background:rgba(255,255,255,0.04) !important; }
@@ -398,6 +400,59 @@ function Dashboard() {
             </div>
           </FadeIn>
 
+        </div>
+
+        {/* ── VUE MOBILE : KPIs + mini chart (cachée sur desktop) ── */}
+        <div className="d3-mobile-view" style={{marginTop:'32px'}}>
+          <FadeIn>
+            {/* KPI 2×2 */}
+            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px',marginBottom:'12px'}}>
+              {_KPIS.map((k,i)=>(
+                <div key={i} style={{padding:'16px',borderRadius:'14px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.09)'}}>
+                  <div style={{fontFamily:'JetBrains Mono,monospace',fontSize:'24px',fontWeight:700,color:'white',lineHeight:1,marginBottom:'4px'}}>{k.value}</div>
+                  <div style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.32)',marginBottom:'3px'}}>{k.label}</div>
+                  <div style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:k.color}}>{k.sub}</div>
+                </div>
+              ))}
+            </div>
+            {/* Mini bar chart */}
+            <div style={{padding:'14px 16px 10px',borderRadius:'14px',background:'rgba(255,255,255,0.025)',border:'1px solid rgba(255,255,255,0.06)'}}>
+              <span style={{fontFamily:'Inter,sans-serif',fontSize:'10px',fontWeight:600,color:'rgba(255,255,255,0.35)',display:'block',marginBottom:'10px'}}>Activité hebdomadaire</span>
+              <div style={{display:'flex',alignItems:'flex-end',gap:'6px',height:'60px'}}>
+                {_BARS.map((b,i)=>{
+                  const peak = b.v === _BAR_MAX;
+                  return (
+                    <div key={i} style={{flex:1,display:'flex',flexDirection:'column',alignItems:'center',gap:'4px',height:'100%',justifyContent:'flex-end'}}>
+                      <div style={{width:'100%',minHeight:'3px',height:`${(b.v/_BAR_MAX)*52}px`,borderRadius:'3px 3px 0 0',background:peak?B.grad:`rgba(30,115,216,${0.3+(b.v/_BAR_MAX)*0.4})`,boxShadow:peak?'0 0 8px rgba(47,199,214,0.5)':'none'}}/>
+                      <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'rgba(255,255,255,0.25)'}}>{b.d}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {/* Appels récents */}
+            <div style={{marginTop:'12px',borderRadius:'14px',background:'rgba(255,255,255,0.025)',border:'1px solid rgba(255,255,255,0.06)',overflow:'hidden'}}>
+              <div style={{padding:'10px 16px',borderBottom:'1px solid rgba(255,255,255,0.05)'}}>
+                <span style={{fontFamily:'Inter,sans-serif',fontSize:'10px',fontWeight:600,color:'rgba(255,255,255,0.3)',textTransform:'uppercase',letterSpacing:'0.08em'}}>Appels récents</span>
+              </div>
+              {_CALLS.slice(0,3).map((r,i)=>(
+                <div key={i} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'10px 16px',borderBottom:i<2?'1px solid rgba(255,255,255,0.04)':'none'}}>
+                  <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
+                    <div style={{width:'28px',height:'28px',borderRadius:'50%',flexShrink:0,background:'rgba(30,115,216,0.2)',border:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                      <span style={{fontFamily:'Sora,sans-serif',fontSize:'9px',fontWeight:700,color:'rgba(255,255,255,0.6)'}}>{r.in}</span>
+                    </div>
+                    <div>
+                      <div style={{fontFamily:'Inter,sans-serif',fontSize:'12px',fontWeight:600,color:'rgba(255,255,255,0.78)'}}>{r.name}</div>
+                      <div style={{fontFamily:'Inter,sans-serif',fontSize:'10px',color:'rgba(255,255,255,0.28)'}}>{r.motif}</div>
+                    </div>
+                  </div>
+                  <div style={{padding:'3px 9px',borderRadius:'99px',background:r.sb,border:`1px solid ${r.sc}40`,flexShrink:0}}>
+                    <span style={{fontFamily:'Inter,sans-serif',fontSize:'10px',color:r.sc,fontWeight:500}}>{r.st}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
 
         {/* disclaimer */}

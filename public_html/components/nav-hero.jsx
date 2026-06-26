@@ -1,44 +1,121 @@
 // ─── NAV ──────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
+  const [open, setOpen]         = React.useState(false);
+
   React.useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
   }, []);
+
+  // lock body scroll when menu is open
+  React.useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
   const links = [
     ['Fonctionnement','#process'],
     ['Démo','#demo'],
     ["Cas d'usage",'#scenarios'],
     ['Simulation','#roi'],
   ];
-  const navStyle = {
-    position:'fixed',top:0,left:0,right:0,zIndex:50,transition:'all 0.3s ease',
-    background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
-    backdropFilter: scrolled ? 'blur(20px)' : 'none',
-    borderBottom: scrolled ? `1px solid ${B.border}` : 'none',
-    boxShadow: scrolled ? B.shadow : 'none',
-  };
+
+  const light = !scrolled && !open; // white-on-dark mode (transparent nav)
+  const navBg = scrolled || open ? 'rgba(255,255,255,0.97)' : 'transparent';
+
   return (
-    <nav style={navStyle}>
+    <nav style={{
+      position:'fixed',top:0,left:0,right:0,zIndex:50,
+      transition:'background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease',
+      background: navBg,
+      backdropFilter: scrolled || open ? 'blur(20px)' : 'none',
+      borderBottom: scrolled || open ? `1px solid ${B.border}` : 'none',
+      boxShadow: scrolled || open ? B.shadow : 'none',
+    }}>
+      {/* ── Desktop bar ── */}
       <div style={{maxWidth:'1200px',margin:'0 auto',padding:'0 24px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'70px'}}>
         <a href="/" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
-          {scrolled ? <OmniraLogoColor height={58}/> : <OmniraLogo height={64}/>}
+          {light ? <OmniraLogo height={64}/> : <OmniraLogoColor height={58}/>}
         </a>
+
+        {/* Desktop links */}
         <div style={{display:'flex',alignItems:'center',gap:'32px'}} className="nav-links">
           {links.map(([l,h]) => (
-            <a key={l} href={h} style={{fontSize:'13px',fontWeight:600,fontFamily:'Sora,sans-serif',color:scrolled?B.tMuted:'rgba(255,255,255,0.6)',textDecoration:'none',transition:'color 0.15s'}}
-              onMouseEnter={e=>e.currentTarget.style.color=scrolled?B.blue:'white'}
-              onMouseLeave={e=>e.currentTarget.style.color=scrolled?B.tMuted:'rgba(255,255,255,0.6)'}>{l}</a>
+            <a key={l} href={h}
+              style={{fontSize:'13px',fontWeight:600,fontFamily:'Sora,sans-serif',color:light?'rgba(255,255,255,0.6)':B.tMuted,textDecoration:'none',transition:'color 0.15s'}}
+              onMouseEnter={e=>e.currentTarget.style.color=light?'white':B.blue}
+              onMouseLeave={e=>e.currentTarget.style.color=light?'rgba(255,255,255,0.6)':B.tMuted}>{l}</a>
           ))}
         </div>
-        <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-          <a href="/demo" className="nav-links" style={{fontSize:'13px',fontWeight:600,fontFamily:'Sora,sans-serif',color:scrolled?B.tMuted:'rgba(255,255,255,0.5)',textDecoration:'none',transition:'color 0.15s'}}
-            onMouseEnter={e=>e.currentTarget.style.color=scrolled?B.blue:'white'}
-            onMouseLeave={e=>e.currentTarget.style.color=scrolled?B.tMuted:'rgba(255,255,255,0.5)'}>Écouter une démo</a>
-          <GBtn href="/devis" variant={scrolled?'primary':'outline'} size="sm">Demander un devis</GBtn>
+
+        {/* Desktop right */}
+        <div style={{display:'flex',alignItems:'center',gap:'10px'}} className="nav-links">
+          <a href="/demo"
+            style={{fontSize:'13px',fontWeight:600,fontFamily:'Sora,sans-serif',color:light?'rgba(255,255,255,0.5)':B.tMuted,textDecoration:'none',transition:'color 0.15s'}}
+            onMouseEnter={e=>e.currentTarget.style.color=light?'white':B.blue}
+            onMouseLeave={e=>e.currentTarget.style.color=light?'rgba(255,255,255,0.5)':B.tMuted}>Écouter une démo</a>
+          <GBtn href="/devis" variant={light?'outline':'primary'} size="sm">Demander un devis</GBtn>
         </div>
+
+        {/* Hamburger — mobile only, shown via CSS */}
+        <button
+          className="nav-hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+          style={{background:'none',border:'none',cursor:'pointer',padding:'7px',borderRadius:'8px',lineHeight:0}}
+        >
+          {open ? (
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M4 4l14 14M18 4L4 18" stroke={B.tMain} strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+          ) : (
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path d="M3 6h16M3 11h16M3 16h16" stroke={light?'white':B.tMain} strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+          )}
+        </button>
       </div>
+
+      {/* ── Mobile menu panel ── */}
+      {open && (
+        <div style={{
+          padding:'8px 24px 32px',
+          borderTop:`1px solid ${B.border}`,
+          background:'rgba(255,255,255,0.97)',
+          backdropFilter:'blur(20px)',
+          maxHeight:'calc(100vh - 70px)',
+          overflowY:'auto',
+        }}>
+          {links.map(([l,h]) => (
+            <a key={l} href={h}
+              onClick={() => setOpen(false)}
+              style={{
+                display:'flex',alignItems:'center',justifyContent:'space-between',
+                fontFamily:'Sora,sans-serif',fontSize:'17px',fontWeight:700,
+                color:B.tMain,textDecoration:'none',
+                padding:'16px 0',
+                borderBottom:`1px solid ${B.border}`,
+                transition:'color 0.15s',
+              }}
+              onMouseEnter={e=>e.currentTarget.style.color=B.blue}
+              onMouseLeave={e=>e.currentTarget.style.color=B.tMain}>
+              {l}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+          ))}
+          <div style={{marginTop:'24px',display:'flex',flexDirection:'column',gap:'10px'}}>
+            <GBtn href="/demo"  variant="light"   size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
+            <GBtn href="/devis" variant="primary"  size="md" full onClick={()=>setOpen(false)}>Demander un devis</GBtn>
+          </div>
+          <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,textAlign:'center',marginTop:'20px'}}>
+            Agents vocaux IA pour entreprises locales
+          </p>
+        </div>
+      )}
     </nav>
   );
 }
