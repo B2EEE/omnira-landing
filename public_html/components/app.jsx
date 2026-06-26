@@ -6,13 +6,16 @@ function App() {
       <Pain/>
       <HowItWorks/>
       <Features/>
+      <AvantApres/>
       <Scenarios/>
       <Demo/>
       <CallSummary/>
+      <Integrations/>
       <Dashboard/>
       <ROICalculator/>
       <HumanControl/>
       <OnBoarding/>
+      <PourQui/>
       <DevisSection/>
       <FAQ/>
       <Footer/>

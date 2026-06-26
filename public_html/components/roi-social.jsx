@@ -50,66 +50,86 @@ function HumanControl() {
 }
 window.HumanControl = HumanControl;
 
-// ─── ONBOARDING (7 steps) ─────────────────────────────────────────────────────
-const ONBOARDING_STEPS = [
-  { num:'01', title:'Diagnostic de vos appels',       tag:'Analyse',           desc:"On comprend vos volumes, vos horaires, vos demandes fréquentes et vos points de friction au téléphone.", Icon: Ico.Chart },
-  { num:'02', title:'Création des scénarios',          tag:'Configuration',     desc:"On définit ce que l'agent doit dire, demander, faire ou transférer selon les types d'appels.", Icon: Ico.Filter },
-  { num:'03', title:"Configuration de l'agent vocal",  tag:'IA vocale',         desc:"L'agent est adapté à votre activité, à votre vocabulaire et à votre façon de travailler.", Icon: Ico.Mic },
-  { num:'04', title:'Connexion à vos outils',          tag:'Intégration',       desc:"Agenda, CRM, Google Sheets, email, SMS ou outil métier selon votre besoin.", Icon: Ico.Link },
-  { num:'05', title:'Tests en conditions réelles',     tag:'Validation',        desc:"On vérifie les réponses, les transferts, les résumés et le comportement sur des cas réels.", Icon: Ico.Shield },
-  { num:'06', title:'Mise en ligne',                   tag:'Go live',           desc:"L'agent commence à traiter les appels selon le périmètre validé ensemble.", Icon: Ico.Zap },
-  { num:'07', title:'Suivi et optimisation',           tag:'Amélioration continue', desc:"Les scénarios peuvent être améliorés en continu selon les vrais appels reçus.", Icon: Ico.Settings },
+// ─── ONBOARDING (4 phases) ────────────────────────────────────────────────────
+const ONBOARDING_PHASES = [
+  {
+    num:'01', tag:'Diagnostic', Icon: Ico.Chart,
+    title:'Diagnostic',
+    desc:"Comprendre vos appels, vos horaires, vos demandes fréquentes et vos points de friction au téléphone.",
+    details:['Analyse du volume d\'appels','Identification des motifs fréquents','Cartographie des horaires','Points de friction actuels'],
+    color: B.blue,
+  },
+  {
+    num:'02', tag:'Configuration', Icon: Ico.Settings,
+    title:'Configuration',
+    desc:"Créer les scénarios, les règles, les questions et les actions que l'agent doit suivre selon votre activité.",
+    details:['Rédaction des scénarios vocaux','Définition des règles de transfert','Questions à poser par motif','Connexion aux outils existants'],
+    color: B.cyan,
+  },
+  {
+    num:'03', tag:'Tests', Icon: Ico.Shield,
+    title:'Tests',
+    desc:"Vérifier les réponses, les transferts, les résumés et les connexions en conditions proches du réel.",
+    details:['Tests des scénarios clés','Vérification des transferts','Contrôle des résumés générés','Ajustements avant lancement'],
+    color: B.lcyan,
+  },
+  {
+    num:'04', tag:'Lancement + suivi', Icon: Ico.Zap,
+    title:'Lancement + suivi',
+    desc:"Mettre en ligne, observer les premiers appels et optimiser les scénarios selon les retours terrain.",
+    details:['Mise en ligne de l\'agent','Suivi des premiers appels','Optimisation continue des scénarios','Dashboard de performance accessible'],
+    color: '#4ade80',
+  },
 ];
 
 function OnBoarding() {
   return (
     <section style={{padding:'96px 24px',background:B.bgL}}>
-      <div style={{maxWidth:'900px',margin:'0 auto'}}>
+      <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
             chip="Mise en place"
             chipColor={B.blue}
-            title="Une mise en place simple, cadrée et suivie"
-            sub="Pas de prérequis technique, pas de migration lourde. On configure ensemble — étape par étape."
+            title="Une mise en place simple,<br/>cadrée et suivie"
+            sub="Pas de prérequis technique, pas de migration lourde. On configure ensemble — phase par phase."
           />
         </FadeIn>
-        <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
-          {ONBOARDING_STEPS.map(({num,title,tag,desc,Icon},i)=>(
-            <FadeIn key={num} delay={i*0.07}>
-              <div style={{display:'grid',gridTemplateColumns:'56px 1fr',gap:'18px',padding:'22px 26px',borderRadius:'18px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.22s ease',position:'relative',overflow:'hidden'}}
-                onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 40px rgba(16,63,115,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.22)';}}
-                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;}}>
-                {i===5 && <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:B.grad}}/>}
-                <div style={{display:'flex',justifyContent:'center',paddingTop:'2px'}}>
-                  <div style={{
-                    width:'46px',height:'46px',borderRadius:'13px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,
-                    background: i===5 ? B.grad : 'rgba(30,115,216,0.07)',
-                    border: i===5 ? 'none' : '1.5px solid rgba(30,115,216,0.18)',
-                    boxShadow: i===5 ? '0 6px 20px rgba(30,115,216,0.3)' : 'none',
-                    color: i===5 ? 'white' : B.blue,
-                    position:'relative',overflow:'hidden',
-                  }}>
-                    {i===5 && <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 55%)'}}/>}
-                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:700,position:'relative'}}>{num}</span>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'16px'}} className="how-grid">
+          {ONBOARDING_PHASES.map(({num,tag,title,desc,details,Icon,color},i)=>(
+            <FadeIn key={num} delay={i*0.1}>
+              <div style={{
+                borderRadius:'20px',padding:'24px',
+                background:B.bgW,border:`1px solid ${B.border}`,
+                boxShadow:B.shadow,height:'100%',
+                transition:'all 0.22s ease',position:'relative',overflow:'hidden',
+              }}
+                onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 16px 40px rgba(30,115,216,0.1)`;e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-3px)';}}
+                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
+                <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:`linear-gradient(90deg,${color},${color}44)`}}/>
+                <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'16px'}}>
+                  <div style={{width:'40px',height:'40px',borderRadius:'12px',display:'flex',alignItems:'center',justifyContent:'center',background:`${color}14`,border:`1.5px solid ${color}28`,color}}>
+                    <Icon/>
                   </div>
+                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'22px',fontWeight:700,color:`${B.border}`,letterSpacing:'-0.04em'}}>{num}</span>
                 </div>
-                <div style={{display:'flex',alignItems:'center',gap:'14px',flexWrap:'wrap'}}>
-                  <div style={{flex:1,minWidth:'180px'}}>
-                    <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
-                      <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,margin:0}}>{title}</h3>
-                      <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',padding:'3px 10px',borderRadius:'99px',fontWeight:600,background:'rgba(47,199,214,0.1)',color:B.cyan,border:'1px solid rgba(47,199,214,0.22)'}}>{tag}</span>
+                <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',padding:'3px 10px',borderRadius:'99px',fontWeight:600,background:`${color}12`,color,border:`1px solid ${color}28`,display:'inline-block',marginBottom:'12px'}}>{tag}</span>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,marginBottom:'8px'}}>{title}</h3>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,marginBottom:'14px'}}>{desc}</p>
+                <div style={{display:'flex',flexDirection:'column',gap:'5px'}}>
+                  {details.map((d,j)=>(
+                    <div key={j} style={{display:'flex',alignItems:'flex-start',gap:'7px'}}>
+                      <div style={{width:'4px',height:'4px',borderRadius:'50%',background:color,flexShrink:0,marginTop:'6px'}}/>
+                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:B.tMuted,lineHeight:1.5}}>{d}</span>
                     </div>
-                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>{desc}</p>
-                  </div>
-                  <div style={{color:B.blue,opacity:0.3,flexShrink:0}}><Icon/></div>
+                  ))}
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
-        <FadeIn delay={0.45}>
+        <FadeIn delay={0.4}>
           <div style={{textAlign:'center',marginTop:'40px'}}>
-            <GBtn href="/devis" variant="primary" size="lg">Démarrer la configuration</GBtn>
+            <GBtn href="/devis" variant="primary" size="lg">Demander un devis personnalisé</GBtn>
           </div>
         </FadeIn>
       </div>

@@ -110,6 +110,7 @@ function Footer() {
               ["Cas d'usage",'/#scenarios'],
               ['Simulation','/#roi'],
               ['FAQ','/#faq'],
+              ['Garage & Auto','/agent-vocal-ia-garage'],
             ].map(([l,h])=>(
               <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
@@ -137,8 +138,10 @@ function Footer() {
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
           <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2026 Omnira by SETTE inc. · Agents vocaux IA pour entreprises locales</p>
           <div style={{display:'flex',gap:'24px'}}>
-            {['Confidentialité','CGU','Mentions légales'].map(l=>(
-              <a key={l} href="#" style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none'}}>{l}</a>
+            {[['Confidentialité','/confidentialite'],['CGU','/cgu'],['Mentions légales','/mentions-legales']].map(([l,h])=>(
+              <a key={l} href={h} style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none',transition:'color 0.15s'}}
+                onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.5)'}
+                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.2)'}>{l}</a>
             ))}
           </div>
         </div>

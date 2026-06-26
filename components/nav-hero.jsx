@@ -313,11 +313,20 @@ function Hero() {
               <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
             </MagneticButton>
             <MagneticButton distance={0.42}>
-              <GBtn href="#roi" variant="outline" size="md">Faire une simulation</GBtn>
+              <GBtn href="#roi" variant="outline" size="md">Simuler mes appels perdus</GBtn>
             </MagneticButton>
             <MagneticButton distance={0.35}>
-              <GBtn href="/devis" variant="white" size="md">Demander un devis</GBtn>
+              <GBtn href="/devis" variant="white" size="md">Demander un devis personnalisé</GBtn>
             </MagneticButton>
+          </div>
+          {/* Micro-preuve + note contrôle humain */}
+          <div style={{marginTop:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.52s'}}>
+            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.3)',letterSpacing:'0.04em',marginBottom:'8px'}}>
+              Démo vocale disponible · Résumés automatiques · Scénarios validés avec vous
+            </p>
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.24)',lineHeight:1.55,maxWidth:'460px'}}>
+              Vous gardez la main : Omnira suit vos règles, transfère les cas sensibles et ne promet jamais ce que vous n'avez pas validé.
+            </p>
           </div>
         </div>
         {/* Right — HeroVisual */}

@@ -77,9 +77,11 @@ function DemoCard({ card }) {
           )}
         </button>
       </div>
-      {/* Placeholder note */}
-      <div style={{marginTop:'12px',padding:'8px 12px',borderRadius:'8px',background:`${card.color}08`,border:`1px solid ${card.color}18`}}>
-        <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted,margin:0}}>Démo audio à intégrer — placeholder prêt à remplacer</p>
+      {/* Clean state — no audio file yet */}
+      <div style={{marginTop:'12px',padding:'10px 14px',borderRadius:'10px',background:`${card.color}08`,border:`1px solid ${card.color}18`}}>
+        <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.5}}>
+          Démo personnalisée disponible sur demande — choisissez votre activité et nous préparons un scénario adapté.
+        </p>
       </div>
     </div>
   );
@@ -106,7 +108,7 @@ function Demo() {
         </div>
         <FadeIn delay={0.25}>
           <div style={{textAlign:'center'}}>
-            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Demander une démo personnalisée</GBtn>
+            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Créer une démo pour mon activité</GBtn>
           </div>
         </FadeIn>
       </div>
