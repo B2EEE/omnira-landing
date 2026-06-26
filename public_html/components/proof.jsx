@@ -1,149 +1,130 @@
-// ─── STATS BAR ────────────────────────────────────────────────────────────────
-function StatsBar() {
-  const stats = [
-    { val: '94%', label: 'des appels captés', icon: <Ico.Phone/> },
-    { val: '3h',  label: 'récupérées / jour', icon: <Ico.Clock/> },
-    { val: '15min', label: 'pour démarrer', icon: <Ico.Zap/> },
-    { val: '24/7', label: 'sans interruption', icon: <Ico.Shield/> },
-  ];
-  return (
-    <section style={{background:B.bgW,padding:'0 24px 48px'}}>
-      <div style={{maxWidth:'1000px',margin:'0 auto'}}>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1px',background:B.border,borderRadius:'20px',overflow:'hidden',boxShadow:B.shadow}} className="stats-grid">
-          {stats.map(({val,label,icon},i)=>(
-            <FadeIn key={val} delay={i*0.07}>
-              <div style={{background:B.bgW,padding:'28px 20px',textAlign:'center',display:'flex',flexDirection:'column',alignItems:'center',gap:'10px'}}>
-                <div style={{color:B.blue,opacity:0.5}}>{icon}</div>
-                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'28px',fontWeight:700,color:B.tMain,margin:0,lineHeight:1}}>{val}</p>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.4}}>{label}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-window.StatsBar = StatsBar;
-
-// ─── PAIN ─────────────────────────────────────────────────────────────────────
-const PROBLEMS = [
-  { Icon: Ico.Phone, title: "Des appels qui s'évaporent", stat: "Chaque appel raté, c'est un client offert à la concurrence", desc: "Pendant une révision ou en heure de pointe, personne ne peut décrocher. Le client raccroche. Il retente peut-être — ou appelle directement le garage d'à côté." },
-  { Icon: Ico.Zap,   title: "Un atelier sans cesse interrompu", stat: "Un technicien dérangé perd le fil à chaque fois", desc: "Demande de devis, question sur les horaires, relance pour un rappel… Des appels utiles, certes — mais qui cassent le rythme de l'atelier plusieurs fois par heure." },
-  { Icon: Ico.Calendar, title: "Des demandes qui tombent à l'eau", stat: "Un devis non suivi, c'est un client silencieusement perdu", desc: "Post-it, notes papier, mémos vocaux : les demandes captées à la volée finissent trop souvent sans suite. Sans mauvaise volonté — juste faute de temps pour les retraiter." },
-  { Icon: Ico.Clock, title: "Le téléphone s'arrête, pas vos clients", stat: "Un appel en soirée peut valoir plusieurs centaines d'euros", desc: "Le garage ferme à 18h. Les clients, eux, appellent aussi le soir, le week-end, entre deux réunions. Personne pour décrocher. L'opportunité disparaît sans laisser de trace." },
+// ─── HOW IT WORKS (7 steps) ───────────────────────────────────────────────────
+const HOW_STEPS = [
+  { num:'01', title:"L'appel arrive",         desc:"Le client appelle votre entreprise sur votre numéro habituel.", Icon: Ico.Phone },
+  { num:'02', title:"L'agent Omnira répond",   desc:"Il accueille le client avec un discours adapté à votre activité, sans délai.", Icon: Ico.Mic },
+  { num:'03', title:"Il comprend la demande",  desc:"Il identifie le motif de l'appel, l'urgence, le service concerné et les informations utiles.", Icon: Ico.Filter },
+  { num:'04', title:"Il pose les bonnes questions", desc:"Nom, téléphone, besoin, disponibilité, type de demande, détails nécessaires.", Icon: Ico.Message },
+  { num:'05', title:"Il agit selon vos règles", desc:"Il peut préparer un devis, prendre un rendez-vous, créer une demande de rappel ou transférer à un humain.", Icon: Ico.Settings },
+  { num:'06', title:"Votre équipe reçoit un résumé clair", desc:"Chaque appel devient une information exploitable transmise automatiquement.", Icon: Ico.Chart },
+  { num:'07', title:"Vous suivez les résultats", desc:"Appels reçus, demandes qualifiées, rendez-vous, devis et rappels peuvent être suivis dans un tableau de bord.", Icon: Ico.Building },
 ];
 
-function Pain() {
+function HowItWorks() {
   return (
-    <section id="pain" style={{padding:'96px 24px',background:B.bgD}}>
-      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
+    <section id="process" style={{padding:'96px 24px',background:B.bgW}}>
+      <div style={{maxWidth:'960px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
-            chip="Le quotidien du garage"
-            chipColor={B.cyan}
-            light
-            title="Le téléphone ne devrait pas<br/>coûter autant à votre garage."
-            sub="Dans la plupart des garages, le téléphone est géré « par celui qui peut décrocher ». Ce bricolage silencieux coûte des clients, de la concentration et de l'énergie — chaque jour."
+            chip="Fonctionnement"
+            chipColor={B.blue}
+            title="Comment fonctionne Omnira ?"
+            sub="Un agent vocal IA qui accompagne chaque appel de l'accueil au résumé, selon vos règles."
           />
         </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'20px'}} className="pain-grid">
-          {PROBLEMS.map(({Icon,title,stat,desc},i)=>(
-            <FadeIn key={title} delay={i*0.08}>
-              <div style={{display:'flex',flexDirection:'column',padding:'28px',borderRadius:'20px',position:'relative',overflow:'hidden',background:B.bgD,border:'1px solid rgba(255,255,255,0.07)',boxShadow:'0 8px 32px rgba(0,0,0,0.2)',transition:'all 0.22s ease',cursor:'default'}}
-                onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-4px)';e.currentTarget.style.boxShadow='0 20px 50px rgba(0,0,0,0.3),0 0 0 1px rgba(30,115,216,0.25)';}}
-                onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0)';e.currentTarget.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)';}}>
-                <div style={{position:'absolute',top:0,left:0,right:0,height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent)'}}/>
-                <div style={{width:'40px',height:'40px',borderRadius:'12px',display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'20px',background:'rgba(30,115,216,0.14)',border:'1px solid rgba(30,115,216,0.22)',color:B.blue}}>
-                  <Icon/>
+        <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
+          {HOW_STEPS.map(({num,title,desc,Icon},i)=>(
+            <FadeIn key={num} delay={i*0.07}>
+              <div style={{display:'grid',gridTemplateColumns:'60px 1fr',gap:'20px',padding:'24px 28px',borderRadius:'18px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.22s ease',position:'relative',overflow:'hidden'}}
+                onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 40px rgba(16,63,115,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.22)';}}
+                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;}}>
+                {i===4 && <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:B.grad}}/>}
+                <div style={{display:'flex',justifyContent:'center',paddingTop:'2px'}}>
+                  <div style={{
+                    width:'48px',height:'48px',borderRadius:'14px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,
+                    background: i===4 ? B.grad : `rgba(30,115,216,0.07)`,
+                    border: i===4 ? 'none' : '1.5px solid rgba(30,115,216,0.18)',
+                    boxShadow: i===4 ? '0 6px 20px rgba(30,115,216,0.3)' : 'none',
+                    color: i===4 ? 'white' : B.blue,
+                    position:'relative',overflow:'hidden',
+                  }}>
+                    {i===4 && <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 55%)'}}/>}
+                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:700,position:'relative'}}>{num}</span>
+                  </div>
                 </div>
-                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:'white',marginBottom:'10px'}}>{title}</h3>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.4)',lineHeight:1.65,flex:1,marginBottom:'20px'}}>{desc}</p>
-                <div style={{paddingTop:'16px',borderTop:'1px solid rgba(255,255,255,0.07)'}}>
-                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:600,color:B.cyan}}>{stat}</span>
+                <div style={{display:'flex',alignItems:'center',gap:'16px',flexWrap:'wrap'}}>
+                  <div style={{flex:1,minWidth:'200px'}}>
+                    <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,margin:'0 0 6px'}}>{title}</h3>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.65,margin:0}}>{desc}</p>
+                  </div>
+                  <div style={{color:B.blue,opacity:0.35,flexShrink:0}}>
+                    <Icon/>
+                  </div>
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={0.4}>
+          <div style={{textAlign:'center',marginTop:'44px'}}>
+            <GBtn href="/devis" variant="primary" size="lg">Voir ce qu'Omnira peut faire</GBtn>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
 }
-window.Pain = Pain;
+window.HowItWorks = HowItWorks;
 
-// ─── SOLUTION OVERVIEW ────────────────────────────────────────────────────────
-function Solution() {
-  const items = [
-    { Icon: Ico.Phone,    text: 'Décroche chaque appel, 24h/24' },
-    { Icon: Ico.Filter,   text: 'Filtre les demandes répétitives' },
-    { Icon: Ico.Calendar, text: 'Prend les rendez-vous automatiquement' },
-    { Icon: Ico.Chart,    text: 'Résume chaque appel pour votre équipe' },
-    { Icon: Ico.Shield,   text: "Protège votre planning et l'atelier" },
-    { Icon: Ico.Link,     text: 'Se connecte à votre agenda existant' },
-  ];
+// ─── FEATURES (12 cards) ──────────────────────────────────────────────────────
+const FEATURES_DATA = [
+  { Icon: Ico.Phone,    title: 'Répondre aux appels entrants',        desc: "L'agent décroche instantanément — 24h/24 ou selon vos horaires définis." },
+  { Icon: Ico.Filter,   title: 'Qualifier les demandes',              desc: "Il identifie le motif, l'urgence et les informations utiles dès le premier contact." },
+  { Icon: Ico.Chart,    title: 'Préparer une demande de devis',       desc: "Il collecte les infos nécessaires et transmet un résumé structuré à votre équipe." },
+  { Icon: Ico.Calendar, title: 'Prendre ou préparer un rendez-vous',  desc: "Il propose des créneaux et peut confirmer selon les disponibilités connectées." },
+  { Icon: Ico.Zap,      title: 'Filtrer les urgences',                desc: "Il détecte les situations critiques et les priorise ou les transfère selon vos règles." },
+  { Icon: Ico.Mail,     title: 'Envoyer une confirmation SMS ou email', desc: "Le client reçoit un accusé de réception automatique après son appel." },
+  { Icon: Ico.Users,    title: 'Transférer à un humain si nécessaire', desc: "Les cas sensibles, complexes ou prioritaires sont redirigés vers votre équipe avec contexte." },
+  { Icon: Ico.Clock,    title: 'Créer une demande de rappel',         desc: "L'agent note la demande et s'assure qu'elle arrive avec un résumé exploitable." },
+  { Icon: Ico.Mic,      title: 'Résumer chaque appel',                desc: "Chaque échange devient une fiche structurée : motif, infos, action recommandée." },
+  { Icon: Ico.Link,     title: 'Alimenter un agenda, CRM ou tableau', desc: "Les informations peuvent être transmises vers vos outils existants automatiquement." },
+  { Icon: Ico.Building, title: 'Identifier les motifs fréquents',     desc: "Comprendre ce qui revient le plus souvent pour mieux organiser votre équipe." },
+  { Icon: Ico.Shield,   title: 'Suivre les performances',             desc: "Appels traités, demandes qualifiées, rappels en attente — visibles dans un dashboard." },
+];
+
+function Features() {
   return (
     <section style={{padding:'96px 24px',background:B.bgL}}>
       <div style={{maxWidth:'1200px',margin:'0 auto'}}>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'80px',alignItems:'center'}} className="solution-grid">
-          {/* Left copy */}
-          <FadeIn>
-            <div>
-              <div style={{marginBottom:'20px'}}><Chip color={B.blue}>La solution Omnira</Chip></div>
-              <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,3.5vw,40px)',fontWeight:800,letterSpacing:'-0.022em',color:B.tMain,lineHeight:1.15,marginBottom:'20px'}}>
-                Une couche vocale utile,<br/>simple et rassurante.
-              </h2>
-              <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',lineHeight:1.75,color:B.tMuted,marginBottom:'40px'}}>
-                Omnira ne remplace pas votre accueil. Il l'épargne pour ce qui compte vraiment — les cas complexes, les clients fidèles, les situations qui demandent votre jugement.
-              </p>
-              <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
-                {items.map(({Icon,text})=>(
-                  <div key={text} style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                    <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,color:B.blue}}>
-                      <Icon/>
-                    </div>
-                    <span style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMain,fontWeight:500}}>{text}</span>
-                  </div>
-                ))}
+        <FadeIn>
+          <SectionHeader
+            chip="Ce qu'Omnira peut faire"
+            chipColor={B.blue}
+            title="Ce que votre agent vocal Omnira peut gérer"
+            sub=""
+          />
+        </FadeIn>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px',marginBottom:'40px'}} className="feat-grid">
+          {FEATURES_DATA.map(({Icon,title,desc},i)=>(
+            <FadeIn key={title} delay={i*0.05}>
+              <div style={{padding:'24px',borderRadius:'18px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.22s ease',cursor:'default',position:'relative',overflow:'hidden',height:'100%'}}
+                onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 16px 44px rgba(30,115,216,0.11),0 0 0 1px rgba(30,115,216,0.18)`;e.currentTarget.style.transform='translateY(-3px)';e.currentTarget.querySelector('.feat-line').style.opacity='1';}}
+                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.transform='translateY(0)';e.currentTarget.querySelector('.feat-line').style.opacity='0';}}>
+                <div className="feat-line" style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:B.grad,opacity:0,transition:'opacity 0.2s'}}/>
+                <div style={{width:'40px',height:'40px',borderRadius:'12px',display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'14px',background:B.bgL,border:`1px solid ${B.border}`,color:B.blue}}>
+                  <Icon/>
+                </div>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'8px',lineHeight:1.35}}>{title}</h3>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
               </div>
-              <div style={{marginTop:'40px'}}>
-                <GBtn href="#demo" variant="primary" size="md">Voir comment ça marche</GBtn>
-              </div>
-            </div>
-          </FadeIn>
-          {/* Right — visual diagram */}
-          <FadeIn delay={0.1}>
-            <div style={{position:'relative'}}>
-              {/* Call flow diagram */}
-              <div style={{borderRadius:'24px',padding:'32px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:'0 20px 60px rgba(16,63,115,0.1)'}}>
-                <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',textTransform:'uppercase',letterSpacing:'0.12em',color:B.tMuted,marginBottom:'24px'}}>Flux d'un appel entrant</p>
-                {[
-                  { label: 'Appel entrant', sub: 'Client appelle le garage', color: B.border, tc: B.tMuted, icon: <Ico.Phone/> },
-                  { label: 'Agent Omnira décroche', sub: 'Immédiatement, sans attente', color: B.blue+'22', tc: B.blue, icon: <Ico.Mic/>, active: true },
-                  { label: 'Qualification', sub: 'Motif, infos, type de demande', color: B.cyan+'18', tc: B.cyan, icon: <Ico.Filter/> },
-                  { label: 'Traitement automatique', sub: 'RDV, FAQ, hors-horaires', color: B.lcyan+'18', tc: B.lcyan, icon: <Ico.Calendar/> },
-                  { label: 'Résumé envoyé', sub: 'Votre équipe reçoit l\'essentiel', color: B.bgL, tc: B.tMain, icon: <Ico.Chart/> },
-                ].map(({label,sub,color,tc,icon,active},i,arr)=>(
-                  <React.Fragment key={label}>
-                    <div style={{display:'flex',alignItems:'center',gap:'14px',padding:'14px 16px',borderRadius:'12px',background:color,border:active?`1px solid ${B.blue}44`:'1px solid transparent',transition:'all 0.2s'}}>
-                      <div style={{width:'34px',height:'34px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:active?B.grad:B.bgL,color:active?'white':tc,boxShadow:active?'0 4px 14px rgba(30,115,216,0.35)':'none'}}>
-                        {icon}
-                      </div>
-                      <div>
-                        <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:active?B.tMain:B.tMain,margin:'0 0 2px'}}>{label}</p>
-                        <p style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:B.tMuted,margin:0}}>{sub}</p>
-                      </div>
-                      {active && <div style={{marginLeft:'auto',padding:'3px 10px',borderRadius:'99px',background:B.grad,fontSize:'10px',fontWeight:700,color:'white',fontFamily:'JetBrains Mono,monospace',flexShrink:0}}>IA</div>}
-                    </div>
-                    {i < arr.length-1 && <div style={{width:'2px',height:'16px',background:`linear-gradient(${B.border},${B.blue}44)`,margin:'0 auto'}}/>}
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          ))}
         </div>
+        <FadeIn delay={0.3}>
+          <div style={{padding:'20px 28px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,display:'flex',alignItems:'flex-start',gap:'16px'}}>
+            <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.1)',color:B.cyan}}>
+              <Ico.Shield/>
+            </div>
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.7,margin:0}}>
+              <strong style={{color:B.tMain}}>L'agent ne remplace pas votre équipe.</strong>{' '}
+              Il filtre, structure et transmet les demandes pour que l'humain garde les cas importants, sensibles ou complexes.
+            </p>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
 }
-window.Solution = Solution;
+window.Features = Features;
+
+// stubs
+window.Solution = () => null;

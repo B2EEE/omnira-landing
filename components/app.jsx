@@ -3,18 +3,18 @@ function App() {
     <div>
       <Nav/>
       <Hero/>
-      <ThreeBenefits/>
-      <StatsBar/>
       <Pain/>
-      <ROICalculator/>
-      <Demo/>
+      <HowItWorks/>
       <Features/>
       <Scenarios/>
-      <Testimonials/>
-      <ForWho/>
-      <HowItWorks/>
+      <Demo/>
+      <CallSummary/>
+      <Dashboard/>
+      <ROICalculator/>
+      <HumanControl/>
+      <OnBoarding/>
+      <DevisSection/>
       <FAQ/>
-      <Contact/>
       <Footer/>
     </div>
   );

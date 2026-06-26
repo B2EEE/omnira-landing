@@ -1,134 +1,122 @@
-// ─── ROI CALCULATOR ───────────────────────────────────────────────────────────
-function ROICalculator() {
-  const [missed,  setMissed]  = React.useState(10);
-  const [rate,    setRate]    = React.useState(30);
-  const [basket,  setBasket]  = React.useState(150);
-  const monthly = Math.round(missed * 4 * (rate / 100));
-  const revenue = monthly * basket;
-  const annual  = revenue * 12;
+// ─── HUMAN CONTROL ────────────────────────────────────────────────────────────
+const CONTROL_POINTS = [
+  { text: 'Les règles sont définies avec vous avant la mise en ligne' },
+  { text: "L'agent respecte votre manière de travailler et votre vocabulaire" },
+  { text: 'Les cas sensibles sont transférés à un humain selon vos critères' },
+  { text: 'Les urgences peuvent être priorisées et traitées en priorité' },
+  { text: 'Les scénarios peuvent être modifiés à tout moment' },
+  { text: 'Chaque appel peut être résumé et archivé' },
+  { text: "L'agent ne promet pas de prix ou de délai non validé par vous" },
+];
 
-  const sliders = [
-    { label:'Appels manqués / semaine', value:missed,  set:setMissed,  min:1,  max:50,  unit:'appels', color:B.blue  },
-    { label:'Taux de conversion estimé',value:rate,    set:setRate,    min:5,  max:80,  unit:'%',      color:B.cyan  },
-    { label:'Panier moyen par client',  value:basket,  set:setBasket,  min:50, max:500, unit:'€',      color:B.lcyan },
-  ];
-
+function HumanControl() {
   return (
-    <section id="roi" style={{padding:'96px 24px',background:B.bgL}}>
-      <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+    <section style={{padding:'96px 24px',background:B.bgD,position:'relative',overflow:'hidden'}}>
+      <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 60% 50% at 50% 50%,rgba(30,115,216,0.06),transparent 70%)',pointerEvents:'none'}}/>
+      <div style={{maxWidth:'1100px',margin:'0 auto',position:'relative',zIndex:1}}>
         <FadeIn>
-          <SectionHeader
-            chip="Calculateur ROI"
-            chipColor={B.blue}
-            title="Combien vous coûtent<br/>vos appels manqués ?"
-            sub="Ajustez les curseurs selon votre situation et découvrez ce qu'Omnira peut récupérer pour vous chaque mois."
-          />
-        </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start'}} className="roi-grid">
-          {/* Sliders */}
-          <FadeIn>
-            <div style={{padding:'36px',borderRadius:'24px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:'inset 0 2px 12px rgba(16,63,115,0.04)'}}>
-              <div style={{display:'flex',flexDirection:'column',gap:'32px'}}>
-                {sliders.map(({label,value,set,min,max,unit,color})=>{
-                  const pct = ((value-min)/(max-min))*100;
-                  return (
-                    <div key={label}>
-                      <div style={{display:'flex',justifyContent:'space-between',marginBottom:'12px'}}>
-                        <label style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain}}>{label}</label>
-                        <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'13px',fontWeight:700,color}}>{value}{unit}</span>
-                      </div>
-                      <input type="range" min={min} max={max} value={value} onChange={e=>set(Number(e.target.value))}
-                        className="omnira-slider" style={{'--pct':`${pct}%`,'--color':color}}/>
-                      <div style={{display:'flex',justifyContent:'space-between',marginTop:'6px'}}>
-                        <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted}}>{min}{unit}</span>
-                        <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted}}>{max}{unit}</span>
-                      </div>
+          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'80px',alignItems:'center'}} className="solution-grid">
+            {/* Left copy */}
+            <div>
+              <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Contrôle humain</Chip></div>
+              <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.5vw,38px)',fontWeight:800,letterSpacing:'-0.022em',color:'white',lineHeight:1.15,marginBottom:'20px'}}>
+                L'IA agit,<br/>mais vous gardez le contrôle.
+              </h2>
+              <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.45)',marginBottom:'36px'}}>
+                Omnira est conçu pour soulager votre équipe, pas pour remplacer brutalement l'humain. Chaque règle est définie avec vous. Chaque transfert respecte vos critères.
+              </p>
+              <GBtn href="/devis" variant="outline" size="md">Voir comment ça fonctionne</GBtn>
+            </div>
+            {/* Right: points list */}
+            <FadeIn delay={0.1}>
+              <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
+                {CONTROL_POINTS.map(({text},i)=>(
+                  <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.07)',transition:'all 0.2s ease'}}
+                    onMouseEnter={e=>{e.currentTarget.style.background='rgba(30,115,216,0.07)';e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';}}
+                    onMouseLeave={e=>{e.currentTarget.style.background='rgba(255,255,255,0.04)';e.currentTarget.style.borderColor='rgba(255,255,255,0.07)';}}>
+                    <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,marginTop:'1px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.12)',border:'1px solid rgba(47,199,214,0.25)'}}>
+                      <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                     </div>
-                  );
-                })}
-              </div>
-            </div>
-          </FadeIn>
-          {/* Results */}
-          <FadeIn delay={0.1}>
-            <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
-              {[
-                { label:'Clients récupérables / mois', value:`${monthly}`,                         unit:'clients', color:B.blue,  hi:false },
-                { label:'Revenus récupérables / mois',  value:`${revenue.toLocaleString('fr-FR')}`, unit:'€',       color:B.cyan,  hi:false },
-                { label:'Revenus récupérables / an',    value:`${annual.toLocaleString('fr-FR')}`,  unit:'€ / an',  color:B.lcyan, hi:true  },
-              ].map(({label,value,unit,color,hi})=>(
-                <div key={label} style={{padding:'24px 28px',borderRadius:'20px',position:'relative',overflow:'hidden',
-                  background: hi ? `linear-gradient(135deg,#0D3665,${B.blue})` : B.bgW,
-                  border: hi ? 'none' : `1px solid ${B.border}`,
-                  boxShadow: hi ? '0 20px 56px rgba(30,115,216,0.24)' : 'none',
-                }}>
-                  {hi && <div style={{position:'absolute',top:0,left:0,right:0,height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent)'}}/>}
-                  <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:hi?'rgba(255,255,255,0.45)':B.tMuted,marginBottom:'10px'}}>{label}</p>
-                  <div style={{display:'flex',alignItems:'baseline',gap:'8px'}}>
-                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'38px',fontWeight:700,color:hi?'white':color,lineHeight:1}}>{value}</span>
-                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'14px',fontWeight:500,color:hi?'rgba(255,255,255,0.45)':color}}>{unit}</span>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.65)',lineHeight:1.55,margin:0}}>{text}</p>
                   </div>
-                </div>
-              ))}
-              <GBtn href="#contact" variant="primary" size="md" full>
-                Commencer à récupérer ces revenus
-              </GBtn>
-            </div>
-          </FadeIn>
-        </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
 }
-window.ROICalculator = ROICalculator;
+window.HumanControl = HumanControl;
 
-// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
-const TESTIMONIALS = [
-  { name:'Patrick M.', role:'Gérant', garage:'Garage Martin — Lyon 3e', stars:5, photo:'uploads/avis photo 1.png', rotate:'-2.5deg', offsetY:'0px',   text:"On ratait facilement 4 ou 5 appels par jour pendant les créneaux chargés. Depuis qu'Omnira décroche à notre place, tout est capté et résumé. Le premier mois, on a récupéré au moins 3 RDV qu'on aurait perdus. C'est rentable immédiatement." },
-  { name:'Sylvie R.',  role:'Responsable accueil', garage:'Auto Expert Gironde — Bordeaux', stars:5, photo:'uploads/avis photo 2-4449261d.png', rotate:'1.8deg', offsetY:'40px',  text:"Ce qui m'a surprise, c'est le naturel de l'agent. Mes clients ne réalisent pas qu'ils parlent à une IA. Et moi j'ai enfin du temps pour accueillir correctement ceux qui poussent la porte — c'est ça la vraie valeur." },
-  { name:'Karim B.',   role:'Propriétaire', garage:'Mécano Plus — Marseille 13e', stars:5, photo:'uploads/avis photo 3.jpg', rotate:'-1.2deg', offsetY:'-16px', text:"Un vendredi soir à 21h, un client a appelé pour un voyant moteur. L'agent a tout capté et transmis. Le lundi on l'a rappelé en priorité — il est devenu client fidèle. Ce genre de cas, avant, on le perdait sans même le savoir." },
+// ─── ONBOARDING (7 steps) ─────────────────────────────────────────────────────
+const ONBOARDING_STEPS = [
+  { num:'01', title:'Diagnostic de vos appels',       tag:'Analyse',           desc:"On comprend vos volumes, vos horaires, vos demandes fréquentes et vos points de friction au téléphone.", Icon: Ico.Chart },
+  { num:'02', title:'Création des scénarios',          tag:'Configuration',     desc:"On définit ce que l'agent doit dire, demander, faire ou transférer selon les types d'appels.", Icon: Ico.Filter },
+  { num:'03', title:"Configuration de l'agent vocal",  tag:'IA vocale',         desc:"L'agent est adapté à votre activité, à votre vocabulaire et à votre façon de travailler.", Icon: Ico.Mic },
+  { num:'04', title:'Connexion à vos outils',          tag:'Intégration',       desc:"Agenda, CRM, Google Sheets, email, SMS ou outil métier selon votre besoin.", Icon: Ico.Link },
+  { num:'05', title:'Tests en conditions réelles',     tag:'Validation',        desc:"On vérifie les réponses, les transferts, les résumés et le comportement sur des cas réels.", Icon: Ico.Shield },
+  { num:'06', title:'Mise en ligne',                   tag:'Go live',           desc:"L'agent commence à traiter les appels selon le périmètre validé ensemble.", Icon: Ico.Zap },
+  { num:'07', title:'Suivi et optimisation',           tag:'Amélioration continue', desc:"Les scénarios peuvent être améliorés en continu selon les vrais appels reçus.", Icon: Ico.Settings },
 ];
 
-function Testimonials() {
+function OnBoarding() {
   return (
-    <section style={{padding:'96px 24px',background:B.bgD,position:'relative',overflow:'hidden'}}>
-      <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 65% 50% at 50% 50%,rgba(30,115,216,0.07),transparent 70%)',pointerEvents:'none'}}/>
-      <div style={{position:'absolute',top:0,left:0,right:0,height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)'}}/>
-      <div style={{maxWidth:'1200px',margin:'0 auto',position:'relative',zIndex:1}}>
+    <section style={{padding:'96px 24px',background:B.bgL}}>
+      <div style={{maxWidth:'900px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader
-            chip="Ils utilisent Omnira"
-            light
-            title="Des résultats concrets,<br/>des équipes soulagées."
-            sub="Trois garages indépendants. Trois situations différentes. Une même constatation : les appels ne se perdent plus."
+            chip="Mise en place"
+            chipColor={B.blue}
+            title="Une mise en place simple, cadrée et suivie"
+            sub="Pas de prérequis technique, pas de migration lourde. On configure ensemble — étape par étape."
           />
         </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'24px',paddingBottom:'16px'}} className="test-grid">
-          {TESTIMONIALS.map((t,i)=>(
-            <FadeIn key={i} delay={i*0.08}>
-              <div style={{transform:`rotate(${t.rotate})`,marginTop:t.offsetY,transition:'transform 0.3s ease'}}
-                onMouseEnter={e=>e.currentTarget.style.transform='rotate(0deg) translateY(-4px)'}
-                onMouseLeave={e=>e.currentTarget.style.transform=`rotate(${t.rotate}) translateY(0)`}>
-                <div style={{padding:'24px',borderRadius:'20px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.09)',backdropFilter:'blur(16px)',boxShadow:'0 16px 48px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08)',position:'relative',overflow:'hidden'}}>
-                  <div style={{position:'absolute',top:0,left:0,right:0,height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)'}}/>
-                  <div style={{display:'flex',gap:'2px',marginBottom:'16px'}}>{[...Array(t.stars)].map((_,j)=><Ico.Star key={j}/>)}</div>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.7,color:'rgba(255,255,255,0.82)',marginBottom:'20px'}}>"{t.text}"</p>
-                  <div style={{display:'flex',alignItems:'center',gap:'12px',paddingTop:'16px',borderTop:'1px solid rgba(255,255,255,0.07)'}}>
-                    <div style={{width:'44px',height:'44px',borderRadius:'50%',flexShrink:0,overflow:'hidden',border:'2px solid rgba(255,255,255,0.15)',boxShadow:'0 4px 12px rgba(0,0,0,0.3)'}}>
-                      <img src={t.photo} alt={t.name} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}}/>
-                    </div>
-                    <div>
-                      <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white',margin:'0 0 2px'}}>{t.name}</p>
-                      <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.32)',margin:0}}>{t.role} · {t.garage}</p>
-                    </div>
+        <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
+          {ONBOARDING_STEPS.map(({num,title,tag,desc,Icon},i)=>(
+            <FadeIn key={num} delay={i*0.07}>
+              <div style={{display:'grid',gridTemplateColumns:'56px 1fr',gap:'18px',padding:'22px 26px',borderRadius:'18px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.22s ease',position:'relative',overflow:'hidden'}}
+                onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 40px rgba(16,63,115,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.22)';}}
+                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;}}>
+                {i===5 && <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:B.grad}}/>}
+                <div style={{display:'flex',justifyContent:'center',paddingTop:'2px'}}>
+                  <div style={{
+                    width:'46px',height:'46px',borderRadius:'13px',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,
+                    background: i===5 ? B.grad : 'rgba(30,115,216,0.07)',
+                    border: i===5 ? 'none' : '1.5px solid rgba(30,115,216,0.18)',
+                    boxShadow: i===5 ? '0 6px 20px rgba(30,115,216,0.3)' : 'none',
+                    color: i===5 ? 'white' : B.blue,
+                    position:'relative',overflow:'hidden',
+                  }}>
+                    {i===5 && <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 55%)'}}/>}
+                    <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:700,position:'relative'}}>{num}</span>
                   </div>
+                </div>
+                <div style={{display:'flex',alignItems:'center',gap:'14px',flexWrap:'wrap'}}>
+                  <div style={{flex:1,minWidth:'180px'}}>
+                    <div style={{display:'flex',flexWrap:'wrap',alignItems:'center',gap:'10px',marginBottom:'6px'}}>
+                      <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,margin:0}}>{title}</h3>
+                      <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',padding:'3px 10px',borderRadius:'99px',fontWeight:600,background:'rgba(47,199,214,0.1)',color:B.cyan,border:'1px solid rgba(47,199,214,0.22)'}}>{tag}</span>
+                    </div>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>{desc}</p>
+                  </div>
+                  <div style={{color:B.blue,opacity:0.3,flexShrink:0}}><Icon/></div>
                 </div>
               </div>
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={0.45}>
+          <div style={{textAlign:'center',marginTop:'40px'}}>
+            <GBtn href="/devis" variant="primary" size="lg">Démarrer la configuration</GBtn>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
 }
-window.Testimonials = Testimonials;
+window.OnBoarding = OnBoarding;
+
+// stubs
+window.Testimonials = () => null;

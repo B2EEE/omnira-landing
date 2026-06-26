@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réserver une démo — Omnira Agents vocaux IA</title>
+  <meta name="description" content="Réservez une démo Omnira en 20 minutes. Analyse de vos appels, démo vocale adaptée à votre activité et estimation de coût."/>
+  <link rel="canonical" href="https://omniragency.com/prendre-rendez-vous"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ping { 0% { transform: scale(1); opacity: 0.75; } 100% { transform: scale(2); opacity: 0; } }
+    @keyframes ringPulse { 0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); } 50% { opacity: 1; transform: translateY(-50%) scale(1.04); } }
+    @keyframes particleDrift { from { transform: translateY(0) translateX(0); opacity: 0.2; } to { transform: translateY(-18px) translateX(8px); opacity: 0.5; } }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr !important; }
+      .solution-grid { grid-template-columns: 1fr !important; }
+      .footer-grid { grid-template-columns: 1fr !important; }
+      .nav-links { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="components/brand.jsx"></script>
+  <script type="text/babel" src="components/nav-hero.jsx"></script>
+  <script type="text/babel" src="components/pricing-bottom.jsx"></script>
+  <script type="text/babel">
+
+    const MEETING_POINTS = [
+      'Analyser vos appels manqués et les pertes actuelles',
+      "Identifier les demandes que l'agent peut gérer",
+      "Les rendez-vous ou devis que l'agent peut préparer",
+      "Le fonctionnement adapté à votre activité et vos horaires",
+      "Une estimation du coût selon votre situation",
+      "Une démo vocale adaptée à votre métier",
+    ];
+
+    function RDVPage() {
+      return (
+        <main style={{paddingTop:'80px',background:B.bgW,minHeight:'100vh'}}>
+          {/* Hero dark */}
+          <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
+            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
+            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
+
+            <div style={{maxWidth:'1100px',margin:'0 auto',position:'relative',zIndex:1}}>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'80px',alignItems:'center'}} className="hero-grid">
+                {/* Left */}
+                <div>
+                  <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Réserver une démo</Chip></div>
+                  <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,3.8vw,46px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'20px'}}>
+                    Réservez une démo<br/>Omnira
+                  </h1>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'17px',color:'rgba(255,255,255,0.48)',lineHeight:1.75,marginBottom:'36px'}}>
+                    En 20 minutes, nous analysons vos appels entrants, vos pertes actuelles et les automatisations possibles pour votre entreprise.
+                  </p>
+                  <div style={{display:'flex',flexDirection:'column',gap:'10px',marginBottom:'44px'}}>
+                    {MEETING_POINTS.map((point,i)=>(
+                      <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'10px'}}>
+                        <div style={{width:'18px',height:'18px',borderRadius:'50%',flexShrink:0,marginTop:'2px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
+                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        </div>
+                        <span style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.6)',lineHeight:1.55}}>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{display:'flex',flexWrap:'wrap',gap:'14px'}}>
+                    <div style={{display:'flex',alignItems:'center',gap:'8px',padding:'8px 16px',borderRadius:'99px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.1)'}}>
+                      <Ico.Clock/>
+                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.5)',fontWeight:500}}>20 min</span>
+                    </div>
+                    <div style={{display:'flex',alignItems:'center',gap:'8px',padding:'8px 16px',borderRadius:'99px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.1)'}}>
+                      <Ico.Shield/>
+                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.5)',fontWeight:500}}>Sans engagement</span>
+                    </div>
+                    <div style={{display:'flex',alignItems:'center',gap:'8px',padding:'8px 16px',borderRadius:'99px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.1)'}}>
+                      <Ico.Mic/>
+                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.5)',fontWeight:500}}>Démo adaptée à votre métier</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: booking card */}
+                <div>
+                  <div style={{borderRadius:'24px',padding:'40px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.1)',backdropFilter:'blur(20px)',boxShadow:'0 32px 80px rgba(0,0,0,0.3)',textAlign:'center'}}>
+                    <div style={{width:'64px',height:'64px',borderRadius:'50%',background:B.grad,display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 24px',boxShadow:'0 8px 28px rgba(30,115,216,0.4)',color:'white'}}>
+                      <Ico.Calendar/>
+                    </div>
+                    <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'20px',fontWeight:700,color:'white',marginBottom:'10px'}}>Choisissez votre créneau</h2>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.4)',lineHeight:1.65,marginBottom:'32px'}}>
+                      Sélectionnez un créneau disponible dans notre agenda. La démo se tient en visio ou par téléphone selon votre préférence.
+                    </p>
+                    {/* Calendly placeholder */}
+                    <a href="https://calendly.com/omnira" target="_blank" rel="noopener noreferrer"
+                      style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'10px',width:'100%',padding:'17px',borderRadius:'14px',border:'none',cursor:'pointer',background:B.grad,color:'white',fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,boxShadow:'0 8px 28px rgba(30,115,216,0.4)',textDecoration:'none',transition:'all 0.18s'}}
+                      onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-2px)';e.currentTarget.style.boxShadow='0 14px 36px rgba(30,115,216,0.5)';}}
+                      onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0)';e.currentTarget.style.boxShadow='0 8px 28px rgba(30,115,216,0.4)';}}>
+                      <Ico.Calendar/>
+                      Choisir un créneau
+                    </a>
+                    <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.22)',marginTop:'16px'}}>
+                      Lien de réservation — à configurer avec votre outil de planning
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Alternative: form */}
+          <section style={{padding:'80px 24px',background:B.bgL}}>
+            <div style={{maxWidth:'600px',margin:'0 auto',textAlign:'center'}}>
+              <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(22px,3vw,30px)',fontWeight:800,color:B.tMain,letterSpacing:'-0.02em',marginBottom:'14px'}}>
+                Préférez-vous remplir un formulaire ?
+              </h2>
+              <p style={{fontFamily:'Inter,sans-serif',fontSize:'15px',color:B.tMuted,lineHeight:1.7,marginBottom:'32px'}}>
+                Décrivez votre besoin et nous vous recontactons dans les 24 heures pour organiser la démo à votre convenance.
+              </p>
+              <GBtn href="/devis" variant="primary" size="lg">Demander un devis et une démo</GBtn>
+            </div>
+          </section>
+        </main>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Nav/>
+          <RDVPage/>
+          <Footer/>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>

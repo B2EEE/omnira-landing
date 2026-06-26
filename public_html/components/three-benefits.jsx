@@ -1,115 +1,50 @@
-// ─── THREE BENEFITS ───────────────────────────────────────────────────────────
-
-function TBIcon1() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.5 12 19.79 19.79 0 011.49 3.37 2 2 0 013.48 1h3a2 2 0 012 1.72c.127.96.361 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-    </svg>
-  );
-}
-function TBIcon2() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 11l3 3L22 4"/>
-      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-    </svg>
-  );
-}
-function TBIcon3() {
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 2L11 13"/>
-      <path d="M22 2L15 22l-4-9-9-4 20-7z"/>
-    </svg>
-  );
-}
-
-const THREE_BENEFITS_DATA = [
-  { num: '01', title: 'Il décroche', desc: 'Omnira répond instantanément quand votre équipe est occupée ou hors horaires. Zéro appel perdu.', Icon: TBIcon1 },
-  { num: '02', title: 'Il qualifie', desc: "Il récupère le motif, les coordonnées, le véhicule, l'urgence et les disponibilités du client.", Icon: TBIcon2 },
-  { num: '03', title: 'Il transmet', desc: "Votre équipe reçoit un résumé structuré avec l'action à faire : rappeler, valider, préparer un devis ou confirmer un RDV.", Icon: TBIcon3 },
+// ─── PAIN SECTION ─────────────────────────────────────────────────────────────
+const PAIN_CARDS = [
+  { Icon: Ico.Phone,    title: 'Appels manqués',            desc: "Pendant une réunion, un chantier ou une intervention, personne ne décroche. Le client raccroche et n'essaie plus." },
+  { Icon: Ico.Users,    title: 'Équipe interrompue',         desc: "Des appels simples — horaires, devis, disponibilités — coupent le rythme de l'équipe plusieurs fois par heure." },
+  { Icon: Ico.Filter,   title: 'Devis oubliés',             desc: "Les demandes captées rapidement finissent souvent sans suite. Faute de temps pour les retraiter proprement." },
+  { Icon: Ico.Calendar, title: 'Rendez-vous non pris',       desc: "Un client prêt à acheter n'arrive pas à planifier. Il se décourage et choisit un concurrent disponible." },
+  { Icon: Ico.Zap,      title: 'Demandes mal qualifiées',    desc: "Les informations manquent ou sont mal notées. L'équipe rappelle sans contexte et repart à zéro." },
+  { Icon: Ico.Clock,    title: 'Appels hors horaires perdus', desc: "Vos clients appellent aussi le soir et le week-end. Ces appels arrivent dans le vide — et disparaissent sans trace." },
+  { Icon: Ico.Chart,    title: 'Informations mal notées',    desc: "Post-it, notes vocales, mémos volants : le suivi des demandes repose sur la mémoire, pas sur un système." },
+  { Icon: Ico.Shield,   title: 'Clients qui attendent trop', desc: "Une attente trop longue à la première prise de contact suffit à faire partir un client vers la concurrence." },
 ];
 
-function ThreeBenefits() {
+function Pain() {
   return (
-    <section style={{padding:'64px 24px 56px',background:B.bgD2}}>
-      <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+    <section id="pain" style={{padding:'96px 24px',background:B.bgD}}>
+      <div style={{maxWidth:'1200px',margin:'0 auto'}}>
         <FadeIn>
-          <p style={{textAlign:'center',fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.16em',color:B.cyan,marginBottom:'40px'}}>
-            Comment ça fonctionne
-          </p>
+          <SectionHeader
+            chip="Le problème"
+            chipColor={B.cyan}
+            light
+            title="Le téléphone reste votre canal le plus rentable…<br/>mais souvent le moins bien géré."
+            sub="Chaque appel peut devenir un rendez-vous, un devis ou une opportunité. Mais lorsqu'il arrive au mauvais moment, il dérange l'équipe, se perd ou reste mal traité."
+          />
         </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'20px'}} className="feat-grid">
-          {THREE_BENEFITS_DATA.map(({num,title,desc,Icon},i)=>(
-            <FadeIn key={num} delay={i*0.1}>
-              <div style={{
-                padding:'32px 28px',
-                borderRadius:'20px',
-                background:'rgba(255,255,255,0.03)',
-                border:'1px solid rgba(47,199,214,0.16)',
-                boxShadow:'0 8px 32px rgba(0,0,0,0.25)',
-                height:'100%',
-              }}>
-                <div style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'20px'}}>
-                  <div style={{
-                    width:'44px',height:'44px',borderRadius:'12px',flexShrink:0,
-                    display:'flex',alignItems:'center',justifyContent:'center',
-                    background:`linear-gradient(135deg,${B.blue},${B.cyan})`,
-                    color:'white',
-                    boxShadow:`0 6px 18px rgba(30,115,216,0.35)`,
-                  }}>
-                    <Icon/>
-                  </div>
-                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',fontWeight:700,color:B.cyan,textTransform:'uppercase',letterSpacing:'0.12em'}}>
-                    {num}
-                  </span>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'16px'}} className="pain-grid">
+          {PAIN_CARDS.map(({Icon,title,desc},i)=>(
+            <FadeIn key={title} delay={i*0.06}>
+              <div style={{display:'flex',flexDirection:'column',padding:'24px',borderRadius:'18px',position:'relative',overflow:'hidden',background:'rgba(255,255,255,0.03)',border:'1px solid rgba(255,255,255,0.07)',boxShadow:'0 8px 32px rgba(0,0,0,0.2)',transition:'all 0.22s ease',cursor:'default',height:'100%'}}
+                onMouseEnter={e=>{e.currentTarget.style.transform='translateY(-4px)';e.currentTarget.style.boxShadow='0 20px 50px rgba(0,0,0,0.3),0 0 0 1px rgba(30,115,216,0.22)';}}
+                onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0)';e.currentTarget.style.boxShadow='0 8px 32px rgba(0,0,0,0.2)';}}>
+                <div style={{position:'absolute',top:0,left:0,right:0,height:'1px',background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent)'}}/>
+                <div style={{width:'38px',height:'38px',borderRadius:'11px',display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'16px',background:'rgba(30,115,216,0.12)',border:'1px solid rgba(30,115,216,0.2)',color:B.blue,flexShrink:0}}>
+                  <Icon/>
                 </div>
-                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'20px',fontWeight:800,color:'white',marginBottom:'12px',letterSpacing:'-0.015em'}}>
-                  {title}
-                </h3>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',lineHeight:1.7,color:'rgba(255,255,255,0.48)'}}>
-                  {desc}
-                </p>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:'white',marginBottom:'8px',lineHeight:1.3}}>{title}</h3>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.4)',lineHeight:1.65,flex:1,margin:0}}>{desc}</p>
               </div>
             </FadeIn>
           ))}
         </div>
-
-        {/* ── Urgent call note ── */}
-        <FadeIn delay={0.3}>
-          <div style={{
-            marginTop:'28px',
-            padding:'20px 28px',
-            borderRadius:'16px',
-            background:'rgba(30,115,216,0.06)',
-            border:'1px solid rgba(47,199,214,0.18)',
-            display:'flex',
-            alignItems:'flex-start',
-            gap:'16px',
-          }}>
-            <div style={{
-              width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,
-              display:'flex',alignItems:'center',justifyContent:'center',
-              background:'rgba(47,199,214,0.12)',color:B.cyan,
-            }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-            </div>
-            <div>
-              <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:'white',marginBottom:'4px'}}>
-                Et si c'est urgent ?
-              </p>
-              <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.65,color:'rgba(255,255,255,0.48)',margin:0}}>
-                Omnira détecte les situations critiques et peut transférer directement à votre équipe avec le contexte —
-                panne bloquante, client mécontent, véhicule immobilisé, client VIP, assurance ou expertise.
-                Rien n'est laissé sans suite.
-              </p>
-            </div>
-          </div>
-        </FadeIn>
       </div>
     </section>
   );
 }
-window.ThreeBenefits = ThreeBenefits;
+window.Pain = Pain;
+
+// stubs pour compatibilité
+window.ThreeBenefits = () => null;
+window.StatsBar = () => null;

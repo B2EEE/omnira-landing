@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Omnira — Réceptionniste IA pour garages | Ne ratez plus aucun appel</title>
-  <meta name="description" content="Omnira est un réceptionniste IA pour garages : il répond aux appels, filtre les urgences, prend les rendez-vous et envoie un résumé clair à votre équipe. Opérationnel en 15 min."/>
+  <title>Omnira — Agents vocaux IA pour appels, rendez-vous et devis</title>
+  <meta name="description" content="Omnira déploie des agents vocaux IA pour répondre aux appels, qualifier les demandes, prendre des rendez-vous, préparer des devis et transmettre des résumés clairs à vos équipes."/>
   <link rel="canonical" href="https://omniragency.com/"/>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Omnira — Réceptionniste IA pour garages"/>
-  <meta property="og:description" content="Ne ratez plus aucun appel client. Omnira répond, qualifie, prend les RDV et résume chaque appel pour votre garage."/>
+  <meta property="og:title" content="Omnira — Agents vocaux IA pour appels, rendez-vous et devis"/>
+  <meta property="og:description" content="Omnira déploie des agents vocaux IA pour répondre aux appels, qualifier les demandes et transmettre des résumés clairs à vos équipes."/>
   <meta property="og:image" content="https://omniragency.com/uploads/omnira-og-image.png"/>
   <meta property="og:url" content="https://omniragency.com/"/>
   <meta property="og:type" content="website"/>
@@ -17,8 +17,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Omnira — Réceptionniste IA pour garages"/>
-  <meta name="twitter:description" content="Votre garage ne rate plus aucun appel, même quand l'atelier est occupé."/>
+  <meta name="twitter:title" content="Omnira — Agents vocaux IA pour appels, rendez-vous et devis"/>
+  <meta name="twitter:description" content="Des agents vocaux IA qui transforment vos appels en rendez-vous, devis et opportunités."/>
   <meta name="twitter:image" content="https://omniragency.com/uploads/omnira-og-image.png"/>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -125,86 +125,10 @@
       .summary-grid { grid-template-columns: 1fr !important; }
     }
 
-    /* ── Tweaks panel ── */
-    #tweaks-panel {
-      display: none;
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      background: white;
-      border: 1px solid #D8E6F2;
-      border-radius: 16px;
-      padding: 20px;
-      width: 260px;
-      box-shadow: 0 20px 60px rgba(16,63,115,0.14);
-      font-family: Inter, sans-serif;
-    }
-    #tweaks-panel.open { display: block; }
-    #tweaks-panel h4 { font-family: Sora, sans-serif; font-size: 13px; font-weight: 700; color: #0B1726; margin-bottom: 16px; }
-    .tweak-row { margin-bottom: 14px; }
-    .tweak-row label { display: block; font-size: 11px; font-weight: 600; color: #5B7A9B; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
-    .tweak-row select, .tweak-row input[type=color] { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #D8E6F2; font-size: 13px; color: #0B1726; background: #F0F7FF; cursor: pointer; }
-    .tweak-row input[type=color] { height: 36px; padding: 2px 4px; }
   </style>
 </head>
 <body>
   <div id="root"></div>
-
-  <!-- Tweaks panel (outside React) -->
-  <div id="tweaks-panel">
-    <h4>Tweaks</h4>
-    <div class="tweak-row">
-      <label>Couleur principale</label>
-      <input type="color" id="tw-color" value="#1E73D8" oninput="applyTweak('color', this.value)"/>
-    </div>
-    <div class="tweak-row">
-      <label>Typographie titres</label>
-      <select id="tw-font" onchange="applyTweak('font', this.value)">
-        <option value="Sora">Sora (défaut)</option>
-        <option value="Inter">Inter</option>
-        <option value="'DM Sans'">DM Sans</option>
-      </select>
-    </div>
-    <div class="tweak-row">
-      <label>Mode</label>
-      <select id="tw-mode" onchange="applyTweak('mode', this.value)">
-        <option value="default">Standard</option>
-        <option value="compact">Compact</option>
-      </select>
-    </div>
-  </div>
-
-  <script>
-    // Tweaks system
-    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-      "color": "#d71d1d",
-      "font": "'DM Sans'",
-      "mode": "compact"
-    }/*EDITMODE-END*/;
-
-    window.addEventListener('message', e => {
-      if (e.data?.type === '__activate_edit_mode')   document.getElementById('tweaks-panel').classList.add('open');
-      if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('open');
-    });
-    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-
-    function applyTweak(key, val) {
-      const edits = { [key]: val };
-      if (key === 'font') {
-        document.querySelectorAll('h1,h2,h3,h4').forEach(el => el.style.fontFamily = val + ',sans-serif');
-      }
-      window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
-    }
-
-    // Apply saved tweaks on load
-    const saved = TWEAK_DEFAULTS;
-    if (saved.font !== 'Sora') {
-      document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('h1,h2,h3,h4').forEach(el => el.style.fontFamily = saved.font + ',sans-serif');
-      });
-    }
-  </script>
 
   <!-- Components loaded in dependency order -->
   <script type="text/babel" src="components/brand.jsx"></script>
