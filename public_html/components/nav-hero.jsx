@@ -108,7 +108,7 @@ function Nav() {
             <GBtn href="/devis" variant="primary"  size="md" full onClick={()=>setOpen(false)}>Demander un devis</GBtn>
           </div>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,textAlign:'center',marginTop:'20px'}}>
-            Agents vocaux IA pour entreprises locales
+            Omnira · Automatisation des appels pour PME
           </p>
         </div>
       )}
@@ -339,7 +339,7 @@ function Hero() {
         {/* Left copy */}
         <div>
           <div style={{marginBottom:'20px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s'}}>
-            <Chip color={B.cyan}>Agents vocaux IA · PME en France</Chip>
+            <Chip color={B.cyan}>Agent Omnira · PME en France</Chip>
           </div>
           <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(30px,3.8vw,50px)',fontWeight:800,lineHeight:1.1,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
             Vos appels non traités coûtent de l'argent. Omnira les transforme en{' '}
@@ -392,7 +392,7 @@ function Hero() {
                 style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.28)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.1)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
                 onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.55)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.3)';}}
                 onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.28)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.1)';}}>
-                ↓ Écouter un exemple vocal
+                ↓ Écouter un exemple
               </a>
             </div>
           </div>

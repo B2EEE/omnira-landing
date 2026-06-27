@@ -17,7 +17,7 @@ function HowItWorks() {
             chip="Fonctionnement"
             chipColor={B.blue}
             title="De l'appel entrant au résumé exploitable,<br/>Omnira gère tout le parcours."
-            sub="Un agent vocal IA qui accompagne chaque appel de l'accueil au résumé, selon vos règles."
+            sub="Un agent qui accompagne chaque appel de l'accueil au résumé, selon vos règles."
           />
         </FadeIn>
         <FadeIn delay={0.08}>

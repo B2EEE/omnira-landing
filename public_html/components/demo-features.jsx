@@ -96,7 +96,7 @@ function Demo() {
             chip="Démo"
             chipColor={B.blue}
             title="Écoutez Omnira en situation réelle"
-            sub="Quatre scénarios vocaux par secteur d'activité. Chaque démo illustre comment l'agent gère un appel réel de A à Z."
+            sub="Quatre scénarios par secteur d'activité. Chaque démo illustre comment l'agent gère un appel de A à Z."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'20px',marginBottom:'40px'}} className="solution-grid">

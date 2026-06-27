@@ -17,7 +17,7 @@ function HumanControl() {
             <div>
               <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Contrôle humain</Chip></div>
               <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.5vw,38px)',fontWeight:800,letterSpacing:'-0.022em',color:'white',lineHeight:1.15,marginBottom:'20px'}}>
-                L'IA agit,<br/>mais vous gardez le contrôle.
+                Omnira agit,<br/>mais vous gardez le contrôle.
               </h2>
               <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.45)',marginBottom:'36px'}}>
                 Omnira est conçu pour soulager votre équipe, pas pour remplacer brutalement l'humain. Chaque règle est définie avec vous. Chaque transfert respecte vos critères.
