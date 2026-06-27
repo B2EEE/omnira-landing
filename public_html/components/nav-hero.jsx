@@ -342,9 +342,9 @@ function Hero() {
             <Chip color={B.cyan}>Agents vocaux IA · PME en France</Chip>
           </div>
           <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(30px,3.8vw,50px)',fontWeight:800,lineHeight:1.1,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
-            Des agents vocaux IA qui transforment vos appels en{' '}
+            Vos appels non traités coûtent de l'argent. Omnira les transforme en{' '}
             <span style={{background:`linear-gradient(135deg,${B.blue},${B.cyan},${B.lcyan})`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-              rendez-vous, devis et opportunités.
+              rendez-vous et devis.
             </span>
           </h1>
           <p style={{fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.5)',maxWidth:'500px',fontFamily:'Inter,sans-serif',marginBottom:'32px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s'}}>
