@@ -329,7 +329,7 @@ function Hero() {
     'Réponse 24/7 ou selon vos horaires',
     "Demandes qualifiées avant d'interrompre l'équipe",
     'Rendez-vous, devis et rappels mieux suivis',
-    'Résumé clair après chaque appel',
+    'Tout centralisé dans un dashboard : activité, appels traités, résultats',
   ];
 
   return (
