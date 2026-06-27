@@ -22,7 +22,7 @@ function HowItWorks() {
         </FadeIn>
         <FadeIn delay={0.08}>
           <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'16px'}} className="how-grid">
-            {HOW_STEPS.map(({num,title,desc,Icon},i)=>(
+            {HOW_STEPS.map(({num,title,desc,Icon,extra},i)=>(
               <div key={num} style={{
                 padding:'22px',borderRadius:'18px',
                 background: i===5 ? B.grad : B.bgW,
