@@ -381,12 +381,20 @@ function Hero() {
                 <GBtn href="/devis" variant="outline" size="md">Demander un devis personnalisé</GBtn>
               </MagneticButton>
             </div>
-            <a href="#roi"
-              style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.38)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.15)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
-              onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.65)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.35)';}}
-              onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.38)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.15)';}}>
-              → Calculer le coût de mes appels manqués
-            </a>
+            <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+              <a href="#roi"
+                style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.38)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.15)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
+                onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.65)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.35)';}}
+                onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.38)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.15)';}}>
+                → Calculer le coût de mes appels manqués
+              </a>
+              <a href="#demo"
+                style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.28)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.1)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
+                onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.55)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.3)';}}
+                onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.28)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.1)';}}>
+                ↓ Écouter un exemple vocal
+              </a>
+            </div>
           </div>
           {/* Note contrôle humain */}
           <div style={{marginTop:'20px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.52s'}}>

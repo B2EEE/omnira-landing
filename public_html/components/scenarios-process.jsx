@@ -464,6 +464,27 @@ function Dashboard() {
             </p>
           </div>
         </FadeIn>
+        {/* Integrations bar */}
+        <FadeIn delay={0.32}>
+          <div style={{marginTop:'28px',textAlign:'center'}}>
+            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.22)',textTransform:'uppercase',letterSpacing:'0.1em',marginBottom:'14px'}}>Compatible avec vos outils existants</p>
+            <div style={{display:'flex',alignItems:'center',justifyContent:'center',flexWrap:'wrap',gap:'8px'}}>
+              {[
+                {name:'Google Calendar',color:'#4285F4'},
+                {name:'Google Sheets',  color:'#34A853'},
+                {name:'CRM',            color:'#9333ea'},
+                {name:'Email',          color:'#1E73D8'},
+                {name:'SMS',            color:'#2FC7D6'},
+                {name:'WhatsApp',       color:'#25D366'},
+              ].map(({name,color})=>(
+                <div key={name} style={{padding:'6px 14px',borderRadius:'99px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)',display:'flex',alignItems:'center',gap:'6px'}}>
+                  <div style={{width:'6px',height:'6px',borderRadius:'50%',background:color,flexShrink:0}}/>
+                  <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',fontWeight:500,color:'rgba(255,255,255,0.42)'}}>{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -493,7 +514,7 @@ function ROICalculator() {
   ];
 
   return (
-    <section id="roi" style={{padding:'96px 24px',background:B.bgL}}>
+    <section id="roi" style={{padding:'48px 24px 96px',background:B.bgW}}>
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <FadeIn>
           <SectionHeader

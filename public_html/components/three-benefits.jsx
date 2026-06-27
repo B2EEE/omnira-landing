@@ -20,8 +20,8 @@ function Pain() {
           <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(22px,3.2vw,36px)',fontWeight:800,letterSpacing:'-0.024em',color:'white',lineHeight:1.25,textAlign:'center',marginBottom:'24px'}}>
             Le téléphone reste votre canal le plus rentable…<br/>mais souvent le moins bien géré.
           </h2>
-          <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.78,textAlign:'center',maxWidth:'700px',margin:'0 auto 40px'}}>
-            Dans une entreprise locale, les meilleurs appels arrivent souvent au pire moment&nbsp;: pendant un service, une intervention, une livraison, une urgence client ou hors horaires. Résultat&nbsp;: des prospects disparaissent sans laisser de trace, des demandes restent mal notées et l'équipe perd du temps à rattraper les informations.
+          <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.78,textAlign:'center',maxWidth:'620px',margin:'0 auto 40px'}}>
+            Dans une PME, les meilleurs appels arrivent au pire moment — et les prospects manqués ne rappellent jamais.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>

@@ -1,12 +1,9 @@
 // ─── HUMAN CONTROL ────────────────────────────────────────────────────────────
 const CONTROL_POINTS = [
   { text: 'Les règles sont définies avec vous avant la mise en ligne' },
-  { text: "L'agent respecte votre manière de travailler et votre vocabulaire" },
   { text: 'Les cas sensibles sont transférés à un humain selon vos critères' },
-  { text: 'Les urgences peuvent être priorisées et traitées en priorité' },
   { text: 'Les scénarios peuvent être modifiés à tout moment' },
   { text: 'Chaque appel peut être résumé et archivé' },
-  { text: "L'agent ne promet pas de prix ou de délai non validé par vous" },
 ];
 
 function HumanControl() {
@@ -82,6 +79,13 @@ const ONBOARDING_PHASES = [
   },
 ];
 
+const ONBOARDING_SIMPLE = [
+  { num:'01', title:'Diagnostic',        desc:"On analyse vos appels, vos horaires et vos points de friction.", color: B.blue },
+  { num:'02', title:'Configuration',     desc:"On crée les scénarios, les règles et les connexions adaptés à votre activité.", color: B.cyan },
+  { num:'03', title:'Tests',             desc:"On vérifie les réponses, les transferts et les résumés avant mise en ligne.", color: B.lcyan },
+  { num:'04', title:'Lancement & suivi', desc:"On démarre, on suit les premiers appels et on ajuste en continu.", color: '#4ade80' },
+];
+
 function OnBoarding() {
   return (
     <section style={{padding:'96px 24px',background:B.bgL}}>
@@ -91,44 +95,26 @@ function OnBoarding() {
             chip="Mise en place"
             chipColor={B.blue}
             title="Une mise en place simple,<br/>cadrée et suivie"
-            sub="Pas de prérequis technique, pas de migration lourde. On configure ensemble — phase par phase."
+            sub="Pas de prérequis technique. On configure ensemble — phase par phase."
           />
         </FadeIn>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'16px'}} className="how-grid">
-          {ONBOARDING_PHASES.map(({num,tag,title,desc,details,Icon,color},i)=>(
-            <FadeIn key={num} delay={i*0.1}>
-              <div style={{
-                borderRadius:'20px',padding:'24px',
-                background:B.bgW,border:`1px solid ${B.border}`,
-                boxShadow:B.shadow,height:'100%',
-                transition:'all 0.22s ease',position:'relative',overflow:'hidden',
-              }}
-                onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 16px 40px rgba(30,115,216,0.1)`;e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-3px)';}}
-                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
-                <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:`linear-gradient(90deg,${color},${color}44)`}}/>
-                <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'16px'}}>
-                  <div style={{width:'40px',height:'40px',borderRadius:'12px',display:'flex',alignItems:'center',justifyContent:'center',background:`${color}14`,border:`1.5px solid ${color}28`,color}}>
-                    <Icon/>
-                  </div>
-                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'22px',fontWeight:700,color:`${B.border}`,letterSpacing:'-0.04em'}}>{num}</span>
+        <FadeIn delay={0.08}>
+          <div style={{position:'relative',display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'0'}} className="how-grid">
+            {/* Ligne de connexion */}
+            <div style={{position:'absolute',top:'19px',left:'calc(12.5% + 4px)',right:'calc(12.5% + 4px)',height:'2px',background:`linear-gradient(90deg,${B.blue},${B.cyan},${B.lcyan},'#4ade80')`,opacity:0.2,zIndex:0,pointerEvents:'none'}}/>
+            {ONBOARDING_SIMPLE.map(({num,title,desc,color},i)=>(
+              <div key={num} style={{padding:'0 20px',textAlign:'center',position:'relative',zIndex:1}}>
+                <div style={{width:'40px',height:'40px',borderRadius:'50%',background:B.bgW,border:`2px solid ${color}55`,display:'flex',alignItems:'center',justifyContent:'center',margin:'0 auto 18px',boxShadow:`0 0 0 4px ${color}0d`}}>
+                  <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'12px',fontWeight:700,color}}>{num}</span>
                 </div>
-                <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',padding:'3px 10px',borderRadius:'99px',fontWeight:600,background:`${color}12`,color,border:`1px solid ${color}28`,display:'inline-block',marginBottom:'12px'}}>{tag}</span>
-                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,marginBottom:'8px'}}>{title}</h3>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,marginBottom:'14px'}}>{desc}</p>
-                <div style={{display:'flex',flexDirection:'column',gap:'5px'}}>
-                  {details.map((d,j)=>(
-                    <div key={j} style={{display:'flex',alignItems:'flex-start',gap:'7px'}}>
-                      <div style={{width:'4px',height:'4px',borderRadius:'50%',background:color,flexShrink:0,marginTop:'6px'}}/>
-                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:B.tMuted,lineHeight:1.5}}>{d}</span>
-                    </div>
-                  ))}
-                </div>
+                <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,marginBottom:'8px'}}>{title}</h3>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.65,margin:0}}>{desc}</p>
               </div>
-            </FadeIn>
-          ))}
-        </div>
-        <FadeIn delay={0.4}>
-          <div style={{textAlign:'center',marginTop:'40px'}}>
+            ))}
+          </div>
+        </FadeIn>
+        <FadeIn delay={0.35}>
+          <div style={{textAlign:'center',marginTop:'48px'}}>
             <GBtn href="/devis" variant="primary" size="lg">Demander un devis personnalisé</GBtn>
           </div>
         </FadeIn>

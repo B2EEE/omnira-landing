@@ -2,8 +2,8 @@
 const HOW_STEPS = [
   { num:'01', title:"L'appel arrive",                    Icon: Ico.Phone,    desc:"Le client appelle votre entreprise." },
   { num:'02', title:"L'agent Omnira répond",             Icon: Ico.Mic,      desc:"Il accueille avec un discours adapté à votre activité et vos horaires." },
-  { num:'03', title:"Il comprend la demande",            Icon: Ico.Filter,   desc:"Il identifie le motif, l'urgence, le service concerné et les informations utiles." },
-  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis." },
+  { num:'03', title:"Il comprend la demande",            Icon: Ico.Filter,   desc:"Il identifie le motif, l'urgence, le service concerné et les informations utiles.", extra:"Les urgences sont signalées et remontent en priorité selon vos critères." },
+  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis.", extra:"Les cas sensibles ne sont jamais traités seuls — transfert humain selon vos critères." },
   { num:'05', title:"Votre équipe reçoit un résumé",     Icon: Ico.Chart,    desc:"Chaque appel devient une information claire et exploitable envoyée à votre équipe." },
   { num:'06', title:"Vous suivez les résultats",         Icon: Ico.Zap,      desc:"Appels reçus, motifs fréquents, rendez-vous et devis suivis dans votre dashboard." },
 ];
@@ -42,6 +42,12 @@ function HowItWorks() {
                 </div>
                 <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:i===5?'white':B.tMain,marginBottom:'7px',lineHeight:1.35}}>{title}</h3>
                 <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:i===5?'rgba(255,255,255,0.65)':B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
+                {extra && (
+                  <div style={{display:'flex',alignItems:'flex-start',gap:'6px',marginTop:'9px',padding:'7px 10px',borderRadius:'8px',background:i===5?'rgba(255,255,255,0.08)':'rgba(30,115,216,0.06)',border:`1px solid ${i===5?'rgba(255,255,255,0.12)':'rgba(30,115,216,0.14)'}`}}>
+                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" style={{flexShrink:0,marginTop:'2px'}}><path d="M1 4.5l2.5 2.5 4.5-5" stroke={i===5?'rgba(255,255,255,0.6)':B.blue} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                    <span style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:i===5?'rgba(255,255,255,0.5)':B.blue,lineHeight:1.5,fontWeight:500}}>{extra}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -69,69 +75,7 @@ const FEATURES_DATA = [
   { Icon: Ico.Link,     title: 'Alimenter vos outils',              desc: "Agenda, CRM, Google Sheets, email, SMS ou outil métier selon votre besoin." },
 ];
 
-function Features() {
-  return (
-    <section className="section-cap-top" style={{padding:'72px 24px',background:B.bgL,position:'relative'}}>
-      <div style={{maxWidth:'1100px',margin:'0 auto'}}>
-        <FadeIn>
-          <SectionHeader
-            chip="Ce qu'Omnira fait"
-            chipColor={B.blue}
-            title="Ce que votre équipe n'a<br/>plus besoin de gérer seule"
-            sub="Chaque action est définie avec vous — l'agent agit dans les limites de vos règles."
-          />
-        </FadeIn>
-        <FadeIn delay={0.08}>
-          <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'14px'}} className="feat-grid">
-            {FEATURES_DATA.map(({Icon,title,desc},i)=>(
-              <div key={i} style={{
-                padding:'20px',borderRadius:'16px',
-                background:B.bgW,border:`1px solid ${B.border}`,
-                boxShadow:B.shadow,
-                transition:'all 0.22s ease',
-                display:'flex',flexDirection:'column',gap:'12px',
-              }}
-                onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 36px rgba(30,115,216,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-2px)';}}
-                onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
-                <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',border:'1.5px solid rgba(30,115,216,0.14)',color:B.blue,flexShrink:0}}>
-                  <Icon/>
-                </div>
-                <div>
-                  <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'5px',lineHeight:1.3}}>{title}</h3>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.18}>
-          <div style={{marginTop:'28px',display:'flex',flexDirection:'column',gap:'12px'}}>
-            <div style={{padding:'14px 20px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'12px'}}>
-              <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
-              <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}>
-                <strong style={{color:B.tMain}}>L'agent ne remplace pas votre équipe.</strong>{' '}
-                Il filtre, structure et transmet — les cas importants restent pour l'humain.
-              </p>
-            </div>
-            <div style={{padding:'18px 22px',borderRadius:'14px',background:`linear-gradient(135deg,${B.bgD} 0%,#0E1C35 100%)`,border:'1px solid rgba(30,115,216,0.22)',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'20px',flexWrap:'wrap'}}>
-              <div style={{display:'flex',alignItems:'center',gap:'14px'}}>
-                <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:B.grad,boxShadow:'0 4px 14px rgba(30,115,216,0.35)'}}>
-                  <Ico.Zap/>
-                </div>
-                <div>
-                  <p style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:'white',margin:'0 0 2px'}}>Chaque déploiement est adapté à votre activité</p>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.38)',margin:0}}>Vos horaires, vos outils, vos règles — tout est configuré avec vous.</p>
-                </div>
-              </div>
-              <GBtn href="/devis" variant="outline" size="sm">Demander un devis personnalisé</GBtn>
-            </div>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
+function Features() { return null; }
 window.Features = Features;
 
 // stubs
