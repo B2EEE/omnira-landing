@@ -50,12 +50,8 @@ function Nav() {
           ))}
         </div>
 
-        {/* Desktop right */}
+        {/* Desktop right — un seul CTA, "Écouter une démo" est dans les liens nav */}
         <div style={{display:'flex',alignItems:'center',gap:'10px'}} className="nav-links">
-          <a href="/demo"
-            style={{fontSize:'13px',fontWeight:600,fontFamily:'Sora,sans-serif',color:light?'rgba(255,255,255,0.5)':B.tMuted,textDecoration:'none',transition:'color 0.15s'}}
-            onMouseEnter={e=>e.currentTarget.style.color=light?'white':B.blue}
-            onMouseLeave={e=>e.currentTarget.style.color=light?'rgba(255,255,255,0.5)':B.tMuted}>Écouter une démo</a>
           <GBtn href="/devis" variant={light?'outline':'primary'} size="sm">Demander un devis</GBtn>
         </div>
 
@@ -139,11 +135,79 @@ function HeroBg() {
 }
 
 // ─── HERO VISUAL (animated call processing) ───────────────────────────────────
-function HeroVisual() {
+const SECTOR_DATA = {
+  restaurant: {
+    label: 'Restaurant',
+    steps: [
+      { label: 'Appel entrant', sub: 'Brasserie du Lac · 20h14' },
+      { label: 'Agent Omnira répond', sub: 'Réponse en 0.7 seconde' },
+      { label: 'Demande identifiée', sub: 'Réservation × 4 personnes' },
+      { label: 'Action exécutée', sub: 'Créneau préparé · samedi 20h' },
+      { label: 'Résumé transmis', sub: 'Équipe notifiée automatiquement' },
+    ],
+    summary: [
+      { l:'Client', v:'Martin G. — 06 XX XX XX XX' },
+      { l:'Motif', v:'Réservation restaurant' },
+      { l:'Date souhaitée', v:'Samedi 28 juin · 20h' },
+      { l:'Action', v:'Confirmer la réservation' },
+    ],
+  },
+  garage: {
+    label: 'Garage',
+    steps: [
+      { label: 'Appel entrant', sub: 'Garage Auto Roussel · 09h47' },
+      { label: 'Agent Omnira répond', sub: 'Réponse en 0.6 seconde' },
+      { label: 'Demande identifiée', sub: 'Devis freins · Peugeot 308' },
+      { label: 'Action exécutée', sub: "Demande transmise à l'atelier" },
+      { label: 'Résumé transmis', sub: "Chef d'atelier notifié" },
+    ],
+    summary: [
+      { l:'Client', v:'Dupont J. — 06 XX XX XX XX' },
+      { l:'Motif', v:'Devis freins avant' },
+      { l:'Véhicule', v:'Peugeot 308 · 2019' },
+      { l:'Action', v:'Rappeler pour chiffrer' },
+    ],
+  },
+  artisan: {
+    label: 'Artisan',
+    steps: [
+      { label: 'Appel entrant', sub: 'Plomberie & Chauffage · 14h22' },
+      { label: 'Agent Omnira répond', sub: 'Réponse en 0.8 seconde' },
+      { label: 'Demande identifiée', sub: 'Fuite sous-évier · urgent' },
+      { label: 'Action exécutée', sub: 'Rappel prioritaire planifié' },
+      { label: 'Résumé transmis', sub: 'Chef de chantier notifié' },
+    ],
+    summary: [
+      { l:'Client', v:'Bernard L. — 06 XX XX XX XX' },
+      { l:'Motif', v:'Fuite sous-évier' },
+      { l:'Urgence', v:"À traiter aujourd'hui" },
+      { l:'Action', v:'Rappel prioritaire' },
+    ],
+  },
+  cabinet: {
+    label: 'Cabinet',
+    steps: [
+      { label: 'Appel entrant', sub: 'Cabinet Médical Santé · 10h33' },
+      { label: 'Agent Omnira répond', sub: 'Réponse en 0.7 seconde' },
+      { label: 'Demande identifiée', sub: 'RDV général · nouveau patient' },
+      { label: 'Action exécutée', sub: 'Créneau préparé · vendredi 11h' },
+      { label: 'Résumé transmis', sub: 'Secrétariat notifié' },
+    ],
+    summary: [
+      { l:'Patient', v:'Garcia M. — 06 XX XX XX XX' },
+      { l:'Motif', v:'Consultation générale' },
+      { l:'Créneau', v:'Vendredi 11h00' },
+      { l:'Action', v:'Confirmer le rendez-vous' },
+    ],
+  },
+};
+
+function HeroVisual({ sector = 'restaurant' }) {
   const [phase, setPhase] = React.useState(1);
   const timerRef = React.useRef(null);
 
   React.useEffect(() => {
+    setPhase(1);
     const delays = [1000, 950, 950, 1000, 2200];
     let p = 1;
     const tick = () => {
@@ -153,22 +217,9 @@ function HeroVisual() {
     };
     timerRef.current = setTimeout(tick, delays[0]);
     return () => clearTimeout(timerRef.current);
-  }, []);
+  }, [sector]);
 
-  const steps = [
-    { label: 'Appel entrant', sub: 'Restaurant Le Jardin · 20h14' },
-    { label: 'Agent Omnira répond', sub: 'Réponse en 0.7 seconde' },
-    { label: 'Demande identifiée', sub: 'Réservation × 4 personnes' },
-    { label: 'Action exécutée', sub: 'RDV préparé · samedi 28 juin' },
-    { label: 'Résumé transmis', sub: 'Équipe notifiée automatiquement' },
-  ];
-
-  const summaryFields = [
-    {l:'Client',v:'Martin G. — 06 XX XX XX XX'},
-    {l:'Motif',v:'Réservation restaurant'},
-    {l:'Date souhaitée',v:'Samedi 28 juin · 20h'},
-    {l:'Action',v:'Confirmer la réservation'},
-  ];
+  const { steps, summary: summaryFields } = SECTOR_DATA[sector];
 
   return (
     <div style={{position:'relative',width:'100%',maxWidth:'440px',margin:'0 auto'}}>
@@ -271,6 +322,7 @@ function HeroVisual() {
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 function Hero() {
   const [loaded, setLoaded] = React.useState(false);
+  const [sector, setSector] = React.useState('restaurant');
   React.useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
 
   const benefits = [
@@ -287,7 +339,7 @@ function Hero() {
         {/* Left copy */}
         <div>
           <div style={{marginBottom:'20px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s'}}>
-            <Chip color={B.cyan}>Agents vocaux IA · Entreprises locales</Chip>
+            <Chip color={B.cyan}>Agents vocaux IA · PME en France</Chip>
           </div>
           <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(30px,3.8vw,50px)',fontWeight:800,lineHeight:1.1,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
             Des agents vocaux IA qui transforment vos appels en{' '}
@@ -298,7 +350,7 @@ function Hero() {
           <p style={{fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.5)',maxWidth:'500px',fontFamily:'Inter,sans-serif',marginBottom:'32px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s'}}>
             Omnira répond à vos appels, qualifie les demandes, filtre les urgences, prépare les rendez-vous ou les devis, puis transmet à votre équipe un résumé clair de chaque échange.
           </p>
-          <div style={{display:'flex',flexDirection:'column',gap:'10px',marginBottom:'40px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.35s'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:'10px',marginBottom:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.35s'}}>
             {benefits.map((b,i)=>(
               <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'10px'}}>
                 <div style={{width:'18px',height:'18px',borderRadius:'50%',flexShrink:0,marginTop:'2px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
@@ -308,30 +360,60 @@ function Hero() {
               </div>
             ))}
           </div>
-          <div style={{display:'flex',flexWrap:'wrap',gap:'12px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.42s'}}>
-            <MagneticButton distance={0.55}>
-              <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
-            </MagneticButton>
-            <MagneticButton distance={0.42}>
-              <GBtn href="#roi" variant="outline" size="md">Simuler mes appels perdus</GBtn>
-            </MagneticButton>
-            <MagneticButton distance={0.35}>
-              <GBtn href="/devis" variant="white" size="md">Demander un devis personnalisé</GBtn>
-            </MagneticButton>
+          {/* Social proof */}
+          <div style={{display:'flex',alignItems:'center',flexWrap:'wrap',gap:'6px 14px',padding:'10px 14px',borderRadius:'10px',background:'rgba(255,255,255,0.03)',border:'1px solid rgba(255,255,255,0.07)',marginBottom:'28px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.38s'}}>
+            <div style={{display:'flex',alignItems:'center',gap:'7px'}}>
+              <div style={{width:'6px',height:'6px',borderRadius:'50%',background:'#4ade80',flexShrink:0}}/>
+              <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.45)'}}>Conçu avec des PME indépendantes en France</span>
+            </div>
+            <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
+            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Sans engagement</span>
+            <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
+            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Réponse sous 24h</span>
           </div>
-          {/* Micro-preuve + note contrôle humain */}
-          <div style={{marginTop:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.52s'}}>
-            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.3)',letterSpacing:'0.04em',marginBottom:'8px'}}>
-              Démo vocale disponible · Résumés automatiques · Scénarios validés avec vous
-            </p>
-            <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.24)',lineHeight:1.55,maxWidth:'460px'}}>
+          {/* CTAs */}
+          <div style={{opacity:loaded?1:0,transition:'opacity 0.7s ease 0.42s'}}>
+            <div style={{display:'flex',flexWrap:'wrap',gap:'12px',marginBottom:'14px'}}>
+              <MagneticButton distance={0.55}>
+                <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
+              </MagneticButton>
+              <MagneticButton distance={0.35}>
+                <GBtn href="/devis" variant="outline" size="md">Demander un devis personnalisé</GBtn>
+              </MagneticButton>
+            </div>
+            <a href="#roi"
+              style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.38)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.15)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
+              onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.65)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.35)';}}
+              onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.38)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.15)';}}>
+              → Calculer le coût de mes appels manqués
+            </a>
+          </div>
+          {/* Note contrôle humain */}
+          <div style={{marginTop:'20px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.52s'}}>
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.22)',lineHeight:1.55,maxWidth:'460px'}}>
               Vous gardez la main : Omnira suit vos règles, transfère les cas sensibles et ne promet jamais ce que vous n'avez pas validé.
             </p>
           </div>
         </div>
-        {/* Right — HeroVisual */}
-        <div style={{display:'flex',alignItems:'center',justifyContent:'center',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(32px)',transition:'opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s'}}>
-          <HeroVisual/>
+        {/* Right — Sector tabs + HeroVisual */}
+        <div style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'14px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(32px)',transition:'opacity 0.8s ease 0.35s, transform 0.8s ease 0.35s',width:'100%'}}>
+          {/* Sector selector */}
+          <div style={{display:'flex',gap:'4px',padding:'4px',borderRadius:'12px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)',width:'100%',maxWidth:'440px'}}>
+            {Object.entries(SECTOR_DATA).map(([key,{label}])=>(
+              <button key={key} onClick={()=>setSector(key)}
+                style={{
+                  flex:1,padding:'7px 6px',borderRadius:'8px',border:'none',cursor:'pointer',
+                  fontFamily:'Sora,sans-serif',fontSize:'11px',fontWeight:700,letterSpacing:'0.01em',
+                  background: sector===key ? B.grad : 'transparent',
+                  color: sector===key ? 'white' : 'rgba(255,255,255,0.32)',
+                  transition:'all 0.2s ease',
+                  boxShadow: sector===key ? '0 4px 12px rgba(30,115,216,0.3)' : 'none',
+                }}>
+                {label}
+              </button>
+            ))}
+          </div>
+          <HeroVisual sector={sector}/>
         </div>
       </div>
       <div style={{position:'absolute',bottom:0,left:0,right:0,pointerEvents:'none',zIndex:10}}>
