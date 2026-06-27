@@ -364,10 +364,10 @@ function Hero() {
           <div style={{display:'flex',alignItems:'center',flexWrap:'wrap',gap:'6px 14px',padding:'10px 14px',borderRadius:'10px',background:'rgba(255,255,255,0.03)',border:'1px solid rgba(255,255,255,0.07)',marginBottom:'28px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.38s'}}>
             <div style={{display:'flex',alignItems:'center',gap:'7px'}}>
               <div style={{width:'6px',height:'6px',borderRadius:'50%',background:'#4ade80',flexShrink:0}}/>
-              <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.45)'}}>Conçu avec des PME indépendantes en France</span>
+              <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.45)'}}>Conçu pour les PME en France</span>
             </div>
             <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
-            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Sans engagement</span>
+            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Essai 7 jours</span>
             <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
             <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Réponse sous 24h</span>
           </div>
