@@ -104,8 +104,8 @@ function Nav() {
             </a>
           ))}
           <div style={{marginTop:'24px',display:'flex',flexDirection:'column',gap:'10px'}}>
-            <GBtn href="/demo"  variant="light"   size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
-            <GBtn href="/devis" variant="primary"  size="md" full onClick={()=>setOpen(false)}>Demander un devis</GBtn>
+            <GBtn href="#demo"                variant="light"   size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
+            <GBtn href="/prendre-rendez-vous" variant="primary"  size="md" full onClick={()=>setOpen(false)}>Prendre rendez-vous</GBtn>
           </div>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,textAlign:'center',marginTop:'20px'}}>
             Omnira · Automatisation des appels pour PME
@@ -375,20 +375,20 @@ function Hero() {
           <div style={{opacity:loaded?1:0,transition:'opacity 0.7s ease 0.42s'}}>
             <div style={{display:'flex',flexWrap:'wrap',gap:'12px',marginBottom:'14px'}}>
               <MagneticButton distance={0.55}>
-                <GBtn href="/demo" variant="primary" size="md">Écouter une démo</GBtn>
+                <GBtn href="#demo" variant="primary" size="md">Écouter une démo</GBtn>
               </MagneticButton>
               <MagneticButton distance={0.35}>
-                <GBtn href="/devis" variant="outline" size="md">Demander un devis personnalisé</GBtn>
+                <GBtn href="/prendre-rendez-vous" variant="outline" size="md">Prendre rendez-vous</GBtn>
               </MagneticButton>
             </div>
             <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
-              <a href="#roi"
+              <a href="#roi" onClick={e=>{e.preventDefault();document.getElementById('roi')?.scrollIntoView({behavior:'smooth'});}}
                 style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.38)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.15)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
                 onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.65)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.35)';}}
                 onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.38)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.15)';}}>
                 → Calculer le coût de mes appels manqués
               </a>
-              <a href="#demo"
+              <a href="#demo" onClick={e=>{e.preventDefault();document.getElementById('demo')?.scrollIntoView({behavior:'smooth'});}}
                 style={{fontFamily:'Inter,sans-serif',fontSize:'13px',fontWeight:500,color:'rgba(255,255,255,0.28)',textDecoration:'underline',textDecorationColor:'rgba(255,255,255,0.1)',textUnderlineOffset:'3px',cursor:'pointer',transition:'color 0.15s',display:'inline-block'}}
                 onMouseEnter={e=>{e.currentTarget.style.color='rgba(255,255,255,0.55)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.3)';}}
                 onMouseLeave={e=>{e.currentTarget.style.color='rgba(255,255,255,0.28)';e.currentTarget.style.textDecorationColor='rgba(255,255,255,0.1)';}}>

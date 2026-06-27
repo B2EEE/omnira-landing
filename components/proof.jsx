@@ -54,7 +54,7 @@ function HowItWorks() {
         </FadeIn>
         <FadeIn delay={0.2}>
           <div style={{textAlign:'center',marginTop:'32px'}}>
-            <GBtn href="/devis" variant="primary" size="md">Voir ce qu'Omnira peut faire pour mon activité</GBtn>
+            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Voir ce qu'Omnira peut faire pour mon activité</GBtn>
           </div>
         </FadeIn>
       </div>

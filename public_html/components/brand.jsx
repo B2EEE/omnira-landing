@@ -215,6 +215,10 @@ window.FadeIn = FadeIn;
 // Spring physics: velocity-based attract toward cursor, snaps back on leave.
 // Works in CDN/Babel env — no framer-motion required.
 function MagneticButton({ children, distance = 0.52 }) {
+  // Disable spring on touch devices — prevents RAF transform from blocking tap events
+  const isTouch = typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches;
+  if (isTouch) return <div style={{display:'inline-block'}}>{children}</div>;
+
   const ref     = React.useRef(null);
   const animRef = React.useRef(null);
   const st      = React.useRef({ x:0, y:0, tx:0, ty:0, vx:0, vy:0, on:false });

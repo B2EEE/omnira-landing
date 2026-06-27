@@ -103,6 +103,11 @@ function PourQui() {
             </div>
           </div>
         </FadeIn>
+        <FadeIn delay={0.18}>
+          <div style={{textAlign:'center',marginTop:'32px'}}>
+            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Voir ce qu'Omnira peut faire pour mon activité</GBtn>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

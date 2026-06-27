@@ -80,7 +80,7 @@ function FAQ() {
         <FadeIn delay={0.3}>
           <div style={{textAlign:'center',marginTop:'40px'}}>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,marginBottom:'18px'}}>Vous avez une autre question ?</p>
-            <GBtn href="/devis" variant="primary" size="md">Demander un devis ou une démo</GBtn>
+            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Prendre rendez-vous</GBtn>
           </div>
         </FadeIn>
       </div>
