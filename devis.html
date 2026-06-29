@@ -44,11 +44,13 @@
         var tries = 0;
         var tryInline = function() {
           if (window.Cal) {
-            Cal("inline", {
+            Cal("init", "devis-inline", { origin: "https://cal.com" });
+            Cal.ns["devis-inline"]("inline", {
               elementOrSelector: "#cal-inline-devis",
               calLink: "babacar-faye-qh9cu1/devis-omnira",
-              config: { layout: "month_view", theme: "dark" }
+              config: { layout: "month_view" }
             });
+            Cal.ns["devis-inline"]("ui", { theme: "light", styles: { branding: { brandColor: "#1E73D8" } }, hideEventTypeDetails: false });
           } else if (tries++ < 20) {
             setTimeout(tryInline, 300);
           }
