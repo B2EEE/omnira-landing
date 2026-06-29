@@ -52,7 +52,7 @@ function Nav() {
 
         {/* Desktop right — un seul CTA, "Écouter une démo" est dans les liens nav */}
         <div style={{display:'flex',alignItems:'center',gap:'10px'}} className="nav-links">
-          <GBtn href="/devis" variant={light?'outline':'primary'} size="sm">Demander un devis</GBtn>
+          <GBtn onClick={() => window.openCalModal('devis')} variant={light?'outline':'primary'} size="sm">Demander un devis</GBtn>
         </div>
 
         {/* Hamburger — mobile only, shown via CSS */}

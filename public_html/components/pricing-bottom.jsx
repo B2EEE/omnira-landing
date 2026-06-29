@@ -28,7 +28,7 @@ function DevisSection() {
               </div>
             ))}
           </div>
-          <GBtn href="/devis" variant="primary" size="lg">Demander mon devis personnalisé</GBtn>
+          <GBtn onClick={() => window.openCalModal('devis')} variant="primary" size="lg">Demander mon devis personnalisé</GBtn>
         </FadeIn>
       </div>
     </section>
