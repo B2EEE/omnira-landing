@@ -5,17 +5,16 @@
       <stop offset="100%" stop-color="#2FC7D6"/>
     </linearGradient>
   </defs>
-  <!-- Fond arrondi gradient -->
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
-  <!-- Légère surbrillance en haut -->
-  <rect width="64" height="32" rx="14" fill="white" opacity="0.07"/>
-  <!-- Cercle Omnira -->
-  <circle cx="32" cy="32" r="13" stroke="white" stroke-width="3.5" fill="none" opacity="0.95"/>
-  <!-- Croix / repères directionnels -->
-  <line x1="32" y1="11" x2="32" y2="17" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
-  <line x1="32" y1="47" x2="32" y2="53" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
-  <line x1="11" y1="32" x2="17" y2="32" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
-  <line x1="47" y1="32" x2="53" y2="32" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+  <!-- Fond blanc avec léger contour -->
+  <rect width="64" height="64" rx="14" fill="white"/>
+  <rect width="64" height="64" rx="14" fill="none" stroke="#CCE0F0" stroke-width="2"/>
+  <!-- Cercle Omnira en gradient -->
+  <circle cx="32" cy="32" r="13" stroke="url(#g)" stroke-width="3.5" fill="none"/>
+  <!-- Croix / repères directionnels en gradient -->
+  <line x1="32" y1="11" x2="32" y2="17" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="32" y1="47" x2="32" y2="53" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="11" y1="32" x2="17" y2="32" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="47" y1="32" x2="53" y2="32" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
   <!-- Point central -->
-  <circle cx="32" cy="32" r="3.5" fill="white" opacity="0.9"/>
+  <circle cx="32" cy="32" r="3.5" fill="url(#g)"/>
 </svg>
