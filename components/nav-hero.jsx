@@ -146,7 +146,7 @@ const SECTOR_DATA = {
       { label: 'Résumé transmis', sub: 'Équipe notifiée automatiquement' },
     ],
     summary: [
-      { l:'Client', v:'Martin G. — 06 XX XX XX XX' },
+      { l:'Client', v:'Martin G. · 06 XX XX XX XX' },
       { l:'Motif', v:'Réservation restaurant' },
       { l:'Date souhaitée', v:'Samedi 28 juin · 20h' },
       { l:'Action', v:'Confirmer la réservation' },
@@ -162,7 +162,7 @@ const SECTOR_DATA = {
       { label: 'Résumé transmis', sub: "Chef d'atelier notifié" },
     ],
     summary: [
-      { l:'Client', v:'Dupont J. — 06 XX XX XX XX' },
+      { l:'Client', v:'Dupont J. · 06 XX XX XX XX' },
       { l:'Motif', v:'Devis freins avant' },
       { l:'Véhicule', v:'Peugeot 308 · 2019' },
       { l:'Action', v:'Rappeler pour chiffrer' },
@@ -178,7 +178,7 @@ const SECTOR_DATA = {
       { label: 'Résumé transmis', sub: 'Chef de chantier notifié' },
     ],
     summary: [
-      { l:'Client', v:'Bernard L. — 06 XX XX XX XX' },
+      { l:'Client', v:'Bernard L. · 06 XX XX XX XX' },
       { l:'Motif', v:'Fuite sous-évier' },
       { l:'Urgence', v:"À traiter aujourd'hui" },
       { l:'Action', v:'Rappel prioritaire' },
@@ -194,7 +194,7 @@ const SECTOR_DATA = {
       { label: 'Résumé transmis', sub: 'Secrétariat notifié' },
     ],
     summary: [
-      { l:'Patient', v:'Garcia M. — 06 XX XX XX XX' },
+      { l:'Patient', v:'Garcia M. · 06 XX XX XX XX' },
       { l:'Motif', v:'Consultation générale' },
       { l:'Créneau', v:'Vendredi 11h00' },
       { l:'Action', v:'Confirmer le rendez-vous' },

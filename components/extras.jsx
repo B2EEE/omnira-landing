@@ -94,7 +94,7 @@ function PourQui() {
                 {_NON_ADAPTE.map((t,i)=>(
                   <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'10px',padding:'10px 14px',borderRadius:'10px',background:'rgba(100,116,139,0.04)',border:'1px solid rgba(100,116,139,0.1)'}}>
                     <div style={{width:'16px',height:'16px',borderRadius:'50%',flexShrink:0,marginTop:'1px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(100,116,139,0.1)',border:'1px solid rgba(100,116,139,0.2)'}}>
-                      <span style={{color:'#94a3b8',fontSize:'10px',fontWeight:700,lineHeight:1}}>—</span>
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 1l6 6M7 1L1 7" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round"/></svg>
                     </div>
                     <span style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.5}}>{t}</span>
                   </div>

@@ -45,7 +45,7 @@ const FAQS = [
   { q:"Est-ce que je garde mon numéro ?",                a:"La configuration dépend de votre téléphonie actuelle. Omnira peut être adapté pour s'intégrer à votre fonctionnement existant sans changer votre numéro client." },
   { q:"Est-ce que ça fonctionne avec mon agenda ?",      a:"Oui, selon l'outil utilisé. Omnira peut être connecté à Google Calendar, un CRM, un tableau de suivi ou un outil métier. La liste des intégrations possibles est évaluée lors du diagnostic." },
   { q:"Que se passe-t-il si l'agent ne comprend pas ?",  a:"L'agent peut reformuler, demander une précision ou transférer à un humain selon les règles définies. Il ne prend jamais de décisions qui dépassent son périmètre configuré." },
-  { q:"Combien coûte Omnira ?",                         a:"Le prix dépend de votre activité, du volume d'appels, des intégrations nécessaires, des scénarios à créer et du niveau de suivi souhaité. Le plus simple est de demander un devis personnalisé — sans engagement." },
+  { q:"Combien coûte Omnira ?",                         a:"Le prix dépend de votre activité, du volume d'appels, des intégrations nécessaires, des scénarios à créer et du niveau de suivi souhaité. Le plus simple est de demander un devis personnalisé, sans engagement." },
   { q:"Combien de temps prend l'installation ?",         a:"Cela dépend de la complexité du projet, des outils à connecter et des scénarios à configurer. Une estimation précise est donnée après le diagnostic initial." },
   { q:"Est-ce que je peux tester avant ?",               a:"Une démo peut être organisée pour vous montrer comment Omnira fonctionnerait dans votre activité, avec des exemples adaptés à votre secteur." },
 ];
@@ -99,7 +99,7 @@ function Footer() {
             <OmniraLogo height={32}/>
             <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'rgba(255,255,255,0.25)',letterSpacing:'0.14em',textTransform:'uppercase',marginTop:'6px'}}>by SETTE inc.</p>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
-              Omnira gère vos appels entrants pour les PME. Qualification, rendez-vous, devis et résumés automatiques — transmis à votre équipe.
+              Omnira gère vos appels entrants pour les PME. Qualification, rendez-vous, devis et résumés automatiques transmis à votre équipe.
             </p>
           </div>
           <div>

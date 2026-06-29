@@ -95,7 +95,7 @@ function OnBoarding() {
             chip="Mise en place"
             chipColor={B.blue}
             title="Une mise en place simple,<br/>cadrée et suivie"
-            sub="Pas de prérequis technique. On configure ensemble — phase par phase."
+            sub="Pas de prérequis technique. On configure ensemble, phase par phase."
           />
         </FadeIn>
         <FadeIn delay={0.08}>

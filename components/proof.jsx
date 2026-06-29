@@ -3,7 +3,7 @@ const HOW_STEPS = [
   { num:'01', title:"L'appel arrive",                    Icon: Ico.Phone,    desc:"Le client appelle votre entreprise." },
   { num:'02', title:"L'agent Omnira répond",             Icon: Ico.Mic,      desc:"Il accueille avec un discours adapté à votre activité et vos horaires." },
   { num:'03', title:"Il comprend la demande",            Icon: Ico.Filter,   desc:"Il identifie le motif, l'urgence, le service concerné et les informations utiles.", extra:"Les urgences sont signalées et remontent en priorité selon vos critères." },
-  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis.", extra:"Les cas sensibles ne sont jamais traités seuls — transfert humain selon vos critères." },
+  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis.", extra:"Les cas sensibles ne sont jamais traités seuls : transfert humain selon vos critères." },
   { num:'05', title:"Votre équipe reçoit un résumé",     Icon: Ico.Chart,    desc:"Chaque appel devient une information claire et exploitable envoyée à votre équipe." },
   { num:'06', title:"Vous suivez les résultats",         Icon: Ico.Zap,      desc:"Appels reçus, motifs fréquents, rendez-vous et devis suivis dans votre dashboard." },
 ];

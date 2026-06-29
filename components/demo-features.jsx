@@ -80,7 +80,7 @@ function DemoCard({ card }) {
       {/* Clean state — no audio file yet */}
       <div style={{marginTop:'12px',padding:'10px 14px',borderRadius:'10px',background:`${card.color}08`,border:`1px solid ${card.color}18`}}>
         <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.5}}>
-          Démo personnalisée disponible sur demande — choisissez votre activité et nous préparons un scénario adapté.
+          Démo personnalisée disponible sur demande. Choisissez votre activité et nous préparons un scénario adapté.
         </p>
       </div>
     </div>
