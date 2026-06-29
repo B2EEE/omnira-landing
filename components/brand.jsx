@@ -1,3 +1,23 @@
+// ─── CAL.COM EMBED INIT ────────────────────────────────────────────────────────
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["-reset-persistent-query"])}else{p(cal,ar)}return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+
+Cal("init", "decouverte", { origin: "https://cal.com" });
+Cal.ns.decouverte("ui", { theme: "light", styles: { branding: { brandColor: "#1E73D8" } }, hideEventTypeDetails: false, layout: "month_view" });
+
+Cal("init", "devis-rdv", { origin: "https://cal.com" });
+Cal.ns["devis-rdv"]("ui", { theme: "light", styles: { branding: { brandColor: "#2FC7D6" } }, hideEventTypeDetails: false, layout: "month_view" });
+
+window.openCalModal = function(type) {
+  var link = (type === 'devis')
+    ? 'babacar-faye-qh9cu1/devis-omnira'
+    : 'babacar-faye-qh9cu1/decouverte-omnira';
+  if (window.Cal) {
+    Cal("modal", { calLink: link, config: { layout: 'month_view', theme: 'light' } });
+  } else {
+    window.open('https://cal.com/' + link, '_blank', 'noopener');
+  }
+};
+
 // ─── BRAND TOKENS ─────────────────────────────────────────────────────────────
 const B = {
   blue:   '#1E73D8',

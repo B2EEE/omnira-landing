@@ -157,7 +157,7 @@ function Dashboard() {
               </div>
 
               <div style={{display:'flex',gap:'12px',flexWrap:'wrap'}}>
-                <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Prendre rendez-vous</GBtn>
+                <GBtn onClick={() => window.openCalModal('decouverte')} variant="primary" size="md">Prendre rendez-vous</GBtn>
                 <GBtn href="#roi" variant="outline" size="md" onClick={e=>{e.preventDefault();document.getElementById('roi')?.scrollIntoView({behavior:'smooth'});}}>Simuler mes gains</GBtn>
               </div>
             </div>
@@ -578,7 +578,7 @@ function ROICalculator() {
                   Ces calculs sont des estimations indicatives, non des promesses de résultat. Vos chiffres réels dépendent de votre activité.
                 </p>
               </div>
-              <GBtn href="/prendre-rendez-vous" variant="primary" size="md" full>Recevoir une estimation personnalisée</GBtn>
+              <GBtn onClick={() => window.openCalModal('devis')} variant="primary" size="md" full>Recevoir une estimation personnalisée</GBtn>
             </div>
           </FadeIn>
         </div>

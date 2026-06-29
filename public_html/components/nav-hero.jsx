@@ -105,7 +105,7 @@ function Nav() {
           ))}
           <div style={{marginTop:'24px',display:'flex',flexDirection:'column',gap:'10px'}}>
             <GBtn href="#demo"                variant="light"   size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
-            <GBtn href="/prendre-rendez-vous" variant="primary"  size="md" full onClick={()=>setOpen(false)}>Prendre rendez-vous</GBtn>
+            <GBtn onClick={() => { setOpen(false); window.openCalModal('decouverte'); }} variant="primary" size="md" full>Prendre rendez-vous</GBtn>
           </div>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,textAlign:'center',marginTop:'20px'}}>
             Omnira · Automatisation des appels pour PME
@@ -378,7 +378,7 @@ function Hero() {
                 <GBtn href="#demo" variant="primary" size="md">Écouter une démo</GBtn>
               </MagneticButton>
               <MagneticButton distance={0.35}>
-                <GBtn href="/prendre-rendez-vous" variant="outline" size="md">Prendre rendez-vous</GBtn>
+                <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md">Prendre rendez-vous</GBtn>
               </MagneticButton>
             </div>
             <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>

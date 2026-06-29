@@ -114,7 +114,7 @@ function Scenarios() {
                   <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.4)',lineHeight:1.6,margin:0}}>Les scénarios sont définis avec vous lors de la mise en place. L'agent respecte votre vocabulaire et votre façon de travailler.</p>
                 </div>
               </div>
-              <GBtn href="/prendre-rendez-vous" variant="outline" size="md" full>Voir ce qu'Omnira peut faire pour mon activité</GBtn>
+              <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md" full>Voir ce qu'Omnira peut faire pour mon activité</GBtn>
             </div>
           </div>
         </FadeIn>
