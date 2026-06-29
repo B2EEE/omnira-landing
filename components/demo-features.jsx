@@ -1,4 +1,4 @@
-// ─── DEMO (4 cards with placeholder audio) ────────────────────────────────────
+// ─── DEMO (4 cards with real audio) ────────────────────────────────────────────
 const DEMO_CARDS = [
   {
     id: 'garage',
@@ -6,7 +6,7 @@ const DEMO_CARDS = [
     title: 'Démo garage',
     context: 'Prise de rendez-vous pour une vidange ou une panne',
     color: B.blue,
-    duration: '0:48',
+    src: '/uploads/demos/garage.mp3',
   },
   {
     id: 'restaurant',
@@ -14,7 +14,7 @@ const DEMO_CARDS = [
     title: 'Démo restaurant',
     context: 'Réservation pour plusieurs personnes un samedi soir',
     color: B.cyan,
-    duration: '0:35',
+    src: '/uploads/demos/restaurant.mp3',
   },
   {
     id: 'artisan',
@@ -22,7 +22,7 @@ const DEMO_CARDS = [
     title: 'Démo artisan',
     context: 'Demande de devis pour une intervention à domicile',
     color: B.lcyan,
-    duration: '0:52',
+    src: '/uploads/demos/artisan.mp3',
   },
   {
     id: 'urgence',
@@ -30,21 +30,80 @@ const DEMO_CARDS = [
     title: 'Démo urgence',
     context: 'Appel sensible transféré à un humain avec contexte',
     color: '#f59e0b',
-    duration: '0:41',
+    src: '/uploads/demos/urgence.mp3',
   },
 ];
 
-function DemoCard({ card }) {
-  const [playing, setPlaying] = React.useState(false);
+function fmtTime(s) {
+  if (!isFinite(s) || isNaN(s) || s < 0) return '0:00';
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ':' + (sec < 10 ? '0' : '') + sec;
+}
+
+function DemoCard({ card, activeId, setActiveId }) {
+  const audioRef  = React.useRef(null);
+  const [progress, setProgress]   = React.useState(0);
+  const [current,  setCurrent]    = React.useState(0);
+  const [duration, setDuration]   = React.useState(0);
+
+  const isPlaying = activeId === card.id;
+
+  React.useEffect(() => {
+    const audio = new Audio(card.src);
+    audio.preload = 'metadata';
+    audioRef.current = audio;
+
+    const onMeta    = () => setDuration(audio.duration);
+    const onTime    = () => {
+      setCurrent(audio.currentTime);
+      if (audio.duration > 0) setProgress((audio.currentTime / audio.duration) * 100);
+    };
+    const onEnded   = () => { setActiveId(null); setCurrent(0); setProgress(0); audio.currentTime = 0; };
+
+    audio.addEventListener('loadedmetadata', onMeta);
+    audio.addEventListener('timeupdate', onTime);
+    audio.addEventListener('ended', onEnded);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', onMeta);
+      audio.removeEventListener('timeupdate', onTime);
+      audio.removeEventListener('ended', onEnded);
+      audio.pause();
+      audio.src = '';
+    };
+  }, [card.src]);
+
+  React.useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) { audio.play().catch(() => {}); }
+    else           { audio.pause(); }
+  }, [isPlaying]);
+
+  const toggle = () => setActiveId(isPlaying ? null : card.id);
+
+  const seek = (e) => {
+    const audio = audioRef.current;
+    if (!audio || !audio.duration) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const pct  = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    audio.currentTime = pct * audio.duration;
+  };
+
   const bars = [4,7,11,15,12,9,14,8,12,6,13,10,7,11];
+
   return (
     <div style={{borderRadius:'20px',padding:'24px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.22s ease',position:'relative',overflow:'hidden'}}
       onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 16px 40px rgba(16,63,115,0.12),0 0 0 1px rgba(30,115,216,0.18)`;e.currentTarget.style.transform='translateY(-3px)';}}
       onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.transform='translateY(0)';}}>
-      <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:`linear-gradient(90deg,${card.color},transparent)`,opacity:0.6}}/>
+
+      {/* Color accent top bar */}
+      <div style={{position:'absolute',top:0,left:0,right:0,height:'2px',background:`linear-gradient(90deg,${card.color},transparent)`,opacity:isPlaying?1:0.6,transition:'opacity 0.3s'}}/>
+
       {/* Header */}
       <div style={{display:'flex',alignItems:'flex-start',gap:'12px',marginBottom:'16px'}}>
-        <div style={{width:'38px',height:'38px',borderRadius:'11px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:`${card.color}14`,border:`1px solid ${card.color}28`,color:card.color}}>
+        <div style={{width:'38px',height:'38px',borderRadius:'11px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:isPlaying?`${card.color}22`:`${card.color}14`,border:`1px solid ${isPlaying?card.color+'55':card.color+'28'}`,color:card.color,transition:'all 0.3s'}}>
           <card.Icon/>
         </div>
         <div>
@@ -52,19 +111,31 @@ function DemoCard({ card }) {
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.5}}>{card.context}</p>
         </div>
       </div>
-      {/* Waveform placeholder */}
-      <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:'3px',height:'40px',padding:'0 12px',borderRadius:'12px',marginBottom:'14px',background:B.bgL,border:`1px solid ${B.border}`}}>
+
+      {/* Waveform + progress bar */}
+      <div onClick={seek} role="slider" aria-label={`Progression ${card.title}`} aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}
+        style={{display:'flex',alignItems:'center',gap:'3px',height:'40px',padding:'0 12px',borderRadius:'12px',marginBottom:'14px',background:B.bgL,border:`1px solid ${isPlaying?card.color+'33':B.border}`,cursor:'pointer',position:'relative',transition:'border-color 0.3s'}}>
         {bars.map((h,i)=>(
-          <div key={i} style={{width:'3px',borderRadius:'99px',height:playing?`${h*1.8}px`:'4px',background:`linear-gradient(${card.color},${card.color}66)`,animation:playing?`barwave ${0.5+i*0.06}s ease-in-out infinite`:'none',animationDelay:`${i*0.04}s`,transformOrigin:'center',transition:'height 0.3s'}}/>
+          <div key={i} style={{width:'3px',borderRadius:'99px',height:isPlaying?`${h*1.8}px`:'4px',background:`linear-gradient(${card.color},${card.color}66)`,animation:isPlaying?`barwave ${0.5+i*0.06}s ease-in-out infinite`:'none',animationDelay:`${i*0.04}s`,transformOrigin:'center',transition:'height 0.3s',flexShrink:0}}/>
         ))}
+        {/* Clickable progress line */}
+        <div style={{position:'absolute',left:'12px',right:'12px',bottom:'6px',height:'2px',background:'rgba(0,0,0,0.07)',borderRadius:'99px'}}>
+          <div style={{width:`${progress}%`,height:'100%',background:card.color,borderRadius:'99px',transition:'width 0.1s linear'}}/>
+        </div>
       </div>
-      {/* Duration + play */}
+
+      {/* Time + play/pause button */}
       <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-        <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:B.tMuted}}>Durée : {card.duration}</span>
-        <button onClick={()=>setPlaying(p=>!p)} style={{display:'flex',alignItems:'center',gap:'7px',padding:'9px 18px',borderRadius:'99px',border:'none',cursor:'pointer',fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,transition:'all 0.18s',background:playing?`${card.color}18`:`linear-gradient(135deg,${card.color},${card.color}cc)`,color:playing?card.color:'white',boxShadow:playing?'none':`0 4px 14px ${card.color}44`}}
-          onMouseEnter={e=>{if(!playing)e.currentTarget.style.transform='translateY(-1px)';}}
+        <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:B.tMuted}}>
+          {fmtTime(current)} / {duration > 0 ? fmtTime(duration) : '—'}
+        </span>
+        <button
+          onClick={toggle}
+          aria-label={isPlaying ? `Mettre en pause : ${card.title}` : `Écouter : ${card.title}`}
+          style={{display:'flex',alignItems:'center',gap:'7px',padding:'9px 18px',borderRadius:'99px',border:'none',cursor:'pointer',fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,transition:'all 0.18s',background:isPlaying?`${card.color}18`:`linear-gradient(135deg,${card.color},${card.color}cc)`,color:isPlaying?card.color:'white',boxShadow:isPlaying?'none':`0 4px 14px ${card.color}44`}}
+          onMouseEnter={e=>{if(!isPlaying)e.currentTarget.style.transform='translateY(-1px)';}}
           onMouseLeave={e=>{e.currentTarget.style.transform='translateY(0)';}}>
-          {playing ? (
+          {isPlaying ? (
             <>
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="2" y="1" width="3" height="10" rx="1"/><rect x="7" y="1" width="3" height="10" rx="1"/></svg>
               Pause
@@ -77,17 +148,12 @@ function DemoCard({ card }) {
           )}
         </button>
       </div>
-      {/* Clean state — no audio file yet */}
-      <div style={{marginTop:'12px',padding:'10px 14px',borderRadius:'10px',background:`${card.color}08`,border:`1px solid ${card.color}18`}}>
-        <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,margin:0,lineHeight:1.5}}>
-          Démo personnalisée disponible sur demande. Choisissez votre activité et nous préparons un scénario adapté.
-        </p>
-      </div>
     </div>
   );
 }
 
 function Demo() {
+  const [activeId, setActiveId] = React.useState(null);
   return (
     <section id="demo" style={{padding:'96px 24px',background:B.bgW}}>
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
@@ -102,13 +168,13 @@ function Demo() {
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'20px',marginBottom:'40px'}} className="solution-grid">
           {DEMO_CARDS.map((card,i)=>(
             <FadeIn key={card.id} delay={i*0.08}>
-              <DemoCard card={card}/>
+              <DemoCard card={card} activeId={activeId} setActiveId={setActiveId}/>
             </FadeIn>
           ))}
         </div>
         <FadeIn delay={0.25}>
           <div style={{textAlign:'center'}}>
-            <GBtn href="/prendre-rendez-vous" variant="primary" size="md">Créer une démo pour mon activité</GBtn>
+            <GBtn onClick={() => window.openCalModal('decouverte')} variant="primary" size="md">Créer une démo pour mon activité</GBtn>
           </div>
         </FadeIn>
       </div>
@@ -176,7 +242,7 @@ function CallSummary() {
             {/* Footer note */}
             <div style={{padding:'14px 28px',background:B.bgL,borderTop:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'10px'}}>
               <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.12)',color:B.cyan}}><Ico.Check/></div>
-              <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:B.tMuted}}>Exemple illustratif — aucun vrai client</span>
+              <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:B.tMuted}}>Exemple illustratif · aucun vrai client</span>
             </div>
           </div>
         </FadeIn>
