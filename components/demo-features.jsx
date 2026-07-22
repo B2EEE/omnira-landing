@@ -7,6 +7,15 @@ const DEMO_CARDS = [
     context: 'Prise de rendez-vous pour une vidange ou une panne',
     color: B.blue,
     src: '/uploads/demos/garage.mp3',
+    transcript: [
+      { sp: 'Agent', t: 'Bonjour, Garage Martin, je suis votre assistant vocal Omnira. Comment puis-je vous aider ?' },
+      { sp: 'Client', t: 'Bonjour, je voudrais prendre rendez-vous pour une vidange. C\'est une Renault Clio diesel.' },
+      { sp: 'Agent', t: 'Pas de problème. Vous êtes disponible quand cette semaine ?' },
+      { sp: 'Client', t: 'Jeudi ou vendredi matin si possible.' },
+      { sp: 'Agent', t: 'Je vous propose jeudi à 9h pour la vidange. C\'est à quel nom ?' },
+      { sp: 'Client', t: 'Dubois, Thomas Dubois.' },
+      { sp: 'Agent', t: 'Parfait. Rendez-vous jeudi à 9h au nom de Thomas Dubois pour une vidange Clio diesel. Vous recevrez une confirmation par SMS. À jeudi !' },
+    ],
   },
   {
     id: 'restaurant',
@@ -15,6 +24,15 @@ const DEMO_CARDS = [
     context: 'Réservation pour plusieurs personnes un samedi soir',
     color: B.cyan,
     src: '/uploads/demos/restaurant.mp3',
+    transcript: [
+      { sp: 'Agent', t: 'Bonsoir, Restaurant Le Provençal, votre assistant vocal. Comment puis-je vous aider ?' },
+      { sp: 'Client', t: 'Bonsoir, je voudrais réserver une table pour samedi soir, pour cinq personnes.' },
+      { sp: 'Agent', t: 'Bien sûr. À quelle heure souhaitez-vous dîner ?' },
+      { sp: 'Client', t: 'Vers 20h si c\'est possible.' },
+      { sp: 'Agent', t: 'J\'ai une table disponible à 20h pour cinq personnes samedi soir. C\'est à quel nom ?' },
+      { sp: 'Client', t: 'Lecomte.' },
+      { sp: 'Agent', t: 'Réservation confirmée : cinq personnes samedi à 20h au nom de Lecomte. Vous recevrez un SMS de confirmation. Bonne soirée !' },
+    ],
   },
   {
     id: 'artisan',
@@ -23,6 +41,13 @@ const DEMO_CARDS = [
     context: 'Demande de devis pour une intervention à domicile',
     color: B.lcyan,
     src: '/uploads/demos/artisan.mp3',
+    transcript: [
+      { sp: 'Agent', t: 'Bonjour, Plomberie Lambert, votre assistant vocal Omnira. Comment puis-je vous aider ?' },
+      { sp: 'Client', t: 'Bonjour, j\'aurais besoin d\'un devis pour la pose de carrelage dans ma cuisine, environ vingt mètres carrés.' },
+      { sp: 'Agent', t: 'Très bien. Vous êtes disponible pour une visite technique cette semaine ?' },
+      { sp: 'Client', t: 'Oui, je suis à Lyon, disponible mercredi après-midi.' },
+      { sp: 'Agent', t: 'Je transmets votre demande de devis à l\'artisan : pose de carrelage à Lyon, vingt mètres carrés, visite mercredi après-midi. Il vous contacte dans la journée pour confirmer. Bonne journée !' },
+    ],
   },
   {
     id: 'urgence',
@@ -31,6 +56,12 @@ const DEMO_CARDS = [
     context: 'Appel sensible transféré à un humain avec contexte',
     color: '#f59e0b',
     src: '/uploads/demos/urgence.mp3',
+    transcript: [
+      { sp: 'Agent', t: 'Bonjour, Cabinet médical Rousseau, votre assistant vocal. Comment puis-je vous aider ?' },
+      { sp: 'Client', t: 'Bonjour, j\'ai besoin de parler à quelqu\'un rapidement, c\'est urgent. Mon père a des douleurs thoraciques depuis ce matin.' },
+      { sp: 'Agent', t: 'Je comprends. Je transfère immédiatement votre appel à notre équipe avec le contexte complet. Restez en ligne, quelqu\'un vous répond dans les secondes qui suivent.' },
+      { sp: 'Note', t: '[Transfert effectué avec résumé automatique : "Appel urgent — douleurs thoraciques, patient âgé, famille en ligne."]' },
+    ],
   },
 ];
 
@@ -148,6 +179,23 @@ function DemoCard({ card, activeId, setActiveId }) {
           )}
         </button>
       </div>
+
+      {/* Transcription (visible par Googlebot, masquée visuellement) */}
+      {card.transcript && (
+        <details style={{marginTop:'14px',borderTop:`1px solid ${B.border}`,paddingTop:'12px'}}>
+          <summary style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted,textTransform:'uppercase',letterSpacing:'0.08em',cursor:'pointer',userSelect:'none',listStyle:'none',display:'flex',alignItems:'center',gap:'6px'}}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M1 3l4 4 4-4"/></svg>
+            Transcription
+          </summary>
+          <div style={{marginTop:'10px',display:'flex',flexDirection:'column',gap:'6px'}}>
+            {card.transcript.map((line, i) => (
+              <p key={i} style={{margin:0,fontFamily:'Inter,sans-serif',fontSize:'11px',lineHeight:1.55,color: line.sp === 'Agent' ? B.tMain : B.tMuted}}>
+                <strong style={{fontWeight:600,color:line.sp === 'Agent' ? card.color : B.tMuted}}>{line.sp} : </strong>{line.t}
+              </p>
+            ))}
+          </div>
+        </details>
+      )}
     </div>
   );
 }
