@@ -13,7 +13,9 @@ function copyDir(src, dest) {
 if (!fs.existsSync('public_html')) fs.mkdirSync('public_html');
 
 ['index.html', 'devis.html', 'demo.html', 'prendre-rendez-vous.html',
- 'agent-vocal-ia-garage.html', 'mentions-legales.html', 'confidentialite.html', 'cgu.html',
+ 'agent-vocal-ia-garage.html', 'agent-vocal-ia-immobilier.html',
+ 'agent-vocal-ia-courtier.html', 'agent-vocal-ia-assurance.html',
+ 'mentions-legales.html', 'confidentialite.html', 'cgu.html',
  'robots.txt', 'sitemap.xml', '.htaccess', 'favicon.svg'].forEach(f => {
   if (fs.existsSync(f)) fs.copyFileSync(f, path.join('public_html', f));
 });
