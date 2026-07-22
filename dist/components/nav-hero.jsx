@@ -22,7 +22,7 @@ function Nav() {
         <a href="#" style={{display:'flex',alignItems:'center',textDecoration:'none'}}>
           <div style={{display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
             {scrolled ? <OmniraLogoColor height={62}/> : <OmniraLogo height={68}/>}
-            <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:scrolled?B.tMuted:'rgba(255,255,255,0.38)',letterSpacing:'0.14em',fontWeight:600,marginTop:'2px',paddingLeft:'3px',textTransform:'uppercase'}}>by SETTE inc.</span>
+
           </div>
         </a>
         <div style={{display:'flex',alignItems:'center',gap:'36px'}} className="nav-links">

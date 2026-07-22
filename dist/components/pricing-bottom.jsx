@@ -285,7 +285,7 @@ function Footer() {
         <div style={{display:'grid',gridTemplateColumns:'1.5fr 1fr 1fr',gap:'48px',marginBottom:'48px'}} className="footer-grid">
           <div>
             <OmniraLogo height={32}/>
-            <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'rgba(255,255,255,0.25)',letterSpacing:'0.14em',textTransform:'uppercase',marginTop:'6px'}}>by SETTE inc.</p>
+
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
               Omnira conçoit et déploie des agents vocaux IA pour les garages indépendants et ateliers multimarques. Opérationnel en 15 minutes.
             </p>
@@ -313,7 +313,7 @@ function Footer() {
           </div>
         </div>
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2026 Omnira by SETTE inc. · Réceptionniste IA pour Garages</p>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2026 Omnira · Réceptionniste IA pour Garages</p>
           <div style={{display:'flex',gap:'24px'}}>
             {['Confidentialité','CGU','Mentions légales'].map(l=>(
               <a key={l} href="#" style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none'}}>{l}</a>
