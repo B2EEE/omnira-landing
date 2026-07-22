@@ -6,6 +6,7 @@ function App() {
       <Pain/>
       <HowItWorks/>
       <Scenarios/>
+      <SecteurLinks/>
       <Demo/>
       <Dashboard/>
       <PourQui/>

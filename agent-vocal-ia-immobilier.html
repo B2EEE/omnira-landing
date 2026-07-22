@@ -119,11 +119,11 @@
     ];
 
     const FAQS = [
-      { q: "L'agent peut-il prendre des rendez-vous de visite directement dans mon agenda ?", a: "Oui, si votre agenda est connecté (Google Calendar, Outlook, ou outil métier). La configuration est faite lors de la mise en place selon vos outils actuels." },
-      { q: "Peut-il gérer plusieurs agences ou agents au sein d'un réseau ?", a: "Oui. L'agent peut être configuré pour router les appels selon le secteur géographique ou le type de bien vers l'agent en charge." },
-      { q: "Que se passe-t-il si un prospect veut parler à un humain ?", a: "Les règles de transfert sont définies avec vous. L'agent peut transférer l'appel à un agent disponible avec le contexte disponible, ou laisser un message de rappel." },
-      { q: "L'agent connaît-il mon portefeuille de biens ?", a: "L'agent est configuré selon les informations que vous lui transmettez. Il peut présenter les caractéristiques générales des biens et orienter vers une visite. Il ne remplace pas votre logiciel de gestion de biens." },
-      { q: "Est-ce adapté à la gestion locative aussi bien qu'à la transaction ?", a: "Oui. L'agent peut gérer les deux flux : prospects acheteurs/vendeurs en transaction et appels locataires/propriétaires en gestion." },
+      { q: "Un acheteur rappelle pour un bien en visite — l'agent peut-il gérer la relance des prospects qui n'ont pas donné suite ?", a: "Oui. L'agent peut être configuré pour répondre aux rappels de prospects acheteurs ayant déjà visité un bien, collecter leur retour (intérêt, objections, contre-proposition) et vous transmettre ces informations avant votre rappel. C'est souvent là que le prospect se perd faute de suivi rapide." },
+      { q: "Comment l'agent distingue-t-il un appel pour un mandat de vente d'un appel acheteur ?", a: "L'agent est configuré pour identifier en quelques secondes le type d'appel : vendeur souhaitant une estimation et un mandat, ou acheteur recherchant un bien. Il adapte son script de qualification selon le profil et transmet une fiche distincte à l'agent en charge." },
+      { q: "L'agent peut-il informer un prospect sur le DPE ou les diagnostics d'un bien ?", a: "L'agent peut communiquer les informations que vous lui transmettez sur un bien (classe énergie, DPE, surface). Il ne produit pas de diagnostic et ne se substitue pas à votre obligation légale d'information au titre de la loi ALUR." },
+      { q: "Peut-il gérer les appels de propriétaires bailleurs en gestion locative ?", a: "Oui. L'agent peut gérer des flux distincts : transaction (prospects acheteurs/vendeurs) et gestion locative (propriétaires, locataires). Chaque flux a son propre script de qualification et ses propres règles de routing." },
+      { q: "Que se passe-t-il si un prospect rappelle après une visite pour faire une offre ?", a: "Les règles de transfert sont définies avec vous. L'agent peut détecter les mots-clés d'offre d'achat et transférer immédiatement vers l'agent en charge, ou collecter l'offre et les coordonnées pour que vous rappeliez en priorité." },
     ];
 
     function FeatureCard({ title, desc }) {

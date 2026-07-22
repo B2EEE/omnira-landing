@@ -124,5 +124,68 @@ function Scenarios() {
 }
 window.Scenarios = Scenarios;
 
+// ─── SECTEUR LINKS (maillage interne) ─────────────────────────────────────────
+const SECTEUR_PAGES = [
+  {
+    Icon: Ico.Home,
+    label: 'Agences immobilières',
+    desc: 'Qualification prospects acheteurs/vendeurs, RDV de visite, gestion hors horaires.',
+    href: '/agent-vocal-ia-immobilier',
+    color: B.blue,
+  },
+  {
+    Icon: Ico.Shield,
+    label: 'Courtiers en assurance',
+    desc: 'Devis emprunteur, qualification IARD, routing par spécialité, zéro appel manqué.',
+    href: '/agent-vocal-ia-courtier',
+    color: B.cyan,
+  },
+  {
+    Icon: Ico.Briefcase,
+    label: 'Assurance & Mutuelle',
+    desc: 'Sinistres, résiliations, mises à jour contrat — 24h/24 sans temps d\'attente.',
+    href: '/agent-vocal-ia-assurance',
+    color: B.lcyan,
+  },
+  {
+    Icon: Ico.Car,
+    label: 'Garages & Centres auto',
+    desc: 'Devis, prises de RDV atelier, urgences panne — l\'agent décroche pendant les interventions.',
+    href: '/agent-vocal-ia-garage',
+    color: B.blue,
+  },
+];
+
+function SecteurLinks() {
+  return (
+    <section style={{padding:'64px 24px',background:B.bgL}}>
+      <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+        <div style={{marginBottom:'32px',textAlign:'center'}}>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',textTransform:'uppercase',letterSpacing:'0.12em',color:B.blue,marginBottom:'10px'}}>Pages sectorielles</p>
+          <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(20px,2.5vw,28px)',fontWeight:800,color:B.tMain,letterSpacing:'-0.018em',lineHeight:1.2}}>
+            Agent vocal IA adapté à votre secteur
+          </h2>
+        </div>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'14px'}} className="feat-grid">
+          {SECTEUR_PAGES.map(({Icon,label,desc,href,color})=>(
+            <a key={href} href={href}
+              style={{display:'block',padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,textDecoration:'none',transition:'all 0.2s ease'}}
+              onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 12px 36px rgba(30,115,216,0.1)`;e.currentTarget.style.borderColor=`rgba(30,115,216,0.2)`;e.currentTarget.style.transform='translateY(-2px)';}}
+              onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
+              <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:`${color}11`,border:`1.5px solid ${color}22`,color,marginBottom:'12px'}}>
+                <Icon/>
+              </div>
+              <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'6px',lineHeight:1.3}}>{label}</h3>
+              <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.55,margin:'0 0 12px'}}>{desc}</p>
+              <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color,fontWeight:600}}>Voir la page →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+window.SecteurLinks = SecteurLinks;
+
 // stubs
 window.ForWho = () => null;
