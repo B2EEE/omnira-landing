@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agent vocal IA pour agence immobilière | Omnira</title>
+  <meta name="description" content="Omnira déploie un agent vocal IA pour agences immobilières : qualifier acheteurs et vendeurs, prendre des RDV de visite, répondre aux appels 24h/24. Zéro prospect perdu."/>
+  <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-immobilier"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Agent vocal IA pour agences immobilières",
+    "provider": { "@type": "Organization", "name": "Omnira", "url": "https://omniragency.com" },
+    "description": "Agent vocal IA qui répond aux appels entrants des agences immobilières : qualification des prospects, prise de rendez-vous de visite, gestion des appels hors horaires.",
+    "areaServed": "FR",
+    "serviceType": "Standard téléphonique IA immobilier"
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
+    @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 900px) {
+      .hero-grid     { grid-template-columns: 1fr !important; }
+      .solution-grid { grid-template-columns: 1fr !important; }
+      .footer-grid   { grid-template-columns: 1fr !important; }
+      .feat-grid     { grid-template-columns: 1fr 1fr !important; }
+      .nav-links     { display: none !important; }
+    }
+    @media (max-width: 560px) {
+      .feat-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pré-rendu statique pour Googlebot -->
+  <div id="root">
+    <header><nav><a href="https://omniragency.com">Omnira</a></nav></header>
+    <main>
+      <section>
+        <h1>Agent vocal IA pour agence immobilière — Ne perdez plus un prospect</h1>
+        <p>Omnira est un agent vocal IA conçu pour les agences immobilières et agents indépendants. Il répond à vos appels entrants 24h/24, qualifie acheteurs et vendeurs, prend des rendez-vous de visite et vous envoie un résumé structuré après chaque appel.</p>
+        <a href="/devis">Demander un devis personnalisé</a>
+      </section>
+      <section>
+        <h2>Les appels qu'Omnira gère pour votre agence immobilière</h2>
+        <ul>
+          <li>Renseignement sur un bien en vitrine : l'agent présente les caractéristiques et propose une visite</li>
+          <li>Prise de rendez-vous pour une visite : l'agent collecte les disponibilités du prospect et prépare le dossier</li>
+          <li>Estimation de bien immobilier : l'agent qualifie le projet vendeur et prend rendez-vous pour l'estimation</li>
+          <li>Appels hors horaires ou le weekend : aucun prospect ne tombe dans le vide</li>
+          <li>Relance de dossier : l'agent collecte les infos et les transmet à l'agent en charge</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pourquoi un agent vocal IA pour votre agence immobilière ?</h2>
+        <ul>
+          <li>Un prospect immobilier qui ne décroche pas son appel passe à l'agence concurrente en 3 minutes</li>
+          <li>L'agent répond même pendant les visites, négociations ou rendez-vous notariaux</li>
+          <li>Chaque appel devient une fiche prospect qualifiée : projet, budget, délai, coordonnées</li>
+          <li>Compatible avec toutes les agences : réseaux nationaux, indépendants, transaction et gestion locative</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Comment fonctionne l'agent vocal IA pour agence immobilière ?</h2>
+        <ol>
+          <li>Un prospect appelle votre numéro habituel</li>
+          <li>L'agent vocal Omnira répond en moins de 2 secondes</li>
+          <li>Il qualifie le projet (achat, vente, location, budget, délai)</li>
+          <li>Il prend rendez-vous de visite ou d'estimation selon vos règles</li>
+          <li>Vous recevez une fiche prospect complète par SMS ou email</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Tarif agent vocal IA immobilier</h2>
+        <p>Omnira propose des formules adaptées aux agences immobilières, de la petite structure indépendante aux réseaux multi-agences. Demandez un devis personnalisé selon votre volume d'appels.</p>
+      </section>
+    </main>
+    <footer>
+      <p>Omnira — Agent vocal IA pour agences immobilières</p>
+      <a href="https://omniragency.com">omniragency.com</a>
+    </footer>
+  </div>
+
+  <script type="text/babel" src="components/brand.jsx"></script>
+  <script type="text/babel" src="components/nav-hero.jsx"></script>
+  <script type="text/babel" src="components/pricing-bottom.jsx"></script>
+  <script type="text/babel">
+
+    const APPELS_TYPES = [
+      { label: 'Renseignement sur un bien en vitrine', desc: "L'agent présente les caractéristiques du bien, collecte le projet de l'acheteur et propose de fixer une visite." },
+      { label: 'Prise de rendez-vous visite', desc: "L'agent vérifie les disponibilités du prospect, collecte ses coordonnées et prépare la fiche pour l'agent en charge." },
+      { label: 'Demande d\'estimation de bien', desc: "L'agent qualifie le projet vendeur : type de bien, surface, localisation, délai de vente souhaité, et prend rendez-vous." },
+      { label: 'Appel hors horaires ou weekend', desc: "L'agent répond, collecte les infos et crée une demande de rappel ou un RDV pour le premier jour ouvré." },
+      { label: 'Relance ou suivi de dossier', desc: "L'agent collecte la nature de la demande et la transmet à l'agent en charge avec le contexte complet." },
+    ];
+
+    const FEATURES = [
+      { title: 'Qualifier les prospects acheteurs', desc: "Projet, budget, délai, secteur géographique — tout est structuré avant que vous rappeliez." },
+      { title: 'Prendre des RDV de visite', desc: "L'agent propose des créneaux selon vos règles et collecte les infos du prospect." },
+      { title: 'Qualifier les mandats vendeurs', desc: "Type de bien, surface, étage, délai souhaité, situation du titre — la fiche est prête à l'arrivée." },
+      { title: 'Gérer les appels en dehors des horaires', desc: "Weekend, soirée, jour férié — aucun prospect ne tombe sur une boîte vocale." },
+      { title: 'Filtrer les appels non prioritaires', desc: "Demarchage, appels hors-périmètre : l'agent filtre et ne mobilise votre équipe que sur les vrais prospects." },
+      { title: 'Transmettre les fiches qualifiées', desc: "Chaque appel aboutit sur une fiche prospect exploitable, envoyée par SMS ou email à l'agent concerné." },
+    ];
+
+    const FAQS = [
+      { q: "L'agent peut-il prendre des rendez-vous de visite directement dans mon agenda ?", a: "Oui, si votre agenda est connecté (Google Calendar, Outlook, ou outil métier). La configuration est faite lors de la mise en place selon vos outils actuels." },
+      { q: "Peut-il gérer plusieurs agences ou agents au sein d'un réseau ?", a: "Oui. L'agent peut être configuré pour router les appels selon le secteur géographique ou le type de bien vers l'agent en charge." },
+      { q: "Que se passe-t-il si un prospect veut parler à un humain ?", a: "Les règles de transfert sont définies avec vous. L'agent peut transférer l'appel à un agent disponible avec le contexte disponible, ou laisser un message de rappel." },
+      { q: "L'agent connaît-il mon portefeuille de biens ?", a: "L'agent est configuré selon les informations que vous lui transmettez. Il peut présenter les caractéristiques générales des biens et orienter vers une visite. Il ne remplace pas votre logiciel de gestion de biens." },
+      { q: "Est-ce adapté à la gestion locative aussi bien qu'à la transaction ?", a: "Oui. L'agent peut gérer les deux flux : prospects acheteurs/vendeurs en transaction et appels locataires/propriétaires en gestion." },
+    ];
+
+    function FeatureCard({ title, desc }) {
+      return (
+        <div style={{padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.2s ease'}}
+          onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 36px rgba(30,115,216,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-2px)';}}
+          onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
+          <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',border:'1.5px solid rgba(30,115,216,0.14)',color:B.blue,marginBottom:'12px'}}>
+            <Ico.Zap/>
+          </div>
+          <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'6px'}}>{title}</h3>
+          <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.6}}>{desc}</p>
+        </div>
+      );
+    }
+
+    function FAQ() {
+      const [open, setOpen] = React.useState(null);
+      return (
+        <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+          {FAQS.map(({q,a},i)=>(
+            <div key={i} style={{borderRadius:'14px',overflow:'hidden',border:`1px solid ${open===i?'rgba(30,115,216,0.28)':B.border}`,transition:'border-color 0.2s',boxShadow:open===i?'0 8px 28px rgba(30,115,216,0.08)':B.shadow}}>
+              <button onClick={()=>setOpen(open===i?null:i)} style={{width:'100%',padding:'16px 20px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',background:B.bgW,border:'none',cursor:'pointer',textAlign:'left'}}>
+                <span style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,flex:1,lineHeight:1.4}}>{q}</span>
+                <div style={{width:'24px',height:'24px',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:open===i?B.grad:B.bgL,border:`1px solid ${open===i?'transparent':B.border}`,transition:'all 0.2s',transform:open===i?'rotate(45deg)':'rotate(0deg)'}}>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke={open===i?'white':B.tMuted} strokeWidth="1.5" strokeLinecap="round"/></svg>
+                </div>
+              </button>
+              {open===i && (
+                <div style={{padding:'0 20px 16px',background:B.bgW}}>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.7,color:B.tMuted,margin:0,paddingTop:'10px',borderTop:`1px solid ${B.border}`}}>{a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    function Page() {
+      return (
+        <main style={{paddingTop:'80px',background:B.bgW}}>
+          {/* Hero */}
+          <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
+            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
+            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
+            <div style={{maxWidth:'1100px',margin:'0 auto',position:'relative',zIndex:1}}>
+              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'64px',alignItems:'center'}} className="hero-grid">
+                <div>
+                  <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Immobilier</Chip></div>
+                  <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,3.6vw,46px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'20px'}}>
+                    Agent vocal IA pour<br/>
+                    <span style={{background:`linear-gradient(135deg,#1E73D8,#2FC7D6)`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
+                      agences immobilières
+                    </span>
+                  </h1>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.45)',lineHeight:1.75,marginBottom:'32px'}}>
+                    Un prospect qui n'obtient pas de réponse passe à l'agence d'à côté en moins de 3 minutes. Omnira répond à tous vos appels, qualifie chaque contact et vous transmet une fiche exploitable — même pendant une visite ou un rendez-vous notarial.
+                  </p>
+                  <div style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
+                    <GBtn href="/devis" variant="primary" size="md">Demander un devis personnalisé</GBtn>
+                    <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md">Réserver une démo</GBtn>
+                  </div>
+                </div>
+                <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
+                  {['Appels reçus pendant les visites et négociations','Prospects acheteurs et vendeurs qualifiés','RDV de visite et d\'estimation pris automatiquement','Zéro appel perdu le soir ou le weekend'].map((t,i)=>(
+                    <div key={i} style={{display:'flex',alignItems:'center',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)'}}>
+                      <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
+                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      </div>
+                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.6)',lineHeight:1.45}}>{t}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Appels types */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Exemples d'appels" chipColor={B.blue} title="Les appels qu'Omnira<br/>gère pour votre agence" sub=""/>
+              </FadeIn>
+              <FadeIn delay={0.08}>
+                <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
+                  {APPELS_TYPES.map(({label,desc},i)=>(
+                    <div key={i} style={{display:'grid',gridTemplateColumns:'1fr 1.4fr',gap:'20px',padding:'20px 24px',borderRadius:'16px',background:B.bgL,border:`1px solid ${B.border}`,alignItems:'center'}} className="solution-grid">
+                      <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
+                        <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',color:B.blue}}>
+                          <Ico.Phone/>
+                        </div>
+                        <span style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,lineHeight:1.35}}>{label}</span>
+                      </div>
+                      <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </FadeIn>
+            </div>
+          </section>
+
+          {/* Features */}
+          <section style={{padding:'80px 24px',background:B.bgL}} className="section-cap-top">
+            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Fonctionnalités" chipColor={B.blue} title="Ce que l'agent gère pour votre agence immobilière" sub="Chaque configuration est définie avec vous selon votre organisation et vos outils."/>
+              </FadeIn>
+              <FadeIn delay={0.08}>
+                <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px',marginBottom:'28px'}} className="feat-grid">
+                  {FEATURES.map((f,i)=><FeatureCard key={i} {...f}/>)}
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.18}>
+                <div style={{padding:'16px 20px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'12px'}}>
+                  <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,margin:0}}>
+                    <strong style={{color:B.tMain}}>L'agent ne remplace pas votre expertise.</strong>{' '}
+                    Il qualifie, structure et transmet — la négociation, l'estimation et les conseils juridiques restent pour votre équipe.
+                  </p>
+                </div>
+              </FadeIn>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'780px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions sur Omnira<br/>pour l'immobilier" sub=""/>
+              </FadeIn>
+              <FadeIn delay={0.08}><FAQ/></FadeIn>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <section style={{padding:'80px 24px',background:B.bgD,position:'relative',overflow:'hidden'}}>
+            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 60% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 65%)',pointerEvents:'none'}}/>
+            <div style={{maxWidth:'640px',margin:'0 auto',position:'relative',zIndex:1,textAlign:'center'}}>
+              <FadeIn>
+                <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(24px,3.5vw,38px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.2,marginBottom:'16px'}}>
+                  Demandez un devis pour votre agence immobilière
+                </h2>
+                <p style={{fontFamily:'Inter,sans-serif',fontSize:'15px',color:'rgba(255,255,255,0.42)',lineHeight:1.7,marginBottom:'32px'}}>
+                  Configuration sur mesure selon votre portefeuille, vos horaires et vos outils. Estimation personnalisée sans engagement.
+                </p>
+                <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'12px'}}>
+                  <GBtn href="/devis" variant="primary" size="lg">Demander un devis personnalisé</GBtn>
+                  <GBtn href="/prendre-rendez-vous" variant="outline" size="md">Réserver une démo</GBtn>
+                </div>
+              </FadeIn>
+            </div>
+          </section>
+        </main>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <Nav/>
+          <Page/>
+          <Footer/>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
