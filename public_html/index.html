@@ -179,7 +179,78 @@
   </style>
 </head>
 <body>
-  <div id="root"></div>
+
+  <!-- JSON-LD : données structurées pour Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Omnira",
+    "url": "https://omniragency.com",
+    "description": "Omnira gère vos appels entrants grâce à des agents vocaux IA : qualification, prise de rendez-vous, devis et résumés transmis automatiquement à votre équipe.",
+    "areaServed": "FR",
+    "serviceType": "Agent vocal IA pour PME",
+    "offers": {
+      "@type": "Offer",
+      "name": "Agent vocal IA",
+      "description": "Réceptionniste virtuelle IA disponible 24h/24 pour répondre aux appels, prendre des rendez-vous et qualifier vos prospects."
+    }
+  }
+  </script>
+
+  <!-- Pré-rendu statique pour Googlebot (remplacé par React au chargement) -->
+  <div id="root">
+    <header>
+      <nav><a href="https://omniragency.com">Omnira</a></nav>
+    </header>
+    <main>
+      <section>
+        <h1>Vos appels non traités coûtent de l'argent. Omnira les transforme en rendez-vous et devis.</h1>
+        <p>Omnira est un agent vocal IA pour PME françaises. Il répond à vos appels entrants 24h/24, qualifie vos prospects, prend des rendez-vous et vous envoie un résumé structuré après chaque appel.</p>
+        <a href="/devis">Demander un devis</a>
+        <a href="https://cal.com/babacar-faye-qh9cu1/decouverte-omnira">Prendre rendez-vous</a>
+      </section>
+      <section>
+        <h2>Pourquoi choisir Omnira ?</h2>
+        <ul>
+          <li>Zéro appel manqué : votre agent répond même en dehors des heures d'ouverture</li>
+          <li>Résumés automatiques après chaque appel : nom, motif, urgence, action recommandée</li>
+          <li>Prise de rendez-vous directe dans votre agenda sans intervention humaine</li>
+          <li>Compatible avec tous les secteurs : restaurants, garages, artisans, hôtels, cabinets</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Pour qui est Omnira ?</h2>
+        <p>Omnira s'adresse aux PME françaises qui reçoivent des appels entrants : restaurants, garages automobiles, artisans du bâtiment, hôtels, cabinets médicaux, salons de coiffure et toute entreprise qui perd des clients faute de répondre au téléphone.</p>
+      </section>
+      <section>
+        <h2>Comment fonctionne l'agent vocal IA Omnira ?</h2>
+        <ol>
+          <li>Un client appelle votre numéro habituel</li>
+          <li>L'agent vocal Omnira répond en moins de 2 secondes</li>
+          <li>Il qualifie le besoin, prend le rendez-vous ou crée le devis</li>
+          <li>Vous recevez un résumé complet par SMS ou email</li>
+        </ol>
+      </section>
+      <section>
+        <h2>Tarifs agent vocal IA</h2>
+        <p>Omnira propose des formules adaptées aux PME : de l'offre Starter pour débuter jusqu'à l'offre Croissance pour les entreprises à fort volume d'appels. Demandez un devis personnalisé.</p>
+      </section>
+      <section>
+        <h2>Écoutez Omnira en situation réelle</h2>
+        <p>Quatre démonstrations audio par secteur d'activité : garage automobile, restaurant, artisan, situation d'urgence. Chaque démo illustre comment l'agent vocal gère un appel de A à Z.</p>
+      </section>
+    </main>
+    <footer>
+      <p>Omnira — Agent vocal IA pour PME françaises</p>
+      <p><a href="https://omniragency.com">omniragency.com</a></p>
+      <nav>
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/confidentialite">Politique de confidentialité</a>
+        <a href="/cgu">CGU</a>
+      </nav>
+    </footer>
+  </div>
 
   <!-- Components loaded in dependency order -->
   <script type="text/babel" src="components/brand.jsx"></script>
