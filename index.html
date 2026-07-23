@@ -24,6 +24,14 @@
   <meta name="twitter:description" content="Omnira transforme vos appels entrants en rendez-vous, devis et opportunités pour votre équipe."/>
   <meta name="twitter:image" content="https://omniragency.com/uploads/omnira-og-image.png"/>
 
+  <!-- Masque le pré-rendu brut uniquement pendant le démarrage de l'application. -->
+  <script>
+    document.documentElement.classList.add('js-loading');
+    window.setTimeout(function () {
+      document.documentElement.classList.remove('js-loading');
+    }, 8000);
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -35,6 +43,38 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
+
+    /* État d'amorçage : écran Omnira au lieu du pré-rendu SEO non stylisé. */
+    #app-loading-indicator { display: none; }
+    html.js-loading body { background: #07101D; }
+    html.js-loading #root { min-height: 100vh; }
+    html.js-loading #root > header,
+    html.js-loading #root > main,
+    html.js-loading #root > footer { display: none; }
+    html.js-loading #app-loading-indicator {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: #07101D;
+    }
+    #app-loading-indicator img {
+      width: min(190px, 46vw);
+      height: auto;
+    }
+    #app-loading-indicator span {
+      width: 28px;
+      height: 28px;
+      border: 2px solid rgba(255,255,255,0.18);
+      border-top-color: #2FC7D6;
+      border-radius: 50%;
+      animation: appLoadingSpin 0.8s linear infinite;
+    }
+    @keyframes appLoadingSpin { to { transform: rotate(360deg); } }
 
     /* ── Keyframes ── */
     @keyframes barwave {
@@ -199,6 +239,12 @@
     }
   }
   </script>
+
+  <!-- Écran de transition visible seulement quand JavaScript démarre. -->
+  <div id="app-loading-indicator" role="status" aria-label="Chargement d’Omnira">
+    <img src="/uploads/omnira-logo-transparent.png" alt="Omnira"/>
+    <span aria-hidden="true"></span>
+  </div>
 
   <!-- Pré-rendu statique pour Googlebot (remplacé par React au chargement) -->
   <div id="root">

@@ -1,4 +1,8 @@
 function App() {
+  React.useLayoutEffect(() => {
+    document.documentElement.classList.remove('js-loading');
+  }, []);
+
   return (
     <div>
       <Nav/>
