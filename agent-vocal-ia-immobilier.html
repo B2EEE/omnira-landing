@@ -3,21 +3,72 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agent vocal IA pour agence immobilière | Omnira</title>
-  <meta name="description" content="Omnira déploie un agent vocal IA pour agences immobilières : qualifier acheteurs et vendeurs, prendre des RDV de visite, répondre aux appels 24h/24. Zéro prospect perdu."/>
+  <title>Agent vocal IA immobilier pour agences | Omnira</title>
+  <meta name="description" content="Agent vocal IA pour agence immobilière : accueil des appels, qualification des acheteurs et vendeurs, demandes de visite et résumés structurés selon vos règles."/>
   <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-immobilier"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:title" content="Agent vocal IA immobilier pour agences | Omnira"/>
+  <meta property="og:description" content="Accueillez les appels, qualifiez acheteurs et vendeurs et préparez les demandes de visite selon les règles de votre agence."/>
+  <meta property="og:url" content="https://omniragency.com/agent-vocal-ia-immobilier"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Agent vocal IA pour agences immobilières",
-    "provider": { "@type": "Organization", "name": "Omnira", "url": "https://omniragency.com" },
-    "description": "Agent vocal IA qui répond aux appels entrants des agences immobilières : qualification des prospects, prise de rendez-vous de visite, gestion des appels hors horaires.",
-    "areaServed": "FR",
-    "serviceType": "Standard téléphonique IA immobilier"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omniragency.com/#organization",
+        "name": "Omnira",
+        "url": "https://omniragency.com"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omniragency.com/agent-vocal-ia-immobilier#service",
+        "name": "Agent vocal IA pour agences immobilières",
+        "url": "https://omniragency.com/agent-vocal-ia-immobilier",
+        "provider": { "@id": "https://omniragency.com/#organization" },
+        "description": "Service d'agent vocal IA pour accueillir les appels des agences immobilières, qualifier les projets acheteurs et vendeurs, préparer les demandes de visite et transmettre des résumés structurés selon les règles de l'agence.",
+        "areaServed": { "@type": "Country", "name": "France" },
+        "serviceType": "Agent vocal IA immobilier"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://omniragency.com/agent-vocal-ia-immobilier#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Agent vocal IA immobilier", "item": "https://omniragency.com/agent-vocal-ia-immobilier" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://omniragency.com/agent-vocal-ia-immobilier#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment l'agent distingue-t-il un appel vendeur d'un appel acheteur ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le scénario commence par identifier le motif de l'appel. Les questions posées et le résumé transmis s'adaptent ensuite au projet : achat, vente, location, estimation ou suivi de dossier." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'agent vocal peut-il prendre une demande de visite ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Selon la configuration validée par l'agence, il peut recueillir le bien concerné, les coordonnées et les disponibilités du prospect, puis créer une demande de visite ou proposer un créneau connecté à l'agenda." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'agent remplace-t-il le conseil de l'agent immobilier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Il accueille, qualifie et transmet les informations prévues. L'estimation, la négociation, le conseil juridique et les engagements commerciaux restent sous la responsabilité de l'équipe immobilière." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le tarif d'un agent vocal IA pour une agence immobilière ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle de l'agence." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -52,43 +103,50 @@
     <header><nav><a href="https://omniragency.com">Omnira</a></nav></header>
     <main>
       <section>
-        <h1>Agent vocal IA pour agence immobilière — Ne perdez plus un prospect</h1>
-        <p>Omnira est un agent vocal IA conçu pour les agences immobilières et agents indépendants. Il répond à vos appels entrants 24h/24, qualifie acheteurs et vendeurs, prend des rendez-vous de visite et vous envoie un résumé structuré après chaque appel.</p>
-        <a href="/devis">Demander un devis personnalisé</a>
+        <h1>Agent vocal IA pour agence immobilière</h1>
+        <p>Omnira accueille les appels entrants de votre agence, identifie le projet du prospect, collecte les informations utiles et transmet un résumé structuré. Les demandes d'achat, de vente, de location, d'estimation ou de visite suivent les règles validées avec votre équipe.</p>
+        <a href="/devis">Demander un devis pour mon agence</a>
+        <a href="/demo">Écouter une démonstration</a>
       </section>
       <section>
-        <h2>Les appels qu'Omnira gère pour votre agence immobilière</h2>
+        <h2>Quels appels l'agent vocal IA immobilier peut-il gérer ?</h2>
         <ul>
-          <li>Renseignement sur un bien en vitrine : l'agent présente les caractéristiques et propose une visite</li>
-          <li>Prise de rendez-vous pour une visite : l'agent collecte les disponibilités du prospect et prépare le dossier</li>
-          <li>Estimation de bien immobilier : l'agent qualifie le projet vendeur et prend rendez-vous pour l'estimation</li>
-          <li>Appels hors horaires ou le weekend : aucun prospect ne tombe dans le vide</li>
-          <li>Relance de dossier : l'agent collecte les infos et les transmet à l'agent en charge</li>
+          <li>Renseignement sur un bien : identifier le bien concerné et recueillir le projet du prospect.</li>
+          <li>Demande de visite : collecter les coordonnées et disponibilités, puis préparer la demande ou proposer un créneau selon la configuration.</li>
+          <li>Projet vendeur : recueillir le type de bien, sa localisation et le calendrier envisagé avant le rappel d'un conseiller.</li>
+          <li>Appel reçu pendant une visite ou hors horaires : appliquer le scénario d'accueil et de rappel défini par l'agence.</li>
+          <li>Suivi de dossier : identifier la demande et la transmettre au bon interlocuteur avec son contexte.</li>
         </ul>
       </section>
       <section>
-        <h2>Pourquoi un agent vocal IA pour votre agence immobilière ?</h2>
-        <ul>
-          <li>Un prospect immobilier qui ne décroche pas son appel passe à l'agence concurrente en 3 minutes</li>
-          <li>L'agent répond même pendant les visites, négociations ou rendez-vous notariaux</li>
-          <li>Chaque appel devient une fiche prospect qualifiée : projet, budget, délai, coordonnées</li>
-          <li>Compatible avec toutes les agences : réseaux nationaux, indépendants, transaction et gestion locative</li>
-        </ul>
-      </section>
-      <section>
-        <h2>Comment fonctionne l'agent vocal IA pour agence immobilière ?</h2>
+        <h2>Comment fonctionne l'agent vocal pour une agence immobilière ?</h2>
         <ol>
-          <li>Un prospect appelle votre numéro habituel</li>
-          <li>L'agent vocal Omnira répond en moins de 2 secondes</li>
-          <li>Il qualifie le projet (achat, vente, location, budget, délai)</li>
-          <li>Il prend rendez-vous de visite ou d'estimation selon vos règles</li>
-          <li>Vous recevez une fiche prospect complète par SMS ou email</li>
+          <li>Le prospect appelle le numéro utilisé par l'agence.</li>
+          <li>L'agent vocal accueille l'appel avec le scénario et les horaires validés.</li>
+          <li>Il distingue achat, vente, location, estimation, visite ou suivi.</li>
+          <li>Il recueille uniquement les informations prévues pour ce type de demande.</li>
+          <li>Il transmet un résumé structuré ou déclenche l'action autorisée : rappel, transfert ou rendez-vous.</li>
         </ol>
+        <p>L'agent ne réalise ni estimation, ni négociation, ni conseil juridique. Ces décisions restent sous la responsabilité de vos professionnels de l'immobilier.</p>
       </section>
       <section>
-        <h2>Tarif agent vocal IA immobilier</h2>
-        <p>Omnira propose des formules adaptées aux agences immobilières, de la petite structure indépendante aux réseaux multi-agences. Demandez un devis personnalisé selon votre volume d'appels.</p>
+        <h2>Questions fréquentes sur l'agent vocal IA immobilier</h2>
+        <h3>Comment distingue-t-il un appel vendeur d'un appel acheteur ?</h3>
+        <p>Le scénario commence par identifier le motif de l'appel. Les questions posées et le résumé transmis s'adaptent ensuite au projet : achat, vente, location, estimation ou suivi de dossier.</p>
+        <h3>Peut-il prendre une demande de visite ?</h3>
+        <p>Oui. Selon la configuration validée par l'agence, il peut recueillir le bien concerné, les coordonnées et les disponibilités du prospect, puis créer une demande de visite ou proposer un créneau connecté à l'agenda.</p>
+        <h3>Remplace-t-il le conseil de l'agent immobilier ?</h3>
+        <p>Non. Il accueille, qualifie et transmet les informations prévues. L'estimation, la négociation, le conseil juridique et les engagements commerciaux restent sous la responsabilité de l'équipe immobilière.</p>
+        <h3>Quel est le tarif d'un agent vocal IA pour une agence immobilière ?</h3>
+        <p>Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. <a href="/devis">Demandez un devis adapté à votre agence</a>.</p>
       </section>
+      <nav aria-label="Pages utiles">
+        <a href="/">Découvrir Omnira</a>
+        <a href="/demo">Écouter les démonstrations</a>
+        <a href="/prendre-rendez-vous">Réserver une présentation</a>
+        <a href="/agent-vocal-ia-courtier">Agent vocal IA pour courtiers</a>
+        <a href="/agent-vocal-ia-assurance">Agent vocal IA pour assurances</a>
+      </nav>
     </main>
     <footer>
       <p>Omnira — Agent vocal IA pour agences immobilières</p>
@@ -102,28 +160,28 @@
   <script type="text/babel">
 
     const APPELS_TYPES = [
-      { label: 'Renseignement sur un bien en vitrine', desc: "L'agent présente les caractéristiques du bien, collecte le projet de l'acheteur et propose de fixer une visite." },
+      { label: 'Renseignement sur un bien en vitrine', desc: "Selon les informations validées par l'agence, l'agent présente le bien concerné, collecte le projet de l'acheteur et peut préparer une demande de visite." },
       { label: 'Prise de rendez-vous visite', desc: "L'agent vérifie les disponibilités du prospect, collecte ses coordonnées et prépare la fiche pour l'agent en charge." },
-      { label: 'Demande d\'estimation de bien', desc: "L'agent qualifie le projet vendeur : type de bien, surface, localisation, délai de vente souhaité, et prend rendez-vous." },
-      { label: 'Appel hors horaires ou weekend', desc: "L'agent répond, collecte les infos et crée une demande de rappel ou un RDV pour le premier jour ouvré." },
+      { label: 'Demande d\'estimation de bien', desc: "L'agent recueille les informations prévues sur le projet vendeur et peut proposer un rendez-vous selon la configuration de l'agence." },
+      { label: 'Appel hors horaires ou weekend', desc: "Selon les horaires de couverture définis, l'agent collecte les informations prévues et peut créer une demande de rappel ou de rendez-vous." },
       { label: 'Relance ou suivi de dossier', desc: "L'agent collecte la nature de la demande et la transmet à l'agent en charge avec le contexte complet." },
     ];
 
     const FEATURES = [
-      { title: 'Qualifier les prospects acheteurs', desc: "Projet, budget, délai, secteur géographique — tout est structuré avant que vous rappeliez." },
+      { title: 'Qualifier les prospects acheteurs', desc: "Projet, budget, délai et secteur géographique : les informations prévues sont organisées avant le rappel de votre équipe." },
       { title: 'Prendre des RDV de visite', desc: "L'agent propose des créneaux selon vos règles et collecte les infos du prospect." },
-      { title: 'Qualifier les mandats vendeurs', desc: "Type de bien, surface, étage, délai souhaité, situation du titre — la fiche est prête à l'arrivée." },
-      { title: 'Gérer les appels en dehors des horaires', desc: "Weekend, soirée, jour férié — aucun prospect ne tombe sur une boîte vocale." },
-      { title: 'Filtrer les appels non prioritaires', desc: "Demarchage, appels hors-périmètre : l'agent filtre et ne mobilise votre équipe que sur les vrais prospects." },
-      { title: 'Transmettre les fiches qualifiées', desc: "Chaque appel aboutit sur une fiche prospect exploitable, envoyée par SMS ou email à l'agent concerné." },
+      { title: 'Qualifier les mandats vendeurs', desc: "Selon le scénario validé, la fiche peut rassembler le type de bien, la surface, l'étage et le délai souhaité." },
+      { title: 'Gérer les appels en dehors des horaires', desc: "Soir, weekend ou jour férié : l'agent applique les horaires de couverture et les règles de rappel définis avec vous." },
+      { title: 'Filtrer les appels non prioritaires', desc: "Démarchage ou demandes hors périmètre : l'agent applique les règles de tri définies par l'agence avant transmission." },
+      { title: 'Transmettre les informations recueillies', desc: "Lorsque les informations prévues sont disponibles, un résumé peut être envoyé par SMS ou email au destinataire défini." },
     ];
 
     const FAQS = [
-      { q: "Un acheteur rappelle pour un bien en visite — l'agent peut-il gérer la relance des prospects qui n'ont pas donné suite ?", a: "Oui. L'agent peut être configuré pour répondre aux rappels de prospects acheteurs ayant déjà visité un bien, collecter leur retour (intérêt, objections, contre-proposition) et vous transmettre ces informations avant votre rappel. C'est souvent là que le prospect se perd faute de suivi rapide." },
-      { q: "Comment l'agent distingue-t-il un appel pour un mandat de vente d'un appel acheteur ?", a: "L'agent est configuré pour identifier en quelques secondes le type d'appel : vendeur souhaitant une estimation et un mandat, ou acheteur recherchant un bien. Il adapte son script de qualification selon le profil et transmet une fiche distincte à l'agent en charge." },
-      { q: "L'agent peut-il informer un prospect sur le DPE ou les diagnostics d'un bien ?", a: "L'agent peut communiquer les informations que vous lui transmettez sur un bien (classe énergie, DPE, surface). Il ne produit pas de diagnostic et ne se substitue pas à votre obligation légale d'information au titre de la loi ALUR." },
-      { q: "Peut-il gérer les appels de propriétaires bailleurs en gestion locative ?", a: "Oui. L'agent peut gérer des flux distincts : transaction (prospects acheteurs/vendeurs) et gestion locative (propriétaires, locataires). Chaque flux a son propre script de qualification et ses propres règles de routing." },
-      { q: "Que se passe-t-il si un prospect rappelle après une visite pour faire une offre ?", a: "Les règles de transfert sont définies avec vous. L'agent peut détecter les mots-clés d'offre d'achat et transférer immédiatement vers l'agent en charge, ou collecter l'offre et les coordonnées pour que vous rappeliez en priorité." },
+      { q: "Comment l'agent distingue-t-il un appel vendeur d'un appel acheteur ?", a: "Le scénario commence par identifier le motif de l'appel. Les questions posées et le résumé transmis s'adaptent ensuite au projet : achat, vente, location, estimation ou suivi de dossier." },
+      { q: "L'agent vocal peut-il prendre une demande de visite ?", a: "Oui. Selon la configuration validée par l'agence, il peut recueillir le bien concerné, les coordonnées et les disponibilités du prospect, puis créer une demande de visite ou proposer un créneau connecté à l'agenda." },
+      { q: "L'agent remplace-t-il le conseil de l'agent immobilier ?", a: "Non. Il accueille, qualifie et transmet les informations prévues. L'estimation, la négociation, le conseil juridique et les engagements commerciaux restent sous la responsabilité de l'équipe immobilière." },
+      { q: "Peut-il gérer la transaction et la gestion locative ?", a: "Oui, avec des scénarios distincts. L'agence choisit les motifs traités, les questions autorisées et le destinataire de chaque résumé pour les appels d'acheteurs, vendeurs, propriétaires ou locataires." },
+      { q: "Quel est le tarif d'un agent vocal IA pour une agence immobilière ?", a: "Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle de l'agence." },
     ];
 
     function FeatureCard({ title, desc }) {
@@ -181,7 +239,7 @@
                     </span>
                   </h1>
                   <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.45)',lineHeight:1.75,marginBottom:'32px'}}>
-                    Un prospect qui n'obtient pas de réponse passe à l'agence d'à côté en moins de 3 minutes. Omnira répond à tous vos appels, qualifie chaque contact et vous transmet une fiche exploitable — même pendant une visite ou un rendez-vous notarial.
+                    Pendant une visite, une négociation ou un rendez-vous, Omnira peut accueillir vos appels selon les horaires définis, qualifier la demande et transmettre une fiche exploitable à votre équipe.
                   </p>
                   <div style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
                     <GBtn href="/devis" variant="primary" size="md">Demander un devis personnalisé</GBtn>
@@ -189,7 +247,7 @@
                   </div>
                 </div>
                 <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
-                  {['Appels reçus pendant les visites et négociations','Prospects acheteurs et vendeurs qualifiés','RDV de visite et d\'estimation pris automatiquement','Zéro appel perdu le soir ou le weekend'].map((t,i)=>(
+                  {['Accueil des appels pendant les visites et négociations','Prospects acheteurs et vendeurs qualifiés','Demandes de visite et d\'estimation structurées','Couverture selon les horaires et règles de votre agence'].map((t,i)=>(
                     <div key={i} style={{display:'flex',alignItems:'center',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)'}}>
                       <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -245,6 +303,30 @@
                     Il qualifie, structure et transmet — la négociation, l'estimation et les conseils juridiques restent pour votre équipe.
                   </p>
                 </div>
+              </FadeIn>
+            </div>
+          </section>
+
+          {/* Fonctionnement et maillage interne */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'900px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Fonctionnement" chipColor={B.blue} title="Comment fonctionne l'agent vocal pour une agence immobilière ?" sub="Le scénario, les horaires et les actions autorisées sont définis avec votre équipe."/>
+              </FadeIn>
+              <FadeIn delay={0.08}>
+                <ol style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.8,paddingLeft:'20px',marginBottom:'24px'}}>
+                  <li>Le prospect appelle le numéro utilisé par l'agence.</li>
+                  <li>L'agent vocal accueille l'appel selon le scénario et les horaires validés.</li>
+                  <li>Il identifie le motif prévu : achat, vente, location, estimation, visite ou suivi.</li>
+                  <li>Il recueille les informations autorisées pour ce type de demande.</li>
+                  <li>Il transmet un résumé ou déclenche l'action configurée : rappel, transfert ou rendez-vous.</li>
+                </ol>
+                <nav aria-label="Pages utiles" style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
+                  <a href="/demo">Écouter les démonstrations</a>
+                  <a href="/prendre-rendez-vous">Réserver une présentation</a>
+                  <a href="/agent-vocal-ia-courtier">Agent vocal IA pour courtiers</a>
+                  <a href="/agent-vocal-ia-assurance">Agent vocal IA pour assurances</a>
+                </nav>
               </FadeIn>
             </div>
           </section>
