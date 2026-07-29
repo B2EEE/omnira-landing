@@ -140,10 +140,10 @@ const SECTOR_DATA = {
     label: 'Restaurant',
     steps: [
       { label: 'Appel entrant', sub: 'Brasserie du Lac · 20h14' },
-      { label: 'Agent Omnira répond', sub: 'Réponse en 0.7 seconde' },
+      { label: 'Prise en charge prévue', sub: 'Selon la configuration retenue' },
       { label: 'Demande identifiée', sub: 'Réservation × 4 personnes' },
-      { label: 'Action exécutée', sub: 'Créneau préparé · samedi 20h' },
-      { label: 'Résumé transmis', sub: 'Équipe notifiée automatiquement' },
+      { label: 'Action prévue', sub: 'Créneau préparé · samedi 20h' },
+      { label: 'Résumé selon la configuration', sub: "Équipe notifiée selon l'intégration" },
     ],
     summary: [
       { l:'Client', v:'Martin G. · 06 XX XX XX XX' },
@@ -156,10 +156,10 @@ const SECTOR_DATA = {
     label: 'Garage',
     steps: [
       { label: 'Appel entrant', sub: 'Garage Auto Roussel · 09h47' },
-      { label: 'Agent Omnira répond', sub: 'Réponse en 0.6 seconde' },
+      { label: 'Prise en charge prévue', sub: 'Selon la configuration retenue' },
       { label: 'Demande identifiée', sub: 'Devis freins · Peugeot 308' },
-      { label: 'Action exécutée', sub: "Demande transmise à l'atelier" },
-      { label: 'Résumé transmis', sub: "Chef d'atelier notifié" },
+      { label: 'Action prévue', sub: "Demande transmise à l'atelier" },
+      { label: 'Résumé selon la configuration', sub: "Chef d'atelier notifié selon la configuration" },
     ],
     summary: [
       { l:'Client', v:'Dupont J. · 06 XX XX XX XX' },
@@ -172,10 +172,10 @@ const SECTOR_DATA = {
     label: 'Artisan',
     steps: [
       { label: 'Appel entrant', sub: 'Plomberie & Chauffage · 14h22' },
-      { label: 'Agent Omnira répond', sub: 'Réponse en 0.8 seconde' },
+      { label: 'Prise en charge prévue', sub: 'Selon la configuration retenue' },
       { label: 'Demande identifiée', sub: 'Fuite sous-évier · urgent' },
-      { label: 'Action exécutée', sub: 'Rappel prioritaire planifié' },
-      { label: 'Résumé transmis', sub: 'Chef de chantier notifié' },
+      { label: 'Action prévue', sub: 'Rappel prioritaire planifié' },
+      { label: 'Résumé selon la configuration', sub: 'Notification préparée pour le chef de chantier' },
     ],
     summary: [
       { l:'Client', v:'Bernard L. · 06 XX XX XX XX' },
@@ -188,10 +188,10 @@ const SECTOR_DATA = {
     label: 'Cabinet',
     steps: [
       { label: 'Appel entrant', sub: 'Cabinet Médical Santé · 10h33' },
-      { label: 'Agent Omnira répond', sub: 'Réponse en 0.7 seconde' },
+      { label: 'Prise en charge prévue', sub: 'Selon la configuration retenue' },
       { label: 'Demande identifiée', sub: 'RDV général · nouveau patient' },
-      { label: 'Action exécutée', sub: 'Créneau préparé · vendredi 11h' },
-      { label: 'Résumé transmis', sub: 'Secrétariat notifié' },
+      { label: 'Action prévue', sub: 'Créneau préparé · vendredi 11h' },
+      { label: 'Résumé selon la configuration', sub: 'Notification préparée pour le secrétariat' },
     ],
     summary: [
       { l:'Patient', v:'Garcia M. · 06 XX XX XX XX' },
@@ -236,13 +236,13 @@ function HeroVisual({ sector = 'restaurant' }) {
           <div style={{width:'7px',height:'7px',borderRadius:'50%',background:'#ef4444'}}/>
           <div style={{width:'7px',height:'7px',borderRadius:'50%',background:'#f59e0b'}}/>
           <div style={{width:'7px',height:'7px',borderRadius:'50%',background:'#22c55e'}}/>
-          <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.28)',marginLeft:'8px',flex:1}}>Agent Omnira · Appel en cours</span>
+          <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.62)',marginLeft:'8px',flex:1}}>Agent Omnira · Exemple illustratif</span>
           <div style={{display:'flex',alignItems:'center',gap:'5px'}}>
             <span style={{position:'relative',display:'inline-flex',width:'7px',height:'7px'}}>
               <span style={{position:'absolute',inset:0,borderRadius:'50%',background:'#4ade80',animation:'ping 1.5s ease-out infinite'}}/>
               <span style={{width:'7px',height:'7px',borderRadius:'50%',background:'#4ade80',display:'inline-flex'}}/>
             </span>
-            <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'#4ade80',fontWeight:600}}>Live</span>
+            <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'#4ade80',fontWeight:600}}>Démo</span>
           </div>
         </div>
 
@@ -309,11 +309,11 @@ function HeroVisual({ sector = 'restaurant' }) {
       {/* Floating badges */}
       <div style={{position:'absolute',top:'-16px',right:'-16px',display:'flex',alignItems:'center',gap:'7px',padding:'8px 14px',borderRadius:'14px',background:'rgba(7,14,26,0.95)',border:'1px solid rgba(255,255,255,0.1)',backdropFilter:'blur(12px)',boxShadow:'0 8px 24px rgba(0,0,0,0.35)',zIndex:2}}>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke={B.cyan} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        <span style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white'}}>Réponse en &lt;1s</span>
+        <span style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white'}}>Scénario configurable</span>
       </div>
       <div style={{position:'absolute',bottom:'-14px',left:'-14px',display:'flex',alignItems:'center',gap:'7px',padding:'8px 14px',borderRadius:'14px',background:'rgba(7,14,26,0.95)',border:'1px solid rgba(255,255,255,0.1)',backdropFilter:'blur(12px)',boxShadow:'0 8px 24px rgba(0,0,0,0.35)',zIndex:2}}>
         <div style={{width:'7px',height:'7px',borderRadius:'50%',background:'#4ade80',flexShrink:0}}/>
-        <span style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white'}}>Agent actif 24/7</span>
+        <span style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,color:'white'}}>Horaires définis par la PME</span>
       </div>
     </div>
   );
@@ -326,10 +326,10 @@ function Hero() {
   React.useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
 
   const benefits = [
-    'Réponse 24/7 ou selon vos horaires',
+    'Plages de réponse définies avec votre équipe',
     "Demandes qualifiées avant d'interrompre l'équipe",
-    'Rendez-vous, devis et rappels mieux suivis',
-    'Tout centralisé dans un dashboard : activité, appels traités, résultats',
+    'Rendez-vous, devis et rappels préparés selon vos règles',
+    'Activité centralisée selon les outils et intégrations configurés',
   ];
 
   return (
@@ -342,13 +342,13 @@ function Hero() {
             <Chip color={B.cyan}>Agent Omnira · PME en France</Chip>
           </div>
           <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(30px,3.8vw,50px)',fontWeight:800,lineHeight:1.1,letterSpacing:'-0.026em',color:'white',marginBottom:'24px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(24px)',transition:'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s'}}>
-            Vos appels non traités coûtent de l'argent. Omnira les transforme en{' '}
+            Agent vocal IA pour PME : qualifiez vos appels avant de{' '}
             <span style={{background:`linear-gradient(135deg,${B.blue},${B.cyan},${B.lcyan})`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-              rendez-vous et devis.
+              solliciter votre équipe.
             </span>
           </h1>
           <p style={{fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.5)',maxWidth:'500px',fontFamily:'Inter,sans-serif',marginBottom:'32px',opacity:loaded?1:0,transform:loaded?'translateY(0)':'translateY(20px)',transition:'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s'}}>
-            Omnira répond à vos appels, qualifie les demandes, filtre les urgences, prépare les rendez-vous ou les devis, puis transmet à votre équipe un résumé clair de chaque échange.
+            Omnira configure un agent vocal IA selon vos horaires et vos règles métier. Il peut identifier la demande, préparer le rendez-vous, le devis ou le rappel approprié, puis transmettre un résumé à votre équipe.
           </p>
           <div style={{display:'flex',flexDirection:'column',gap:'10px',marginBottom:'24px',opacity:loaded?1:0,transition:'opacity 0.7s ease 0.35s'}}>
             {benefits.map((b,i)=>(
@@ -367,9 +367,9 @@ function Hero() {
               <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.45)'}}>Conçu pour les PME en France</span>
             </div>
             <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
-            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Essai 7 jours</span>
+            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Diagnostic initial</span>
             <span style={{color:'rgba(255,255,255,0.18)',fontSize:'11px'}}>·</span>
-            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Réponse sous 24h</span>
+            <span style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.32)'}}>Périmètre à confirmer</span>
           </div>
           {/* CTAs */}
           <div style={{opacity:loaded?1:0,transition:'opacity 0.7s ease 0.42s'}}>

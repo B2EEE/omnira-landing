@@ -59,8 +59,8 @@ const DEMO_CARDS = [
     transcript: [
       { sp: 'Agent', t: 'Bonjour, Cabinet médical Rousseau, votre assistant vocal. Comment puis-je vous aider ?' },
       { sp: 'Client', t: 'Bonjour, j\'ai besoin de parler à quelqu\'un rapidement, c\'est urgent. Mon père a des douleurs thoraciques depuis ce matin.' },
-      { sp: 'Agent', t: 'Je comprends. Je transfère immédiatement votre appel à notre équipe avec le contexte complet. Restez en ligne, quelqu\'un vous répond dans les secondes qui suivent.' },
-      { sp: 'Note', t: '[Transfert effectué avec résumé automatique : "Appel urgent — douleurs thoraciques, patient âgé, famille en ligne."]' },
+      { sp: 'Agent', t: "En cas d'urgence médicale, n'attendez pas un transfert : appelez immédiatement le 15 ou le 112. Le scénario configuré par le cabinet peut aussi prévoir une orientation prioritaire." },
+      { sp: 'Note', t: '[Scénario fictif : orientation prioritaire selon la configuration du cabinet.]' },
     ],
   },
 ];
@@ -209,8 +209,8 @@ function Demo() {
           <SectionHeader
             chip="Démo"
             chipColor={B.blue}
-            title="Écoutez Omnira en situation réelle"
-            sub="Quatre scénarios par secteur d'activité. Chaque démo illustre comment l'agent gère un appel de A à Z."
+            title="Écoutez quatre scénarios illustratifs"
+            sub="Ces démonstrations montrent le comportement attendu dans un cadre défini. Elles ne présentent pas des appels ou résultats clients."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'20px',marginBottom:'40px'}} className="solution-grid">
@@ -249,7 +249,7 @@ function CallSummary() {
           <SectionHeader
             chip="Résumé d'appel"
             chipColor={B.blue}
-            title="Chaque appel devient une information exploitable"
+            title="Un appel traité peut produire un compte rendu structuré"
             sub=""
           />
         </FadeIn>
@@ -260,11 +260,11 @@ function CallSummary() {
               <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
                 <div style={{width:'32px',height:'32px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:B.grad,color:'white',flexShrink:0,boxShadow:'0 4px 14px rgba(30,115,216,0.35)'}}><Ico.Chart/></div>
                 <div>
-                  <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:'white',margin:'0 0 2px'}}>Résumé d'appel automatique</p>
-                  <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.32)',margin:0}}>Généré après l'appel · aucune saisie manuelle</p>
+                  <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:'white',margin:'0 0 2px'}}>Compte rendu d'appel illustratif</p>
+                  <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'rgba(255,255,255,0.32)',margin:0}}>Préparé selon la configuration · vérification humaine requise</p>
                 </div>
               </div>
-              <div style={{padding:'4px 12px',borderRadius:'99px',background:'rgba(47,199,214,0.12)',border:'1px solid rgba(47,199,214,0.25)',fontFamily:'JetBrains Mono,monospace',fontSize:'10px',fontWeight:600,color:B.cyan,flexShrink:0}}>Automatique</div>
+              <div style={{padding:'4px 12px',borderRadius:'99px',background:'rgba(47,199,214,0.12)',border:'1px solid rgba(47,199,214,0.25)',fontFamily:'JetBrains Mono,monospace',fontSize:'10px',fontWeight:600,color:B.cyan,flexShrink:0}}>Selon intégration</div>
             </div>
 
             {/* Fields grid */}
@@ -297,7 +297,7 @@ function CallSummary() {
         <FadeIn delay={0.15}>
           <div style={{marginTop:'28px',padding:'20px 28px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,textAlign:'center'}}>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'15px',color:B.tMain,lineHeight:1.7,margin:0}}>
-              <strong>Votre équipe ne reçoit plus seulement "un message à rappeler"</strong>, mais un résumé clair, structuré et exploitable.
+                  <strong>Selon la configuration, votre équipe peut recevoir plus qu'un simple « message à rappeler »</strong> : un compte rendu structuré à vérifier et à traiter.
             </p>
           </div>
         </FadeIn>

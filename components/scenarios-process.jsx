@@ -12,10 +12,10 @@ const _MENU = [
 ];
 
 const _KPIS = [
-  { label:'Appels reçus',   value:'186', sub:'ce mois',     color:B.blue  },
-  { label:'Traités',        value:'142', sub:'76% du total',color:B.cyan  },
-  { label:'Qualification',  value:'87%', sub:'taux moyen',  color:B.lcyan },
-  { label:'Hors horaires',  value:'22',  sub:'récupérés',   color:'#f59e0b' },
+  { label:'Appels reçus',   value:'186', sub:'exemple fictif', color:B.blue },
+  { label:'Traités',        value:'142', sub:'exemple fictif', color:B.cyan },
+  { label:'Qualification',  value:'87%', sub:'exemple fictif', color:B.lcyan },
+  { label:'Hors horaires',  value:'22',  sub:'exemple fictif', color:'#f59e0b' },
 ];
 
 const _BARS = [
@@ -119,19 +119,20 @@ function Dashboard() {
             <div>
               <div style={{marginBottom:'16px'}}><Chip color={B.cyan}>Dashboard produit</Chip></div>
               <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.2vw,42px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'18px'}}>
-                Chaque appel devient une donnée exploitable
+                Un tableau de bord peut structurer le suivi des appels
               </h2>
               <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.46)',lineHeight:1.76,marginBottom:'30px'}}>
-                Omnira ne se contente pas de répondre. Chaque échange est qualifié, structuré et transmis en informations claires pour votre équipe.
+                Selon les intégrations retenues, les échanges peuvent être qualifiés, structurés et présentés sous forme d'informations utiles à votre équipe.
               </p>
 
               {/* stats 2×2 */}
+              <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',fontWeight:700,color:B.cyan,textTransform:'uppercase',letterSpacing:'0.08em',marginBottom:'10px'}}>Exemple fictif — aucun résultat client</p>
               <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'11px',marginBottom:'26px'}}>
                 {[
-                  {v:'186', l:'appels suivis ce mois'},
-                  {v:'87%', l:'taux de qualification'},
-                  {v:'11h20',l:'économisées par semaine'},
-                  {v:'22',   l:'appels hors horaires récupérés'},
+                  {v:'186', l:'appels — exemple fictif'},
+                  {v:'87%', l:'qualification — exemple fictif'},
+                  {v:'11h20',l:'temps — exemple fictif'},
+                  {v:'22',   l:'hors horaires — exemple fictif'},
                 ].map((s,i)=>(
                   <div key={i} style={{padding:'14px 16px',borderRadius:'12px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.07)'}}>
                     <div style={{fontFamily:'JetBrains Mono,monospace',fontSize:'20px',fontWeight:700,color:'white',lineHeight:1,marginBottom:'4px'}}>{s.v}</div>
@@ -143,9 +144,9 @@ function Dashboard() {
               {/* bullets */}
               <div style={{display:'flex',flexDirection:'column',gap:'8px',marginBottom:'32px'}}>
                 {[
-                  "Appels, motifs et statuts en un coup d'oeil",
-                  "Résumés automatiques transmis à chaque échange",
-                  "Tendances et performances sur 7 ou 30 jours",
+                  "Appels, motifs et statuts selon les données disponibles",
+                  "Résumés préparés lorsque le scénario et l'intégration le permettent",
+                  "Tendances calculées à partir de l'activité enregistrée",
                 ].map((t,i)=>(
                   <div key={i} style={{display:'flex',alignItems:'flex-start',gap:'10px'}}>
                     <div style={{width:'16px',height:'16px',borderRadius:'50%',background:'rgba(47,199,214,0.13)',border:'1px solid rgba(47,199,214,0.27)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:'1px'}}>
@@ -239,15 +240,15 @@ function Dashboard() {
                       display:'flex',alignItems:'center',justifyContent:'space-between',
                     }}>
                       <span style={{fontFamily:'Sora,sans-serif',fontSize:'11px',fontWeight:700,color:'rgba(255,255,255,0.82)',letterSpacing:'-0.01em'}}>
-                        Tableau de bord Omnira
+                        Tableau de bord illustratif
                       </span>
                       <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
                         <div style={{display:'flex',alignItems:'center',gap:'4px',padding:'2px 7px',borderRadius:'99px',background:'rgba(16,185,129,0.1)',border:'1px solid rgba(16,185,129,0.2)'}}>
                           <div style={{width:'5px',height:'5px',borderRadius:'50%',background:'#10b981',animation:'ping 1.8s ease-in-out infinite'}}/>
-                          <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'#10b981',fontWeight:500}}>Actif</span>
+                          <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'9px',color:'#10b981',fontWeight:500}}>Démo</span>
                         </div>
                         <div style={{padding:'2px 7px',borderRadius:'5px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.07)'}}>
-                          <span style={{fontFamily:'Inter,sans-serif',fontSize:'9px',color:'rgba(255,255,255,0.32)'}}>7 derniers jours</span>
+                          <span style={{fontFamily:'Inter,sans-serif',fontSize:'9px',color:'rgba(255,255,255,0.32)'}}>Données fictives</span>
                         </div>
                       </div>
                     </div>
@@ -460,7 +461,7 @@ function Dashboard() {
           <div style={{marginTop:'36px',padding:'13px 20px',borderRadius:'11px',background:'rgba(30,115,216,0.06)',border:'1px solid rgba(30,115,216,0.13)',display:'flex',alignItems:'center',gap:'12px'}}>
             <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:'rgba(255,255,255,0.35)',lineHeight:1.65,margin:0}}>
-              Les données affichées dans ce dashboard sont entièrement fictives et illustratives. Aucun client réel.
+              Ces chiffres et identités sont fictifs et servent uniquement à illustrer une interface configurable. Ils ne constituent ni des données, ni des résultats clients.
             </p>
           </div>
         </FadeIn>
@@ -500,17 +501,18 @@ function ROICalculator() {
   const [timePerCall,  setTimePerCall]  = React.useState(5);
 
   const missedPerWeek        = Math.round(callsPerWeek * missedPct / 100);
-  const recoverablePerMonth  = missedPerWeek * 4;
-  const revenuePerMonth      = Math.round(recoverablePerMonth * (convRate / 100) * clientValue);
-  const revenuePerYear       = revenuePerMonth * 12;
-  const timeSavedPerMonth    = Math.round(callsPerWeek * 4 * timePerCall / 60);
+  const unansweredPerMonth   = missedPerWeek * 4;
+  const hypotheticalContacts = Math.round(unansweredPerMonth * (convRate / 100));
+  const theoreticalPerMonth  = Math.round(unansweredPerMonth * (convRate / 100) * clientValue);
+  const theoreticalPerYear   = theoreticalPerMonth * 12;
+  const callTimePerMonth      = Math.round(callsPerWeek * 4 * timePerCall / 60);
 
   const sliders = [
     { label:'Appels reçus par semaine',          value:callsPerWeek, set:setCallsPerWeek, min:5,   max:200, unit:'appels',  color:B.blue  },
     { label:'Appels manqués estimés',            value:missedPct,    set:setMissedPct,    min:5,   max:60,  unit:'%',       color:B.cyan  },
     { label:"Valeur moyenne d'un client",        value:clientValue,  set:setClientValue,  min:50,  max:1000,unit:'€',       color:B.lcyan },
     { label:'Taux de conversion estimé',         value:convRate,     set:setConvRate,     min:5,   max:70,  unit:'%',       color:B.blue  },
-    { label:'Temps moyen gagné par appel',       value:timePerCall,  set:setTimePerCall,  min:1,   max:20,  unit:'min',     color:B.cyan  },
+    { label:'Temps moyen consacré par appel',     value:timePerCall,  set:setTimePerCall,  min:1,   max:20,  unit:'min',     color:B.cyan  },
   ];
 
   return (
@@ -521,7 +523,7 @@ function ROICalculator() {
             chip="Simulation"
             chipColor={B.blue}
             title="Estimez ce que vos appels manqués peuvent vous coûter"
-            sub="Ajustez les curseurs selon votre situation pour visualiser l'impact potentiel de vos appels non traités."
+            sub="Ajustez les hypothèses selon votre situation. Le calcul décrit un scénario théorique, pas un résultat attendu."
           />
         </FadeIn>
         <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'40px',alignItems:'start'}} className="roi-grid">
@@ -554,11 +556,11 @@ function ROICalculator() {
           <FadeIn delay={0.1}>
             <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
               {[
-                { label:'Appels récupérables / mois',       value:`${recoverablePerMonth}`, unit:'appels',   color:B.blue,  hi:false },
-                { label:'Opportunités perdues estimées',     value:`${recoverablePerMonth}`, unit:'contacts', color:B.cyan,  hi:false },
-                { label:'CA potentiel récupérable / mois',  value:`${revenuePerMonth.toLocaleString('fr-FR')}`, unit:'€', color:B.lcyan, hi:false },
-                { label:'CA potentiel récupérable / an',    value:`${revenuePerYear.toLocaleString('fr-FR')}`,  unit:'€/an', color:B.cyan, hi:true },
-                { label:'Temps économisé estimé / mois',    value:`${timeSavedPerMonth}h`,  unit:'',         color:B.blue,  hi:false },
+                { label:'Appels non traités estimés / mois', value:`${unansweredPerMonth}`, unit:'appels',   color:B.blue,  hi:false },
+                { label:"Contacts dans l'hypothèse / mois", value:`${hypotheticalContacts}`, unit:'contacts', color:B.cyan, hi:false },
+                { label:'Valeur théorique / mois', value:`${theoreticalPerMonth.toLocaleString('fr-FR')}`, unit:'€', color:B.lcyan, hi:false },
+                { label:'Valeur théorique / an', value:`${theoreticalPerYear.toLocaleString('fr-FR')}`, unit:'€/an', color:B.cyan, hi:true },
+                { label:'Temps total associé / mois', value:`${callTimePerMonth}h`, unit:'', color:B.blue, hi:false },
               ].map(({label,value,unit,color,hi})=>(
                 <div key={label} style={{padding:'20px 24px',borderRadius:'18px',position:'relative',overflow:'hidden',
                   background: hi ? `linear-gradient(135deg,#0D3665,${B.blue})` : B.bgW,
@@ -575,10 +577,10 @@ function ROICalculator() {
               ))}
               <div style={{padding:'12px 16px',borderRadius:'12px',background:'rgba(91,122,155,0.07)',border:`1px solid ${B.border}`}}>
                 <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.6,margin:0}}>
-                  Ces calculs sont des estimations indicatives, non des promesses de résultat. Vos chiffres réels dépendent de votre activité.
+                  Ce calcul applique uniquement les hypothèses saisies. Il ne modélise ni la mise en place d'Omnira, ni un taux de récupération réel, ni un résultat commercial. Les résultats observés peuvent différer.
                 </p>
               </div>
-              <GBtn onClick={() => window.openCalModal('devis')} variant="primary" size="md" full>Recevoir une estimation personnalisée</GBtn>
+              <GBtn onClick={() => window.openCalModal('devis')} variant="primary" size="md" full>Discuter de ces hypothèses</GBtn>
             </div>
           </FadeIn>
         </div>

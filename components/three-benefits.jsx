@@ -18,10 +18,10 @@ function Pain() {
             <Chip color={B.cyan}>Le problème</Chip>
           </div>
           <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(22px,3.2vw,36px)',fontWeight:800,letterSpacing:'-0.024em',color:'white',lineHeight:1.25,textAlign:'center',marginBottom:'24px'}}>
-            Le téléphone reste votre canal le plus rentable…<br/>mais souvent le moins bien géré.
+            Les appels entrants restent un canal important pour de nombreuses PME, mais ils peuvent être difficiles à traiter quand l'équipe est déjà mobilisée.
           </h2>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.42)',lineHeight:1.78,textAlign:'center',maxWidth:'620px',margin:'0 auto 40px'}}>
-            Dans une PME, les meilleurs appels arrivent au pire moment — et les prospects manqués ne rappellent jamais.
+            Un appel peut arriver pendant une intervention, un rendez-vous ou en dehors des horaires. Sans réponse immédiate, la demande attend alors un rappel.
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>

@@ -18,9 +18,9 @@ function DevisSection() {
           </p>
           <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:'12px',marginBottom:'40px'}}>
             {[
-              { Icon: Ico.Clock,   text: 'Réponse sous 24h' },
-              { Icon: Ico.Shield,  text: 'Sans engagement' },
-              { Icon: Ico.Users,   text: 'Accompagné par un expert' },
+              { Icon: Ico.Chart,  text: 'Diagnostic initial' },
+              { Icon: Ico.Shield, text: 'Périmètre documenté' },
+              { Icon: Ico.Users,  text: 'Interlocuteur identifié' },
             ].map(({Icon,text})=>(
               <div key={text} style={{display:'flex',alignItems:'center',gap:'8px',padding:'8px 16px',borderRadius:'99px',background:'rgba(255,255,255,0.05)',border:'1px solid rgba(255,255,255,0.1)'}}>
                 <span style={{color:B.cyan,opacity:0.8,display:'flex'}}><Icon/></span>
@@ -42,10 +42,10 @@ const FAQS = [
   { q:"Peut-il prendre des rendez-vous ?",               a:"Oui, si le scénario est défini et si un agenda ou un système de réservation est connecté. La configuration est faite avec vous lors de la mise en place." },
   { q:"Peut-il préparer des demandes de devis ?",        a:"Oui. L'agent peut collecter les informations nécessaires, structurer la demande et transmettre un résumé clair à votre équipe pour qu'elle prépare le devis." },
   { q:"Peut-il transférer un appel à un humain ?",       a:"Oui. Les règles de transfert sont définies avec vous : urgence, client important, demande sensible ou cas spécifique. Le transfert peut inclure un contexte de l'appel en cours." },
-  { q:"Est-ce que je garde mon numéro ?",                a:"La configuration dépend de votre téléphonie actuelle. Omnira peut être adapté pour s'intégrer à votre fonctionnement existant sans changer votre numéro client." },
-  { q:"Est-ce que ça fonctionne avec mon agenda ?",      a:"Oui, selon l'outil utilisé. Omnira peut être connecté à Google Calendar, un CRM, un tableau de suivi ou un outil métier. La liste des intégrations possibles est évaluée lors du diagnostic." },
-  { q:"Que se passe-t-il si l'agent ne comprend pas ?",  a:"L'agent peut reformuler, demander une précision ou transférer à un humain selon les règles définies. Il ne prend jamais de décisions qui dépassent son périmètre configuré." },
-  { q:"Combien coûte Omnira ?",                         a:"Le prix dépend de votre activité, du volume d'appels, des intégrations nécessaires, des scénarios à créer et du niveau de suivi souhaité. Le plus simple est de demander un devis personnalisé, sans engagement." },
+  { q:"Est-ce que je garde mon numéro ?",                a:"Cela dépend de votre téléphonie actuelle. La possibilité de conserver le numéro présenté à vos clients est vérifiée lors du diagnostic." },
+  { q:"Est-ce que ça fonctionne avec mon agenda ?",      a:"Cela dépend de l'outil utilisé. Une connexion à Google Calendar, un CRM, un tableau de suivi ou un outil métier peut être étudiée lors du diagnostic." },
+  { q:"Que se passe-t-il si l'agent ne comprend pas ?",  a:"Le scénario peut prévoir une reformulation, une demande de précision ou une orientation vers un humain. Le périmètre et les règles d'escalade sont cadrés avant la mise en ligne." },
+  { q:"Combien coûte Omnira ?",                         a:"Le prix dépend de votre activité, du volume d'appels, des intégrations nécessaires, des scénarios à créer et du niveau de suivi souhaité. Demandez un devis pour obtenir un périmètre et un chiffrage adaptés." },
   { q:"Combien de temps prend l'installation ?",         a:"Cela dépend de la complexité du projet, des outils à connecter et des scénarios à configurer. Une estimation précise est donnée après le diagnostic initial." },
   { q:"Est-ce que je peux tester avant ?",               a:"Une démo peut être organisée pour vous montrer comment Omnira fonctionnerait dans votre activité, avec des exemples adaptés à votre secteur." },
 ];
@@ -98,7 +98,7 @@ function Footer() {
           <div>
             <OmniraLogo height={32}/>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
-              Omnira gère vos appels entrants pour les PME. Qualification, rendez-vous, devis et résumés automatiques transmis à votre équipe.
+              Omnira configure des scénarios pour les appels entrants des PME : qualification, préparation d'un rendez-vous ou d'un devis et compte rendu selon les intégrations retenues.
             </p>
           </div>
           <div>

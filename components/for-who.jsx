@@ -111,7 +111,7 @@ function Scenarios() {
                 </div>
                 <div>
                   <p style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:'white',marginBottom:'4px'}}>Adapté à votre activité</p>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.4)',lineHeight:1.6,margin:0}}>Les scénarios sont définis avec vous lors de la mise en place. L'agent respecte votre vocabulaire et votre façon de travailler.</p>
+                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.4)',lineHeight:1.6,margin:0}}>Les scénarios, le vocabulaire et les règles de traitement sont cadrés avec vous lors de la mise en place.</p>
                 </div>
               </div>
               <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md" full>Voir ce qu'Omnira peut faire pour mon activité</GBtn>
@@ -136,21 +136,21 @@ const SECTEUR_PAGES = [
   {
     Icon: Ico.Shield,
     label: 'Courtiers en assurance',
-    desc: 'Devis emprunteur, qualification IARD, routing par spécialité, zéro appel manqué.',
+    desc: 'Devis emprunteur, qualification IARD et orientation vers la spécialité appropriée.',
     href: '/agent-vocal-ia-courtier',
     color: B.cyan,
   },
   {
     Icon: Ico.Briefcase,
     label: 'Assurance & Mutuelle',
-    desc: 'Sinistres, résiliations, mises à jour contrat — 24h/24 sans temps d\'attente.',
+    desc: 'Sinistres, résiliations et mises à jour de contrat selon les scénarios autorisés.',
     href: '/agent-vocal-ia-assurance',
     color: B.lcyan,
   },
   {
     Icon: Ico.Car,
     label: 'Garages & Centres auto',
-    desc: 'Devis, prises de RDV atelier, urgences panne — l\'agent décroche pendant les interventions.',
+    desc: 'Devis, préparation de RDV atelier et urgences panne selon les scénarios autorisés.',
     href: '/agent-vocal-ia-garage',
     color: B.blue,
   },

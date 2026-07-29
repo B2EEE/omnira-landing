@@ -1,11 +1,11 @@
 // ─── HOW IT WORKS ─────────────────────────────────────────────────────────────
 const HOW_STEPS = [
   { num:'01', title:"L'appel arrive",                    Icon: Ico.Phone,    desc:"Le client appelle votre entreprise." },
-  { num:'02', title:"L'agent Omnira répond",             Icon: Ico.Mic,      desc:"Il accueille avec un discours adapté à votre activité et vos horaires." },
-  { num:'03', title:"Il comprend la demande",            Icon: Ico.Filter,   desc:"Il identifie le motif, l'urgence, le service concerné et les informations utiles.", extra:"Les urgences sont signalées et remontent en priorité selon vos critères." },
-  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis.", extra:"Les cas sensibles ne sont jamais traités seuls : transfert humain selon vos critères." },
-  { num:'05', title:"Votre équipe reçoit un résumé",     Icon: Ico.Chart,    desc:"Chaque appel devient une information claire et exploitable envoyée à votre équipe." },
-  { num:'06', title:"Vous suivez les résultats",         Icon: Ico.Zap,      desc:"Appels reçus, motifs fréquents, rendez-vous et devis suivis dans votre dashboard." },
+  { num:'02', title:"Prise en charge selon la configuration", Icon: Ico.Mic, desc:"L'accueil suit le discours, les horaires et les règles préparés avec votre équipe." },
+  { num:'03', title:"Analyse selon le scénario", Icon: Ico.Filter, desc:"Le scénario peut identifier le motif, l'urgence, le service concerné et les informations utiles.", extra:"Les demandes correspondant à vos critères peuvent être signalées en priorité." },
+  { num:'04', title:"Il agit selon vos règles",          Icon: Ico.Settings, desc:"Devis, rendez-vous, rappel, information ou transfert à un humain selon les scénarios définis.", extra:"Les scénarios sensibles peuvent imposer un transfert humain selon vos critères." },
+  { num:'05', title:"Préparer un résumé pour votre équipe", Icon: Ico.Chart, desc:"Lorsqu'un appel suit le scénario prévu, les informations collectées peuvent être envoyées à votre équipe." },
+  { num:'06', title:"Suivi de l'activité selon les intégrations", Icon: Ico.Zap, desc:"Selon les intégrations retenues, le tableau de bord regroupe les appels reçus, leurs motifs et les suites préparées." },
 ];
 
 function HowItWorks() {
@@ -16,8 +16,8 @@ function HowItWorks() {
           <SectionHeader
             chip="Fonctionnement"
             chipColor={B.blue}
-            title="De l'appel entrant au résumé exploitable,<br/>Omnira gère tout le parcours."
-            sub="Un agent qui accompagne chaque appel de l'accueil au résumé, selon vos règles."
+            title="De l'appel entrant au compte rendu,<br/>selon les règles définies."
+            sub="Un parcours configurable, de l'accueil à la transmission des informations utiles."
           />
         </FadeIn>
         <FadeIn delay={0.08}>
@@ -65,13 +65,13 @@ window.HowItWorks = HowItWorks;
 
 // ─── FEATURES ─────────────────────────────────────────────────────────────────
 const FEATURES_DATA = [
-  { Icon: Ico.Phone,    title: 'Répondre aux appels entrants',      desc: "L'agent décroche selon vos horaires ou 24/7 pour éviter les appels perdus." },
-  { Icon: Ico.Filter,   title: 'Qualifier les demandes',            desc: "Votre équipe rappelle avec le bon contexte, sans reposer les mêmes questions." },
+  { Icon: Ico.Phone,    title: 'Répondre aux appels entrants',      desc: "L'agent peut décrocher pendant les plages définies, y compris hors horaires d'ouverture si la configuration le prévoit." },
+  { Icon: Ico.Filter,   title: 'Qualifier les demandes',            desc: "Il collecte le contexte prévu pour aider votre équipe à préparer le rappel." },
   { Icon: Ico.Chart,    title: 'Préparer une demande de devis',     desc: "L'agent collecte les informations utiles et transmet une demande structurée." },
   { Icon: Ico.Calendar, title: 'Prendre ou préparer un rendez-vous',desc: "Il vérifie les règles définies, collecte les disponibilités et prépare la suite." },
-  { Icon: Ico.Zap,      title: 'Filtrer les urgences',              desc: "Les cas importants remontent rapidement vers la bonne personne." },
-  { Icon: Ico.Users,    title: 'Transférer à un humain',            desc: "Les demandes sensibles ou complexes ne sont pas traitées seules par l'IA." },
-  { Icon: Ico.Mic,      title: 'Résumer chaque appel',              desc: "Plus de notes floues, de messages incomplets ou d'informations perdues." },
+  { Icon: Ico.Zap,      title: 'Signaler les urgences',              desc: "Les demandes correspondant à vos critères sont signalées pour être orientées selon le scénario prévu." },
+  { Icon: Ico.Users,    title: 'Prévoir un transfert humain',        desc: "Les scénarios sensibles ou complexes peuvent imposer un transfert vers une personne désignée." },
+  { Icon: Ico.Mic,      title: 'Préparer un résumé d’appel',         desc: "Les informations collectées peuvent être structurées pour faciliter le suivi par votre équipe." },
   { Icon: Ico.Link,     title: 'Alimenter vos outils',              desc: "Agenda, CRM, Google Sheets, email, SMS ou outil métier selon votre besoin." },
 ];
 

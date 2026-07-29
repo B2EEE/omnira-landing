@@ -1,8 +1,8 @@
 // ─── HUMAN CONTROL ────────────────────────────────────────────────────────────
 const CONTROL_POINTS = [
   { text: 'Les règles sont définies avec vous avant la mise en ligne' },
-  { text: 'Les cas sensibles sont transférés à un humain selon vos critères' },
-  { text: 'Les scénarios peuvent être modifiés à tout moment' },
+  { text: 'Les cas sensibles peuvent imposer une orientation vers un humain selon vos critères' },
+  { text: 'Un processus de suivi peut prévoir la modification des scénarios' },
   { text: 'Chaque appel peut être résumé et archivé' },
 ];
 
@@ -20,7 +20,7 @@ function HumanControl() {
                 Omnira agit,<br/>mais vous gardez le contrôle.
               </h2>
               <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',lineHeight:1.75,color:'rgba(255,255,255,0.45)',marginBottom:'36px'}}>
-                Omnira est conçu pour soulager votre équipe, pas pour remplacer brutalement l'humain. Chaque règle est définie avec vous. Chaque transfert respecte vos critères.
+                Omnira est conçu pour soulager votre équipe, pas pour remplacer brutalement l'humain. Les règles et transferts possibles sont cadrés avec vous avant la mise en ligne.
               </p>
               <GBtn href="/devis" variant="outline" size="md">Voir comment ça fonctionne</GBtn>
             </div>
@@ -95,7 +95,7 @@ function OnBoarding() {
             chip="Mise en place"
             chipColor={B.blue}
             title="Une mise en place simple,<br/>cadrée et suivie"
-            sub="Pas de prérequis technique. On configure ensemble, phase par phase."
+            sub="Les prérequis, scénarios et connexions sont évalués puis cadrés avec votre équipe avant la mise en ligne."
           />
         </FadeIn>
         <FadeIn delay={0.08}>
