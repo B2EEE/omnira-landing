@@ -63,6 +63,21 @@
           },
           {
             "@type": "Question",
+            "name": "Que se passe-t-il si la demande sort du scénario prévu ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'agence définit une règle de repli : demander une reformulation, proposer un rappel, transférer vers un interlocuteur disponible ou prendre un message. L'agent ne doit pas improviser une réponse sur un bien ou un dossier absent de ses informations validées." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles données l'agent vocal recueille-t-il ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour le scénario d'appel, l'agent demande uniquement les champs définis pour le motif traité, par exemple les coordonnées, la référence du bien, le type de projet et les disponibilités. L'agence doit cadrer les destinataires, la durée de conservation et l'éventuel enregistrement avant la mise en service." }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-il gérer la transaction et la gestion locative ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, avec des scénarios distincts. L'agence choisit les motifs traités, les questions autorisées et le destinataire de chaque résumé pour les appels d'acheteurs, vendeurs, propriétaires ou locataires." }
+          },
+          {
+            "@type": "Question",
             "name": "Quel est le tarif d'un agent vocal IA pour une agence immobilière ?",
             "acceptedAnswer": { "@type": "Answer", "text": "Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle de l'agence." }
           }
@@ -94,6 +109,7 @@
     @media (max-width: 560px) {
       .feat-grid { grid-template-columns: 1fr !important; }
     }
+    .page-breadcrumb a:focus-visible, .page-links a:focus-visible { outline: 3px solid #2FC7D6; outline-offset: 4px; border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -102,6 +118,9 @@
   <div id="root">
     <header><nav><a href="https://omniragency.com">Omnira</a></nav></header>
     <main>
+      <nav class="page-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> &gt; <span aria-current="page">Agent vocal IA immobilier</span>
+      </nav>
       <section>
         <h1>Agent vocal IA pour agence immobilière</h1>
         <p>Omnira accueille les appels entrants de votre agence, identifie le projet du prospect, collecte les informations utiles et transmet un résumé structuré. Les demandes d'achat, de vente, de location, d'estimation ou de visite suivent les règles validées avec votre équipe.</p>
@@ -119,6 +138,25 @@
         </ul>
       </section>
       <section>
+        <h2>Trois scénarios immobiliers à cadrer avant la mise en service</h2>
+        <h3>Demande de visite d'un acheteur</h3>
+        <p>Identifier le bien, recueillir les coordonnées et disponibilités prévues, puis préparer la demande. La confirmation dépend des règles et de l'agenda configurés.</p>
+        <h3>Projet de vente ou d'estimation</h3>
+        <p>Recueillir les caractéristiques autorisées et le calendrier du vendeur, puis organiser un rappel. L'agent vocal ne produit pas l'estimation du bien.</p>
+        <h3>Location ou suivi de dossier</h3>
+        <p>Identifier le motif et le dossier concerné, puis orienter la demande vers le destinataire défini. Une demande hors périmètre suit la règle de repli de l'agence.</p>
+      </section>
+      <section>
+        <h2>Quelles limites définir pour les données et les réponses ?</h2>
+        <ul>
+          <li>Limiter les questions aux informations nécessaires au motif traité.</li>
+          <li>Prévoir une reformulation, un rappel, un transfert ou une prise de message si le scénario ne suffit pas.</li>
+          <li>Définir les destinataires, la durée de conservation et l'éventuel enregistrement avant la mise en service.</li>
+          <li>Réserver l'estimation, la négociation, le conseil juridique et les engagements à l'équipe immobilière.</li>
+        </ul>
+        <p class="page-links"><a href="/confidentialite">Consulter la politique de confidentialité d'Omnira</a>.</p>
+      </section>
+      <section>
         <h2>Comment fonctionne l'agent vocal pour une agence immobilière ?</h2>
         <ol>
           <li>Le prospect appelle le numéro utilisé par l'agence.</li>
@@ -131,14 +169,21 @@
       </section>
       <section>
         <h2>Questions fréquentes sur l'agent vocal IA immobilier</h2>
-        <h3>Comment distingue-t-il un appel vendeur d'un appel acheteur ?</h3>
+        <h3>Comment l'agent distingue-t-il un appel vendeur d'un appel acheteur ?</h3>
         <p>Le scénario commence par identifier le motif de l'appel. Les questions posées et le résumé transmis s'adaptent ensuite au projet : achat, vente, location, estimation ou suivi de dossier.</p>
-        <h3>Peut-il prendre une demande de visite ?</h3>
+        <h3>L'agent vocal peut-il prendre une demande de visite ?</h3>
         <p>Oui. Selon la configuration validée par l'agence, il peut recueillir le bien concerné, les coordonnées et les disponibilités du prospect, puis créer une demande de visite ou proposer un créneau connecté à l'agenda.</p>
-        <h3>Remplace-t-il le conseil de l'agent immobilier ?</h3>
+        <h3>L'agent remplace-t-il le conseil de l'agent immobilier ?</h3>
         <p>Non. Il accueille, qualifie et transmet les informations prévues. L'estimation, la négociation, le conseil juridique et les engagements commerciaux restent sous la responsabilité de l'équipe immobilière.</p>
+        <h3>Que se passe-t-il si la demande sort du scénario prévu ?</h3>
+        <p>L'agence définit une règle de repli : demander une reformulation, proposer un rappel, transférer vers un interlocuteur disponible ou prendre un message. L'agent ne doit pas improviser une réponse sur un bien ou un dossier absent de ses informations validées.</p>
+        <h3>Quelles données l'agent vocal recueille-t-il ?</h3>
+        <p>Pour le scénario d'appel, l'agent demande uniquement les champs définis pour le motif traité, par exemple les coordonnées, la référence du bien, le type de projet et les disponibilités. L'agence doit cadrer les destinataires, la durée de conservation et l'éventuel enregistrement avant la mise en service.</p>
+        <h3>Peut-il gérer la transaction et la gestion locative ?</h3>
+        <p>Oui, avec des scénarios distincts. L'agence choisit les motifs traités, les questions autorisées et le destinataire de chaque résumé pour les appels d'acheteurs, vendeurs, propriétaires ou locataires.</p>
         <h3>Quel est le tarif d'un agent vocal IA pour une agence immobilière ?</h3>
-        <p>Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. <a href="/devis">Demandez un devis adapté à votre agence</a>.</p>
+        <p>Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle de l'agence.</p>
+        <p><a href="/devis">Demandez un devis adapté à votre agence</a>.</p>
       </section>
       <nav aria-label="Pages utiles">
         <a href="/">Découvrir Omnira</a>
@@ -176,10 +221,33 @@
       { title: 'Transmettre les informations recueillies', desc: "Lorsque les informations prévues sont disponibles, un résumé peut être envoyé par SMS ou email au destinataire défini." },
     ];
 
+    const SCENARIOS = [
+      {
+        title: "Demande de visite d'un acheteur",
+        collect: "Bien concerné, coordonnées et disponibilités prévues.",
+        action: "Préparer la demande ou proposer un créneau selon l'agenda configuré.",
+        limit: "La confirmation dépend des règles et disponibilités de l'agence."
+      },
+      {
+        title: "Projet de vente ou d'estimation",
+        collect: "Caractéristiques autorisées du bien et calendrier du vendeur.",
+        action: "Structurer la demande et organiser le rappel d'un professionnel.",
+        limit: "L'agent vocal ne produit pas l'estimation du bien."
+      },
+      {
+        title: "Location ou suivi de dossier",
+        collect: "Motif de l'appel et référence du dossier lorsqu'elle est prévue.",
+        action: "Orienter le résumé vers le destinataire défini par l'agence.",
+        limit: "Une demande hors périmètre suit la règle de repli configurée."
+      }
+    ];
+
     const FAQS = [
       { q: "Comment l'agent distingue-t-il un appel vendeur d'un appel acheteur ?", a: "Le scénario commence par identifier le motif de l'appel. Les questions posées et le résumé transmis s'adaptent ensuite au projet : achat, vente, location, estimation ou suivi de dossier." },
       { q: "L'agent vocal peut-il prendre une demande de visite ?", a: "Oui. Selon la configuration validée par l'agence, il peut recueillir le bien concerné, les coordonnées et les disponibilités du prospect, puis créer une demande de visite ou proposer un créneau connecté à l'agenda." },
       { q: "L'agent remplace-t-il le conseil de l'agent immobilier ?", a: "Non. Il accueille, qualifie et transmet les informations prévues. L'estimation, la négociation, le conseil juridique et les engagements commerciaux restent sous la responsabilité de l'équipe immobilière." },
+      { q: "Que se passe-t-il si la demande sort du scénario prévu ?", a: "L'agence définit une règle de repli : demander une reformulation, proposer un rappel, transférer vers un interlocuteur disponible ou prendre un message. L'agent ne doit pas improviser une réponse sur un bien ou un dossier absent de ses informations validées." },
+      { q: "Quelles données l'agent vocal recueille-t-il ?", a: "Pour le scénario d'appel, l'agent demande uniquement les champs définis pour le motif traité, par exemple les coordonnées, la référence du bien, le type de projet et les disponibilités. L'agence doit cadrer les destinataires, la durée de conservation et l'éventuel enregistrement avant la mise en service." },
       { q: "Peut-il gérer la transaction et la gestion locative ?", a: "Oui, avec des scénarios distincts. L'agence choisit les motifs traités, les questions autorisées et le destinataire de chaque résumé pour les appels d'acheteurs, vendeurs, propriétaires ou locataires." },
       { q: "Quel est le tarif d'un agent vocal IA pour une agence immobilière ?", a: "Le tarif dépend notamment du volume d'appels, des horaires de couverture, des scénarios et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle de l'agence." },
     ];
@@ -224,6 +292,11 @@
     function Page() {
       return (
         <main style={{paddingTop:'80px',background:B.bgW}}>
+          <nav className="page-breadcrumb" aria-label="Fil d’Ariane" style={{maxWidth:'1100px',margin:'0 auto',padding:'18px 24px 0',fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted}}>
+            <a href="/" style={{color:B.blue,textDecoration:'none'}}>Accueil</a>
+            <span aria-hidden="true" style={{margin:'0 8px'}}>›</span>
+            <span aria-current="page">Agent vocal IA immobilier</span>
+          </nav>
           {/* Hero */}
           <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
             <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
@@ -281,6 +354,40 @@
                   ))}
                 </div>
               </FadeIn>
+            </div>
+          </section>
+
+          {/* Scénarios métier et limites */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Scénarios métier" chipColor={B.blue} title="Trois scénarios à cadrer avant la mise en service" sub="Chaque scénario sépare les informations prévues, l'action autorisée et la limite à ne pas franchir."/>
+              </FadeIn>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px'}} className="feat-grid">
+                {SCENARIOS.map((scenario) => (
+                  <article key={scenario.title} style={{padding:'22px',borderRadius:'16px',background:B.bgL,border:`1px solid ${B.border}`}}>
+                    <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,marginBottom:'14px',lineHeight:1.4}}>{scenario.title}</h3>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,marginBottom:'10px'}}><strong style={{color:B.tMain}}>À recueillir :</strong> {scenario.collect}</p>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,marginBottom:'10px'}}><strong style={{color:B.tMain}}>Action :</strong> {scenario.action}</p>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}><strong style={{color:B.tMain}}>Limite :</strong> {scenario.limit}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section style={{padding:'72px 24px',background:B.bgL}}>
+            <div style={{maxWidth:'900px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Garde-fous" chipColor={B.cyan} title="Quelles limites définir pour les données et les réponses ?" sub="Le cadrage doit rester proportionné au motif de l'appel et prévoir une sortie lorsque l'agent ne dispose pas d'une réponse validée."/>
+              </FadeIn>
+              <ul style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.8,paddingLeft:'20px',marginBottom:'18px'}}>
+                <li>Limiter les questions aux informations nécessaires au motif traité.</li>
+                <li>Prévoir une reformulation, un rappel, un transfert ou une prise de message si le scénario ne suffit pas.</li>
+                <li>Définir les destinataires, la durée de conservation et l'éventuel enregistrement avant la mise en service.</li>
+                <li>Réserver l'estimation, la négociation, le conseil juridique et les engagements à l'équipe immobilière.</li>
+              </ul>
+              <p className="page-links" style={{fontFamily:'Inter,sans-serif',fontSize:'13px',margin:0}}><a href="/confidentialite" style={{color:B.blue}}>Consulter la politique de confidentialité d'Omnira</a>.</p>
             </div>
           </section>
 

@@ -37,20 +37,41 @@ assert.equal(service.url, 'https://omniragency.com/agent-vocal-ia-immobilier');
 assert.equal(service.provider?.['@id'], 'https://omniragency.com/#organization');
 
 const faq = jsonLd['@graph'].find(node => node['@type'] === 'FAQPage');
-assert.ok(faq.mainEntity.length >= 4, 'Au moins quatre FAQ structurées sont attendues');
-assert.ok((fallback.match(/<h3>/g) || []).length >= 4, 'Au moins quatre FAQ doivent être visibles sans JavaScript');
+assert.equal(faq.mainEntity.length, 7, 'Les sept FAQ visibles et structurées doivent rester alignées');
+const fallbackFaq = fallback.match(/<section>\s*<h2>Questions fréquentes sur l'agent vocal IA immobilier<\/h2>[\s\S]*?<\/section>/)?.[0];
+const fallbackScenarios = fallback.match(/<section>\s*<h2>Trois scénarios immobiliers à cadrer avant la mise en service<\/h2>[\s\S]*?<\/section>/)?.[0];
+assert.ok(fallbackFaq, 'La section FAQ doit être visible sans JavaScript');
+assert.equal((fallbackFaq.match(/<h3>/g) || []).length, 7, 'Les sept FAQ doivent être visibles sans JavaScript');
+assert.ok(fallbackScenarios, 'La section scénarios doit être visible sans JavaScript');
+assert.equal((fallbackScenarios.match(/<h3>/g) || []).length, 3, 'Les trois scénarios doivent être visibles sans JavaScript');
 for (const item of faq.mainEntity) {
   assert.equal(item['@type'], 'Question');
   assert.equal(item.acceptedAnswer?.['@type'], 'Answer');
+  assert.ok(fallbackFaq.includes(item.name), `La question FAQ doit être présente dans la section pré-rendue : ${item.name}`);
+  assert.ok(fallbackFaq.includes(item.acceptedAnswer.text), `La réponse FAQ doit être présente dans la section pré-rendue : ${item.name}`);
+  assert.ok(jsx.includes(item.name), `La question FAQ doit être présente dans le rendu React : ${item.name}`);
   assert.ok(jsx.includes(item.acceptedAnswer.text), `La réponse FAQ doit être présente dans le rendu React : ${item.name}`);
 }
 
-for (const href of ['/devis', '/demo', '/prendre-rendez-vous', '/agent-vocal-ia-courtier', '/agent-vocal-ia-assurance']) {
+for (const href of ['/devis', '/demo', '/prendre-rendez-vous', '/agent-vocal-ia-courtier', '/agent-vocal-ia-assurance', '/confidentialite']) {
   assert.ok(fallback.includes(`href="${href}"`), `Lien interne manquant dans le pré-rendu : ${href}`);
   assert.ok(jsx.includes(`href="${href}"`), `Lien interne manquant dans le rendu React : ${href}`);
 }
 assert.ok(fallback.includes("Comment fonctionne l'agent vocal pour une agence immobilière ?"));
 assert.ok(jsx.includes("Comment fonctionne l'agent vocal pour une agence immobilière ?"));
+assert.match(fallback, /aria-label="Fil d’Ariane"/);
+assert.match(jsx, /aria-label="Fil d’Ariane"/);
+assert.match(fallback, /Trois scénarios immobiliers à cadrer avant la mise en service/);
+assert.match(jsx, /Trois scénarios à cadrer avant la mise en service/);
+assert.match(fallback, /Limiter les questions aux informations nécessaires au motif traité/);
+assert.match(jsx, /Limiter les questions aux informations nécessaires au motif traité/);
+
+const breadcrumb = jsonLd['@graph'].find(node => node['@type'] === 'BreadcrumbList');
+assert.ok(breadcrumb, 'Le fil d’Ariane structuré doit exister');
+assert.ok(Array.isArray(breadcrumb.itemListElement), 'Les éléments du fil d’Ariane doivent former une liste');
+assert.equal(breadcrumb.itemListElement.length, 2);
+assert.deepEqual(breadcrumb.itemListElement.map(item => [item['@type'], item.position]), [['ListItem', 1], ['ListItem', 2]]);
+assert.equal(breadcrumb.itemListElement[1].item, 'https://omniragency.com/agent-vocal-ia-immobilier');
 
 for (const unsupported of [
   /en moins de [0-9]+ (?:minute|seconde)s?/i,

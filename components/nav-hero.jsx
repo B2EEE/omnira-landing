@@ -2,6 +2,7 @@
 function Nav() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen]         = React.useState(false);
+  const sectionBase = window.location.pathname === '/' ? '' : '/';
 
   React.useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -16,10 +17,10 @@ function Nav() {
   }, [open]);
 
   const links = [
-    ['Fonctionnement','#process'],
-    ['Démo','#demo'],
-    ["Cas d'usage",'#scenarios'],
-    ['Simulation','#roi'],
+    ['Fonctionnement',`${sectionBase}#process`],
+    ['Démo',`${sectionBase}#demo`],
+    ["Cas d'usage",`${sectionBase}#scenarios`],
+    ['Simulation',`${sectionBase}#roi`],
   ];
 
   const light = !scrolled && !open; // white-on-dark mode (transparent nav)
@@ -104,7 +105,7 @@ function Nav() {
             </a>
           ))}
           <div style={{marginTop:'24px',display:'flex',flexDirection:'column',gap:'10px'}}>
-            <GBtn href="#demo"                variant="light"   size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
+            <GBtn href={`${sectionBase}#demo`} variant="light" size="md" full onClick={()=>setOpen(false)}>Écouter une démo</GBtn>
             <GBtn onClick={() => { setOpen(false); window.openCalModal('decouverte'); }} variant="primary" size="md" full>Prendre rendez-vous</GBtn>
           </div>
           <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,textAlign:'center',marginTop:'20px'}}>
