@@ -3,21 +3,87 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Agent vocal IA pour courtier en assurance | Omnira</title>
-  <meta name="description" content="Omnira gère les appels entrants de votre cabinet de courtage : qualifier les prospects, devis assurance emprunteur, rappels automatiques. Agent vocal IA pour courtiers."/>
+  <title>Agent vocal IA pour courtiers en assurance | Omnira</title>
+  <meta name="description" content="Agent vocal IA pour courtiers en assurance : accueil des appels, qualification encadrée, demandes de documents et transfert humain selon vos règles."/>
   <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-courtier"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:title" content="Agent vocal IA pour courtiers en assurance | Omnira"/>
+  <meta property="og:description" content="Cadrez l'accueil, la qualification, les demandes de documents et le transfert vers un courtier selon vos procédures."/>
+  <meta property="og:url" content="https://omniragency.com/agent-vocal-ia-courtier"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Agent vocal IA pour courtiers en assurance",
-    "provider": { "@type": "Organization", "name": "Omnira", "url": "https://omniragency.com" },
-    "description": "Agent vocal IA qui gère les appels entrants des cabinets de courtage : qualification des prospects, devis assurance emprunteur, rappels et transmission de dossiers.",
-    "areaServed": "FR",
-    "serviceType": "Standard téléphonique IA courtier assurance"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omniragency.com/#organization",
+        "name": "Omnira",
+        "url": "https://omniragency.com"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omniragency.com/agent-vocal-ia-courtier#service",
+        "name": "Agent vocal IA pour courtiers en assurance",
+        "url": "https://omniragency.com/agent-vocal-ia-courtier",
+        "provider": { "@id": "https://omniragency.com/#organization" },
+        "description": "Service d'agent vocal IA pour accueillir les appels des cabinets de courtage, qualifier les demandes, préparer les demandes de documents et transférer vers un interlocuteur humain selon les règles du cabinet.",
+        "areaServed": { "@type": "Country", "name": "France" },
+        "serviceType": "Agent vocal IA pour courtier en assurance"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://omniragency.com/agent-vocal-ia-courtier#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Agent vocal IA pour courtiers", "item": "https://omniragency.com/agent-vocal-ia-courtier" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://omniragency.com/agent-vocal-ia-courtier#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quels appels un agent vocal IA peut-il traiter pour un courtier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il peut accueillir une demande de devis, identifier la branche d'assurance concernée, recueillir les informations prévues, organiser un rappel et transmettre un résumé. Le périmètre exact dépend des scénarios validés par le cabinet." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'agent vocal peut-il demander des documents au prospect ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il peut identifier les pièces manquantes prévues par le cabinet et expliquer le canal autorisé pour les transmettre. Il ne doit pas demander au téléphone des données ou documents hors du scénario, ni confirmer qu'un dossier est complet sans règle validée." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'agent remplace-t-il le devoir de conseil du courtier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Il accueille, qualifie et transmet les informations prévues. L'analyse des exigences et besoins, la recommandation, le devis, la souscription et les explications contractuelles restent sous la responsabilité des professionnels du cabinet." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand l'appel doit-il être transféré à un humain ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le cabinet définit les critères de transfert : demande de conseil, réclamation, sinistre urgent, incompréhension répétée, situation sensible ou demande hors périmètre. Si personne n'est disponible, l'agent prend un message et applique la règle de rappel prévue." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment cadrer les données, l'information et le consentement ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Avant la mise en service, le cabinet doit définir les données nécessaires à chaque motif, l'information donnée à l'appelant, la base légale, le consentement lorsqu'il est requis, les destinataires, la conservation et les règles d'un éventuel enregistrement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que fait l'agent si la demande sort du scénario ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il n'improvise ni garantie, ni tarif, ni interprétation contractuelle. Selon la règle choisie par le cabinet, il demande une reformulation, transfère l'appel, organise un rappel ou prend un message avec le contexte utile." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le tarif d'un agent vocal IA pour un cabinet de courtage ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le tarif dépend notamment du volume d'appels, des horaires, du nombre de scénarios, des règles de transfert et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle du cabinet." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -43,6 +109,7 @@
     @media (max-width: 560px) {
       .feat-grid { grid-template-columns: 1fr !important; }
     }
+    .page-breadcrumb a:focus-visible, .page-links a:focus-visible { outline: 3px solid #2FC7D6; outline-offset: 4px; border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -51,44 +118,79 @@
   <div id="root">
     <header><nav><a href="https://omniragency.com">Omnira</a></nav></header>
     <main>
+      <nav class="page-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> &gt; <span aria-current="page">Agent vocal IA pour courtiers</span>
+      </nav>
       <section>
-        <h1>Agent vocal IA pour courtier en assurance — Zéro prospect non qualifié</h1>
-        <p>Omnira est un agent vocal IA pour les cabinets de courtage en assurance. Il répond à vos appels entrants 24h/24, qualifie vos prospects (IARD, prévoyance, emprunteur), prend des rendez-vous de rappel et transmet les dossiers à votre équipe.</p>
-        <a href="/devis">Demander un devis personnalisé</a>
+        <h1>Agent vocal IA pour courtiers en assurance</h1>
+        <p>Omnira accueille les appels entrants du cabinet, identifie le motif, recueille les informations prévues et transmet un résumé au bon interlocuteur. Les demandes de devis, de rappel, de document ou de suivi restent encadrées par les procédures validées avec vos courtiers.</p>
+        <a href="/devis">Demander un devis pour mon cabinet</a>
+        <a href="/demo">Écouter une démonstration</a>
       </section>
       <section>
-        <h2>Les appels qu'Omnira gère pour votre cabinet de courtage</h2>
+        <h2>Quels appels l'agent vocal IA peut-il accueillir pour un courtier ?</h2>
         <ul>
-          <li>Demande de devis assurance emprunteur : l'agent collecte âge, montant du prêt, durée, fumeur ou non</li>
-          <li>Demande de devis IARD : l'agent qualifie le risque et transmet le dossier à votre courtier spécialisé</li>
-          <li>Résiliation ou changement de contrat : l'agent collecte les infos et prépare la demande</li>
-          <li>Appel prospect froid : l'agent identifie le besoin et fixe un rendez-vous de rappel</li>
-          <li>Appels hors horaires : aucune opportunité perdue en dehors des heures d'ouverture</li>
+          <li>Demande de devis : identifier la branche concernée et recueillir les champs autorisés avant le rappel.</li>
+          <li>Question sur un dossier : identifier le contrat ou la demande et transmettre le contexte à l'équipe désignée.</li>
+          <li>Document manquant : indiquer la pièce prévue et le canal de transmission autorisé par le cabinet.</li>
+          <li>Réclamation ou sinistre urgent : appliquer les critères de transfert et la procédure de repli.</li>
+          <li>Appel hors horaires : prendre un message ou créer une demande de rappel selon la couverture configurée.</li>
         </ul>
       </section>
       <section>
-        <h2>Pourquoi un agent vocal IA pour votre cabinet de courtage ?</h2>
-        <ul>
-          <li>Un prospect assurance emprunteur rappelle souvent plusieurs courtiers en même temps — répondre en premier est décisif</li>
-          <li>L'agent collecte les informations de qualification avant que votre équipe rappelle</li>
-          <li>Moins de temps passé à qualifier, plus de temps passé à conseiller et signer</li>
-          <li>Compatible avec tous les cabinets : courtage IARD, prévoyance, emprunteur, courtage global</li>
-        </ul>
+        <h2>Trois scénarios de courtage à cadrer avant la mise en service</h2>
+        <h3>Nouvelle demande de devis</h3>
+        <p>Identifier la branche, les coordonnées et les informations de premier niveau prévues, puis organiser un rappel. L'agent ne recommande ni contrat ni garantie.</p>
+        <h3>Pièce manquante ou suivi de dossier</h3>
+        <p>Identifier le dossier et la pièce attendue selon les règles du cabinet, puis orienter vers le canal autorisé. L'agent ne confirme pas la complétude ni l'acceptation du dossier.</p>
+        <h3>Demande sensible ou hors périmètre</h3>
+        <p>Détecter le motif de transfert, résumer le contexte utile et chercher l'interlocuteur prévu. En cas d'indisponibilité, appliquer la règle de rappel sans improviser de réponse.</p>
       </section>
       <section>
-        <h2>Comment fonctionne l'agent vocal IA pour courtier ?</h2>
+        <h2>Quelles limites définir pour les données, le consentement et le conseil ?</h2>
+        <ul>
+          <li>Limiter les questions aux données nécessaires au motif traité et éviter les informations sensibles non prévues.</li>
+          <li>Définir l'information donnée à l'appelant, la base légale et le consentement lorsqu'il est requis.</li>
+          <li>Prévoir les destinataires, la durée de conservation, les habilitations et les règles d'un éventuel enregistrement.</li>
+          <li>Réserver l'analyse des exigences et besoins, la recommandation, le devis, la souscription et les explications contractuelles aux professionnels du cabinet.</li>
+        </ul>
+        <p class="page-links"><a href="/confidentialite">Consulter la politique de confidentialité d'Omnira</a>.</p>
+      </section>
+      <section>
+        <h2>Comment fonctionne l'agent vocal pour un cabinet de courtage ?</h2>
         <ol>
-          <li>Un prospect appelle votre cabinet</li>
-          <li>L'agent vocal Omnira répond en moins de 2 secondes</li>
-          <li>Il qualifie le besoin (type de couverture, situation, budget)</li>
-          <li>Il prend un rendez-vous de rappel ou fixe une téléconsultation</li>
-          <li>Votre équipe reçoit une fiche prospect complète avant de rappeler</li>
+          <li>L'appelant contacte le numéro utilisé par le cabinet.</li>
+          <li>L'agent l'accueille selon le scénario, les horaires et l'information validés.</li>
+          <li>Il identifie le motif et recueille uniquement les champs autorisés.</li>
+          <li>Il déclenche l'action prévue : transfert, rappel, prise de message ou indication du canal documentaire.</li>
+          <li>Le professionnel reprend la main pour le conseil, le devis, la souscription ou toute décision sur le dossier.</li>
         </ol>
       </section>
       <section>
-        <h2>Tarif agent vocal IA courtier assurance</h2>
-        <p>Omnira propose des formules adaptées aux cabinets de courtage, de la structure solo aux équipes multi-courtiers. Demandez un devis selon votre volume d'appels entrants.</p>
+        <h2>Questions fréquentes sur l'agent vocal IA pour courtiers</h2>
+        <h3>Quels appels un agent vocal IA peut-il traiter pour un courtier ?</h3>
+        <p>Il peut accueillir une demande de devis, identifier la branche d'assurance concernée, recueillir les informations prévues, organiser un rappel et transmettre un résumé. Le périmètre exact dépend des scénarios validés par le cabinet.</p>
+        <h3>L'agent vocal peut-il demander des documents au prospect ?</h3>
+        <p>Il peut identifier les pièces manquantes prévues par le cabinet et expliquer le canal autorisé pour les transmettre. Il ne doit pas demander au téléphone des données ou documents hors du scénario, ni confirmer qu'un dossier est complet sans règle validée.</p>
+        <h3>L'agent remplace-t-il le devoir de conseil du courtier ?</h3>
+        <p>Non. Il accueille, qualifie et transmet les informations prévues. L'analyse des exigences et besoins, la recommandation, le devis, la souscription et les explications contractuelles restent sous la responsabilité des professionnels du cabinet.</p>
+        <h3>Quand l'appel doit-il être transféré à un humain ?</h3>
+        <p>Le cabinet définit les critères de transfert : demande de conseil, réclamation, sinistre urgent, incompréhension répétée, situation sensible ou demande hors périmètre. Si personne n'est disponible, l'agent prend un message et applique la règle de rappel prévue.</p>
+        <h3>Comment cadrer les données, l'information et le consentement ?</h3>
+        <p>Avant la mise en service, le cabinet doit définir les données nécessaires à chaque motif, l'information donnée à l'appelant, la base légale, le consentement lorsqu'il est requis, les destinataires, la conservation et les règles d'un éventuel enregistrement.</p>
+        <h3>Que fait l'agent si la demande sort du scénario ?</h3>
+        <p>Il n'improvise ni garantie, ni tarif, ni interprétation contractuelle. Selon la règle choisie par le cabinet, il demande une reformulation, transfère l'appel, organise un rappel ou prend un message avec le contexte utile.</p>
+        <h3>Quel est le tarif d'un agent vocal IA pour un cabinet de courtage ?</h3>
+        <p>Le tarif dépend notamment du volume d'appels, des horaires, du nombre de scénarios, des règles de transfert et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle du cabinet.</p>
+        <p><a href="/devis">Demandez un devis adapté à votre cabinet</a>.</p>
       </section>
+      <nav aria-label="Pages utiles">
+        <a href="/">Découvrir Omnira</a>
+        <a href="/demo">Écouter les démonstrations</a>
+        <a href="/prendre-rendez-vous">Réserver une présentation</a>
+        <a href="/agent-vocal-ia-immobilier">Agent vocal IA pour agences immobilières</a>
+        <a href="/agent-vocal-ia-assurance">Agent vocal IA pour assurances</a>
+      </nav>
     </main>
     <footer>
       <p>Omnira — Agent vocal IA pour courtiers en assurance</p>
@@ -102,28 +204,51 @@
   <script type="text/babel">
 
     const APPELS_TYPES = [
-      { label: 'Demande de devis assurance emprunteur', desc: "L'agent collecte âge, montant et durée du prêt, situation fumeur, et transmet la fiche à votre équipe pour un rappel qualifié." },
-      { label: 'Demande de devis IARD (auto, habitation, pro)', desc: "L'agent identifie le risque à couvrir, collecte les informations de base et route vers le courtier spécialisé." },
-      { label: 'Résiliation ou changement de contrat', desc: "L'agent collecte le motif, le contrat en cours et les coordonnées, et prépare la demande pour votre équipe." },
-      { label: 'Prospect froid entrant', desc: "L'agent identifie le besoin, présente les grandes lignes de votre offre et fixe un rendez-vous de rappel ou de téléconsultation." },
-      { label: 'Appel hors horaires', desc: "L'agent répond, collecte les infos et crée une demande de rappel pour le premier jour ouvré avec le contexte complet." },
+      { label: 'Nouvelle demande de devis', desc: "L'agent identifie la branche concernée, recueille les champs de premier niveau autorisés et organise un rappel selon les règles du cabinet." },
+      { label: 'Question sur un dossier', desc: "L'agent identifie le contrat ou la demande et transmet le motif à l'équipe désignée, sans interpréter les garanties." },
+      { label: 'Document manquant', desc: "L'agent indique la pièce prévue par la procédure et le canal autorisé, sans confirmer seul la complétude du dossier." },
+      { label: 'Réclamation ou sinistre urgent', desc: "L'agent applique les critères de transfert et la procédure de repli définis par le cabinet." },
+      { label: 'Appel hors horaires', desc: "Selon la couverture configurée, l'agent prend un message ou crée une demande de rappel avec les informations prévues." },
     ];
 
     const FEATURES = [
-      { title: 'Qualifier les prospects emprunteur', desc: "Montant du prêt, durée, âge, statut fumeur — tout est structuré avant que votre équipe rappelle." },
-      { title: 'Qualifier les risques IARD', desc: "Type de risque, caractéristiques principales, coordonnées du prospect — la fiche est prête à l'arrivée." },
-      { title: 'Prendre des RDV de rappel ou téléconsultation', desc: "L'agent propose des créneaux selon vos règles et confirme le rendez-vous par SMS." },
-      { title: 'Gérer les appels hors horaires', desc: "Soir, weekend, jour férié — aucun prospect ne tombe sur une boîte vocale vide." },
-      { title: 'Router selon la spécialité', desc: "L'agent peut orienter les appels vers le courtier en charge selon le type de couverture demandée." },
-      { title: 'Transmettre les dossiers qualifiés', desc: "Chaque appel aboutit sur une fiche structurée envoyée au bon interlocuteur avant le rappel." },
+      { title: 'Identifier le besoin de premier niveau', desc: "Branche d'assurance, motif et coordonnées : seuls les champs validés pour le scénario sont demandés." },
+      { title: 'Préparer une demande de rappel', desc: "L'agent organise les informations recueillies pour que le professionnel reprenne la conversation avec son contexte." },
+      { title: 'Orienter les documents', desc: "La procédure indique la pièce attendue et le canal autorisé sans collecter au téléphone des données hors périmètre." },
+      { title: 'Appliquer les horaires de couverture', desc: "Le cabinet choisit quand transférer, prendre un message ou créer une demande de rappel." },
+      { title: 'Router selon la spécialité', desc: "Les règles peuvent orienter la demande vers l'interlocuteur prévu pour la branche ou le type de dossier." },
+      { title: 'Prévoir une sortie vers un humain', desc: "Conseil, réclamation, urgence, incompréhension ou demande sensible déclenchent la règle de transfert définie." },
+    ];
+
+    const SCENARIOS = [
+      {
+        title: "Nouvelle demande de devis",
+        collect: "Branche, coordonnées et informations de premier niveau prévues.",
+        action: "Organiser un rappel et transmettre un résumé au professionnel désigné.",
+        limit: "L'agent ne recommande ni contrat ni garantie."
+      },
+      {
+        title: "Pièce manquante ou suivi de dossier",
+        collect: "Référence du dossier et motif de la demande lorsqu'ils sont autorisés.",
+        action: "Indiquer la pièce attendue et le canal documentaire prévu par le cabinet.",
+        limit: "L'agent ne confirme ni la complétude ni l'acceptation du dossier."
+      },
+      {
+        title: "Demande sensible ou hors périmètre",
+        collect: "Motif du transfert et contexte strictement utile à la reprise.",
+        action: "Chercher l'interlocuteur prévu ou appliquer la règle de rappel.",
+        limit: "Aucune réponse improvisée sur une garantie, un tarif ou un contrat."
+      }
     ];
 
     const FAQS = [
-      { q: "Le prospect a reçu mon comparatif d'offres par email et rappelle pour des questions — l'agent peut-il gérer ça ?", a: "Oui. L'agent peut être configuré pour identifier les rappels suite à envoi de comparatif, collecter les questions ou objections du prospect, et vous les transmettre avec le contexte du dossier avant votre rappel qualifié." },
-      { q: "Quel est le délai de rétractation pour l'assurance emprunteur, et l'agent le communique-t-il ?", a: "Le délai légal de rétractation est de 14 jours calendaires (article L112-2-1 du Code des assurances). L'agent peut être configuré pour rappeler ce délai si un prospect pose la question, mais le conseil sur les conditions reste à votre charge." },
-      { q: "L'agent peut-il gérer les mandats et le devoir de conseil ?", a: "L'agent ne peut pas produire de document à valeur légale ni exercer un devoir de conseil au sens réglementaire. Il collecte les informations, structure la demande et vous prépare un dossier. Le devoir de conseil reste à votre charge en tant que courtier enregistré à l'ORIAS." },
-      { q: "Comment l'agent gère-t-il un prospect qui compare plusieurs courtiers en même temps ?", a: "C'est précisément là qu'il est le plus utile. Un prospect assurance emprunteur contacte souvent 3 à 5 courtiers simultanément. Omnira répond instantanément, collecte les informations clés (montant, durée, âge, fumeur) et vous permet de rappeler avec une fiche complète — avant que les courtiers qui n'ont pas décroché ne le fassent." },
-      { q: "Est-ce adapté à un courtier grossiste ou uniquement aux cabinets de détail ?", a: "Les deux. Pour un cabinet de détail, l'agent gère les appels entrants prospects. Pour un courtier grossiste, il peut être configuré pour qualifier les appels des agents généraux ou des courtiers partenaires selon votre catalogue de produits." },
+      { q: "Quels appels un agent vocal IA peut-il traiter pour un courtier ?", a: "Il peut accueillir une demande de devis, identifier la branche d'assurance concernée, recueillir les informations prévues, organiser un rappel et transmettre un résumé. Le périmètre exact dépend des scénarios validés par le cabinet." },
+      { q: "L'agent vocal peut-il demander des documents au prospect ?", a: "Il peut identifier les pièces manquantes prévues par le cabinet et expliquer le canal autorisé pour les transmettre. Il ne doit pas demander au téléphone des données ou documents hors du scénario, ni confirmer qu'un dossier est complet sans règle validée." },
+      { q: "L'agent remplace-t-il le devoir de conseil du courtier ?", a: "Non. Il accueille, qualifie et transmet les informations prévues. L'analyse des exigences et besoins, la recommandation, le devis, la souscription et les explications contractuelles restent sous la responsabilité des professionnels du cabinet." },
+      { q: "Quand l'appel doit-il être transféré à un humain ?", a: "Le cabinet définit les critères de transfert : demande de conseil, réclamation, sinistre urgent, incompréhension répétée, situation sensible ou demande hors périmètre. Si personne n'est disponible, l'agent prend un message et applique la règle de rappel prévue." },
+      { q: "Comment cadrer les données, l'information et le consentement ?", a: "Avant la mise en service, le cabinet doit définir les données nécessaires à chaque motif, l'information donnée à l'appelant, la base légale, le consentement lorsqu'il est requis, les destinataires, la conservation et les règles d'un éventuel enregistrement." },
+      { q: "Que fait l'agent si la demande sort du scénario ?", a: "Il n'improvise ni garantie, ni tarif, ni interprétation contractuelle. Selon la règle choisie par le cabinet, il demande une reformulation, transfère l'appel, organise un rappel ou prend un message avec le contexte utile." },
+      { q: "Quel est le tarif d'un agent vocal IA pour un cabinet de courtage ?", a: "Le tarif dépend notamment du volume d'appels, des horaires, du nombre de scénarios, des règles de transfert et des intégrations nécessaires. Omnira établit un devis à partir de l'organisation réelle du cabinet." },
     ];
 
     function FeatureCard({ title, desc }) {
@@ -166,6 +291,11 @@
     function Page() {
       return (
         <main style={{paddingTop:'80px',background:B.bgW}}>
+          <nav className="page-breadcrumb" aria-label="Fil d’Ariane" style={{maxWidth:'1100px',margin:'0 auto',padding:'18px 24px 0',fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted}}>
+            <a href="/" style={{color:B.blue,textDecoration:'none'}}>Accueil</a>
+            <span aria-hidden="true" style={{margin:'0 8px'}}>›</span>
+            <span aria-current="page">Agent vocal IA pour courtiers</span>
+          </nav>
           {/* Hero */}
           <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
             <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
@@ -181,7 +311,7 @@
                     </span>
                   </h1>
                   <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.45)',lineHeight:1.75,marginBottom:'32px'}}>
-                    Un prospect assurance emprunteur rappelle en même temps trois courtiers. Celui qui répond le premier gagne le dossier. Omnira répond immédiatement, qualifie le prospect et vous transmet une fiche complète avant votre rappel.
+                    Omnira accueille les appels entrants, identifie le motif et transmet les informations prévues au bon interlocuteur. Votre équipe conserve le conseil, le devis, la souscription et les décisions sur le dossier.
                   </p>
                   <div style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
                     <GBtn href="/devis" variant="primary" size="md">Demander un devis personnalisé</GBtn>
@@ -189,7 +319,7 @@
                   </div>
                 </div>
                 <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
-                  {['Prospects qualifiés avant votre rappel','Devis emprunteur : infos collectées automatiquement','Appels reçus pendant vos rendez-vous clients','Zéro prospect perdu hors horaires'].map((t,i)=>(
+                  {['Qualification encadrée selon le motif','Demandes de documents orientées vers le canal prévu','Transfert humain selon vos critères','Couverture selon vos horaires et règles'].map((t,i)=>(
                     <div key={i} style={{display:'flex',alignItems:'center',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)'}}>
                       <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -226,6 +356,40 @@
             </div>
           </section>
 
+          {/* Scénarios métier et garde-fous */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Scénarios métier" chipColor={B.blue} title="Trois scénarios à cadrer avant la mise en service" sub="Chaque scénario sépare les informations prévues, l'action autorisée et la limite à ne pas franchir."/>
+              </FadeIn>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px'}} className="feat-grid">
+                {SCENARIOS.map((scenario) => (
+                  <article key={scenario.title} style={{padding:'22px',borderRadius:'16px',background:B.bgL,border:`1px solid ${B.border}`}}>
+                    <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'15px',fontWeight:700,color:B.tMain,marginBottom:'14px',lineHeight:1.4}}>{scenario.title}</h3>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,marginBottom:'10px'}}><strong style={{color:B.tMain}}>À recueillir :</strong> {scenario.collect}</p>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,marginBottom:'10px'}}><strong style={{color:B.tMain}}>Action :</strong> {scenario.action}</p>
+                    <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.65,margin:0}}><strong style={{color:B.tMain}}>Limite :</strong> {scenario.limit}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section style={{padding:'72px 24px',background:B.bgL}}>
+            <div style={{maxWidth:'900px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Garde-fous" chipColor={B.cyan} title="Données, consentement, documents et transfert humain" sub="Le cabinet valide le périmètre de chaque scénario et la sortie vers un professionnel."/>
+              </FadeIn>
+              <ul style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.8,paddingLeft:'20px',marginBottom:'18px'}}>
+                <li>Limiter les questions aux données nécessaires au motif traité et éviter les informations sensibles non prévues.</li>
+                <li>Définir l'information donnée à l'appelant, la base légale et le consentement lorsqu'il est requis.</li>
+                <li>Prévoir les destinataires, la conservation, les habilitations et les règles d'un éventuel enregistrement.</li>
+                <li>Réserver le conseil, le devis, la souscription et les explications contractuelles aux professionnels du cabinet.</li>
+              </ul>
+              <p className="page-links" style={{fontFamily:'Inter,sans-serif',fontSize:'13px',margin:0}}><a href="/confidentialite" style={{color:B.blue}}>Consulter la politique de confidentialité d'Omnira</a>.</p>
+            </div>
+          </section>
+
           {/* Features */}
           <section style={{padding:'80px 24px',background:B.bgL}} className="section-cap-top">
             <div style={{maxWidth:'1100px',margin:'0 auto'}}>
@@ -245,6 +409,30 @@
                     Il qualifie et structure — le devis, le conseil et la souscription restent pour votre équipe.
                   </p>
                 </div>
+              </FadeIn>
+            </div>
+          </section>
+
+          {/* Fonctionnement et maillage interne */}
+          <section style={{padding:'80px 24px',background:B.bgW}}>
+            <div style={{maxWidth:'900px',margin:'0 auto'}}>
+              <FadeIn>
+                <SectionHeader chip="Fonctionnement" chipColor={B.blue} title="Comment fonctionne l'agent vocal pour un cabinet de courtage ?" sub="Le scénario, l'information de l'appelant, les horaires et les actions autorisées sont définis avec votre équipe."/>
+              </FadeIn>
+              <FadeIn delay={0.08}>
+                <ol style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:B.tMuted,lineHeight:1.8,paddingLeft:'20px',marginBottom:'24px'}}>
+                  <li>L'appelant contacte le numéro utilisé par le cabinet.</li>
+                  <li>L'agent l'accueille selon le scénario, les horaires et l'information validés.</li>
+                  <li>Il identifie le motif et recueille uniquement les champs autorisés.</li>
+                  <li>Il déclenche l'action prévue : transfert, rappel, prise de message ou indication du canal documentaire.</li>
+                  <li>Le professionnel reprend la main pour le conseil, le devis, la souscription ou toute décision sur le dossier.</li>
+                </ol>
+                <nav aria-label="Pages utiles" style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
+                  <a href="/demo">Écouter les démonstrations</a>
+                  <a href="/prendre-rendez-vous">Réserver une présentation</a>
+                  <a href="/agent-vocal-ia-immobilier">Agent vocal IA pour agences immobilières</a>
+                  <a href="/agent-vocal-ia-assurance">Agent vocal IA pour assurances</a>
+                </nav>
               </FadeIn>
             </div>
           </section>
