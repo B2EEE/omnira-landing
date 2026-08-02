@@ -3,295 +3,188 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard téléphonique IA pour assurance et mutuelle | Omnira</title>
-  <meta name="description" content="Omnira installe un standard téléphonique IA pour compagnies d'assurance et mutuelles : sinistres, devis, résiliations gérés 24h/24 sans temps d'attente. Agent vocal IA assurance."/>
+  <title>Agent vocal IA pour assurance et mutuelle | Omnira</title>
+  <meta name="description" content="Cadrez un agent vocal IA pour l’assurance : demandes, sinistres, données sensibles, réclamations, transfert humain et limites de décision métier."/>
   <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-assurance"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://omniragency.com/agent-vocal-ia-assurance"/>
+  <meta property="og:title" content="Agent vocal IA pour assurance et mutuelle | Omnira"/>
+  <meta property="og:description" content="Accueil, qualification initiale, transmission et garde-fous pour les appels d’assurance."/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-  <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
-
+  <link rel="icon" type="image/png" sizes="64x64" href="/uploads/omnira-logo-transparent.png"/>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Standard téléphonique IA pour assurance et mutuelle",
-    "provider": { "@type": "Organization", "name": "Omnira", "url": "https://omniragency.com" },
-    "description": "Agent vocal IA pour compagnies d'assurance, mutuelles et agents généraux : déclarations de sinistre, devis, résiliations et mises à jour de contrat gérés 24h/24.",
-    "areaServed": "FR",
-    "serviceType": "Standard téléphonique IA assurance mutuelle"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omniragency.com/#organization",
+        "name": "Omnira",
+        "url": "https://omniragency.com"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omniragency.com/agent-vocal-ia-assurance#service",
+        "name": "Agent vocal IA pour assurance et mutuelle",
+        "url": "https://omniragency.com/agent-vocal-ia-assurance",
+        "provider": { "@id": "https://omniragency.com/#organization" },
+        "areaServed": { "@type": "Country", "name": "France" },
+        "serviceType": "Accueil et qualification téléphonique assistés par intelligence artificielle pour l’assurance"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Agent vocal IA pour assurance", "item": "https://omniragency.com/agent-vocal-ia-assurance" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Que peut traiter un agent vocal IA en assurance ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il peut accueillir l’appelant, identifier le motif, recueillir les éléments nécessaires à une qualification initiale, restituer une information factuelle validée et transmettre le dossier. Son périmètre doit être défini par produit, motif et niveau de risque." }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-il décider seul d’une indemnisation ou d’un tarif ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le périmètre proposé ici l’exclut : l’agent ne décide pas seul de l’assurabilité, de la tarification, d’un refus de garantie ou de l’indemnisation. Ces décisions et le conseil personnalisé restent confiés aux équipes habilitées." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment traiter les données de santé évoquées pendant un appel ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Une conversation peut révéler des données de santé. Il faut limiter les questions à l’étape traitée, définir les bases juridiques applicables, contrôler les accès et fixer des durées de conservation adaptées. Le cadrage dépend du traitement réel." }
+          },
+          {
+            "@type": "Question",
+            "name": "L’appelant doit-il savoir qu’il parle à une IA ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, le parcours prévu s’identifie comme un système d’intelligence artificielle dès le début de l’échange. Cette annonce ne remplace pas l’information distincte sur le traitement des données personnelles." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand prévoir un transfert humain ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le transfert humain doit être défini pour les urgences, les situations ambiguës ou sensibles, les demandes de conseil, les décisions, les contestations et les échanges qui expriment un mécontentement. Le routage dépend des horaires et des équipes disponibles." }
+          },
+          {
+            "@type": "Question",
+            "name": "Une déclaration de sinistre est-elle toujours une réclamation ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Une déclaration de sinistre ou une demande d’information ne constitue pas à elle seule une réclamation. Le parcours doit détecter l’expression d’un mécontentement et l’orienter vers le dispositif prévu par l’organisme." }
+          },
+          {
+            "@type": "Question",
+            "name": "L’agent remplace-t-il l’analyse juridique et réglementaire du projet ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. L’organisme doit documenter les finalités, rôles, données, bases juridiques, destinataires, durées, mesures de sécurité et règles métier. Une validation juridique adaptée au dispositif réel reste nécessaire." }
+          }
+        ]
+      }
+    ]
   }
   </script>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://unpkg.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
-    @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 900px) {
-      .hero-grid     { grid-template-columns: 1fr !important; }
-      .solution-grid { grid-template-columns: 1fr !important; }
-      .footer-grid   { grid-template-columns: 1fr !important; }
-      .feat-grid     { grid-template-columns: 1fr 1fr !important; }
-      .nav-links     { display: none !important; }
-    }
-    @media (max-width: 560px) {
-      .feat-grid { grid-template-columns: 1fr !important; }
-    }
+    *,*::before,*::after{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:#fff;color:#0b1726;-webkit-font-smoothing:antialiased} a:focus-visible,button:focus-visible{outline:3px solid #2fc7d6;outline-offset:3px}.skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:10px 14px;background:#fff;color:#0b1726;border-radius:8px;transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.two-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}.sources a{text-decoration:underline;text-underline-offset:3px}@media(max-width:900px){.nav-links{display:none!important}.footer-grid{grid-template-columns:1fr!important}}@media(max-width:800px){.cards,.two-cols{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.skip-link{transition:none!important}}
   </style>
 </head>
 <body>
-
-  <!-- Pré-rendu statique pour Googlebot -->
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
   <div id="root">
-    <header><nav><a href="https://omniragency.com">Omnira</a></nav></header>
-    <main>
+    <header><nav aria-label="Navigation principale"><a href="/">Omnira</a> · <a href="/demo">Voir les démonstrations</a> · <a href="/devis">Demander un devis</a></nav></header>
+    <main id="contenu">
+      <nav aria-label="Fil d’Ariane"><a href="/">Accueil</a> › Agent vocal IA pour assurance</nav>
       <section>
-        <h1>Standard téléphonique IA pour compagnie d'assurance et mutuelle</h1>
-        <p>Omnira est un agent vocal IA pour les compagnies d'assurance, mutuelles et agents généraux. Il gère vos appels entrants 24h/24 : déclarations de sinistre, demandes de devis, résiliations et mises à jour de contrat — sans temps d'attente pour vos assurés.</p>
-        <a href="/devis">Demander un devis personnalisé</a>
+        <p>Assurance &amp; mutuelle</p>
+        <h1>Agent vocal IA pour assurance et mutuelle</h1>
+        <p>Cadrez l’accueil, la qualification initiale et la transmission des appels sans confier à l’agent le conseil personnalisé ni une décision assurantielle. Le parcours est défini selon vos produits, vos règles métier et vos équipes disponibles.</p>
+        <a href="/devis">Cadrer mon projet</a> <a href="/demo">Écouter les démonstrations</a>
       </section>
       <section>
-        <h2>Les appels qu'Omnira gère pour votre compagnie d'assurance</h2>
+        <h2>Trois scénarios d'assurance à cadrer avant la mise en service</h2>
+        <article><h3>Déclaration initiale de sinistre</h3><p><strong>À recueillir :</strong> identité déclarée, référence disponible, type d’événement, date, coordonnées et besoin d’assistance immédiate.</p><p><strong>Action :</strong> créer une préqualification et la transmettre au service désigné.</p><p><strong>Limite :</strong> l’agent ne confirme ni garantie, ni responsabilité, ni montant d’indemnisation.</p></article>
+        <article><h3>Question sur un contrat ou une garantie</h3><p><strong>À recueillir :</strong> produit concerné, contexte et document de référence disponible.</p><p><strong>Action :</strong> restituer une information factuelle validée ou orienter vers un gestionnaire.</p><p><strong>Limite :</strong> aucune interprétation personnalisée lorsque la réponse exige l’analyse du contrat ou du dossier.</p></article>
+        <article><h3>Mécontentement, contestation ou urgence</h3><p><strong>À recueillir :</strong> motif, niveau d’urgence, moyen de rappel et contexte utile, sans multiplier les questions.</p><p><strong>Action :</strong> appliquer le routage prévu et conserver le contexte nécessaire au suivi.</p><p><strong>Limite :</strong> si l’appelant exprime un mécontentement, la demande rejoint le circuit de réclamation défini par l’organisme.</p></article>
+      </section>
+      <section>
+        <h2>Données sensibles : collecter moins, transmettre mieux</h2>
         <ul>
-          <li>Déclaration de sinistre : l'agent collecte les informations essentielles et ouvre le dossier</li>
-          <li>Demande de devis assurance : l'agent qualifie le besoin et route vers le bon interlocuteur</li>
-          <li>Résiliation de contrat : l'agent collecte les informations et prépare la demande</li>
-          <li>Mise à jour de contrat ou d'informations personnelles : l'agent collecte les modifications et les transmet</li>
-          <li>Question sur une garantie ou un remboursement : l'agent répond sur la base des informations configurées</li>
-          <li>Appels hors horaires : aucun assuré en situation d'urgence ne tombe sur une boîte vocale</li>
+          <li>Limiter la collecte aux informations nécessaires au motif et à l’étape traités.</li>
+          <li>Prévoir qu’un appel de sinistre peut révéler des données de santé, même sans document médical.</li>
+          <li>Distinguer audio, transcription, résumé et données versées au dossier pour les accès et les durées.</li>
+          <li>Définir qui reçoit quoi, par quel canal autorisé, et comment une erreur est corrigée.</li>
+        </ul>
+        <p>Les bases juridiques, exceptions applicables aux données sensibles, durées et mesures de sécurité dépendent du traitement réel. Elles doivent être documentées avec votre DPO et vos conseils.</p>
+      </section>
+      <section>
+        <h2>Des limites explicites avant l’ouverture des appels</h2>
+        <ul>
+          <li>L’agent s'identifie comme un système d'intelligence artificielle dès le début de l’échange.</li>
+          <li>Il ne décide pas seul de l'assurabilité, de la tarification, d’un refus de garantie ou de l’indemnisation.</li>
+          <li>Le transfert humain couvre les urgences, l’ambiguïté, les données sensibles, le conseil, la décision, la contestation et la réclamation.</li>
+          <li>Une indisponibilité humaine déclenche une consigne claire : assistance prévue, rappel ou autre canal autorisé.</li>
         </ul>
       </section>
       <section>
-        <h2>Pourquoi un agent vocal IA pour votre structure d'assurance ?</h2>
-        <ul>
-          <li>Un assuré qui déclare un sinistre de nuit ou le weekend attend une réponse immédiate</li>
-          <li>L'agent réduit les temps d'attente et améliore la satisfaction assuré</li>
-          <li>Chaque appel génère un dossier structuré transmis à l'équipe compétente</li>
-          <li>Compatible avec compagnies d'assurance, mutuelles, agents généraux et courtiers grossistes</li>
-        </ul>
+        <h2>Un déploiement en 5 étapes vérifiables</h2>
+        <ol><li>Cartographier les motifs et les actes exclus.</li><li>Définir les champs nécessaires, sources de réponse et règles de conservation.</li><li>Écrire les critères de transfert et les solutions de repli.</li><li>Tester les scénarios normaux, sensibles, contradictoires et urgents.</li><li>Revoir les journaux, erreurs et retours des équipes avant d’élargir le périmètre.</li></ol>
       </section>
       <section>
-        <h2>Comment fonctionne le standard téléphonique IA pour assurance ?</h2>
-        <ol>
-          <li>Un assuré appelle votre numéro habituel</li>
-          <li>L'agent vocal Omnira répond en moins de 2 secondes</li>
-          <li>Il identifie le motif de l'appel et collecte les informations nécessaires</li>
-          <li>Il route l'appel vers l'équipe compétente ou ouvre le dossier automatiquement</li>
-          <li>Votre équipe reçoit un résumé structuré avec toutes les informations collectées</li>
-        </ol>
+        <h2>Questions fréquentes sur l'agent vocal IA en assurance</h2>
+        <article><h3>Que peut traiter un agent vocal IA en assurance ?</h3><p>Il peut accueillir l’appelant, identifier le motif, recueillir les éléments nécessaires à une qualification initiale, restituer une information factuelle validée et transmettre le dossier. Son périmètre doit être défini par produit, motif et niveau de risque.</p></article>
+        <article><h3>Peut-il décider seul d’une indemnisation ou d’un tarif ?</h3><p>Le périmètre proposé ici l’exclut : l’agent ne décide pas seul de l’assurabilité, de la tarification, d’un refus de garantie ou de l’indemnisation. Ces décisions et le conseil personnalisé restent confiés aux équipes habilitées.</p></article>
+        <article><h3>Comment traiter les données de santé évoquées pendant un appel ?</h3><p>Une conversation peut révéler des données de santé. Il faut limiter les questions à l’étape traitée, définir les bases juridiques applicables, contrôler les accès et fixer des durées de conservation adaptées. Le cadrage dépend du traitement réel.</p></article>
+        <article><h3>L’appelant doit-il savoir qu’il parle à une IA ?</h3><p>Oui, le parcours prévu s’identifie comme un système d’intelligence artificielle dès le début de l’échange. Cette annonce ne remplace pas l’information distincte sur le traitement des données personnelles.</p></article>
+        <article><h3>Quand prévoir un transfert humain ?</h3><p>Le transfert humain doit être défini pour les urgences, les situations ambiguës ou sensibles, les demandes de conseil, les décisions, les contestations et les échanges qui expriment un mécontentement. Le routage dépend des horaires et des équipes disponibles.</p></article>
+        <article><h3>Une déclaration de sinistre est-elle toujours une réclamation ?</h3><p>Non. Une déclaration de sinistre ou une demande d’information ne constitue pas à elle seule une réclamation. Le parcours doit détecter l’expression d’un mécontentement et l’orienter vers le dispositif prévu par l’organisme.</p></article>
+        <article><h3>L’agent remplace-t-il l’analyse juridique et réglementaire du projet ?</h3><p>Non. L’organisme doit documenter les finalités, rôles, données, bases juridiques, destinataires, durées, mesures de sécurité et règles métier. Une validation juridique adaptée au dispositif réel reste nécessaire.</p></article>
       </section>
-      <section>
-        <h2>Tarif standard téléphonique IA assurance</h2>
-        <p>Omnira propose des formules adaptées à chaque structure : agent général indépendant, mutuelle de taille moyenne, ou compagnie à volume élevé d'appels. Demandez un devis selon votre organisation.</p>
+      <section class="sources">
+        <h2>Sources de cadrage</h2>
+        <p>Consultées le 2 août 2026. Ces références guident le cadrage ; elles ne constituent pas une validation juridique du dispositif.</p>
+        <ul><li><a href="https://eur-lex.europa.eu/eli/2024/1689/oj?locale=fr">Règlement européen sur l’IA, notamment article 50</a></li><li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr">RGPD, notamment articles 5, 9, 22, 25, 28, 32 et 35</a></li><li><a href="https://www.cnil.fr/fr/ia-informer-les-personnes">CNIL : informer les personnes dans les systèmes d’IA</a></li><li><a href="https://www.cnil.fr/fr/quest-ce-ce-quune-donnee-de-sante">CNIL : qu’est-ce qu’une donnée de santé ?</a></li><li><a href="https://acpr.banque-france.fr/fr/reglementation/recommandations-sur-les-pratiques-commerciales">ACPR : recommandations sur les pratiques commerciales</a></li></ul>
       </section>
+      <section><h2>Préparer un périmètre testable</h2><p>Commencez par quelques motifs documentés, puis élargissez après revue des erreurs, des transferts et des informations réellement utiles aux gestionnaires.</p><a href="/prendre-rendez-vous">Planifier un échange</a> <a href="/agent-vocal-ia-courtier">Voir le cas des courtiers</a> <a href="/agent-vocal-ia-immobilier">Voir le cas immobilier</a> <a href="/confidentialite">Lire la politique de confidentialité</a></section>
     </main>
-    <footer>
-      <p>Omnira — Standard téléphonique IA pour assurance et mutuelle</p>
-      <a href="https://omniragency.com">omniragency.com</a>
-    </footer>
+    <footer><a href="/">Omnira</a> · <a href="/confidentialite">Confidentialité</a></footer>
   </div>
 
   <script type="text/babel" src="components/brand.jsx"></script>
   <script type="text/babel" src="components/nav-hero.jsx"></script>
   <script type="text/babel" src="components/pricing-bottom.jsx"></script>
   <script type="text/babel">
-
-    const APPELS_TYPES = [
-      { label: 'Déclaration de sinistre', desc: "L'agent collecte la nature du sinistre, la date, le numéro de contrat et les coordonnées, puis ouvre le dossier ou le transmet à votre équipe sinistres." },
-      { label: 'Demande de devis assurance', desc: "L'agent qualifie le type de couverture souhaitée, collecte les informations de base et route vers le bon conseiller." },
-      { label: 'Résiliation de contrat', desc: "L'agent collecte le numéro de contrat, le motif et la date souhaitée, puis transmet la demande formalisée à votre équipe." },
-      { label: 'Mise à jour de contrat', desc: "Changement d'adresse, de véhicule, de situation familiale — l'agent collecte les modifications et les transmet à votre back-office." },
-      { label: 'Question sur une garantie ou un remboursement', desc: "L'agent répond sur la base des informations configurées et escalade vers un conseiller pour les cas complexes." },
-      { label: 'Appel d\'urgence hors horaires', desc: "L'agent répond, évalue l'urgence et transfère vers votre assistance ou collecte les infos pour un traitement dès l'ouverture." },
+    const SCENARIOS = [
+      {title:'Déclaration initiale de sinistre',collecte:'Identité déclarée, référence disponible, type d’événement, date, coordonnées et besoin d’assistance immédiate.',action:'Créer une préqualification et la transmettre au service désigné.',limit:'L’agent ne confirme ni garantie, ni responsabilité, ni montant d’indemnisation.'},
+      {title:'Question sur un contrat ou une garantie',collecte:'Produit concerné, contexte et document de référence disponible.',action:'Restituer une information factuelle validée ou orienter vers un gestionnaire.',limit:'Aucune interprétation personnalisée lorsque la réponse exige l’analyse du contrat ou du dossier.'},
+      {title:'Mécontentement, contestation ou urgence',collecte:'Motif, niveau d’urgence, moyen de rappel et contexte utile, sans multiplier les questions.',action:'Appliquer le routage prévu et conserver le contexte nécessaire au suivi.',limit:'Si l’appelant exprime un mécontentement, la demande rejoint le circuit de réclamation défini par l’organisme.'}
     ];
-
-    const FEATURES = [
-      { title: 'Gérer les déclarations de sinistre', desc: "Nature, date, numéro de contrat, coordonnées — le dossier est ouvert avant que votre équipe intervienne." },
-      { title: 'Qualifier les demandes de devis', desc: "Type de risque, situation personnelle, besoins de couverture — la fiche est prête à l'arrivée du conseiller." },
-      { title: 'Répondre aux assurés 24h/24', desc: "Soir, weekend, jour férié — aucun assuré ne tombe sur une boîte vocale, même en situation d'urgence." },
-      { title: 'Router selon la nature de l\'appel', desc: "Sinistre, contrat, devis, résiliation — l'agent route automatiquement vers l'équipe compétente." },
-      { title: 'Réduire les temps d\'attente', desc: "L'agent répond instantanément et traite les demandes simples sans mobiliser votre équipe." },
-      { title: 'Transmettre les dossiers structurés', desc: "Chaque appel génère un résumé complet transmis au bon interlocuteur, avec le contexte nécessaire." },
-    ];
-
     const FAQS = [
-      { q: "Un assuré appelle pour résilier suite à la loi Lemoine — l'agent gère-t-il ce type de demande ?", a: "Oui. L'agent peut être configuré pour identifier les demandes de résiliation au titre de la loi Lemoine (résiliation infra-annuelle d'assurance emprunteur sans frais ni pénalité), collecter le numéro de contrat et les informations nécessaires, et transmettre la demande formalisée à votre équipe pour traitement dans les délais légaux (10 jours ouvrés)." },
-      { q: "Quels sont les délais légaux de déclaration de sinistre, et l'agent les rappelle-t-il ?", a: "Les délais varient selon le type de sinistre : 5 jours ouvrés pour un vol, 2 jours ouvrés pour une catastrophe naturelle (dès publication de l'arrêté), 5 jours pour un dégât des eaux. L'agent peut informer l'assuré du délai applicable et s'assurer que la déclaration est faite dans les temps." },
-      { q: "L'agent peut-il identifier un assuré et accéder à son contrat ?", a: "Si votre système de gestion expose une API ou un flux de données, l'agent peut être connecté pour vérifier l'identité de l'assuré et le numéro de contrat. Sans connexion, il collecte les informations manuellement. La vérification d'identité formelle reste à votre charge." },
-      { q: "Comment l'agent gère-t-il un appel de sinistre à 2h du matin ?", a: "L'agent répond immédiatement, identifie la nature du sinistre (incendie, dégât des eaux, accident, vol), évalue l'urgence selon vos règles, et transfère vers votre service d'urgence ou votre assistance si le sinistre le justifie. Pour les sinistres non urgents, il ouvre le dossier et programme un rappel à l'ouverture." },
-      { q: "Est-ce conforme aux obligations réglementaires ACPR et RGPD ?", a: "L'agent ne réalise pas d'acte de conseil au sens de la DDA (Directive Distribution Assurance). Il collecte et structure les informations. Les données sont hébergées en Europe, un DPA est signé lors du déploiement. La conformité ACPR de votre distribution reste sous votre responsabilité en tant qu'intermédiaire enregistré à l'ORIAS." },
+      {q:'Que peut traiter un agent vocal IA en assurance ?',a:'Il peut accueillir l’appelant, identifier le motif, recueillir les éléments nécessaires à une qualification initiale, restituer une information factuelle validée et transmettre le dossier. Son périmètre doit être défini par produit, motif et niveau de risque.'},
+      {q:'Peut-il décider seul d’une indemnisation ou d’un tarif ?',a:'Le périmètre proposé ici l’exclut : l’agent ne décide pas seul de l’assurabilité, de la tarification, d’un refus de garantie ou de l’indemnisation. Ces décisions et le conseil personnalisé restent confiés aux équipes habilitées.'},
+      {q:'Comment traiter les données de santé évoquées pendant un appel ?',a:'Une conversation peut révéler des données de santé. Il faut limiter les questions à l’étape traitée, définir les bases juridiques applicables, contrôler les accès et fixer des durées de conservation adaptées. Le cadrage dépend du traitement réel.'},
+      {q:'L’appelant doit-il savoir qu’il parle à une IA ?',a:'Oui, le parcours prévu s’identifie comme un système d’intelligence artificielle dès le début de l’échange. Cette annonce ne remplace pas l’information distincte sur le traitement des données personnelles.'},
+      {q:'Quand prévoir un transfert humain ?',a:'Le transfert humain doit être défini pour les urgences, les situations ambiguës ou sensibles, les demandes de conseil, les décisions, les contestations et les échanges qui expriment un mécontentement. Le routage dépend des horaires et des équipes disponibles.'},
+      {q:'Une déclaration de sinistre est-elle toujours une réclamation ?',a:'Non. Une déclaration de sinistre ou une demande d’information ne constitue pas à elle seule une réclamation. Le parcours doit détecter l’expression d’un mécontentement et l’orienter vers le dispositif prévu par l’organisme.'},
+      {q:'L’agent remplace-t-il l’analyse juridique et réglementaire du projet ?',a:'Non. L’organisme doit documenter les finalités, rôles, données, bases juridiques, destinataires, durées, mesures de sécurité et règles métier. Une validation juridique adaptée au dispositif réel reste nécessaire.'}
     ];
-
-    function FeatureCard({ title, desc }) {
-      return (
-        <div style={{padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.2s ease'}}
-          onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 36px rgba(30,115,216,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-2px)';}}
-          onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
-          <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',border:'1.5px solid rgba(30,115,216,0.14)',color:B.blue,marginBottom:'12px'}}>
-            <Ico.Zap/>
-          </div>
-          <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'6px'}}>{title}</h3>
-          <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.6}}>{desc}</p>
-        </div>
-      );
-    }
-
-    function FAQ() {
-      const [open, setOpen] = React.useState(null);
-      return (
-        <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
-          {FAQS.map(({q,a},i)=>(
-            <div key={i} style={{borderRadius:'14px',overflow:'hidden',border:`1px solid ${open===i?'rgba(30,115,216,0.28)':B.border}`,transition:'border-color 0.2s',boxShadow:open===i?'0 8px 28px rgba(30,115,216,0.08)':B.shadow}}>
-              <button onClick={()=>setOpen(open===i?null:i)} style={{width:'100%',padding:'16px 20px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',background:B.bgW,border:'none',cursor:'pointer',textAlign:'left'}}>
-                <span style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,flex:1,lineHeight:1.4}}>{q}</span>
-                <div style={{width:'24px',height:'24px',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:open===i?B.grad:B.bgL,border:`1px solid ${open===i?'transparent':B.border}`,transition:'all 0.2s',transform:open===i?'rotate(45deg)':'rotate(0deg)'}}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke={open===i?'white':B.tMuted} strokeWidth="1.5" strokeLinecap="round"/></svg>
-                </div>
-              </button>
-              {open===i && (
-                <div style={{padding:'0 20px 16px',background:B.bgW}}>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.7,color:B.tMuted,margin:0,paddingTop:'10px',borderTop:`1px solid ${B.border}`}}>{a}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    function Page() {
-      return (
-        <main style={{paddingTop:'80px',background:B.bgW}}>
-          {/* Hero */}
-          <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
-            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
-            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
-            <div style={{maxWidth:'1100px',margin:'0 auto',position:'relative',zIndex:1}}>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'64px',alignItems:'center'}} className="hero-grid">
-                <div>
-                  <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Assurance & Mutuelle</Chip></div>
-                  <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,3.6vw,46px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'20px'}}>
-                    Standard téléphonique IA<br/>
-                    <span style={{background:`linear-gradient(135deg,#1E73D8,#2FC7D6)`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-                      pour assurance et mutuelle
-                    </span>
-                  </h1>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.45)',lineHeight:1.75,marginBottom:'32px'}}>
-                    Vos assurés n'attendent pas. Omnira répond à tous vos appels entrants en moins de 2 secondes — sinistres, devis, résiliations, mises à jour — et transmet chaque dossier à l'équipe compétente.
-                  </p>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
-                    <GBtn href="/devis" variant="primary" size="md">Demander un devis personnalisé</GBtn>
-                    <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md">Réserver une démo</GBtn>
-                  </div>
-                </div>
-                <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
-                  {['Déclarations de sinistre traitées 24h/24','Temps d\'attente réduit à zéro pour vos assurés','Dossiers structurés transmis à l\'équipe compétente','RGPD : hébergement européen, DPA signé'].map((t,i)=>(
-                    <div key={i} style={{display:'flex',alignItems:'center',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)'}}>
-                      <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      </div>
-                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.6)',lineHeight:1.45}}>{t}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Appels types */}
-          <section style={{padding:'80px 24px',background:B.bgW}}>
-            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="Exemples d'appels" chipColor={B.blue} title="Les appels qu'Omnira<br/>gère pour votre structure" sub=""/>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
-                  {APPELS_TYPES.map(({label,desc},i)=>(
-                    <div key={i} style={{display:'grid',gridTemplateColumns:'1fr 1.4fr',gap:'20px',padding:'20px 24px',borderRadius:'16px',background:B.bgL,border:`1px solid ${B.border}`,alignItems:'center'}} className="solution-grid">
-                      <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-                        <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',color:B.blue}}>
-                          <Ico.Phone/>
-                        </div>
-                        <span style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,lineHeight:1.35}}>{label}</span>
-                      </div>
-                      <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          {/* Features */}
-          <section style={{padding:'80px 24px',background:B.bgL}} className="section-cap-top">
-            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="Fonctionnalités" chipColor={B.blue} title="Ce que l'agent gère pour votre structure d'assurance" sub="Configuration sur mesure selon vos lignes de produits et votre organisation."/>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px',marginBottom:'28px'}} className="feat-grid">
-                  {FEATURES.map((f,i)=><FeatureCard key={i} {...f}/>)}
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.18}>
-                <div style={{padding:'16px 20px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'12px'}}>
-                  <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,margin:0}}>
-                    <strong style={{color:B.tMain}}>L'agent ne se substitue pas à un conseiller agréé.</strong>{' '}
-                    Il collecte, structure et route — le conseil, la souscription et la gestion des litiges restent pour vos équipes habilitées.
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section style={{padding:'80px 24px',background:B.bgW}}>
-            <div style={{maxWidth:'780px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions sur Omnira<br/>pour l'assurance" sub=""/>
-              </FadeIn>
-              <FadeIn delay={0.08}><FAQ/></FadeIn>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section style={{padding:'80px 24px',background:B.bgD,position:'relative',overflow:'hidden'}}>
-            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 60% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 65%)',pointerEvents:'none'}}/>
-            <div style={{maxWidth:'640px',margin:'0 auto',position:'relative',zIndex:1,textAlign:'center'}}>
-              <FadeIn>
-                <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(24px,3.5vw,38px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.2,marginBottom:'16px'}}>
-                  Demandez un devis pour votre structure d'assurance
-                </h2>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'15px',color:'rgba(255,255,255,0.42)',lineHeight:1.7,marginBottom:'32px'}}>
-                  Configuration selon vos lignes de produits, vos règles de routing et vos obligations réglementaires. Estimation sans engagement.
-                </p>
-                <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'12px'}}>
-                  <GBtn href="/devis" variant="primary" size="lg">Demander un devis personnalisé</GBtn>
-                  <GBtn href="/prendre-rendez-vous" variant="outline" size="md">Réserver une démo</GBtn>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-        </main>
-      );
-    }
-
-    function App() {
-      return (
-        <div>
-          <Nav/>
-          <Page/>
-          <Footer/>
-        </div>
-      );
-    }
+    const section={padding:'72px 24px'}; const wrap={maxWidth:'1080px',margin:'0 auto'}; const h2={fontFamily:'Sora,sans-serif',fontSize:'clamp(24px,3vw,34px)',fontWeight:800,lineHeight:1.2,margin:'0 0 20px'}; const body={fontFamily:'Inter,sans-serif',fontSize:'15px',lineHeight:1.75,color:'#536274'};
+    function Card({children}){return <article style={{padding:'24px',border:'1px solid #dfe7ef',borderRadius:'16px',background:'#fff',boxShadow:'0 8px 28px rgba(11,23,38,.05)'}}>{children}</article>}
+    function Page(){return <main id="contenu" style={{paddingTop:'80px'}}>
+      <section style={{...section,background:'#07121f',color:'#fff'}}><div style={wrap}><nav aria-label="Fil d’Ariane" style={{...body,color:'#9db0c4',marginBottom:'38px'}}><a href="/" style={{color:'#9fe8ee'}}>Accueil</a> › Agent vocal IA pour assurance</nav><div className="two-cols"><div><p style={{fontFamily:'Sora,sans-serif',fontWeight:700,color:'#2fc7d6'}}>Assurance &amp; mutuelle</p><h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(34px,5vw,54px)',lineHeight:1.08,margin:'12px 0 22px'}}>Agent vocal IA pour<br/><span style={{color:'#2fc7d6'}}>assurance et mutuelle</span></h1><p style={{...body,color:'#bed0df'}}>Cadrez l’accueil, la qualification initiale et la transmission des appels sans confier à l’agent le conseil personnalisé ni une décision assurantielle. Le parcours est défini selon vos produits, vos règles métier et vos équipes disponibles.</p><div style={{display:'flex',gap:'12px',flexWrap:'wrap',marginTop:'28px'}}><GBtn href="/devis" variant="primary" size="md">Cadrer mon projet</GBtn><GBtn href="/demo" variant="outline" size="md">Écouter les démonstrations</GBtn></div></div><div><Card><h2 style={{...h2,fontSize:'22px'}}>Avant de répondre aux assurés</h2><ul style={body}><li>Motifs autorisés et actes exclus</li><li>Données nécessaires par étape</li><li>Sources de réponse validées</li><li>Critères de transfert humain</li><li>Solution de repli hors disponibilité</li></ul></Card></div></div></div></section>
+      <section style={section}><div style={wrap}><h2 style={h2}>Trois scénarios d'assurance à cadrer avant la mise en service</h2><div className="cards">{SCENARIOS.map(s=><Card key={s.title}><h3 style={{fontFamily:'Sora,sans-serif',fontSize:'17px'}}>{s.title}</h3><p style={body}><strong>À recueillir :</strong> {s.collecte}</p><p style={body}><strong>Action :</strong> {s.action}</p><p style={body}><strong>Limite :</strong> {s.limit}</p></Card>)}</div></div></section>
+      <section style={{...section,background:'#f4f8fb'}}><div style={wrap}><div className="two-cols"><div><h2 style={h2}>Données sensibles : collecter moins, transmettre mieux</h2><p style={body}>Une conversation de sinistre peut révéler des données de santé, même sans document médical. Le niveau de protection doit suivre les données et les finalités réelles.</p></div><Card><ul style={body}><li>Limiter la collecte aux informations nécessaires au motif et à l’étape traités.</li><li>Distinguer audio, transcription, résumé et données versées au dossier.</li><li>Définir les accès, destinataires, canaux et durées.</li><li>Documenter les bases juridiques et exceptions applicables.</li></ul></Card></div></div></section>
+      <section style={section}><div style={wrap}><h2 style={h2}>Des limites explicites avant l’ouverture des appels</h2><div className="cards"><Card><h3>Transparence</h3><p style={body}>L’agent s'identifie comme un système d'intelligence artificielle dès le début de l’échange. L’information sur les données personnelles reste distincte.</p></Card><Card><h3>Décision</h3><p style={body}>Il ne décide pas seul de l'assurabilité, de la tarification, d’un refus de garantie ou de l’indemnisation.</p></Card><Card><h3>Escalade</h3><p style={body}>Le transfert humain couvre l’urgence, l’ambiguïté, les données sensibles, le conseil, la décision, la contestation et la réclamation.</p></Card></div></div></section>
+      <section style={{...section,background:'#f4f8fb'}}><div style={wrap}><h2 style={h2}>Un déploiement en 5 étapes vérifiables</h2><ol style={body}><li>Cartographier les motifs et les actes exclus.</li><li>Définir les champs nécessaires, sources de réponse et règles de conservation.</li><li>Écrire les critères de transfert et les solutions de repli.</li><li>Tester les scénarios normaux, sensibles, contradictoires et urgents.</li><li>Revoir les journaux, erreurs et retours des équipes avant d’élargir le périmètre.</li></ol></div></section>
+      <section style={section}><div style={{...wrap,maxWidth:'820px'}}><h2 style={h2}>Questions fréquentes sur l'agent vocal IA en assurance</h2>{FAQS.map(({q,a})=><details key={q} style={{borderBottom:'1px solid #dfe7ef',padding:'18px 0'}}><summary style={{fontFamily:'Sora,sans-serif',fontWeight:700,cursor:'pointer'}}>{q}</summary><p style={body}>{a}</p></details>)}</div></section>
+      <section className="sources" style={{...section,background:'#f4f8fb'}}><div style={wrap}><h2 style={h2}>Sources de cadrage</h2><p style={body}>Consultées le 2 août 2026. Ces références guident le cadrage ; elles ne constituent pas une validation juridique du dispositif.</p><ul style={body}><li><a href="https://eur-lex.europa.eu/eli/2024/1689/oj?locale=fr">Règlement européen sur l’IA, notamment article 50</a></li><li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr">RGPD, notamment articles 5, 9, 22, 25, 28, 32 et 35</a></li><li><a href="https://www.cnil.fr/fr/ia-informer-les-personnes">CNIL : informer les personnes dans les systèmes d’IA</a></li><li><a href="https://www.cnil.fr/fr/quest-ce-ce-quune-donnee-de-sante">CNIL : qu’est-ce qu’une donnée de santé ?</a></li><li><a href="https://acpr.banque-france.fr/fr/reglementation/recommandations-sur-les-pratiques-commerciales">ACPR : recommandations sur les pratiques commerciales</a></li></ul></div></section>
+      <section style={{...section,background:'#07121f',color:'#fff',textAlign:'center'}}><div style={{...wrap,maxWidth:'720px'}}><h2 style={h2}>Préparer un périmètre testable</h2><p style={{...body,color:'#bed0df'}}>Commencez par quelques motifs documentés, puis élargissez après revue des erreurs, des transferts et des informations réellement utiles aux gestionnaires.</p><div style={{display:'flex',justifyContent:'center',gap:'12px',flexWrap:'wrap'}}><GBtn href="/prendre-rendez-vous" variant="primary" size="md">Planifier un échange</GBtn><GBtn href="/agent-vocal-ia-courtier" variant="outline" size="md">Voir le cas des courtiers</GBtn><a href="/agent-vocal-ia-immobilier" style={{color:'#9fe8ee'}}>Voir le cas immobilier</a><a href="/confidentialite" style={{color:'#9fe8ee'}}>Lire la politique de confidentialité</a></div></div></section>
+    </main>}
+    function App(){return <div><Nav/><Page/><Footer/></div>}
     ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
