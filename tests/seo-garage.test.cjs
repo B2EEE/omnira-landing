@@ -82,4 +82,15 @@ for (const unsupported of [
   /sécurité garantie/i,
 ]) assert.ok(!unsupported.test(html), `Promesse non soutenue : ${unsupported}`);
 
+const css = html.match(/<style>([\s\S]*?)<\/style>/)?.[1] || '';
+assert.match(css, /\.nav-hamburger\{display:none\}/, 'Le menu mobile doit être masqué sur desktop');
+assert.match(css, /@media\(max-width:820px\)[\s\S]*?\.nav-hamburger\{display:block;/, 'Le menu mobile doit apparaître au breakpoint mobile');
+assert.match(css, /nav \.nav-links button\{background:#0b1726!important;border-color:#2fc7d6!important\}/, 'Le CTA de navigation doit garder un fond sombre lisible');
+assert.match(css, /footer p\{color:#bac7d4!important;font-size:13px!important\}/, 'Le texte du pied de page doit conserver un contraste et une taille lisibles');
+assert.match(css, /footer a\{color:#c9d4df!important;font-size:13px!important\}/, 'Les liens du pied de page doivent conserver un contraste et une taille lisibles');
+assert.match(css, /#root>nav a\[href="\/"\]::after\{content:"OMNIRA";/, 'Le nom de marque doit rester lisible dans la navigation');
+assert.match(css, /#root>nav a\[href="\/"\] img\{display:none!important\}/, 'Le visuel de marque illisible doit être remplacé uniquement dans la navigation principale');
+assert.match(css, /footer \.footer-grid>div:first-child::before\{content:"OMNIRA";/, 'Le nom de marque doit rester lisible dans le pied de page');
+assert.match(jsx, /querySelector\('#root>nav a\[href="\/"\]'\)\?\.setAttribute\('aria-label','Omnira — accueil'\)/, 'Le lien d’accueil doit conserver un nom accessible indépendant de la CSS');
+
 console.log('SEO garage: OK');
