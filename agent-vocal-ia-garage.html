@@ -4,231 +4,130 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Agent vocal IA pour garage et centre auto | Omnira</title>
-  <meta name="description" content="Omnira déploie un agent vocal IA pour les garages : répondre aux appels, qualifier les demandes de devis, prendre des rendez-vous et transmettre des résumés à l'atelier."/>
+  <meta name="description" content="Cadrez les appels atelier avec un agent vocal IA : rendez-vous, véhicule, motif, urgences, courtoisie et transfert humain selon vos règles métier."/>
   <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-garage"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:title" content="Agent vocal IA pour garage et centre auto | Omnira"/>
+  <meta property="og:description" content="Structurez les appels atelier sans confier le diagnostic mécanique à l’IA."/>
+  <meta property="og:url" content="https://omniragency.com/agent-vocal-ia-garage"/>
+  <meta property="og:image" content="https://omniragency.com/uploads/omnira-logo-transparent.png"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-  <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://unpkg.com"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omniragency.com/#organization",
+        "name": "Omnira",
+        "url": "https://omniragency.com/",
+        "logo": "https://omniragency.com/uploads/omnira-logo-transparent.png"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omniragency.com/agent-vocal-ia-garage#service",
+        "name": "Agent vocal IA pour garage et centre auto",
+        "serviceType": "Conception et intégration d’un agent vocal IA pour les appels entrants d’un atelier automobile",
+        "description": "Agent vocal IA configuré pour recueillir et transmettre les demandes de rendez-vous atelier selon les règles du garage, sans diagnostic mécanique autonome.",
+        "url": "https://omniragency.com/agent-vocal-ia-garage",
+        "provider": {"@id": "https://omniragency.com/#organization"},
+        "areaServed": {"@type": "Country", "name": "France"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Agent vocal IA pour garage", "item": "https://omniragency.com/agent-vocal-ia-garage"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "L’agent peut-il confirmer un rendez-vous atelier ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, si l’agenda et les règles du garage sont connectés et testés. Sinon, il recueille le créneau souhaité et transmet une demande à confirmer par l’équipe."}},
+          {"@type": "Question", "name": "Comment recueille-t-il une immatriculation dans un environnement bruyant ?", "acceptedAnswer": {"@type": "Answer", "text": "Le parcours peut demander une répétition, faire confirmer les caractères et transférer à un humain si l’information reste ambiguë. La robustesse doit être testée avec le bruit réel de l’accueil et de l’atelier."}},
+          {"@type": "Question", "name": "Peut-il demander le numéro VIN ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui lorsque le processus du garage l’exige. Le VIN figure à la rubrique E du certificat d’immatriculation. Il ne doit pas être collecté par défaut si l’immatriculation ou une autre donnée suffit."}},
+          {"@type": "Question", "name": "Que fait-il en cas d’accident ou de danger immédiat ?", "acceptedAnswer": {"@type": "Answer", "text": "Le parcours d’urgence doit interrompre la prise de rendez-vous et orienter vers les services compétents. En présence de blessés ou d’un danger immédiat, l’appelant doit contacter le 112. L’agent ne remplace pas un service de secours."}},
+          {"@type": "Question", "name": "L’agent peut-il diagnostiquer une panne ou établir un devis ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il peut recueillir les symptômes décrits et préparer une demande, mais il ne pose pas de diagnostic mécanique et ne valide pas un devis. Ces décisions restent à l’équipe du garage."}},
+          {"@type": "Question", "name": "Peut-il réserver un véhicule de courtoisie ?", "acceptedAnswer": {"@type": "Answer", "text": "Il peut recueillir le besoin et, si un stock fiable est connecté, appliquer les règles validées. La disponibilité, les conditions et la confirmation finale restent celles du garage."}},
+          {"@type": "Question", "name": "Quelles informations faut-il collecter pendant l’appel ?", "acceptedAnswer": {"@type": "Answer", "text": "Limiter la collecte aux informations nécessaires : coordonnées utiles, véhicule, motif de visite et créneau souhaité. Les champs, durées de conservation et accès doivent être définis selon le traitement réel."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: #fff; color: #0B1726; -webkit-font-smoothing: antialiased; }
-    @keyframes slideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    @media (max-width: 900px) {
-      .hero-grid    { grid-template-columns: 1fr !important; }
-      .solution-grid{ grid-template-columns: 1fr !important; }
-      .footer-grid  { grid-template-columns: 1fr !important; }
-      .feat-grid    { grid-template-columns: 1fr 1fr !important; }
-      .nav-links    { display: none !important; }
-    }
-    @media (max-width: 560px) {
-      .feat-grid    { grid-template-columns: 1fr !important; }
-    }
+    *,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#0b1726;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}.skip-link{position:fixed;left:16px;top:8px;z-index:1000;transform:translateY(-150%);padding:10px 14px;background:#fff;color:#0b1726;border-radius:8px}.skip-link:focus{transform:translateY(0)}a:focus-visible,button:focus-visible{outline:3px solid #2fc7d6;outline-offset:3px}.static-shell{max-width:1080px;margin:0 auto;padding:32px 24px 64px}.static-shell h1,.static-shell h2,.static-shell h3{font-family:Sora,sans-serif}.static-shell section{margin-top:40px}.static-shell li{margin-bottom:8px}.hero-grid,.card-grid,.scenario-grid{display:grid;gap:18px}.hero-grid{grid-template-columns:1.2fr .8fr}.card-grid{grid-template-columns:repeat(3,1fr)}.scenario-grid{grid-template-columns:repeat(3,1fr)}.card{padding:22px;border:1px solid #dce7f3;border-radius:16px;background:#fff}.eyebrow{color:#1766b5;font-weight:700}.hero{padding:72px 24px;background:#071629;color:#fff}.wrap{max-width:1080px;margin:0 auto}.section{padding:72px 24px}.section.alt{background:#f4f8fc}.section h2{font-family:Sora,sans-serif;font-size:clamp(25px,3vw,36px);margin:0 0 16px}.section h3{font-family:Sora,sans-serif;font-size:17px}.muted{color:#52667d;line-height:1.7}.hero p{color:#c9d5e4;line-height:1.75}.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.button{display:inline-flex;min-height:48px;align-items:center;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;background:#1e73d8;color:#fff}.button.secondary{background:transparent;border:1px solid #9bb8d6}.breadcrumb{font-size:14px;margin-bottom:28px}.breadcrumb a{color:#2fc7d6}.tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#e8f2fd;color:#155da6;font-weight:700;font-size:13px}.scenario p,.scenario li{color:#52667d;line-height:1.6}.limit{padding:15px;border-left:4px solid #2fc7d6;background:#effbfc}.faq-item{border:1px solid #dce7f3;border-radius:12px;margin:10px 0;overflow:hidden}.faq-item button{width:100%;min-height:52px;padding:16px;border:0;background:#fff;text-align:left;font:700 15px Sora,sans-serif;cursor:pointer;display:flex;justify-content:space-between;gap:16px}.faq-answer{padding:0 16px 18px;color:#52667d;line-height:1.7}.sources a{overflow-wrap:anywhere}.footer-links{display:flex;flex-wrap:wrap;gap:18px}.footer-links a{color:#1766b5}.source-date{font-size:13px;color:#657990}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:820px){.hero-grid,.card-grid,.scenario-grid,.footer-grid{grid-template-columns:1fr!important}.nav-links{display:none!important}.nav-hamburger{margin-left:auto}.section,.hero{padding:54px 20px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
-  <div id="root"></div>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <div id="root">
+    <main id="contenu" class="static-shell">
+      <nav aria-label="Fil d’Ariane"><a href="/">Accueil</a> › Agent vocal IA pour garage</nav>
+      <p class="eyebrow">Garage et centre auto</p>
+      <h1>Agent vocal IA pour garage et centre auto</h1>
+      <p>Un agent vocal IA pour garage structure les appels entrants selon les règles de l’atelier : véhicule, motif, créneau et besoin de rappel. Il s'identifie comme un système d'intelligence artificielle, ne pose pas de diagnostic mécanique et transfère les situations ambiguës, sensibles ou urgentes à une personne.</p>
+      <p><a href="/devis">Demander un cadrage</a> · <a href="/demo">Écouter une démonstration</a> · <a href="/prendre-rendez-vous">Planifier un échange</a></p>
+      <section>
+        <h2>Trois scénarios à cadrer avec l'atelier</h2>
+        <article><h3>1. Rendez-vous d’entretien ou de réparation</h3><p><strong>À recueillir :</strong> coordonnées utiles, immatriculation, modèle si nécessaire, kilométrage indicatif, motif décrit par le client et créneau souhaité.</p><p><strong>Action :</strong> confirmer un créneau uniquement si l’agenda, les durées et les compétences requises sont fiables ; sinon transmettre une demande de rappel.</p><p><strong>Limite :</strong> le récit du client prépare le dossier, mais l’agent ne pose pas de diagnostic mécanique et ne promet ni délai ni devis.</p></article>
+        <article><h3>2. Plaque, VIN et bruit au téléphone</h3><p><strong>À recueillir :</strong> l’immatriculation ou, lorsque le processus l’exige, le VIN indiqué à la rubrique E du certificat d’immatriculation.</p><p><strong>Action :</strong> faire répéter, épeler et confirmer les caractères ; après des tentatives définies, proposer un transfert humain ou un rappel.</p><p><strong>Limite :</strong> un identifiant ambigu n’est jamais inventé ni forcé dans le système atelier.</p></article>
+        <article><h3>3. Panne, accident ou danger immédiat</h3><p><strong>À repérer :</strong> blessés, incendie, danger sur la chaussée, panne sur autoroute ou autre situation qui ne relève pas d’un rendez-vous ordinaire.</p><p><strong>Action :</strong> interrompre le parcours commercial ; en présence de blessés ou d’un danger immédiat, indiquer de contacter le 112. Sur autoroute, orienter vers le dispositif d’urgence et le dépannage agréé.</p><p><strong>Limite :</strong> l’agent n’est ni un service de secours ni un service de dépannage et ne donne pas de consigne médicale.</p></article>
+      </section>
+      <section><h2>Véhicule de courtoisie : une demande, pas une promesse</h2><p>L’agent peut recueillir le besoin, les dates et les informations prévues par le garage. La disponibilité, les conditions, l’assurance, le dépôt éventuel et la confirmation finale restent à vérifier par l’équipe ou par un système de stock fiable.</p></section>
+      <section><h2>Un transfert humain conçu avant la mise en service</h2><p>Le transfert humain s’applique notamment aux urgences, aux informations impossibles à confirmer, aux demandes de diagnostic ou de devis, aux réclamations et aux cas hors périmètre. Le garage définit les horaires, le numéro cible, le débordement et le rappel si personne ne répond.</p></section>
+      <section><h2>Données : recueillir uniquement ce qui sert à la demande</h2><p>Limiter la collecte aux informations nécessaires : coordonnées utiles, véhicule, motif de visite et créneau souhaité. Les finalités, l’information de l’appelant, l’enregistrement éventuel, les accès et les durées de conservation doivent être cadrés selon le traitement réel. Cette page ne vaut pas validation juridique ou technique d’un déploiement.</p></section>
+      <section>
+        <h2>Questions fréquentes sur l'agent vocal IA pour garage</h2>
+        <h3>L’agent peut-il confirmer un rendez-vous atelier ?</h3><p>Oui, si l’agenda et les règles du garage sont connectés et testés. Sinon, il recueille le créneau souhaité et transmet une demande à confirmer par l’équipe.</p>
+        <h3>Comment recueille-t-il une immatriculation dans un environnement bruyant ?</h3><p>Le parcours peut demander une répétition, faire confirmer les caractères et transférer à un humain si l’information reste ambiguë. La robustesse doit être testée avec le bruit réel de l’accueil et de l’atelier.</p>
+        <h3>Peut-il demander le numéro VIN ?</h3><p>Oui lorsque le processus du garage l’exige. Le VIN figure à la rubrique E du certificat d’immatriculation. Il ne doit pas être collecté par défaut si l’immatriculation ou une autre donnée suffit.</p>
+        <h3>Que fait-il en cas d’accident ou de danger immédiat ?</h3><p>Le parcours d’urgence doit interrompre la prise de rendez-vous et orienter vers les services compétents. En présence de blessés ou d’un danger immédiat, l’appelant doit contacter le 112. L’agent ne remplace pas un service de secours.</p>
+        <h3>L’agent peut-il diagnostiquer une panne ou établir un devis ?</h3><p>Non. Il peut recueillir les symptômes décrits et préparer une demande, mais il ne pose pas de diagnostic mécanique et ne valide pas un devis. Ces décisions restent à l’équipe du garage.</p>
+        <h3>Peut-il réserver un véhicule de courtoisie ?</h3><p>Il peut recueillir le besoin et, si un stock fiable est connecté, appliquer les règles validées. La disponibilité, les conditions et la confirmation finale restent celles du garage.</p>
+        <h3>Quelles informations faut-il collecter pendant l’appel ?</h3><p>Limiter la collecte aux informations nécessaires : coordonnées utiles, véhicule, motif de visite et créneau souhaité. Les champs, durées de conservation et accès doivent être définis selon le traitement réel.</p>
+      </section>
+      <section><h2>Sources officielles</h2><ul><li><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A01999L0037-20220324">Directive 1999/37/CE, certificat d’immatriculation</a></li><li><a href="https://www.service-public.fr/particuliers/vosdroits/F11056">Service-Public.fr, dépannage sur autoroute</a></li><li><a href="https://www.service-public.fr/particuliers/vosdroits/F33954">Service-Public.fr, numéros d’urgence</a></li><li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr">RGPD</a></li><li><a href="https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles">CNIL, guide de la sécurité des données personnelles</a></li><li><a href="https://eur-lex.europa.eu/eli/2024/1689/oj?locale=fr">Règlement européen sur l’intelligence artificielle</a></li></ul><p>Sources consultées le 3 août 2026. Le paramétrage doit être validé selon les procédures, outils et responsabilités du garage.</p></section>
+      <section><h2>Relier le parcours à votre contexte</h2><p><a href="/agent-vocal-ia-immobilier">Voir un autre scénario métier</a> · <a href="/agent-vocal-ia-assurance">Consulter le cadrage assurance</a> · <a href="/confidentialite">Lire la politique de confidentialité</a></p></section>
+    </main>
+  </div>
   <script type="text/babel" src="components/brand.jsx"></script>
   <script type="text/babel" src="components/nav-hero.jsx"></script>
   <script type="text/babel" src="components/pricing-bottom.jsx"></script>
   <script type="text/babel">
-
-    const APPELS_TYPES = [
-      { label: 'Demande de devis freins / embrayage', desc: "L'agent collecte le véhicule, le kilométrage, le problème constaté et le numéro du client." },
-      { label: 'Prise de rendez-vous vidange', desc: "L'agent vérifie la disponibilité selon vos règles, prend les infos et prépare la fiche atelier." },
-      { label: 'Demande de révision ou contrôle technique', desc: "L'agent identifie la demande, pose les questions utiles et transmet un résumé à l'accueil." },
-      { label: 'Appel hors horaires ou weekend', desc: "L'agent répond, collecte les infos et crée une demande de rappel pour le lendemain matin." },
-      { label: 'Urgence panne ou accident', desc: "L'agent détecte l'urgence et transfère à un humain selon les règles définies, avec le contexte." },
-    ];
-
-    const FEATURES_GARAGE = [
-      { title: 'Répondre aux appels atelier', desc: "L'agent décroche pour éviter les appels perdus pendant les interventions." },
-      { title: 'Qualifier les demandes de devis', desc: "Véhicule, marque, modèle, kilométrage, problème — tout est collecté avant de mobiliser l'équipe." },
-      { title: 'Préparer les rendez-vous', desc: "L'agent vérifie les règles définies et collecte les disponibilités du client." },
-      { title: 'Gérer les appels hors horaires', desc: "Aucun appel ne tombe dans le vide le soir ou le weekend." },
-      { title: 'Filtrer les urgences', desc: "Pannes ou accidents : l'agent transfère selon vos règles avec le contexte." },
-      { title: 'Transmettre les résumés', desc: "Chaque appel devient une fiche exploitable envoyée à votre accueil ou atelier." },
-    ];
-
     const FAQS = [
-      { q: "L'agent peut-il prendre des rendez-vous directement ?", a: "Oui, si un agenda ou un système de réservation est connecté. La configuration est faite avec vous lors de la mise en place selon vos outils actuels." },
-      { q: "Peut-il gérer les appels pendant les interventions ?", a: "C'est précisément pour ça qu'il est utile. Quand vous êtes sous un véhicule ou en intervention, l'agent répond, qualifie et transmet — sans interrompre votre équipe." },
-      { q: "Que se passe-t-il en cas d'urgence ou d'accident ?", a: "Les règles de transfert sont définies avec vous. L'agent peut détecter les mots-clés d'urgence et transférer l'appel à un humain avec le contexte disponible." },
-      { q: "L'agent connaît-il les marques et modèles ?", a: "L'agent pose les questions que vous lui avez définies : marque, modèle, kilométrage, problème constaté. Il ne fait pas de diagnostic mécanique, il structure la demande." },
-      { q: "Peut-il préparer un devis ?", a: "Il collecte les informations nécessaires et transmet une demande structurée à votre équipe. La préparation du devis reste à votre charge, sur la base d'un dossier complet." },
+      {q:"L’agent peut-il confirmer un rendez-vous atelier ?",a:"Oui, si l’agenda et les règles du garage sont connectés et testés. Sinon, il recueille le créneau souhaité et transmet une demande à confirmer par l’équipe."},
+      {q:"Comment recueille-t-il une immatriculation dans un environnement bruyant ?",a:"Le parcours peut demander une répétition, faire confirmer les caractères et transférer à un humain si l’information reste ambiguë. La robustesse doit être testée avec le bruit réel de l’accueil et de l’atelier."},
+      {q:"Peut-il demander le numéro VIN ?",a:"Oui lorsque le processus du garage l’exige. Le VIN figure à la rubrique E du certificat d’immatriculation. Il ne doit pas être collecté par défaut si l’immatriculation ou une autre donnée suffit."},
+      {q:"Que fait-il en cas d’accident ou de danger immédiat ?",a:"Le parcours d’urgence doit interrompre la prise de rendez-vous et orienter vers les services compétents. En présence de blessés ou d’un danger immédiat, l’appelant doit contacter le 112. L’agent ne remplace pas un service de secours."},
+      {q:"L’agent peut-il diagnostiquer une panne ou établir un devis ?",a:"Non. Il peut recueillir les symptômes décrits et préparer une demande, mais il ne pose pas de diagnostic mécanique et ne valide pas un devis. Ces décisions restent à l’équipe du garage."},
+      {q:"Peut-il réserver un véhicule de courtoisie ?",a:"Il peut recueillir le besoin et, si un stock fiable est connecté, appliquer les règles validées. La disponibilité, les conditions et la confirmation finale restent celles du garage."},
+      {q:"Quelles informations faut-il collecter pendant l’appel ?",a:"Limiter la collecte aux informations nécessaires : coordonnées utiles, véhicule, motif de visite et créneau souhaité. Les champs, durées de conservation et accès doivent être définis selon le traitement réel."}
     ];
-
-    function GarageFeatureCard({ title, desc }) {
-      return (
-        <div style={{padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,transition:'all 0.2s ease'}}
-          onMouseEnter={e=>{e.currentTarget.style.boxShadow='0 12px 36px rgba(30,115,216,0.1)';e.currentTarget.style.borderColor='rgba(30,115,216,0.2)';e.currentTarget.style.transform='translateY(-2px)';}}
-          onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
-          <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',border:'1.5px solid rgba(30,115,216,0.14)',color:B.blue,marginBottom:'12px'}}>
-            <Ico.Zap/>
-          </div>
-          <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'6px'}}>{title}</h3>
-          <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.6}}>{desc}</p>
-        </div>
-      );
-    }
-
-    function GarageFAQ() {
-      const [open, setOpen] = React.useState(null);
-      return (
-        <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
-          {FAQS.map(({q,a},i)=>(
-            <div key={i} style={{borderRadius:'14px',overflow:'hidden',border:`1px solid ${open===i?'rgba(30,115,216,0.28)':B.border}`,transition:'border-color 0.2s',boxShadow:open===i?'0 8px 28px rgba(30,115,216,0.08)':B.shadow}}>
-              <button onClick={()=>setOpen(open===i?null:i)} style={{width:'100%',padding:'16px 20px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',background:B.bgW,border:'none',cursor:'pointer',textAlign:'left'}}>
-                <span style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,flex:1,lineHeight:1.4}}>{q}</span>
-                <div style={{width:'24px',height:'24px',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:open===i?B.grad:B.bgL,border:`1px solid ${open===i?'transparent':B.border}`,transition:'all 0.2s',transform:open===i?'rotate(45deg)':'rotate(0deg)'}}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2v6M2 5h6" stroke={open===i?'white':B.tMuted} strokeWidth="1.5" strokeLinecap="round"/></svg>
-                </div>
-              </button>
-              {open===i && (
-                <div style={{padding:'0 20px 16px',background:B.bgW}}>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',lineHeight:1.7,color:B.tMuted,margin:0,paddingTop:'10px',borderTop:`1px solid ${B.border}`}}>{a}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-    function GaragePage() {
-      return (
-        <main style={{paddingTop:'80px',background:B.bgW}}>
-          {/* Hero */}
-          <section style={{padding:'80px 24px 96px',background:B.bgD,position:'relative',overflow:'hidden'}}>
-            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
-            <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
-            <div style={{maxWidth:'1100px',margin:'0 auto',position:'relative',zIndex:1}}>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'64px',alignItems:'center'}} className="hero-grid">
-                <div>
-                  <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Garage & Centre auto</Chip></div>
-                  <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,3.6vw,46px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'20px'}}>
-                    Agent vocal IA pour<br/>
-                    <span style={{background:`linear-gradient(135deg,#1E73D8,#2FC7D6)`,WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',backgroundClip:'text'}}>
-                      garages et centres auto
-                    </span>
-                  </h1>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'16px',color:'rgba(255,255,255,0.45)',lineHeight:1.75,marginBottom:'32px'}}>
-                    Conçu pour les garages qui veulent mieux gérer leurs appels entrants sans saturer l'accueil ou interrompre l'atelier. L'agent répond, qualifie et transmet — vous intervenez sur les cas qui le nécessitent.
-                  </p>
-                  <div style={{display:'flex',flexWrap:'wrap',gap:'12px'}}>
-                    <GBtn href="/devis" variant="primary" size="md">Demander un devis personnalisé</GBtn>
-                    <GBtn onClick={() => window.openCalModal('decouverte')} variant="outline" size="md">Réserver une démo</GBtn>
-                  </div>
-                </div>
-                <div style={{display:'flex',flexDirection:'column',gap:'12px'}}>
-                  {['Appels reçus même pendant les interventions','Demandes de devis qualifiées avant rappel','Rendez-vous préparés selon vos règles','Urgences filtrées et transmises à votre équipe'].map((t,i)=>(
-                    <div key={i} style={{display:'flex',alignItems:'center',gap:'12px',padding:'14px 18px',borderRadius:'14px',background:'rgba(255,255,255,0.04)',border:'1px solid rgba(255,255,255,0.08)'}}>
-                      <div style={{width:'20px',height:'20px',borderRadius:'50%',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(47,199,214,0.14)',border:'1px solid rgba(47,199,214,0.28)'}}>
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-5" stroke={B.cyan} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                      </div>
-                      <span style={{fontFamily:'Inter,sans-serif',fontSize:'14px',color:'rgba(255,255,255,0.6)',lineHeight:1.45}}>{t}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Appels types */}
-          <section style={{padding:'80px 24px',background:B.bgW}}>
-            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="Exemples d'appels" chipColor={B.blue} title="Les appels qu'Omnira<br/>gère pour votre garage" sub=""/>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
-                  {APPELS_TYPES.map(({label,desc},i)=>(
-                    <div key={i} style={{display:'grid',gridTemplateColumns:'1fr 1.4fr',gap:'20px',padding:'20px 24px',borderRadius:'16px',background:B.bgL,border:`1px solid ${B.border}`,alignItems:'center'}} className="solution-grid">
-                      <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-                        <div style={{width:'36px',height:'36px',borderRadius:'10px',flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',background:'rgba(30,115,216,0.07)',color:B.blue}}>
-                          <Ico.Phone/>
-                        </div>
-                        <span style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,lineHeight:1.35}}>{label}</span>
-                      </div>
-                      <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,lineHeight:1.6,margin:0}}>{desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          {/* Features */}
-          <section style={{padding:'80px 24px',background:B.bgL}} className="section-cap-top">
-            <div style={{maxWidth:'1100px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="Fonctionnalités" chipColor={B.blue} title="Ce que l'agent gère pour votre garage" sub="Chaque action est définie avec vous selon votre organisation."/>
-              </FadeIn>
-              <FadeIn delay={0.08}>
-                <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'14px',marginBottom:'28px'}} className="feat-grid">
-                  {FEATURES_GARAGE.map((f,i)=><GarageFeatureCard key={i} {...f}/>)}
-                </div>
-              </FadeIn>
-              <FadeIn delay={0.18}>
-                <div style={{padding:'16px 20px',borderRadius:'12px',background:B.bgW,border:`1px solid ${B.border}`,display:'flex',alignItems:'center',gap:'12px'}}>
-                  <div style={{color:B.cyan,flexShrink:0}}><Ico.Shield/></div>
-                  <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:B.tMuted,margin:0}}>
-                    <strong style={{color:B.tMain}}>L'agent ne remplace pas votre expert.</strong>{' '}
-                    Il filtre et transmet — les diagnostics, devis définitifs et cas sensibles restent pour votre équipe.
-                  </p>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section style={{padding:'80px 24px',background:B.bgW}}>
-            <div style={{maxWidth:'780px',margin:'0 auto'}}>
-              <FadeIn>
-                <SectionHeader chip="FAQ" chipColor={B.blue} title="Vos questions sur Omnira<br/>pour les garages" sub=""/>
-              </FadeIn>
-              <FadeIn delay={0.08}><GarageFAQ/></FadeIn>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <section style={{padding:'80px 24px',background:B.bgD,position:'relative',overflow:'hidden'}}>
-            <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 60% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 65%)',pointerEvents:'none'}}/>
-            <div style={{maxWidth:'640px',margin:'0 auto',position:'relative',zIndex:1,textAlign:'center'}}>
-              <FadeIn>
-                <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(24px,3.5vw,38px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.2,marginBottom:'16px'}}>
-                  Demandez un devis pour votre garage
-                </h2>
-                <p style={{fontFamily:'Inter,sans-serif',fontSize:'15px',color:'rgba(255,255,255,0.42)',lineHeight:1.7,marginBottom:'32px'}}>
-                  Chaque déploiement est configuré selon votre activité, vos horaires et vos outils. Estimation personnalisée sans engagement.
-                </p>
-                <div style={{display:'flex',justifyContent:'center',flexWrap:'wrap',gap:'12px'}}>
-                  <GBtn href="/devis" variant="primary" size="lg">Demander un devis personnalisé</GBtn>
-                  <GBtn href="/prendre-rendez-vous" variant="outline" size="md">Réserver une démo</GBtn>
-                </div>
-              </FadeIn>
-            </div>
-          </section>
-        </main>
-      );
-    }
-
-    function App() {
-      return (
-        <div>
-          <Nav/>
-          <GaragePage/>
-          <Footer/>
-        </div>
-      );
-    }
-    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+    const SCENARIOS = [
+      {title:"Rendez-vous atelier",collect:"Coordonnées utiles, immatriculation, véhicule, kilométrage indicatif, motif et créneau souhaité.",action:"Confirmer uniquement si l’agenda et les règles sont fiables ; sinon transmettre pour rappel.",limit:"Le récit prépare la demande, mais l’agent ne pose pas de diagnostic mécanique et ne promet ni délai ni devis."},
+      {title:"Plaque, VIN et bruit",collect:"Immatriculation ou, si nécessaire, VIN indiqué à la rubrique E du certificat d’immatriculation.",action:"Faire répéter, épeler et confirmer ; proposer un transfert humain si l’information reste ambiguë.",limit:"Ne jamais inventer un caractère ou forcer une donnée incertaine dans le système atelier."},
+      {title:"Panne ou accident",collect:"Repérer blessés, incendie, danger immédiat, panne sur autoroute ou demande hors parcours ordinaire.",action:"Interrompre la réservation ; indiquer le 112 en cas de blessés ou danger immédiat et le dispositif agréé sur autoroute.",limit:"L’agent n’est ni un service de secours ni un service de dépannage."}
+    ];
+    function FAQ(){const[open,setOpen]=React.useState(null);return <div>{FAQS.map((item,i)=><div className="faq-item" key={item.q}><button id={`faq-button-${i}`} type="button" aria-expanded={open===i} aria-controls={`faq-${i}`} onClick={()=>setOpen(open===i?null:i)}><span>{item.q}</span><span aria-hidden="true">{open===i?'−':'+'}</span></button><div className="faq-answer" id={`faq-${i}`} aria-labelledby={`faq-button-${i}`} hidden={open!==i}>{item.a}</div></div>)}</div>}
+    function Page(){return <><Nav/><main id="contenu">
+      <section className="hero"><div className="wrap"><nav className="breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> Agent vocal IA pour garage</nav><div className="hero-grid"><div><span className="tag">Garage et centre auto</span><h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(32px,4vw,52px)',lineHeight:1.12,margin:'18px 0'}}>Agent vocal IA pour<br/><span style={{color:'#2fc7d6'}}>garage et centre auto</span></h1><p>Structurez les appels entrants selon les règles de l’atelier : véhicule, motif, créneau, confirmation ou transfert. L’agent ne diagnostique pas une panne et n’invente pas une disponibilité.</p><div className="button-row"><a className="button" href="/devis">Demander un cadrage</a><a className="button secondary" href="/demo">Écouter une démonstration</a></div></div><div className="card" style={{background:'#10253d',borderColor:'#29425c'}}><p style={{color:'#2fc7d6',fontWeight:700}}>Cadre de départ</p><ul style={{lineHeight:1.8,color:'#d5e0ec'}}><li>L’agent s'identifie comme un système d'intelligence artificielle.</li><li>Une information ambiguë déclenche répétition ou transfert humain.</li><li>Le garage garde le diagnostic, le devis et la confirmation des ressources.</li><li>Le parcours d’urgence est testé séparément.</li></ul></div></div></div></section>
+      <section className="section"><div className="wrap"><span className="tag">Scénarios</span><h2>Trois scénarios à cadrer avec l'atelier</h2><p className="muted">Chaque scénario sépare les informations à recueillir, l’action autorisée et la limite à ne pas franchir.</p><div className="scenario-grid">{SCENARIOS.map((s,i)=><article className="card scenario" key={s.title}><h3>{i+1}. {s.title}</h3><p><strong>À recueillir :</strong> {s.collect}</p><p><strong>Action :</strong> {s.action}</p><p className="limit"><strong>Limite :</strong> {s.limit}</p></article>)}</div></div></section>
+      <section className="section alt"><div className="wrap"><div className="card-grid"><article className="card"><h2 style={{fontSize:'22px'}}>Véhicule de courtoisie</h2><p className="muted">L’agent recueille le besoin. La disponibilité, les conditions, l’assurance et la confirmation finale restent celles du garage ou d’un stock connecté et testé.</p></article><article className="card"><h2 style={{fontSize:'22px'}}>Transfert humain</h2><p className="muted">Urgence, donnée impossible à confirmer, diagnostic, devis, réclamation ou demande hors périmètre : le routage, les horaires et le rappel sont définis avant la mise en service.</p></article><article className="card"><h2 style={{fontSize:'22px'}}>Collecte limitée</h2><p className="muted">Limiter la collecte aux informations nécessaires : coordonnées utiles, véhicule, motif et créneau. Les accès et durées dépendent du traitement réel.</p></article></div></div></section>
+      <section className="section"><div className="wrap" style={{maxWidth:'820px'}}><span className="tag">Méthode</span><h2>Déployer un parcours vérifiable</h2><ol className="muted"><li>Cartographier les motifs d’appel et les champs réellement utilisés.</li><li>Définir ce que l’agent peut confirmer, ce qu’il transmet et ce qu’il refuse.</li><li>Tester immatriculations, VIN, noms, dates, bruit, interruptions et silences.</li><li>Simuler une urgence, un échec de transfert et l’indisponibilité d’un véhicule de courtoisie.</li><li>Relire les résumés et corriger les règles avant extension du périmètre.</li></ol><p className="limit">Ce protocole décrit une méthode de cadrage. Il ne garantit pas une performance, une conformité ou un résultat commercial.</p></div></section>
+      <section className="section alt"><div className="wrap" style={{maxWidth:'820px'}}><h2>Questions fréquentes sur l'agent vocal IA pour garage</h2><FAQ/></div></section>
+      <section className="section sources"><div className="wrap"><h2>Sources officielles et limites</h2><p className="muted">Les sources suivantes étayent les repères sur le certificat d’immatriculation, les urgences, la minimisation et la transparence. Elles ne valident pas le paramétrage d’un garage particulier.</p><ul className="muted"><li><a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A01999L0037-20220324">Directive 1999/37/CE : certificat d’immatriculation</a></li><li><a href="https://www.service-public.fr/particuliers/vosdroits/F11056">Service-Public.fr : dépannage sur autoroute</a></li><li><a href="https://www.service-public.fr/particuliers/vosdroits/F33954">Service-Public.fr : numéros d’urgence</a></li><li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr">Règlement général sur la protection des données</a></li><li><a href="https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles">CNIL : guide de la sécurité des données personnelles</a></li><li><a href="https://eur-lex.europa.eu/eli/2024/1689/oj?locale=fr">Règlement européen sur l’intelligence artificielle</a></li></ul><p className="source-date">Sources consultées le 3 août 2026. Validation métier, sécurité et juridique à adapter au dispositif réel.</p></div></section>
+      <section className="section alt"><div className="wrap"><h2>Relier l’agent à votre organisation</h2><p className="muted">Décrivez les appels, les outils atelier, les horaires et les critères de transfert à tester.</p><div className="button-row"><a className="button" href="/prendre-rendez-vous">Planifier un échange</a><a className="button" href="/devis">Demander un devis</a></div><nav className="footer-links" aria-label="Ressources associées" style={{marginTop:'28px'}}><a href="/agent-vocal-ia-immobilier">Scénario immobilier</a><a href="/agent-vocal-ia-assurance">Cadrage assurance</a><a href="/confidentialite">Confidentialité</a></nav></div></section>
+    </main><Footer/></>}
+    ReactDOM.createRoot(document.getElementById('root')).render(<Page/>);
   </script>
 </body>
 </html>
