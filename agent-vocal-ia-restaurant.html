@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agent vocal IA pour restaurant et réservations | Omnira</title>
+  <meta name="description" content="Cadrez les appels de votre restaurant : réservations, groupes, allergies, retards, annulations et transfert humain selon vos règles de service."/>
+  <link rel="canonical" href="https://omniragency.com/agent-vocal-ia-restaurant"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:title" content="Agent vocal IA pour restaurant et réservations | Omnira"/>
+  <meta property="og:description" content="Structurez les réservations téléphoniques sans inventer une table disponible ni une réponse sur les allergènes."/>
+  <meta property="og:url" content="https://omniragency.com/agent-vocal-ia-restaurant"/>
+  <meta property="og:image" content="https://omniragency.com/uploads/omnira-logo-transparent.png"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omniragency.com/#organization",
+        "name": "Omnira",
+        "url": "https://omniragency.com/",
+        "logo": "https://omniragency.com/uploads/omnira-logo-transparent.png"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omniragency.com/agent-vocal-ia-restaurant#service",
+        "name": "Agent vocal IA pour restaurant et réservations",
+        "serviceType": "Conception et intégration d’un agent vocal IA pour les appels entrants d’un restaurant",
+        "description": "Agent vocal IA configuré pour recueillir et traiter les demandes de réservation selon les règles du restaurant, avec transfert humain pour les situations sensibles ou ambiguës.",
+        "url": "https://omniragency.com/agent-vocal-ia-restaurant",
+        "provider": {"@id": "https://omniragency.com/#organization"},
+        "areaServed": {"@type": "Country", "name": "France"}
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Agent vocal IA pour restaurant", "item": "https://omniragency.com/agent-vocal-ia-restaurant"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type": "Question", "name": "L’agent peut-il confirmer une réservation ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, uniquement si le plan de salle, les horaires, la capacité et les règles de réservation sont connectés et fiables. Sinon, il recueille la demande et précise qu’une confirmation humaine reste nécessaire."}},
+          {"@type": "Question", "name": "Comment gère-t-il un appel dans un environnement bruyant ?", "acceptedAnswer": {"@type": "Answer", "text": "Le parcours peut faire répéter puis confirmer le nom, le numéro, la date, l’heure et le nombre de personnes. Si une information reste incertaine après le nombre de tentatives défini, il propose un transfert ou un rappel."}},
+          {"@type": "Question", "name": "Peut-il répondre à une question sur les allergènes ?", "acceptedAnswer": {"@type": "Answer", "text": "Il ne doit répondre qu’à partir d’une information à jour, validée par le restaurant et rattachée au plat concerné. En cas de doute, de demande médicale ou de risque signalé, il transfère à l’équipe sans déduire qu’un plat est sûr."}},
+          {"@type": "Question", "name": "Comment traiter une réservation de groupe ?", "acceptedAnswer": {"@type": "Answer", "text": "L’agent recueille les informations prévues par le restaurant : effectif, date, horaire, coordonnées et besoins signalés. Les menus, acomptes, privatisations et conditions particulières restent soumis aux règles et à la validation de l’établissement."}},
+          {"@type": "Question", "name": "Que se passe-t-il en cas de retard ?", "acceptedAnswer": {"@type": "Answer", "text": "L’agent enregistre l’heure d’arrivée estimée et applique seulement une règle explicitement définie. Il ne promet pas que la table sera conservée si le restaurant n’a pas autorisé cette confirmation."}},
+          {"@type": "Question", "name": "L’agent peut-il annuler ou modifier une réservation ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui si la réservation est identifiée et si le système connecté autorise cette action. La modification doit être relue avec l’appelant et les conditions éventuelles du restaurant doivent être annoncées sans être inventées."}},
+          {"@type": "Question", "name": "Quelles informations faut-il collecter pendant l’appel ?", "acceptedAnswer": {"@type": "Answer", "text": "Uniquement les données utiles à la demande, par exemple le nom, un moyen de contact, la date, l’heure, le nombre de couverts et les besoins transmis volontairement. Les finalités, accès et durées de conservation dépendent du traitement réel."}}
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:#0b1726;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:#155da6}
+    a:hover{text-decoration-thickness:2px}
+    a:focus-visible{outline:3px solid #2fc7d6;outline-offset:3px}
+    .skip-link{position:fixed;left:16px;top:8px;z-index:1000;transform:translateY(-150%);padding:10px 14px;background:#fff;color:#0b1726;border-radius:8px}
+    .skip-link:focus{transform:translateY(0)}
+    .site-header{background:#071629;border-bottom:1px solid #29425c}
+    .nav{max-width:1080px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:Sora,sans-serif;font-weight:800;letter-spacing:.08em;color:#fff;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+    .nav-links a{color:#d5e0ec;text-decoration:none;font-size:14px}
+    .nav-links .nav-cta{display:inline-flex;min-height:44px;align-items:center;padding:9px 14px;border:1px solid #2fc7d6;border-radius:9px;color:#fff}
+    .wrap{max-width:1080px;margin:0 auto}
+    .hero{padding:72px 24px;background:#071629;color:#fff}
+    .breadcrumb{font-size:14px;margin-bottom:28px;color:#c9d5e4}
+    .breadcrumb a{color:#62d9e5}
+    .hero-grid,.scenario-grid,.card-grid{display:grid;gap:18px}
+    .hero-grid{grid-template-columns:1.2fr .8fr;align-items:start}
+    .scenario-grid,.card-grid{grid-template-columns:repeat(3,1fr)}
+    h1,h2,h3{font-family:Sora,sans-serif;text-wrap:balance}
+    h1{font-size:clamp(34px,4.5vw,54px);line-height:1.1;margin:18px 0}
+    .hero p{color:#c9d5e4;line-height:1.75}
+    .accent{color:#2fc7d6}
+    .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#e8f2fd;color:#155da6;font-weight:700;font-size:13px}
+    .hero .tag{background:#16304c;color:#74dce6}
+    .section{padding:72px 24px}
+    .section.alt{background:#f4f8fc}
+    .section h2{font-size:clamp(25px,3vw,36px);margin:12px 0 16px}
+    .section h3{font-size:18px;line-height:1.35}
+    .muted{color:#52667d;line-height:1.7}
+    .card{padding:22px;border:1px solid #dce7f3;border-radius:16px;background:#fff}
+    .hero-card{background:#10253d;border-color:#29425c}
+    .hero-card p,.hero-card li{color:#d5e0ec;line-height:1.7}
+    .hero-card strong{color:#74dce6}
+    .scenario p,.scenario li{color:#52667d;line-height:1.65}
+    .limit{padding:15px;border-left:4px solid #2fc7d6;background:#effbfc}
+    .button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .button{display:inline-flex;min-height:48px;align-items:center;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;background:#1e73d8;color:#fff}
+    .button.secondary{background:transparent;border:1px solid #9bb8d6}
+    .method{max-width:820px}
+    .method li{margin-bottom:10px}
+    .faq-list{display:grid;gap:14px;max-width:900px}
+    .faq-list article{padding:20px;border:1px solid #dce7f3;border-radius:14px;background:#fff}
+    .faq-list h3{margin:0 0 8px}
+    .faq-list p{margin:0;color:#52667d;line-height:1.7}
+    .sources li{margin-bottom:10px;line-height:1.6}
+    .source-date{font-size:14px;color:#52667d}
+    .related{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:24px}
+    .site-footer{background:#071629;color:#c9d5e4;padding:42px 24px}
+    .site-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .site-footer a{color:#d5e0ec}
+    @media(max-width:820px){.hero-grid,.scenario-grid,.card-grid{grid-template-columns:1fr}.nav{align-items:flex-start}.nav-links{justify-content:flex-end}.section,.hero{padding-top:52px;padding-bottom:52px}}
+    @media(max-width:560px){.nav{display:block}.nav-links{margin-top:14px;justify-content:flex-start}.nav-links a:not(.nav-cta){display:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/" aria-label="Omnira — accueil">OMNIRA</a>
+      <div class="nav-links"><a href="/demo">Démonstrations</a><a href="/devis">Devis</a><a class="nav-cta" href="/prendre-rendez-vous">Planifier un échange</a></div>
+    </nav>
+  </header>
+  <main id="contenu">
+    <section class="hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/">Accueil</a> <span aria-hidden="true">›</span> Agent vocal IA pour restaurant</nav>
+        <div class="hero-grid">
+          <div>
+            <span class="tag">Restaurant et réservations</span>
+            <h1>Agent vocal IA pour <span class="accent">restaurant</span></h1>
+            <p>Un agent vocal IA pour restaurant recueille une demande de réservation selon les règles de l’établissement : date, heure, nombre de couverts, coordonnées et besoins signalés. Il confirme uniquement ce que le système autorise, n’invente ni table disponible ni information sur les allergènes, et transfère les situations sensibles ou ambiguës.</p>
+            <div class="button-row"><a class="button" href="/devis">Demander un cadrage</a><a class="button secondary" href="/demo">Écouter une démonstration</a></div>
+          </div>
+          <aside class="card hero-card" aria-label="Cadre de départ">
+            <p><strong>Cadre de départ</strong></p>
+            <ul>
+              <li>L’agent s’identifie comme un système d’intelligence artificielle.</li>
+              <li>Une réservation n’est confirmée que si les données disponibles le permettent.</li>
+              <li>Une question sensible sur les allergènes revient à l’équipe.</li>
+              <li>Le restaurant définit retards, annulations, groupes et débordement.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="tag">Scénarios</span>
+        <h2>Trois scénarios à tester avant la mise en service</h2>
+        <p class="muted">Chaque scénario sépare les informations à recueillir, l’action autorisée et la limite à ne pas franchir.</p>
+        <div class="scenario-grid">
+          <article class="card scenario"><h3>1. Réservation ordinaire</h3><p><strong>À recueillir :</strong> nom, moyen de contact, date, heure, nombre de couverts et demande utile au service.</p><p><strong>Action :</strong> proposer ou confirmer un créneau seulement à partir d’une capacité et de règles fiables ; sinon transmettre la demande.</p><p class="limit"><strong>Limite :</strong> ne pas inventer une table, un horaire, une terrasse ou une accessibilité non renseignée.</p></article>
+          <article class="card scenario"><h3>2. Groupe ou demande particulière</h3><p><strong>À recueillir :</strong> effectif, date, horaire, coordonnées, format souhaité et besoins transmis par l’appelant.</p><p><strong>Action :</strong> appliquer le seuil défini par le restaurant puis orienter vers la personne qui valide menus, privatisation, acompte ou conditions.</p><p class="limit"><strong>Limite :</strong> recueillir une demande ne vaut pas acceptation commerciale ni confirmation du groupe.</p></article>
+          <article class="card scenario"><h3>3. Allergène ou risque signalé</h3><p><strong>À recueillir :</strong> la question exacte, le plat concerné si connu et les coordonnées nécessaires au suivi.</p><p><strong>Action :</strong> répondre seulement depuis une information à jour validée par le restaurant ; au moindre doute, transférer à l’équipe.</p><p class="limit"><strong>Limite :</strong> ne jamais déduire qu’un plat est « sans risque » et ne donner aucune consigne médicale.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <div class="card-grid">
+          <article class="card"><h2>Retards</h2><p class="muted">L’agent enregistre l’heure estimée et applique la règle prévue. Il ne promet pas que la table sera conservée si cette décision appartient à l’équipe.</p></article>
+          <article class="card"><h2>Annulations et modifications</h2><p class="muted">La réservation doit être identifiée, la modification relue et l’action confirmée par le système. Les conditions éventuelles viennent du restaurant, pas d’une réponse improvisée.</p></article>
+          <article class="card"><h2>Bruit et noms difficiles</h2><p class="muted">Nom, numéro, date, heure et couverts sont répétés puis confirmés. Après le seuil d’échec défini, l’agent propose un transfert ou un rappel.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap method">
+        <span class="tag">Méthode</span>
+        <h2>Construire un parcours de réservation vérifiable</h2>
+        <ol class="muted">
+          <li>Cartographier les motifs d’appel, les horaires, les services et les règles de capacité.</li>
+          <li>Définir ce qui peut être confirmé, ce qui reste une demande et ce qui exige un transfert.</li>
+          <li>Tester noms, téléphones, dates, heures, groupes, bruit, interruptions et silences.</li>
+          <li>Simuler un allergène absent de la base, une table indisponible, un retard et une annulation.</li>
+          <li>Relire les réservations et les résumés avant d’étendre le périmètre.</li>
+        </ol>
+        <p class="limit">Ce protocole décrit une méthode de cadrage. Il ne garantit ni performance, ni conformité, ni résultat commercial.</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <h2>Questions fréquentes sur l’agent vocal IA pour restaurant</h2>
+        <div class="faq-list">
+          <article><h3>L’agent peut-il confirmer une réservation ?</h3><p>Oui, uniquement si le plan de salle, les horaires, la capacité et les règles de réservation sont connectés et fiables. Sinon, il recueille la demande et précise qu’une confirmation humaine reste nécessaire.</p></article>
+          <article><h3>Comment gère-t-il un appel dans un environnement bruyant ?</h3><p>Le parcours peut faire répéter puis confirmer le nom, le numéro, la date, l’heure et le nombre de personnes. Si une information reste incertaine après le nombre de tentatives défini, il propose un transfert ou un rappel.</p></article>
+          <article><h3>Peut-il répondre à une question sur les allergènes ?</h3><p>Il ne doit répondre qu’à partir d’une information à jour, validée par le restaurant et rattachée au plat concerné. En cas de doute, de demande médicale ou de risque signalé, il transfère à l’équipe sans déduire qu’un plat est sûr.</p></article>
+          <article><h3>Comment traiter une réservation de groupe ?</h3><p>L’agent recueille les informations prévues par le restaurant : effectif, date, horaire, coordonnées et besoins signalés. Les menus, acomptes, privatisations et conditions particulières restent soumis aux règles et à la validation de l’établissement.</p></article>
+          <article><h3>Que se passe-t-il en cas de retard ?</h3><p>L’agent enregistre l’heure d’arrivée estimée et applique seulement une règle explicitement définie. Il ne promet pas que la table sera conservée si le restaurant n’a pas autorisé cette confirmation.</p></article>
+          <article><h3>L’agent peut-il annuler ou modifier une réservation ?</h3><p>Oui si la réservation est identifiée et si le système connecté autorise cette action. La modification doit être relue avec l’appelant et les conditions éventuelles du restaurant doivent être annoncées sans être inventées.</p></article>
+          <article><h3>Quelles informations faut-il collecter pendant l’appel ?</h3><p>Uniquement les données utiles à la demande, par exemple le nom, un moyen de contact, la date, l’heure, le nombre de couverts et les besoins transmis volontairement. Les finalités, accès et durées de conservation dépendent du traitement réel.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sources">
+      <div class="wrap method">
+        <h2>Sources officielles et limites</h2>
+        <p class="muted">Ces sources étayent les repères sur l’information relative aux allergènes, la minimisation des données et la transparence d’un système d’IA. Elles ne valident pas le paramétrage d’un restaurant particulier.</p>
+        <ul class="muted">
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2011/1169/oj?locale=fr">Règlement (UE) no 1169/2011 concernant l’information des consommateurs sur les denrées alimentaires</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr">Règlement général sur la protection des données</a></li>
+          <li><a href="https://www.cnil.fr/fr/comprendre-le-rgpd/les-six-grands-principes-du-rgpd">CNIL : les six grands principes du RGPD</a></li>
+          <li><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj?locale=fr">Règlement européen sur l’intelligence artificielle</a></li>
+        </ul>
+        <p class="source-date">Sources consultées le 4 août 2026. Validation métier, sécurité et juridique à adapter au dispositif réel.</p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="wrap">
+        <h2>Relier le parcours à votre service</h2>
+        <p class="muted">Décrivez vos services, votre capacité, vos règles de groupe, de retard, d’annulation et de transfert à tester.</p>
+        <div class="button-row"><a class="button" href="/prendre-rendez-vous">Planifier un échange</a><a class="button" href="/devis">Demander un devis</a></div>
+        <nav class="related" aria-label="Ressources associées"><a href="/agent-vocal-ia-garage">Parcours garage</a><a href="/agent-vocal-ia-immobilier">Scénario immobilier</a><a href="/agent-vocal-ia-assurance">Cadrage assurance</a><a href="/confidentialite">Confidentialité</a></nav>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><strong>OMNIRA</strong><nav aria-label="Liens légaux"><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/cgu">CGU</a></nav></div></footer>
+</body>
+</html>

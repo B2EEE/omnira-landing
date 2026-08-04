@@ -154,6 +154,13 @@ const SECTEUR_PAGES = [
     href: '/agent-vocal-ia-garage',
     color: B.blue,
   },
+  {
+    Icon: Ico.Utensils,
+    label: 'Restaurants',
+    desc: 'Réservations, groupes, allergies, retards et annulations selon les règles du service.',
+    href: '/agent-vocal-ia-restaurant',
+    color: B.cyan,
+  },
 ];
 
 function SecteurLinks() {
@@ -166,10 +173,10 @@ function SecteurLinks() {
             Agent vocal IA adapté à votre secteur
           </h2>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'14px'}} className="feat-grid">
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(190px,1fr))',gap:'14px'}} className="feat-grid">
           {SECTEUR_PAGES.map(({Icon,label,desc,href,color})=>(
             <a key={href} href={href}
-              style={{display:'block',padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,textDecoration:'none',transition:'all 0.2s ease'}}
+              style={{display:'block',padding:'20px',borderRadius:'16px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:B.shadow,textDecoration:'none',transition:'box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease'}}
               onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 12px 36px rgba(30,115,216,0.1)`;e.currentTarget.style.borderColor=`rgba(30,115,216,0.2)`;e.currentTarget.style.transform='translateY(-2px)';}}
               onMouseLeave={e=>{e.currentTarget.style.boxShadow=B.shadow;e.currentTarget.style.borderColor=B.border;e.currentTarget.style.transform='translateY(0)';}}>
               <div style={{width:'36px',height:'36px',borderRadius:'10px',display:'flex',alignItems:'center',justifyContent:'center',background:`${color}11`,border:`1.5px solid ${color}22`,color,marginBottom:'12px'}}>

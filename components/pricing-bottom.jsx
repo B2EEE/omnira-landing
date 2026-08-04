@@ -110,6 +110,7 @@ function Footer() {
               ['Simulation','/#roi'],
               ['FAQ','/#faq'],
               ['Garage & Auto','/agent-vocal-ia-garage'],
+              ['Restaurants','/agent-vocal-ia-restaurant'],
             ].map(([l,h])=>(
               <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
