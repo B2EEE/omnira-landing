@@ -62,14 +62,14 @@ function FAQ() {
           {FAQS.map(({q,a},i)=>(
             <FadeIn key={i} delay={i*0.03}>
               <div style={{borderRadius:'16px',overflow:'hidden',border:`1px solid ${open===i?'rgba(30,115,216,0.28)':B.border}`,transition:'border-color 0.2s',boxShadow:open===i?'0 8px 28px rgba(30,115,216,0.08)':B.shadow}}>
-                <button onClick={()=>setOpen(open===i?null:i)} style={{width:'100%',padding:'18px 22px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',background:B.bgW,border:'none',cursor:'pointer',textAlign:'left'}}>
+                <button id={`faq-button-${i}`} type="button" aria-expanded={open===i} aria-controls={`faq-answer-${i}`} onClick={()=>setOpen(open===i?null:i)} style={{width:'100%',padding:'18px 22px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'16px',background:B.bgW,border:'none',cursor:'pointer',textAlign:'left'}}>
                   <span style={{fontFamily:'Sora,sans-serif',fontSize:'14px',fontWeight:700,color:B.tMain,flex:1,lineHeight:1.4}}>{q}</span>
                   <div style={{width:'26px',height:'26px',borderRadius:'50%',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,background:open===i?B.grad:B.bgL,border:`1px solid ${open===i?'transparent':B.border}`,transition:'all 0.2s',transform:open===i?'rotate(45deg)':'rotate(0deg)'}}>
                     <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 2v7M2 5.5h7" stroke={open===i?'white':B.tMuted} strokeWidth="1.5" strokeLinecap="round"/></svg>
                   </div>
                 </button>
                 {open===i && (
-                  <div style={{padding:'0 22px 18px',background:B.bgW,animation:'slideIn 0.2s ease'}}>
+                  <div id={`faq-answer-${i}`} role="region" aria-labelledby={`faq-button-${i}`} style={{padding:'0 22px 18px',background:B.bgW,animation:'slideIn 0.2s ease'}}>
                     <p style={{fontFamily:'Inter,sans-serif',fontSize:'14px',lineHeight:1.7,color:B.tMuted,margin:0,paddingTop:'12px',borderTop:`1px solid ${B.border}`}}>{a}</p>
                   </div>
                 )}
@@ -97,12 +97,12 @@ function Footer() {
         <div style={{display:'grid',gridTemplateColumns:'1.5fr 1fr 1fr',gap:'48px',marginBottom:'48px'}} className="footer-grid">
           <div>
             <OmniraLogo height={32}/>
-            <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.28)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
+            <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
               Omnira configure des scénarios pour les appels entrants des PME : qualification, préparation d'un rendez-vous ou d'un devis et compte rendu selon les intégrations retenues.
             </p>
           </div>
           <div>
-            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Navigation</p>
+            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Navigation</p>
             {[
               ['Fonctionnement','/#process'],
               ['Démo','/demo'],
@@ -112,36 +112,36 @@ function Footer() {
               ['Garage & Auto','/agent-vocal-ia-garage'],
               ['Restaurants','/agent-vocal-ia-restaurant'],
             ].map(([l,h])=>(
-              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
+              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
-                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
+                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}>{l}</a>
             ))}
           </div>
           <div>
-            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.22)',marginBottom:'16px'}}>Contact</p>
+            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Contact</p>
             {[
               ['Demander un devis','/devis'],
               ['Réserver une démo','/prendre-rendez-vous'],
               ['Écouter les démos','/demo'],
             ].map(([l,h])=>(
-              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.35)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
+              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
-                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.35)'}>{l}</a>
+                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}>{l}</a>
             ))}
-            <a href="mailto:contact@omniragency.com" style={{display:'block',fontFamily:'JetBrains Mono,monospace',fontSize:'12px',color:'rgba(47,199,214,0.6)',textDecoration:'none',marginTop:'16px',transition:'color 0.15s'}}
+            <a href="mailto:contact@omniragency.com" style={{display:'block',fontFamily:'JetBrains Mono,monospace',fontSize:'12px',color:'#62D9E5',textDecoration:'none',marginTop:'16px',transition:'color 0.15s'}}
               onMouseEnter={e=>e.currentTarget.style.color='rgba(47,199,214,1)'}
-              onMouseLeave={e=>e.currentTarget.style.color='rgba(47,199,214,0.6)'}>
+              onMouseLeave={e=>e.currentTarget.style.color='#62D9E5'}>
               contact@omniragency.com
             </a>
           </div>
         </div>
         <div style={{paddingTop:'24px',borderTop:'1px solid rgba(255,255,255,0.05)',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.18)',margin:0}}>© 2026 Omnira · Automatisation des appels pour PME</p>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',color:'rgba(255,255,255,0.7)',margin:0}}>© 2026 Omnira · Automatisation des appels pour PME</p>
           <div style={{display:'flex',gap:'24px'}}>
             {[['Confidentialité','/confidentialite'],['CGU','/cgu'],['Mentions légales','/mentions-legales']].map(([l,h])=>(
-              <a key={l} href={h} style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.2)',textDecoration:'none',transition:'color 0.15s'}}
-                onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.5)'}
-                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.2)'}>{l}</a>
+              <a key={l} href={h} style={{fontFamily:'Inter,sans-serif',fontSize:'11px',color:'rgba(255,255,255,0.7)',textDecoration:'none',transition:'color 0.15s'}}
+                onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.9)'}
+                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}>{l}</a>
             ))}
           </div>
         </div>

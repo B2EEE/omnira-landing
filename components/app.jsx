@@ -6,19 +6,21 @@ function App() {
   return (
     <div>
       <Nav/>
-      <Hero/>
-      <Pain/>
-      <HowItWorks/>
-      <Scenarios/>
-      <SecteurLinks/>
-      <Demo/>
-      <Dashboard/>
-      <PourQui/>
-      <ROICalculator/>
-      <HumanControl/>
-      <OnBoarding/>
-      <DevisSection/>
-      <FAQ/>
+      <main id="contenu">
+        <Hero/>
+        <Pain/>
+        <HowItWorks/>
+        <Scenarios/>
+        <SecteurLinks/>
+        <Demo/>
+        <Dashboard/>
+        <PourQui/>
+        <ROICalculator/>
+        <HumanControl/>
+        <OnBoarding/>
+        <DevisSection/>
+        <FAQ/>
+      </main>
       <Footer/>
     </div>
   );

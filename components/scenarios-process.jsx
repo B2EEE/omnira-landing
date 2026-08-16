@@ -531,15 +531,16 @@ function ROICalculator() {
           <FadeIn>
             <div style={{padding:'32px',borderRadius:'22px',background:B.bgW,border:`1px solid ${B.border}`,boxShadow:'inset 0 2px 12px rgba(16,63,115,0.04)'}}>
               <div style={{display:'flex',flexDirection:'column',gap:'28px'}}>
-                {sliders.map(({label,value,set,min,max,unit,color})=>{
+                {sliders.map(({label,value,set,min,max,unit,color}, index)=>{
                   const pct = ((value-min)/(max-min))*100;
+                  const inputId = `simulation-hypothese-${index + 1}`;
                   return (
                     <div key={label}>
                       <div style={{display:'flex',justifyContent:'space-between',marginBottom:'10px'}}>
-                        <label style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain}}>{label}</label>
+                        <label htmlFor={inputId} style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain}}>{label}</label>
                         <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'13px',fontWeight:700,color}}>{value}{unit}</span>
                       </div>
-                      <input type="range" min={min} max={max} value={value} onChange={e=>set(Number(e.target.value))}
+                      <input id={inputId} name={inputId} type="range" min={min} max={max} value={value} onChange={e=>set(Number(e.target.value))}
                         className="omnira-slider" style={{'--pct':`${pct}%`,'--color':color}}/>
                       <div style={{display:'flex',justifyContent:'space-between',marginTop:'5px'}}>
                         <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:B.tMuted}}>{min}{unit}</span>

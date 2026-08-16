@@ -61,6 +61,8 @@ function Nav() {
           className="nav-hamburger"
           onClick={() => setOpen(!open)}
           aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-expanded={open}
+          aria-controls="navigation-mobile"
           style={{background:'none',border:'none',cursor:'pointer',padding:'7px',borderRadius:'8px',lineHeight:0}}
         >
           {open ? (
@@ -77,7 +79,7 @@ function Nav() {
 
       {/* ── Mobile menu panel ── */}
       {open && (
-        <div style={{
+        <div id="navigation-mobile" style={{
           padding:'8px 24px 32px',
           borderTop:`1px solid ${B.border}`,
           background:'rgba(255,255,255,0.97)',

@@ -30,7 +30,7 @@ const B = {
   bgD2:   '#0E1C35',
   bgFoot: '#070E1A',
   tMain:  '#0B1726',
-  tMuted: '#5B7A9B',
+  tMuted: '#52667D',
   border: '#CCE0F0',   // légèrement plus prononcé
   shadow: '0 4px 24px rgba(16,63,115,0.08)',
 };
@@ -80,7 +80,7 @@ window.Ico = Ico;
 // Logo — dark background
 function OmniraLogo({ height = 68 }) {
   return (
-    <img src="uploads/omnira-logo-transparent.png" alt="Omnira"
+    <img src="uploads/omnira-logo-transparent.png" alt="Omnira" width="932" height="425"
       style={{height:`${height}px`,width:'auto',display:'block',
         mixBlendMode:'screen',
         filter:'brightness(1.15) drop-shadow(0 0 12px rgba(47,199,214,0.45))',
@@ -90,7 +90,7 @@ function OmniraLogo({ height = 68 }) {
 // Logo — light background
 function OmniraLogoColor({ height = 68 }) {
   return (
-    <img src="uploads/omnira-logo-transparent.png" alt="Omnira"
+    <img src="uploads/omnira-logo-transparent.png" alt="Omnira" width="932" height="425"
       style={{height:`${height}px`,width:'auto',display:'block',
         mixBlendMode:'multiply',
         filter:'saturate(1.1)',

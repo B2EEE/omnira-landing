@@ -168,7 +168,7 @@ function SecteurLinks() {
     <section style={{padding:'64px 24px',background:B.bgL}}>
       <div style={{maxWidth:'1100px',margin:'0 auto'}}>
         <div style={{marginBottom:'32px',textAlign:'center'}}>
-          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',textTransform:'uppercase',letterSpacing:'0.12em',color:B.blue,marginBottom:'10px'}}>Pages sectorielles</p>
+          <p style={{fontFamily:'JetBrains Mono,monospace',fontSize:'11px',textTransform:'uppercase',letterSpacing:'0.12em',color:'#155DA6',marginBottom:'10px'}}>Pages sectorielles</p>
           <h2 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(20px,2.5vw,28px)',fontWeight:800,color:B.tMain,letterSpacing:'-0.018em',lineHeight:1.2}}>
             Agent vocal IA adapté à votre secteur
           </h2>
@@ -184,7 +184,7 @@ function SecteurLinks() {
               </div>
               <h3 style={{fontFamily:'Sora,sans-serif',fontSize:'13px',fontWeight:700,color:B.tMain,marginBottom:'6px',lineHeight:1.3}}>{label}</h3>
               <p style={{fontFamily:'Inter,sans-serif',fontSize:'12px',color:B.tMuted,lineHeight:1.55,margin:'0 0 12px'}}>{desc}</p>
-              <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color,fontWeight:600}}>Voir la page →</span>
+              <span style={{fontFamily:'JetBrains Mono,monospace',fontSize:'10px',color:'#155DA6',fontWeight:600}}>Voir la page →</span>
             </a>
           ))}
         </div>
