@@ -6,6 +6,16 @@
   <title>Prendre rendez-vous — Omnira</title>
   <meta name="description" content="Réservez un appel découverte (30 min) ou une demande de devis (45 min) avec Omnira. Choisissez le créneau qui vous convient."/>
   <link rel="canonical" href="https://omniragency.com/prendre-rendez-vous"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Prendre rendez-vous", "item": "https://omniragency.com/prendre-rendez-vous"}
+    ]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
   <link rel="apple-touch-icon" href="uploads/omnira-logo-transparent.png"/>
@@ -210,6 +220,9 @@
             <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(30,115,216,0.18),transparent 65%)',pointerEvents:'none'}}/>
             <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
             <div style={{maxWidth:'900px',margin:'0 auto',position:'relative',zIndex:1,textAlign:'center'}}>
+              <nav aria-label="Fil d’Ariane" style={{marginBottom:'34px',textAlign:'left',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.65)'}}>
+                <a href="/" style={{color:'#74dce6'}}>Accueil</a><span aria-hidden="true" style={{margin:'0 8px'}}>›</span><span aria-current="page">Prendre rendez-vous</span>
+              </nav>
               <div style={{marginBottom:'18px'}}><Chip color={B.cyan}>Prendre rendez-vous</Chip></div>
               <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(26px,3.8vw,44px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.12,marginBottom:'18px',animation:'fadeUp 0.5s ease both'}}>
                 Choisissez votre rendez-vous

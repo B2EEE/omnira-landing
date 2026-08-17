@@ -6,6 +6,16 @@
   <title>Démos audio — Omnira Agents vocaux IA</title>
   <meta name="description" content="Écoutez Omnira en situation réelle. Démos vocales par secteur d'activité : garage, restaurant, artisan, urgence."/>
   <link rel="canonical" href="https://omniragency.com/demo"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Démonstrations", "item": "https://omniragency.com/demo"}
+    ]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
   <link rel="apple-touch-icon" href="uploads/omnira-logo-transparent.png"/>
@@ -186,6 +196,9 @@
           <section style={{padding:'80px 24px 64px',background:B.bgD,position:'relative',overflow:'hidden'}}>
             <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 40% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
             <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
+            <nav aria-label="Fil d’Ariane" style={{maxWidth:'1100px',margin:'0 auto 34px',position:'relative',zIndex:1,fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.65)'}}>
+              <a href="/" style={{color:'#74dce6'}}>Accueil</a><span aria-hidden="true" style={{margin:'0 8px'}}>›</span><span aria-current="page">Démonstrations</span>
+            </nav>
             <div style={{maxWidth:'700px',margin:'0 auto',textAlign:'center',position:'relative',zIndex:1}}>
               <div style={{marginBottom:'16px'}}><Chip color={B.cyan}>Démos vocales</Chip></div>
               <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,4vw,46px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.15,marginBottom:'18px'}}>

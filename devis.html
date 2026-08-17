@@ -6,6 +6,16 @@
   <title>Demander un devis — Omnira Agents vocaux IA</title>
   <meta name="description" content="Demandez votre devis personnalisé pour un agent vocal IA adapté à votre activité. Omnira évalue votre besoin et vous propose une solution sur mesure."/>
   <link rel="canonical" href="https://omniragency.com/devis"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://omniragency.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Demander un devis", "item": "https://omniragency.com/devis"}
+    ]
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="64x64" href="uploads/omnira-logo-transparent.png"/>
   <link rel="apple-touch-icon" href="uploads/omnira-logo-transparent.png"/>
@@ -63,7 +73,10 @@
           <div style={{position:'absolute',inset:0,background:'radial-gradient(ellipse 70% 40% at 50% 0%,rgba(30,115,216,0.18),transparent 60%)',pointerEvents:'none'}}/>
           <div style={{position:'absolute',inset:0,backgroundImage:'linear-gradient(rgba(255,255,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.018) 1px,transparent 1px)',backgroundSize:'64px 64px'}}/>
 
-          <div style={{maxWidth:'900px',margin:'0 auto',padding:'64px 24px 96px',position:'relative',zIndex:1}}>
+          <div style={{maxWidth:'900px',margin:'0 auto',padding:'40px 24px 96px',position:'relative',zIndex:1}}>
+            <nav aria-label="Fil d’Ariane" style={{marginBottom:'38px',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.65)'}}>
+              <a href="/" style={{color:'#74dce6'}}>Accueil</a><span aria-hidden="true" style={{margin:'0 8px'}}>›</span><span aria-current="page">Demander un devis</span>
+            </nav>
             <div style={{textAlign:'center',marginBottom:'48px'}}>
               <div style={{marginBottom:'16px'}}><Chip color={B.cyan}>Devis personnalisé</Chip></div>
               <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(28px,4vw,44px)',fontWeight:800,color:'white',letterSpacing:'-0.022em',lineHeight:1.15,marginBottom:'16px'}}>

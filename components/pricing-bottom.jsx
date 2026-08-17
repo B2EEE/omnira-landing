@@ -94,7 +94,7 @@ function Footer() {
   return (
     <footer style={{background:B.bgFoot,padding:'56px 24px 32px',borderTop:'1px solid rgba(255,255,255,0.04)'}}>
       <div style={{maxWidth:'1200px',margin:'0 auto'}}>
-        <div style={{display:'grid',gridTemplateColumns:'1.5fr 1fr 1fr',gap:'48px',marginBottom:'48px'}} className="footer-grid">
+        <div style={{display:'grid',gridTemplateColumns:'1.4fr 1fr 1fr 1fr',gap:'40px',marginBottom:'48px'}} className="footer-grid">
           <div>
             <OmniraLogo height={32}/>
             <p style={{fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',lineHeight:1.7,marginTop:'14px',maxWidth:'280px'}}>
@@ -102,18 +102,30 @@ function Footer() {
             </p>
           </div>
           <div>
-            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Navigation</p>
+            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Solutions</p>
             {[
-              ['Fonctionnement','/#process'],
-              ['Démo','/demo'],
-              ["Cas d'usage",'/#scenarios'],
-              ['Simulation','/#roi'],
-              ['FAQ','/#faq'],
-              ['Garage & Auto','/agent-vocal-ia-garage'],
+              ['Agences immobilières','/agent-vocal-ia-immobilier'],
+              ['Courtiers en assurance','/agent-vocal-ia-courtier'],
+              ['Assurances & mutuelles','/agent-vocal-ia-assurance'],
+              ['Garages & centres auto','/agent-vocal-ia-garage'],
               ['Restaurants','/agent-vocal-ia-restaurant'],
             ].map(([l,h])=>(
               <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
                 onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}
+                onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}>{l}</a>
+            ))}
+          </div>
+          <div>
+            <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Ressources</p>
+            {[
+              ['Fonctionnement','/#process'],
+              ['Démonstrations','/demo'],
+              ["Cas d'usage",'/#scenarios'],
+              ['Simulation','/#roi'],
+              ['Questions fréquentes','/#faq'],
+            ].map(([l,h])=>(
+              <a key={l} href={h} style={{display:'block',fontFamily:'Inter,sans-serif',fontSize:'13px',color:'rgba(255,255,255,0.7)',textDecoration:'none',marginBottom:'10px',transition:'color 0.15s'}}
+                onMouseEnter={e=>e.currentTarget.style.color='rgba(255,255,255,0.9)'}
                 onMouseLeave={e=>e.currentTarget.style.color='rgba(255,255,255,0.7)'}>{l}</a>
             ))}
           </div>
