@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kit d’évaluation d’un agent vocal IA | Omnira</title>
+  <meta name="description" content="Téléchargez une grille d’évaluation, 12 scénarios de test et un diagramme pour comparer des agents vocaux IA avec des preuves, sans score arbitraire.">
+  <link rel="canonical" href="https://omniragency.com/ressources/kit-evaluation-agent-vocal-ia/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Kit d’évaluation d’un agent vocal IA">
+  <meta property="og:description" content="Une méthode ouverte, une grille de 12 critères et des scénarios reproductibles pour préparer une évaluation.">
+  <meta property="og:url" content="https://omniragency.com/ressources/kit-evaluation-agent-vocal-ia/">
+  <meta property="og:image" content="https://omniragency.com/uploads/omnira-og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07101d">
+  <style>
+    :root { color-scheme: light; --ink:#0b1726; --muted:#526275; --blue:#165fa7; --cyan:#147e89; --pale:#eef7fa; --line:#cbd9e6; --navy:#07101d; --gold:#f4b942; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:#fff; font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    a { color:var(--blue); text-underline-offset:3px; }
+    a:hover { color:#0a427a; }
+    a:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline:3px solid #fff; outline-offset:2px; box-shadow:0 0 0 6px var(--ink); border-radius:3px; }
+    h1,h2,h3 { line-height:1.18; text-wrap:balance; scroll-margin-top:24px; }
+    h1 { margin:.4rem 0 1rem; font-size:clamp(2rem,6vw,4rem); letter-spacing:-.035em; }
+    h2 { margin:0 0 1rem; font-size:clamp(1.55rem,3.5vw,2.35rem); }
+    h3 { margin:0 0 .5rem; font-size:1.12rem; }
+    p { text-wrap:pretty; }
+    .skip { position:fixed; z-index:10; top:8px; left:12px; padding:.65rem .9rem; background:#fff; transform:translateY(-160%); }
+    .skip:focus { transform:translateY(0); }
+    header { background:var(--navy); color:#fff; }
+    nav { max-width:1120px; margin:auto; padding:1rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    nav a { color:#fff; font-weight:700; text-decoration:none; }
+    nav a:hover { color:#9eeaf0; }
+    .hero { max-width:1120px; margin:auto; padding:4.5rem 1.25rem 5rem; display:grid; grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr); gap:3rem; align-items:center; }
+    .eyebrow { color:#78dce4; font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; }
+    .hero p { max-width:760px; color:#d8e4ef; font-size:1.08rem; }
+    .hero-card { padding:1.35rem; border:1px solid #32506d; background:#0d1d2f; border-radius:16px; }
+    .hero-card ul { margin:.5rem 0 0; padding-left:1.2rem; }
+    .hero-card li { margin:.55rem 0; }
+    .actions { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.6rem; }
+    .button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:.75rem 1rem; border-radius:8px; background:#fff; color:var(--navy); font-weight:800; text-decoration:none; }
+    .button.secondary { color:#fff; background:transparent; border:1px solid #7792ad; }
+    main > section { padding:4.25rem 1.25rem; }
+    main > section:nth-child(even) { background:#f6f9fc; }
+    .wrap { max-width:1120px; margin:auto; }
+    .lede { max-width:820px; color:var(--muted); font-size:1.06rem; }
+    .notice { padding:1rem 1.1rem; margin:1.4rem 0; border-left:5px solid var(--cyan); background:var(--pale); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .card { padding:1.2rem; background:#fff; border:1px solid var(--line); border-radius:12px; }
+    .card p { margin:.3rem 0 0; color:var(--muted); }
+    .table-wrap { overflow-x:auto; margin:1.5rem 0; border:1px solid var(--line); border-radius:10px; }
+    table { width:100%; min-width:760px; border-collapse:collapse; }
+    th,td { padding:.75rem; border-bottom:1px solid var(--line); vertical-align:top; text-align:left; }
+    th { background:#e9f1f7; font-size:.9rem; }
+    tr:last-child td { border-bottom:0; }
+    code { font-size:.88em; }
+    .downloads { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin-top:1.5rem; }
+    .download { display:block; padding:1.2rem; border:2px solid #a9c1d5; border-radius:12px; background:#fff; color:var(--ink); text-decoration:none; }
+    .download:hover { border-color:var(--blue); background:#f5fbff; color:var(--ink); }
+    .download strong,.download span { display:block; }
+    .download span { margin-top:.35rem; color:var(--muted); font-size:.92rem; }
+    figure { margin:1.5rem 0 0; }
+    figure img { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    figcaption { margin-top:.7rem; color:var(--muted); font-size:.9rem; }
+    .checklist { columns:2; column-gap:2.5rem; padding-left:1.3rem; }
+    .checklist li { break-inside:avoid; margin:0 0 .75rem; padding-left:.25rem; }
+    details { padding:1rem 0; border-bottom:1px solid var(--line); }
+    summary { cursor:pointer; font-weight:800; }
+    footer { padding:2.5rem 1.25rem; background:var(--navy); color:#c5d4e2; }
+    footer .wrap { display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; }
+    footer a { color:#a8edf2; }
+    @media (max-width:800px) { .hero { grid-template-columns:1fr; } .grid,.downloads { grid-template-columns:1fr; } .checklist { columns:1; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"https://omniragency.com/ressources/kit-evaluation-agent-vocal-ia/#page",
+        "url":"https://omniragency.com/ressources/kit-evaluation-agent-vocal-ia/",
+        "name":"Kit d’évaluation d’un agent vocal IA",
+        "description":"Grille d’évaluation, scénarios de test et diagramme pour comparer des agents vocaux IA avec des preuves.",
+        "inLanguage":"fr-FR",
+        "datePublished":"2026-08-20",
+        "dateModified":"2026-08-20",
+        "isPartOf":{"@id":"https://omniragency.com/#website"},
+        "publisher":{"@type":"Organization","name":"Omnira","url":"https://omniragency.com/"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"https://omniragency.com/"},
+          {"@type":"ListItem","position":2,"name":"Kit d’évaluation d’un agent vocal IA","item":"https://omniragency.com/ressources/kit-evaluation-agent-vocal-ia/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu principal</a>
+  <header>
+    <nav aria-label="Navigation principale">
+      <a href="/">Omnira</a>
+      <a href="/demo">Écouter les démonstrations</a>
+    </nav>
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Ressource ouverte · mise à jour le 20 août 2026</p>
+        <h1>Kit d’évaluation d’un agent vocal IA</h1>
+        <p>Ce kit aide une équipe métier et technique à comparer des options sur un même parcours d’appel. Il fournit 12 critères publics, des statuts de preuve et 12 scénarios de test. Il ne classe aucun fournisseur et ne transforme jamais une information absente en échec.</p>
+        <div class="actions">
+          <a class="button" href="grille-evaluation-agent-vocal-ia.csv" download>Télécharger la grille CSV</a>
+          <a class="button secondary" href="#mode-emploi">Voir le mode d’emploi</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Contenu du kit">
+        <strong>Dans ce kit</strong>
+        <ul>
+          <li>une grille de 12 critères sans note globale ;</li>
+          <li>12 scénarios de recette reproductibles ;</li>
+          <li>une checklist d’achat en 20 questions ;</li>
+          <li>un diagramme du parcours à vérifier.</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section id="mode-emploi">
+      <div class="wrap">
+        <h2>Comment utiliser le kit</h2>
+        <p class="lede">Commencez par un scénario métier précis, puis demandez la même preuve à chaque option évaluée. Une documentation éditeur, un test reproductible et un engagement contractuel ne sont pas des preuves équivalentes. La conclusion doit rester « indéterminée » si un critère bloquant manque de preuve.</p>
+        <div class="grid">
+          <article class="card"><h3>1. Figer le besoin</h3><p>Décrivez l’appel, les données autorisées, l’action attendue, le transfert et l’issue en cas de panne.</p></article>
+          <article class="card"><h3>2. Exiger une preuve</h3><p>Conservez la source, sa date, la version testée, le résultat brut et les limites d’observation.</p></article>
+          <article class="card"><h3>3. Décider par porte</h3><p>Compatible, compatible sous condition, incompatible ou indéterminé. Pas de moyenne qui masque un blocage.</p></article>
+        </div>
+        <p class="notice"><strong>À ne pas confondre :</strong> ce kit est un protocole de préparation. Les scénarios n’ont pas été exécutés sur Omnira dans cette ressource et ne prouvent aucune performance, disponibilité, sécurité ou conformité.</p>
+      </div>
+    </section>
+
+    <section id="grille">
+      <div class="wrap">
+        <h2>La grille de benchmark en 12 critères</h2>
+        <p class="lede">Chaque cellule reçoit un statut, une source et une date. Le CSV téléchargeable ajoute des colonnes pour le scénario, le caractère bloquant, le propriétaire de la vérification, l’échéance et la conclusion.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Grille des critères d’évaluation">
+          <table>
+            <caption style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">12 critères pour évaluer un agent vocal IA à partir de preuves datées</caption>
+            <thead><tr><th scope="col">Critère</th><th scope="col">Question à trancher</th><th scope="col">Preuve attendue</th></tr></thead>
+            <tbody>
+              <tr><td>1. Couverture fonctionnelle</td><td>La tâche complète est-elle incluse, configurable ou à développer ?</td><td>Test bout en bout et résultat relu dans l’outil métier.</td></tr>
+              <tr><td>2. Téléphonie et média</td><td>Qui exploite numéro, routage, DTMF, transfert et fallback ?</td><td>Schéma du parcours et essais nominaux et dégradés.</td></tr>
+              <tr><td>3. Conversation vocale</td><td>Comment sont gérés bruit, silence, interruption et confirmation ?</td><td>Fixtures audio, journaux horodatés et résultats bruts.</td></tr>
+              <tr><td>4. Outils et vérité opérationnelle</td><td>L’action annoncée est-elle réellement confirmée ?</td><td>Identifiant d’opération, réponse API et relecture cible.</td></tr>
+              <tr><td>5. Connaissances et refus</td><td>Que se passe-t-il si une information manque ou se contredit ?</td><td>Sources versionnées, cas absent, contradictoire et obsolète.</td></tr>
+              <tr><td>6. Transfert humain</td><td>Quelle reprise si personne ne répond ?</td><td>Test de remise, contexte transmis et test de non-réponse.</td></tr>
+              <tr><td>7. Données et sécurité</td><td>Quels flux, accès, sous-traitants, durées et usages ?</td><td>Cartographie, contrats applicables et contrôles vérifiés.</td></tr>
+              <tr><td>8. Exploitation</td><td>Qui surveille, corrige et valide les changements ?</td><td>Rôles, alertes, journal de changement et exercice d’incident.</td></tr>
+              <tr><td>9. Robustesse</td><td>Comment la panne d’une dépendance se propage-t-elle ?</td><td>Nomenclature, limites, tests de panne et stratégie de repli.</td></tr>
+              <tr><td>10. Réversibilité</td><td>Peut-on restaurer une version connue et sortir proprement ?</td><td>Export relu, restauration testée et procédure de rollback.</td></tr>
+              <tr><td>11. Coût complet</td><td>Quelles unités et prestations couvrent le même service ?</td><td>Tarif daté ou devis, hypothèses, taxes et services tiers.</td></tr>
+              <tr><td>12. Preuves et support</td><td>Qui corrige un écart et avec quel niveau d’engagement ?</td><td>Tests, documents applicables, support et historique.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Statuts proposés :</strong> <code>VÉRIFIÉ_PAR_TEST</code>, <code>ENGAGEMENT_DOCUMENTÉ</code>, <code>DOCUMENTÉ_PAR_L’ÉDITEUR</code>, <code>DÉCLARÉ</code>, <code>NON_TESTÉ</code>, <code>NON_DOCUMENTÉ</code>, <code>NON_APPLICABLE</code>, <code>CONTRADICTOIRE</code> et <code>PÉRIMÉ</code>.</p>
+      </div>
+    </section>
+
+    <section id="telechargements">
+      <div class="wrap">
+        <h2>Télécharger les actifs</h2>
+        <p class="lede">Les fichiers sont fournis sans inscription. Ils peuvent être adaptés au scénario réel, à condition de conserver les sources, dates, versions et limites.</p>
+        <div class="downloads">
+          <a class="download" href="grille-evaluation-agent-vocal-ia.csv" download><strong>Grille d’évaluation CSV</strong><span>12 critères, statuts de preuve et colonnes de décision.</span></a>
+          <a class="download" href="scenarios-tests-agent-vocal-ia.csv" download><strong>12 scénarios de test CSV</strong><span>Bruit, silence, corrections, outils, transfert, RAG et sécurité.</span></a>
+          <a class="download" href="diagramme-parcours-agent-vocal-ia.svg" download><strong>Diagramme SVG</strong><span>Parcours téléphonie, conversation, outils, preuves et reprise humaine.</span></a>
+        </div>
+        <figure>
+          <img src="diagramme-parcours-agent-vocal-ia.svg" width="1200" height="520" alt="Diagramme des couches à vérifier dans un parcours d’agent vocal IA, de l’appel entrant à l’action métier ou au transfert humain">
+          <figcaption>Le résultat doit être vérifié couche par couche. Un appel établi ne prouve ni la compréhension, ni l’écriture dans l’outil métier, ni la remise effective à un humain.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="wrap">
+        <h2>Checklist d’achat en 20 questions</h2>
+        <ol class="checklist">
+          <li>Quel parcours d’appel précis doit être évalué ?</li>
+          <li>Quelles actions sont interdites ou exigent une confirmation ?</li>
+          <li>Qui fournit et exploite le numéro et le routage ?</li>
+          <li>Que se passe-t-il si l’audio ne circule que dans un sens ?</li>
+          <li>Comment sont testés bruit, silence et interruptions ?</li>
+          <li>Quels champs critiques sont relus avant action ?</li>
+          <li>Comment un retrait ou une correction tardive est-il propagé ?</li>
+          <li>Comment vérifier qu’une écriture métier existe vraiment ?</li>
+          <li>Comment éviter une action en double après un timeout ?</li>
+          <li>Quelle réponse est attendue si le corpus ne sait pas ?</li>
+          <li>Comment les documents obsolètes ou contradictoires sont-ils traités ?</li>
+          <li>Quels événements prouvent qu’un humain a repris l’appel ?</li>
+          <li>Quel fallback s’applique si la destination ne répond pas ?</li>
+          <li>Quelles données transitent dans chaque composant ?</li>
+          <li>Quels sous-traitants et usages secondaires sont documentés ?</li>
+          <li>Qui accède aux journaux et pendant combien de temps ?</li>
+          <li>Comment une panne de dépendance est-elle testée ?</li>
+          <li>Quel rollback a réellement été exercé ?</li>
+          <li>Quelles unités composent le coût du même scénario ?</li>
+          <li>Quelles affirmations restent indéterminées faute de preuve ?</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="wrap">
+        <h2>Méthode, sources et limites</h2>
+        <p class="lede">La méthode reprend des principes de gestion du risque, de sécurité des systèmes d’IA et de protection des données. Les sources ont été consultées le 20 août 2026. Elles cadrent des questions à poser ; elles ne certifient ni Omnira ni un fournisseur évalué.</p>
+        <ul>
+          <li><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST, AI Risk Management Framework</a> : gouverner, cartographier, mesurer et gérer les risques.</li>
+          <li><a href="https://airc.nist.gov/airmf-resources/playbook/">NIST, AI RMF Playbook</a> : actions suggérées pour appliquer le cadre.</li>
+          <li><a href="https://genai.owasp.org/llm-top-10/">OWASP GenAI Security Project, LLM Top 10</a> : catégories de risques des applications fondées sur des modèles génératifs.</li>
+          <li><a href="https://www.cnil.fr/fr/intelligence-artificielle/ia-comment-etre-en-conformite-avec-le-rgpd">CNIL, IA : comment être en conformité avec le RGPD ?</a> : démarche et responsabilités à examiner selon le traitement réel.</li>
+          <li><a href="https://www.cnil.fr/fr/guide-de-la-securite-des-donnees-personnelles">CNIL, Guide de la sécurité des données personnelles</a> : mesures de sécurité à adapter aux risques.</li>
+        </ul>
+        <h3>Pourquoi aucune statistique de performance ?</h3>
+        <p>Aucune mesure comparative issue d’une campagne homogène n’est disponible dans ce kit. Publier un taux de réussite, une latence ou un gain sans corpus, instrumentation, environnement et résultats bruts comparables créerait une précision trompeuse. Les fichiers servent à produire ces preuves, pas à les remplacer.</p>
+        <details><summary>Limites d’utilisation</summary><p>Le kit ne remplace ni une recette complète, ni un audit de sécurité, ni une analyse contractuelle ou juridique. Les seuils, scénarios, données de test, rôles et critères bloquants doivent être validés pour le contexte réel. <strong>Indexation effective inconnue</strong> : la disponibilité publique, le sitemap et le canonical ne prouvent pas une indexation Google.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><span>© 2026 Omnira · Ressource d’évaluation ouverte</span><span><a href="/devis">Cadrer un projet</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/mentions-legales">Mentions légales</a></span></div>
+  </footer>
+</body>
+</html>

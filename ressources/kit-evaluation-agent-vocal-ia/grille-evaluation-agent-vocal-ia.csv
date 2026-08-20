@@ -1,0 +1,13 @@
+critere_id;critere;scenario_evalue;question;bloquant_oui_non;statut_preuve;source_url_ou_document;date_preuve;version_ou_environnement;resultat_observe;limite;conclusion;condition_ou_correction;proprietaire;echeance
+1;Couverture fonctionnelle;;La tâche complète est-elle incluse configurable à développer ou hors périmètre ?;;;;;;;;;;;
+2;Téléphonie et média;;Qui fournit et exploite numéro opérateur routage SIP éventuel média DTMF transfert et fallback ?;;;;;;;;;;;
+3;Conversation vocale;;Comment le système gère-t-il silence interruption bruit répétition et confirmation des champs critiques ?;;;;;;;;;;;
+4;Outils et vérité opérationnelle;;Quelle preuve distingue une intention parlée d'une action réellement confirmée ?;;;;;;;;;;;
+5;Connaissances et refus;;Quelles sources sont autorisées datées et prioritaires et que se passe-t-il si elles manquent ou se contredisent ?;;;;;;;;;;;
+6;Transfert humain et continuité;;Quels déclencheurs quel contexte transmis et quelle reprise lorsque personne ne répond ?;;;;;;;;;;;
+7;Données et sécurité;;Quels flux lieux accès durées sous-traitants et usages secondaires sont documentés ?;;;;;;;;;;;
+8;Exploitation et observabilité;;Qui surveille qualifie les incidents change les règles et valide les versions ?;;;;;;;;;;;
+9;Robustesse et dépendances;;Quelles briques sont imposées remplaçables ou facultatives et comment leur panne se propage-t-elle ?;;;;;;;;;;;
+10;Réversibilité et rollback;;Peut-on revenir à une version connue et sortir sans perdre les actifs nécessaires ?;;;;;;;;;;;
+11;Coût complet comparable;;Quels coûts variables et fixes sont nécessaires pour le même service rendu ?;;;;;;;;;;;
+12;Preuves maintenance et support;;Quel niveau de preuve soutient chaque propriété et qui corrige un écart ?;;;;;;;;;;;

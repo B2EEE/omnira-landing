@@ -119,6 +119,7 @@ function Footer() {
             <p style={{fontFamily:'Sora,sans-serif',fontSize:'12px',fontWeight:700,textTransform:'uppercase',letterSpacing:'0.1em',color:'rgba(255,255,255,0.7)',marginBottom:'16px'}}>Ressources</p>
             {[
               ['Fonctionnement','/#process'],
+              ["Kit d'évaluation",'/ressources/kit-evaluation-agent-vocal-ia/'],
               ['Démonstrations','/demo'],
               ["Cas d'usage",'/#scenarios'],
               ['Simulation','/#roi'],

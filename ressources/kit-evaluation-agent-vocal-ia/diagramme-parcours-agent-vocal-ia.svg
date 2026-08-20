@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Parcours de vérification d’un agent vocal IA</title>
+  <desc id="desc">L’appel entrant traverse la téléphonie, le traitement de la conversation et les règles. Il mène à une action métier ou à un transfert humain. Chaque couche produit des preuves corrélées.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#165fa7"/></marker>
+    <style>
+      .box{fill:#fff;stroke:#165fa7;stroke-width:3}.safe{fill:#eefafa;stroke:#147e89;stroke-width:3}.proof{fill:#07101d;stroke:#07101d;stroke-width:3}.t{font:700 22px system-ui,sans-serif;fill:#0b1726}.s{font:16px system-ui,sans-serif;fill:#526275}.w{font:700 22px system-ui,sans-serif;fill:#fff}.ws{font:16px system-ui,sans-serif;fill:#d8e4ef}.line{stroke:#165fa7;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="520" rx="22" fill="#f6f9fc"/>
+  <text x="600" y="48" text-anchor="middle" class="t">Vérifier chaque couche, puis corréler les preuves</text>
+  <rect class="box" x="40" y="100" width="220" height="120" rx="14"/>
+  <text class="t" x="150" y="140" text-anchor="middle">Appel entrant</text><text class="s" x="150" y="172" text-anchor="middle">numéro · routage</text><text class="s" x="150" y="196" text-anchor="middle">audio · DTMF</text>
+  <rect class="box" x="330" y="100" width="240" height="120" rx="14"/>
+  <text class="t" x="450" y="140" text-anchor="middle">Conversation</text><text class="s" x="450" y="172" text-anchor="middle">écoute · réponse</text><text class="s" x="450" y="196" text-anchor="middle">confirmation · refus</text>
+  <rect class="safe" x="640" y="100" width="220" height="120" rx="14"/>
+  <text class="t" x="750" y="140" text-anchor="middle">Règles</text><text class="s" x="750" y="172" text-anchor="middle">droits · sources</text><text class="s" x="750" y="196" text-anchor="middle">seuils · fallback</text>
+  <rect class="box" x="940" y="70" width="220" height="110" rx="14"/>
+  <text class="t" x="1050" y="112" text-anchor="middle">Action métier</text><text class="s" x="1050" y="144" text-anchor="middle">écriture relue</text>
+  <rect class="box" x="940" y="220" width="220" height="110" rx="14"/>
+  <text class="t" x="1050" y="262" text-anchor="middle">Reprise humaine</text><text class="s" x="1050" y="294" text-anchor="middle">remise vérifiée</text>
+  <path class="line" d="M260 160H320"/><path class="line" d="M570 160H630"/><path class="line" d="M860 145L930 125"/><path class="line" d="M860 180L930 255"/>
+  <rect class="proof" x="175" y="385" width="850" height="90" rx="14"/>
+  <text class="w" x="600" y="424" text-anchor="middle">Preuves corrélées de bout en bout</text>
+  <text class="ws" x="600" y="452" text-anchor="middle">horodatages · versions · identifiants · résultat observé · limite · verdict</text>
+  <path d="M150 220V365H600V375" stroke="#147e89" stroke-width="3" fill="none" marker-end="url(#arrow)"/><path d="M450 220V340H600" stroke="#147e89" stroke-width="3" fill="none"/><path d="M750 220V340H600" stroke="#147e89" stroke-width="3" fill="none"/><path d="M1050 330V365H600" stroke="#147e89" stroke-width="3" fill="none"/>
+</svg>
